@@ -1,0 +1,58 @@
+<mat-sidenav-container class="sidenav-container">
+   <mat-sidenav #drawer class="sidenav"
+   fixedInViewport="false" [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+    [mode]="(isHandset$ | async) ? 'over' : 'side'" [opened]="!(isHandset$ | async)">
+    <mat-toolbar color="primary">Menu</mat-toolbar>
+    <mat-nav-list>
+      <button mat-button [matMenuTriggerFor]="appStorie" class="sideButton">Ons<br>Gemeente</button>
+      <mat-menu #appStorie="matMenu" class="sideMenu">
+        <button mat-menu-item routerLink="/aboutus">Ons storie ...</button>
+        <button mat-menu-item routerLink="/geloof">Geloofsverwoording van die ACK NZ</button>
+      </mat-menu>
+      <button mat-button class="sideButton"routerLink="/eredienste">Eredienste</button>
+
+      <button mat-button [matMenuTriggerFor]="appMenu" class="sideMenu">Bedieninge</button>
+      <mat-menu #appMenu="matMenu">
+        <button mat-menu-item>Kategese</button>
+        <button mat-menu-item>Jeug Bediening</button>
+        <button mat-menu-item>Gasvryheid</button>
+        <button mat-menu-item>Verwelkomimg</button>
+        <button mat-menu-item>Kerkraad</button>
+      </mat-menu>
+
+      <a mat-list-item routerLink="/users" [class.activated]="currentUrl == '/users'">
+        <i class="material-icons">supervised_user_circle</i>
+      </a>
+
+
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content class="mainBackGround">
+    <mat-toolbar color="primary">
+      <button type="button" aria-label="Toggle sidenav" mat-icon-button (click)="drawer.toggle()" *ngIf="isHandset$ | async">
+        <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+      </button>
+      <button mat-menu-item routerLink="/" style="color: white;">ACK Tauranga</button>
+      <span class="spacer"></span>
+      <button mat-button [matMenuTriggerFor]="appStorie" class="sideButton">Ons<br>Gemeente</button>
+      <mat-menu #appStorie="matMenu" class="sideMenu">
+        <button mat-menu-item routerLink="/aboutus">Ons storie ...</button>
+        <button mat-menu-item routerLink="/geloof">Geloofsverwoording van die ACK NZ</button>
+      </mat-menu>
+      <button mat-button class="sideButton"routerLink="/eredienste">Eredienste</button>
+
+      <button mat-button [matMenuTriggerFor]="appMenu" class="sideMenu">Bedieninge</button>
+      <mat-menu #appMenu="matMenu">
+        <button mat-menu-item>Kategese</button>
+        <button mat-menu-item>Jeug Bediening</button>
+        <button mat-menu-item>Gasvryheid</button>
+        <button mat-menu-item>Verwelkomimg</button>
+        <button mat-menu-item>Kerkraad</button>
+      </mat-menu>
+    </mat-toolbar>
+    <div class="content">
+      <ng-content></ng-content>
+    </div>
+
+  </mat-sidenav-content>
+</mat-sidenav-container>

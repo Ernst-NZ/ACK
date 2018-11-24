@@ -1,0 +1,42 @@
+
+.sidenav-container {
+  height: 100%;
+}
+
+.sidenav {
+  width: 80px;
+  box-shadow: 3px 0 6px rgba(0,0,0,.24);
+}
+.hidden {
+  display: none;
+}
+
+.spacer {
+  flex: 1 1 auto;
+}
+
+mat-toolbar {
+  background-color: maroon;
+}
+
+mat-toolbar a {
+  display: inline-block;
+  margin: 0 10px;
+  color: white;
+  text-decoration: none;
+
+}
+
+.content {
+  padding-left: 20px;
+  margin-top: 0;
+  background-color:whitesmoke;
+}
+.mat-toolbar.mat-primary {
+  background: maroon;
+  color: #fff;
+}
+.mat-toolbar.mat-primary {
+  background:maroon;
+  color: #fff;
+}

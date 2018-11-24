@@ -1,0 +1,61 @@
+
+.sidenav-container {
+  height: 100%;
+}
+.mainBackGround {
+  background: -webkit-linear-gradient(270deg, rgba(5, 25, 43, 1) 10%, rgba(5, 25, 43, 1) 11%, rgba(11, 59, 104, 1) 80%, rgba(12, 60, 105, 1) 81%);
+color: whitesmoke;
+/* background-color:whitesmoke; */
+
+}
+
+.sidenav {
+  width: 100px;
+  box-shadow: 3px 0 6px rgba(0,0,0,.24);
+}
+.hidden {
+  display: none;
+}
+
+.sideButton {
+  line-height: 1;
+  padding: auto;
+  margin-bottom: 20px;
+  border-bottom: solid 1 px black;
+}
+
+.sideMenu {
+  line-height: 1;
+  padding: auto;
+}
+
+.sideMenu.Button {
+  background-color: red;
+}
+.spacer {
+  flex: 1 1 auto;
+}
+
+mat-toolbar {
+  background-color: maroon;
+  /* position: fixed; */
+}
+
+mat-toolbar a {
+  display: inline-block;
+  margin: 0 10px;
+  color: white;
+  text-decoration: none;
+}
+
+.content {
+  padding-left: 20px;
+  margin-top: 0;
+  /* background-color:whitesmoke; */
+
+}
+.mat-toolbar.mat-primary {
+  background: maroon;
+  color: #fff;
+  align-items: baseline;
+}
