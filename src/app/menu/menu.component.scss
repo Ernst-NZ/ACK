@@ -7,15 +7,7 @@
 .intro {
   text-align: center;
   background-color: white;
-  color: black; margin: 3em;
-  div{
-    div{
-      div {
-        text-align: left;
-        padding-left: 1em;
-      }
-    }
-  }
+  color: black; margin: 3em; 
 }
 
 #logo {
@@ -31,6 +23,11 @@
 .heading {
   font-size: 2em;
   font-weight: bold;
+  text-align: left;
+}
+.subHeading {
+  font-size: 2em;
+  text-align: left;
 }
 .center {
   text-align: center

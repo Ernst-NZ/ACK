@@ -10,8 +10,7 @@
         <button mat-menu-item routerLink="/geloof">Geloofsverwoording van die ACK NZ</button>
       </mat-menu>
       <button mat-button class="sideButton"routerLink="/eredienste">Eredienste</button>
-
-      <button mat-button [matMenuTriggerFor]="appMenu" class="sideMenu">Bedieninge</button>
+      <button mat-button [matMenuTriggerFor]="appMenu" class="sideMenu hidden-sm hidden-md">Bedieninge</button>
       <mat-menu #appMenu="matMenu">
         <button mat-menu-item>Kategese</button>
         <button mat-menu-item>Jeug Bediening</button>
@@ -29,7 +28,8 @@
   </mat-sidenav>
   <mat-sidenav-content class="mainBackGround">
     <mat-toolbar color="primary">
-      <button type="button" aria-label="Toggle sidenav" mat-icon-button (click)="drawer.toggle()" *ngIf="isHandset$ | async">
+      <button type="button" aria-label="Toggle sidenav" mat-icon-button (click)="drawer.toggle()"
+       *ngIf="isHandset$ | async">
         <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
       </button>
       <button mat-menu-item routerLink="/" style="color: white;">ACK Tauranga</button>
@@ -40,6 +40,8 @@
         <button mat-menu-item routerLink="/geloof">Geloofsverwoording van die ACK NZ</button>
       </mat-menu>
       <button mat-button class="sideButton"routerLink="/eredienste">Eredienste</button>
+      <button mat-button class="hidden-sm hidden-md"routerLink="/eredienste">xcxxcxc</button>
+
 
       <button mat-button [matMenuTriggerFor]="appMenu" class="sideMenu">Bedieninge</button>
       <mat-menu #appMenu="matMenu">
