@@ -1,25 +1,27 @@
-#intro {
-//  text-align: center;
-  background-color: white;
-  color: black; margin: 2em;
-}
+// #intro {
+// //  text-align: center;
+//   background-color: white;
+//   color: black; margin: 2em;
+// }
 
 .intro {
   text-align: center;
   background-color: white;
-  color: black; margin: 3em; 
+  color: black; 
+  margin: 3em;
+  margin-left: -10px; 
 }
 
-#logo {
-  width: "80%"
-}
+// #logo {
+//   width: "80%"
+// }
 
-#info {
-  text-align: center;
-  margin: auto;
-  width: 80%;
-  line-height: 1;
-}
+// #info {
+//   text-align: center;
+//   margin: auto;
+//   width: 80%;
+//   line-height: 1;
+// }
 .heading {
   font-size: 2em;
   font-weight: bold;
@@ -35,6 +37,6 @@
 .left {
   text-align: left;
 }
-.right {
-  text-align: right;
-}
+// .right {
+//   text-align: right;
+// }
