@@ -9,11 +9,13 @@ import { LayoutModule } from '@angular/cdk/layout';
 import { MatListModule, MatTableModule, MatPaginatorModule, MatSortModule } from '@angular/material';
 import { MatToolbarModule, MatButtonModule, MatSidenavModule, MatIconModule} from '@angular/material';
 import { MatCheckboxModule, MatMenuModule, } from '@angular/material';
+import { AlertModule } from 'ngx-bootstrap';
 
 import { UsersComponent } from './users/users.component';
 import { MenuComponent } from './menu/menu.component';
 import { HttpClientModule } from '@angular/common/http';
 import { environment } from '../environments/environment';
+import { AngularFittextModule } from 'angular-fittext';
 
 import { FormsModule} from '@angular/forms';
 import { FooterComponent } from './footer/footer.component';
@@ -53,6 +55,8 @@ import { ErediensteComponent } from './eredienste/eredienste.component';
     FormsModule,
     MatButtonModule,
     MatCheckboxModule,
+    AlertModule.forRoot(),
+    AngularFittextModule
   ],
   providers: [],
   bootstrap: [AppComponent]
