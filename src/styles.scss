@@ -54,47 +54,21 @@ body {
  #container {
   height: 100%;
 
-  .pullRight {
-     float: right;
-  }
-
-  .fontMedium {
-      font-size: 3em;
-  }
-  .fontXSmall {
-     font-size: 0.5em;
-  }
-  .fontSmall1 {
-     font-size: 1em;
-  }
-
-  .fontSmall {
-     font-size: 2em;
- }
- .blackFont {
-     color: black;
-  }
-
-.centre {
-    text-align: center;
-}
-
-.left {
-    text-align: left;
-}
-.right {
-    text-align: right;
-}
-
-.test {
-    background-color: aqua;
-}
   #content {
    //   padding: 40px 40px;
+   
 
       ul {
           list-style-type: none;
           margin:0;padding:0;
+
+          ul.b {
+           list-style-type: square;
+            }
+            ul.a {
+                list-style-type: circle;
+            }
+
 
           li {
               background: #fff;
@@ -145,3 +119,47 @@ body {
    box-shadow: 0 1px 0 0 red !important;
  }
  }
+.test {
+    background-color: aqua;
+}
+
+  .pullRight {
+     float: right;
+  }
+
+  .fontMedium {
+      font-size: 3em;
+  }
+  .fontXSmall {
+     font-size: 0.5em;
+  }
+  .fontSmall1 {
+     font-size: 1em;
+  }
+
+  .fontSmall {
+     font-size: 2em;
+ }
+ .blackFont {
+     color: black;
+  }
+
+
+.left {
+    text-align: left;
+}
+.right {
+    text-align: right;
+}
+.heading {
+  font-size: 2em;
+  font-weight: bold;
+  text-align: left;
+}
+.subHeading {
+  font-size: 2em;
+  text-align: left;
+}
+.center {
+  text-align: center
+}

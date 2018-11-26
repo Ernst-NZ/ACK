@@ -22,6 +22,7 @@ import { FooterComponent } from './footer/footer.component';
 import { AboutusComponent } from './aboutus/aboutus.component';
 import { GeloofComponent } from './geloof/geloof.component';
 import { ErediensteComponent } from './eredienste/eredienste.component';
+import { InligtingComponent } from './inligting/inligting.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { ErediensteComponent } from './eredienste/eredienste.component';
     FooterComponent,
     AboutusComponent,
     GeloofComponent,
-    ErediensteComponent
+    ErediensteComponent,
+    InligtingComponent
   ],
   imports: [
     BrowserModule,
