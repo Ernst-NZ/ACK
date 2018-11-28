@@ -6,6 +6,7 @@ import { AboutusComponent } from './aboutus/aboutus.component';
 import { GeloofComponent } from './geloof/geloof.component';
 import { ErediensteComponent } from './eredienste/eredienste.component';
 import { InligtingComponent } from './inligting/inligting.component';
+import { LiggingComponent } from './ligging/ligging.component';
 
 const routes: Routes = [
   {
@@ -15,6 +16,10 @@ const routes: Routes = [
   {
     path: 'menu',
     component: MenuComponent
+  },
+  {
+    path: 'ligging',
+    component: LiggingComponent
   },
   {
     path: 'inligting',

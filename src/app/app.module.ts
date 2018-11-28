@@ -23,6 +23,7 @@ import { AboutusComponent } from './aboutus/aboutus.component';
 import { GeloofComponent } from './geloof/geloof.component';
 import { ErediensteComponent } from './eredienste/eredienste.component';
 import { InligtingComponent } from './inligting/inligting.component';
+import { LiggingComponent } from './ligging/ligging.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import { InligtingComponent } from './inligting/inligting.component';
     AboutusComponent,
     GeloofComponent,
     ErediensteComponent,
-    InligtingComponent
+    InligtingComponent,
+    LiggingComponent
   ],
   imports: [
     BrowserModule,
