@@ -11,8 +11,8 @@ declare var ol: any;
 export class LiggingComponent implements OnInit {
   latitude: number = 18.5204;
   longitude: number = 73.8567;
-
   map: any;
+  marker: any;
 
   constructor() {
     
@@ -56,10 +56,11 @@ export class LiggingComponent implements OnInit {
 
     // specific style for that one point
     iconFeature2.setStyle(new ol.style.Style({
-      image: new ol.style.Icon({
-        anchor: [0.5, 16],
+      image: new ol.style.Icon({        
+        anchor: [0.1, 0.1],
         anchorXUnits: 'fraction',
         anchorYUnits: 'pixels',
+        
         src: 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/93/Map_marker_font_awesome.svg/200px-Map_marker_font_awesome.svg.png',
       })
     }));

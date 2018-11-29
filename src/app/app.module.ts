@@ -24,6 +24,7 @@ import { GeloofComponent } from './geloof/geloof.component';
 import { ErediensteComponent } from './eredienste/eredienste.component';
 import { InligtingComponent } from './inligting/inligting.component';
 import { LiggingComponent } from './ligging/ligging.component';
+import { ServiceWorkerModule } from '@angular/service-worker';
 
 @NgModule({
   declarations: [
@@ -60,7 +61,8 @@ import { LiggingComponent } from './ligging/ligging.component';
     MatButtonModule,
     MatCheckboxModule,
     AlertModule.forRoot(),
-    AngularFittextModule
+    AngularFittextModule,
+    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -17,6 +17,12 @@ color: whitesmoke;
   display: none;
 }
 
+/* @media (min-width: 700px) {
+  .sidenav {
+    display: none;
+  }
+} */
+
 .sideButton {
   line-height: 1;
   padding: auto;
