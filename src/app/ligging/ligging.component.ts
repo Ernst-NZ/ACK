@@ -49,9 +49,8 @@ export class LiggingComponent implements OnInit {
     // });
 
     var iconFeature2 = new ol.Feature({
-      geometry: new ol.geom.Point(ol.proj.fromLonLat([176.134750, -37.740940])),
-      zoom:16,
-      name: 'Somewhere else'
+      geometry: new ol.geom.Point(ol.proj.fromLonLat([176.153200, -37.705500])),
+      name: 'ACK Tauranga'
     });
 
     // specific style for that one point
@@ -60,8 +59,7 @@ export class LiggingComponent implements OnInit {
         anchor: [0.1, 0.1],
         anchorXUnits: 'fraction',
         anchorYUnits: 'pixels',
-        
-        src: 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/93/Map_marker_font_awesome.svg/200px-Map_marker_font_awesome.svg.png',
+        src: '../../assets/pin3.png',
       })
     }));
 
@@ -77,11 +75,10 @@ export class LiggingComponent implements OnInit {
       // style for all elements on a layer
       style: new ol.style.Style({
         image: new ol.style.Icon({
-          anchor: [0.5, 46],
           anchorXUnits: 'fraction',
           anchorYUnits: 'pixels',
-          src: 'https://openlayers.org/en/v4.6.4/examples/data/icon.png'
-        })
+          src: '../../assets/map-pin.png'
+        })        
       })
     });
 
@@ -95,8 +92,8 @@ export class LiggingComponent implements OnInit {
         iconLayer
       ],
       view: new ol.View({
-        center: ol.proj.fromLonLat([176.134750, -37.740940]),
-        zoom: 20
+        center: ol.proj.fromLonLat([176.153000, -37.706180]),
+        zoom:   18
       })
     });
   }
