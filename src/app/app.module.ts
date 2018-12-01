@@ -25,6 +25,15 @@ import { ErediensteComponent } from './eredienste/eredienste.component';
 import { InligtingComponent } from './inligting/inligting.component';
 import { LiggingComponent } from './ligging/ligging.component';
 import { ServiceWorkerModule } from '@angular/service-worker';
+import { JeugComponent } from './jeug/jeug.component';
+import { GasvryheidComponent } from './gasvryheid/gasvryheid.component';
+import { VerwelkomingComponent } from './verwelkoming/verwelkoming.component';
+import { KerkraadComponent } from './kerkraad/kerkraad.component';
+import { DoopComponent } from './doop/doop.component';
+import { RegistrasieComponent } from './registrasie/registrasie.component';
+import { PerseditComponent } from './persedit/persedit.component';
+import { KontakonsComponent } from './kontakons/kontakons.component';
+import { KalenderComponent } from './kalender/kalender.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +46,16 @@ import { ServiceWorkerModule } from '@angular/service-worker';
     GeloofComponent,
     ErediensteComponent,
     InligtingComponent,
-    LiggingComponent
+    LiggingComponent,
+    JeugComponent,
+    GasvryheidComponent,
+    VerwelkomingComponent,
+    KerkraadComponent,
+    DoopComponent,
+    RegistrasieComponent,
+    PerseditComponent,
+    KontakonsComponent,
+    KalenderComponent
   ],
   imports: [
     BrowserModule,
