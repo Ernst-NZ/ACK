@@ -31,10 +31,11 @@
             ],
             "styles": [
               {
-                "input": "node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css"
+                "input": "node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css"                
               },
               "node_modules/bootstrap/dist/css/bootstrap.min.css",
               "src/styles.scss",
+              "node_modules/ngx-toastr/toastr.css",
               "src/assets/leaflet/leaflet.css"
             ],
             "scripts": [

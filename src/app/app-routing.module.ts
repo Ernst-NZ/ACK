@@ -15,6 +15,7 @@ import { DoopComponent } from './doop/doop.component';
 import { RegistrasieComponent } from './registrasie/registrasie.component';
 import { PerseditComponent } from './persedit/persedit.component';
 import { KontakonsComponent } from './kontakons/kontakons.component';
+import { SignUpComponent } from './sign-up/sign-up.component';
 
 const routes: Routes = [
   {
@@ -24,6 +25,10 @@ const routes: Routes = [
   {
     path: 'menu',
     component: MenuComponent
+  },
+  {
+    path: 'sign-up',
+    component: SignUpComponent
   },
   {
     path: 'kontakons',

@@ -10,6 +10,9 @@ import { MatListModule, MatTableModule, MatPaginatorModule, MatSortModule } from
 import { MatToolbarModule, MatButtonModule, MatSidenavModule, MatIconModule} from '@angular/material';
 import { MatCheckboxModule, MatMenuModule, } from '@angular/material';
 import { AlertModule } from 'ngx-bootstrap';
+import { ToastrModule } from 'ngx-toastr';
+import { UserService } from './_shared/user.service';
+
 
 import { UsersComponent } from './users/users.component';
 import { MenuComponent } from './menu/menu.component';
@@ -34,6 +37,7 @@ import { RegistrasieComponent } from './registrasie/registrasie.component';
 import { PerseditComponent } from './persedit/persedit.component';
 import { KontakonsComponent } from './kontakons/kontakons.component';
 import { KalenderComponent } from './kalender/kalender.component';
+import { SignUpComponent } from './sign-up/sign-up.component';
 
 @NgModule({
   declarations: [
@@ -55,7 +59,8 @@ import { KalenderComponent } from './kalender/kalender.component';
     RegistrasieComponent,
     PerseditComponent,
     KontakonsComponent,
-    KalenderComponent
+    KalenderComponent,
+    SignUpComponent
   ],
   imports: [
     BrowserModule,
@@ -77,12 +82,13 @@ import { KalenderComponent } from './kalender/kalender.component';
     BrowserAnimationsModule,
     FormsModule,
     MatButtonModule,
-    MatCheckboxModule,
+    ToastrModule.forRoot(),
+    BrowserAnimationsModule,
     AlertModule.forRoot(),
     AngularFittextModule,
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
   ],
-  providers: [],
+  providers: [UserService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
