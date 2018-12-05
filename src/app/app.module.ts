@@ -12,11 +12,11 @@ import { MatCheckboxModule, MatMenuModule, } from '@angular/material';
 import { AlertModule } from 'ngx-bootstrap';
 import { ToastrModule } from 'ngx-toastr';
 import { UserService } from './_shared/user.service';
-
+import { RouterModule, Router, Routes } from '@angular/router';
 
 import { UsersComponent } from './users/users.component';
 import { MenuComponent } from './menu/menu.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { environment } from '../environments/environment';
 import { AngularFittextModule } from 'angular-fittext';
 
@@ -37,7 +37,11 @@ import { RegistrasieComponent } from './registrasie/registrasie.component';
 import { PerseditComponent } from './persedit/persedit.component';
 import { KontakonsComponent } from './kontakons/kontakons.component';
 import { KalenderComponent } from './kalender/kalender.component';
-import { SignUpComponent } from './sign-up/sign-up.component';
+import { SignUpComponent } from './user/sign-up/sign-up.component';
+import { UserComponent } from './user/user.component';
+import { SignInComponent } from './user/sign-in/sign-in.component';
+import { AuthGuard } from './_auth/auth.guard';
+import { AuthInterceptor } from './_auth/auth.intercepter';
 
 @NgModule({
   declarations: [
@@ -60,7 +64,9 @@ import { SignUpComponent } from './sign-up/sign-up.component';
     PerseditComponent,
     KontakonsComponent,
     KalenderComponent,
-    SignUpComponent
+    SignUpComponent,
+    UserComponent,
+    SignInComponent
   ],
   imports: [
     BrowserModule,
@@ -88,7 +94,12 @@ import { SignUpComponent } from './sign-up/sign-up.component';
     AngularFittextModule,
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
   ],
-  providers: [UserService],
+  providers: [UserService, AuthGuard,
+  {
+    provide : HTTP_INTERCEPTORS,
+    useClass: AuthInterceptor,
+    multi : true
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

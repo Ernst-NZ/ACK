@@ -15,7 +15,10 @@ import { DoopComponent } from './doop/doop.component';
 import { RegistrasieComponent } from './registrasie/registrasie.component';
 import { PerseditComponent } from './persedit/persedit.component';
 import { KontakonsComponent } from './kontakons/kontakons.component';
-import { SignUpComponent } from './sign-up/sign-up.component';
+import { UserComponent } from './user/user.component';
+import { SignUpComponent } from './user/sign-up/sign-up.component';
+import { SignInComponent } from './user/sign-in/sign-in.component';
+import { AuthGuard } from './_auth/auth.guard';
 
 const routes: Routes = [
   {
@@ -26,17 +29,24 @@ const routes: Routes = [
     path: 'menu',
     component: MenuComponent
   },
+  
   {
-    path: 'sign-up',
-    component: SignUpComponent
+    path: 'signup', component: UserComponent,
+    children: [{ path: '', component: SignUpComponent }]
+  },  
+  {
+    path: 'login', component: UserComponent,
+    children: [{ path: '', component: SignInComponent }]
   },
+  { path : '', redirectTo:'/login', pathMatch : 'full'},
+
   {
     path: 'kontakons',
     component: KontakonsComponent
   },
   {
     path: 'persedit',
-    component: PerseditComponent
+    component: PerseditComponent, canActivate:[AuthGuard]
   },
   {
     path: 'registrasie',
@@ -96,4 +106,7 @@ const routes: Routes = [
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
-export class AppRoutingModule { }
+export class AppRoutingModule { 
+  
+}
+
