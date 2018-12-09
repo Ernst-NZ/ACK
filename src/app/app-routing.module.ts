@@ -19,6 +19,9 @@ import { UserComponent } from './user/user.component';
 import { SignUpComponent } from './user/sign-up/sign-up.component';
 import { SignInComponent } from './user/sign-in/sign-in.component';
 import { AuthGuard } from './_auth/auth.guard';
+import { EmployeesComponent } from './employees/employees.component';
+import { EmployeeListComponent } from './employees/employee-list/employee-list.component';
+import { EmployeeComponent } from './employees/employee/employee.component';
 
 const routes: Routes = [
   {
@@ -29,7 +32,22 @@ const routes: Routes = [
     path: 'menu',
     component: MenuComponent
   },
-  
+  {
+    path: 'employees',
+    component: EmployeesComponent
+  },
+  {
+    path: 'employee',
+    component: EmployeeComponent
+  },
+  {
+    path: 'employee/employees',
+    component: EmployeesComponent
+  },
+  {
+    path: 'employee/employee-list',
+    component: EmployeeListComponent
+  },
   {
     path: 'signup', component: UserComponent,
     children: [{ path: '', component: SignUpComponent }]

@@ -42,6 +42,14 @@ import { UserComponent } from './user/user.component';
 import { SignInComponent } from './user/sign-in/sign-in.component';
 import { AuthGuard } from './_auth/auth.guard';
 import { AuthInterceptor } from './_auth/auth.intercepter';
+import { LidmateComponent } from './lidmate/lidmate.component';
+import { LidmaatComponent } from './lidmaat/lidmaat.component';
+import { LidmateLysComponent } from './lidmate-lys/lidmate-lys.component';
+import { EmployeesComponent } from './employees/employees.component';
+import { EmployeeListComponent } from './employees/employee-list/employee-list.component';
+import { EmployeeComponent } from './employees/employee/employee.component';
+import { EmployeeService } from './_shared/employee.service';
+
 
 @NgModule({
   declarations: [
@@ -66,7 +74,13 @@ import { AuthInterceptor } from './_auth/auth.intercepter';
     KalenderComponent,
     SignUpComponent,
     UserComponent,
-    SignInComponent
+    SignInComponent,
+    LidmateComponent,
+    LidmaatComponent,
+    LidmateLysComponent,
+    EmployeeComponent,
+    EmployeesComponent,
+    EmployeeListComponent
   ],
   imports: [
     BrowserModule,
@@ -94,7 +108,9 @@ import { AuthInterceptor } from './_auth/auth.intercepter';
     AngularFittextModule,
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
   ],
-  providers: [UserService, AuthGuard,
+  providers: [UserService, 
+    AuthGuard,
+    EmployeeService,
   {
     provide : HTTP_INTERCEPTORS,
     useClass: AuthInterceptor,
