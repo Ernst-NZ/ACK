@@ -49,6 +49,7 @@ import { EmployeesComponent } from './employees/employees.component';
 import { EmployeeListComponent } from './employees/employee-list/employee-list.component';
 import { EmployeeComponent } from './employees/employee/employee.component';
 import { EmployeeService } from './_shared/employee.service';
+import { LedemateLysComponent } from './lidmate/ledemate-lys/ledemate-lys.component';
 
 
 @NgModule({
@@ -80,7 +81,8 @@ import { EmployeeService } from './_shared/employee.service';
     LidmateLysComponent,
     EmployeeComponent,
     EmployeesComponent,
-    EmployeeListComponent
+    EmployeeListComponent,
+    LedemateLysComponent
   ],
   imports: [
     BrowserModule,
