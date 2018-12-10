@@ -1,5 +1,6 @@
 <form #form="ngForm" (submit)="onSubmit(form)" autocomplete="off">
   <input type="hidden" name="Id" #EmployeeID="ngModel" [(ngModel)]="service.formData.Id">
+  <h4>Tauranga</h4>
   <div class="form-group">
     <label>Naam</label>
     <input name="FirstName" #FullName="ngModel" [(ngModel)]="service.formData.FirstName" class="form-control" required>
@@ -12,7 +13,8 @@
   </div>
   <div class="form-group">
     <label>Noem Naam</label>
-    <input name="NickName" #Position="ngModel" [(ngModel)]="service.formData.NickName" class="form-control">
+    <input name="NickName" #Position="ngModel" [(ngModel)]="service.formData.NickName"  class="form-control" required>
+    <div class="validation-error" *ngIf="NickName.invalid && NickName.touched">Verpligte veld.</div>
   </div>
   <div class="form-row">
     <div class="form-group col-md-6">
@@ -37,6 +39,51 @@
   <div class="form-group">
     <label>Email Address</label>
     <input name="EamilAddress" #Position="ngModel" [(ngModel)]="service.formData.EmailAddress" class="form-control">
+  </div>
+  <div class="form-row">
+    <div class="form-group col-md-6">
+      <label>Verjaarsdag in Kerk</label>
+      <input name="DOB" #EMPCode="ngModel" [(ngModel)]="service.formData.DOB" class="form-control">
+    </div>
+    <div class="form-group  col-md-6">
+  <label>Aktief</label>
+      <input name="Active" #Mobile="ngModel" [(ngModel)]="service.formData.Active" class="form-control">
+    </div>   
+  </div>
+  <div class="form-group">
+    <button type="submit" [disabled]="form.invalid" class="btn btn-lg btn-block">SUBMIT</button>
+  </div>
+  <hr>
+  <h5>Address</h5>
+  <div class="form-row">
+    <div class="form-group col-md-2">
+      <label>Nommer</label>
+      <input name="DOB" #EMPCode="ngModel" [(ngModel)]="service.formData.DOB" class="form-control">
+    </div>
+    <div class="form-group  col-md-10">
+  <label>Straat</label>
+      <input name="Geslag" #Mobile="ngModel" [(ngModel)]="service.formData.Geslag" class="form-control">
+    </div>   
+  </div>
+  <div class="form-row">
+    <div class="form-group col-md-6">
+      <label>Woon Buurt</label>
+      <input name="WeddingDate" #EMPCode="ngModel" [(ngModel)]="service.formData.WeddingDate" class="form-control">
+    </div>
+    <div class="form-group  col-md-6">
+  <label>Dorp</label>
+      <input name="MobilePhone" #Mobile="ngModel" [(ngModel)]="service.formData.MobilePhone" class="form-control">
+    </div>    
+  </div> 
+  <div class="form-row">
+    <div class="form-group col-md-6">
+      <label>Pos Kode</label>
+      <input name="DOB" #EMPCode="ngModel" [(ngModel)]="service.formData.DOB" class="form-control">
+    </div>
+    <div class="form-group  col-md-6">
+  <label>Huis Tel</label>
+      <input name="Active" #Mobile="ngModel" [(ngModel)]="service.formData.Active" class="form-control">
+    </div>   
   </div>
   <div class="form-group">
     <button type="submit" [disabled]="form.invalid" class="btn btn-lg btn-block">SUBMIT</button>

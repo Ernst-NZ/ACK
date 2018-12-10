@@ -1,3 +1,9 @@
-<p>
-  lidmate-lys works!
-</p>
+<h4>Gemeente Lys</h4>
+<table class="table table-hover">
+  <tr *ngFor="let emp of service.list">
+    <td (click)="populateForm(emp)">[{{emp.Id}}]-{{emp.NickName}</td>
+    <td (click)="populateForm(emp)">{{emp.LastName}}</td>
+    <td (click)="populateForm(emp)">{{emp.Active}}</td>
+    <td><button (click)="onDelete(emp.Id)" class="btn btn-sm btn-outline-danger">X</button></td>
+  </tr>
+</table>
