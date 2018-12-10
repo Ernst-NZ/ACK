@@ -240,9 +240,11 @@ div.error-message i{
 //Employee
 .form-group>input{
     font-weight: bolder;
+    height: 1.5em;
 }
 .form-group>label{
-    font-weight: lighter;
+    font-weight: bold;
+    font-size: 1em;
 }
 
 button[type="submit"]{

@@ -42,15 +42,13 @@ import { UserComponent } from './user/user.component';
 import { SignInComponent } from './user/sign-in/sign-in.component';
 import { AuthGuard } from './_auth/auth.guard';
 import { AuthInterceptor } from './_auth/auth.intercepter';
-import { LidmateComponent } from './lidmate/lidmate.component';
-import { LidmaatComponent } from './lidmaat/lidmaat.component';
-import { LidmateLysComponent } from './lidmate-lys/lidmate-lys.component';
 import { EmployeesComponent } from './employees/employees.component';
 import { EmployeeListComponent } from './employees/employee-list/employee-list.component';
 import { EmployeeComponent } from './employees/employee/employee.component';
 import { EmployeeService } from './_shared/employee.service';
-import { LedemateLysComponent } from './lidmate/ledemate-lys/ledemate-lys.component';
-
+import { LidmateComponent } from './lidmate/lidmate.component';
+import { LidmateLysComponent } from './lidmate/lidmate-lys/lidmate-lys.component';
+import { LidmaatComponent } from './lidmate/lidmaat/lidmaat.component';
 
 @NgModule({
   declarations: [
@@ -82,7 +80,7 @@ import { LedemateLysComponent } from './lidmate/ledemate-lys/ledemate-lys.compon
     EmployeeComponent,
     EmployeesComponent,
     EmployeeListComponent,
-    LedemateLysComponent
+    LidmateLysComponent
   ],
   imports: [
     BrowserModule,
