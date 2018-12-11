@@ -49,6 +49,7 @@ import { EmployeeService } from './_shared/employee.service';
 import { LidmateComponent } from './lidmate/lidmate.component';
 import { LidmateLysComponent } from './lidmate/lidmate-lys/lidmate-lys.component';
 import { LidmaatComponent } from './lidmate/lidmaat/lidmaat.component';
+import { LidmaatService } from './_shared/lidmaat.service';
 
 @NgModule({
   declarations: [
@@ -111,6 +112,7 @@ import { LidmaatComponent } from './lidmate/lidmaat/lidmaat.component';
   providers: [UserService, 
     AuthGuard,
     EmployeeService,
+    LidmaatService,
   {
     provide : HTTP_INTERCEPTORS,
     useClass: AuthInterceptor,

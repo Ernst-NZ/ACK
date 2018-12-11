@@ -1,59 +1,69 @@
 <form #form="ngForm" (submit)="onSubmit(form)" autocomplete="off">
-  <input type="hidden" name="Id" #EmployeeID="ngModel" [(ngModel)]="service.formData.Id">
+  <input type="hidden" name="LidmaatId" #LidmaatId="ngModel" [(ngModel)]="service.formData.LidmaatId">
   <h4>Tauranga</h4>
   <div class="form-group">
     <label>Naam</label>
-    <input name="FirstName" #FullName="ngModel" [(ngModel)]="service.formData.FirstName" class="form-control" required>
+    <input name="FirstName" #FirstName="ngModel" [(ngModel)]="service.formData.FirstName" class="form-control" required>
     <div class="validation-error" *ngIf="FirstName.invalid && FirstName.touched">Verpligte veld.</div>
   </div>
   <div class="form-group">
     <label>Van</label>
-    <input name="LastName" #FullName="ngModel" [(ngModel)]="service.formData.LastName" class="form-control" required>
+    <input name="LastName" #LastName="ngModel" [(ngModel)]="service.formData.LastName" class="form-control" required>
     <div class="validation-error" *ngIf="LastName.invalid && LastName.touched">Verpligte veld.</div>
   </div>
   <div class="form-group">
     <label>Noem Naam</label>
-    <input name="NickName" #Position="ngModel" [(ngModel)]="service.formData.NickName"  class="form-control" required>
+    <input name="NickName" #NickName="ngModel" [(ngModel)]="service.formData.NickName"  class="form-control" required>
     <div class="validation-error" *ngIf="NickName.invalid && NickName.touched">Verpligte veld.</div>
   </div>
   <div class="form-row">
     <div class="form-group col-md-6">
       <label>Geboorte Datum</label>
-      <input name="DOB" #EMPCode="ngModel" [(ngModel)]="service.formData.DOB" class="form-control">
+      <input name="DOB" #DOB="ngModel" [(ngModel)]="service.formData.DOB" class="form-control">
     </div>
     <div class="form-group  col-md-6">
   <label>Geslag</label>
-      <input name="Geslag" #Mobile="ngModel" [(ngModel)]="service.formData.Geslag" class="form-control">
+      <input name="Geslag" #Geslag="ngModel" [(ngModel)]="service.formData.Geslag" class="form-control">
     </div>   
   </div>
   <div class="form-row">
     <div class="form-group col-md-6">
       <label>Huweliks Datum</label>
-      <input name="WeddingDate" #EMPCode="ngModel" [(ngModel)]="service.formData.WeddingDate" class="form-control">
+      <input name="WeddingDate" #WeddingDate="ngModel" [(ngModel)]="service.formData.WeddingDate" class="form-control">
     </div>
     <div class="form-group  col-md-6">
   <label>Sel Foon</label>
-      <input name="MobilePhone" #Mobile="ngModel" [(ngModel)]="service.formData.MobilePhone" class="form-control">
+      <input name="MobilePhone" #MobilePhone="ngModel" [(ngModel)]="service.formData.MobilePhone" class="form-control">
     </div>    
   </div>
   <div class="form-group">
     <label>Email Address</label>
-    <input name="EamilAddress" #Position="ngModel" [(ngModel)]="service.formData.EmailAddress" class="form-control">
+    <input name="EmailAddress" #EmailAddress="ngModel" [(ngModel)]="service.formData.EmailAddress" class="form-control">
   </div>
   <div class="form-row">
     <div class="form-group col-md-6">
       <label>Verjaarsdag in Kerk</label>
-      <input name="DOB" #EMPCode="ngModel" [(ngModel)]="service.formData.DOB" class="form-control">
+      <input name="PublicDates" #PublicDates="ngModel" [(ngModel)]="service.formData.PublicDates" class="form-control">
     </div>
     <div class="form-group  col-md-6">
   <label>Aktief</label>
-      <input name="Active" #Mobile="ngModel" [(ngModel)]="service.formData.Active" class="form-control">
+      <input name="Active" #Active="ngModel" [(ngModel)]="service.formData.Active" class="form-control">
     </div>   
   </div>
+  <div class="form-row">
+      <div class="form-group col-md-6">
+        <label>Gemeente</label>
+        <input name="Gemeente" #Gemeente="ngModel" [(ngModel)]="service.formData.Gemeente" class="form-control">
+      </div>
+      <div class="form-group  col-md-6">
+    <label>Address</label>
+        <input name="AddressID" #AddressID="ngModel" [(ngModel)]="service.formData.AddressID" class="form-control">
+      </div>   
+    </div>
   <div class="form-group">
     <button type="submit" [disabled]="form.invalid" class="btn btn-lg btn-block">SUBMIT</button>
   </div>
-  <hr>
+  <!-- <hr>
   <h5>Address</h5>
   <div class="form-row">
     <div class="form-group col-md-2">
@@ -87,5 +97,5 @@
   </div>
   <div class="form-group">
     <button type="submit" [disabled]="form.invalid" class="btn btn-lg btn-block">SUBMIT</button>
-  </div>
+  </div> -->
 </form>

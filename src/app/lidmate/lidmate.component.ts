@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { LidmaatService } from '../_shared/lidmaat.service';
 
 @Component({
   selector: 'app-lidmate',
@@ -7,9 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LidmateComponent implements OnInit {
 
-  constructor() { }
+  constructor(private service: LidmaatService
+    ) { }
 
   ngOnInit() {
+    
   }
 
 }
+
