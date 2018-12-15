@@ -25,4 +25,10 @@ export class PerseditComponent implements OnInit {
     localStorage.removeItem('userName');
     this.router.navigate(['/login']);
   }
+
+  emailTest() {
+    
+  }
+
+
 }
