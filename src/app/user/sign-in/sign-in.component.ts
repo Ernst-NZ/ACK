@@ -10,6 +10,7 @@ import { HttpErrorResponse } from '@angular/common/http';
 })
 export class SignInComponent implements OnInit {
   isLoginError : boolean = false;
+  userClaims: any;
   constructor(private userService : UserService,private router : Router) { }
  
   ngOnInit() {
@@ -18,7 +19,15 @@ export class SignInComponent implements OnInit {
   OnSubmit(userName,password){
      this.userService.userAuthentication(userName,password).subscribe((data : any)=>{
       localStorage.setItem('userToken',data.access_token);
+      this.userService.getUserClaims().subscribe((data: any) => {
+        this.userClaims = data;});
+        if (this.userClaims.FirstName === '') {
+          localStorage.setItem('userName',"Welkom " && this.userClaims.UserName);
+        } else {
+          localStorage.setItem('userName',"Welkom " && this.userClaims.FirstName);
+        }
       this.router.navigate(['/menu']);
+    
     },
     (err : HttpErrorResponse)=>{
       this.isLoginError = true;

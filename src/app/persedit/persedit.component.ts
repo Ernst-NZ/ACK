@@ -15,12 +15,14 @@ export class PerseditComponent implements OnInit {
   ngOnInit() {
     this.userService.getUserClaims().subscribe((data: any) => {
       this.userClaims = data;
+     
  
     });
   }
  
   Logout() {
     localStorage.removeItem('userToken');
+    localStorage.removeItem('userName');
     this.router.navigate(['/login']);
   }
 }

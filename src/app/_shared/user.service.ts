@@ -7,7 +7,8 @@ import { User } from './user.model';
  
 @Injectable()
 export class UserService {
-  readonly rootUrl = 'http://localhost:3000';
+  // readonly rootUrl = 'http://localhost:3000';
+   readonly rootUrl = 'https://data.ezy.kiwi';
   constructor(private http: HttpClient) { }
  
   registerUser(user : User){

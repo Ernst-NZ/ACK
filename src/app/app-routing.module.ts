@@ -35,7 +35,7 @@ const routes: Routes = [
   },
   {
     path: 'lidmate',
-    component: LidmateComponent
+    component: LidmateComponent, canActivate:[AuthGuard]
   },
   {
     path: 'employees',

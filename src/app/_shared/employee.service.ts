@@ -8,7 +8,8 @@ import { HttpClient } from "@angular/common/http";
 export class EmployeeService {
 formData  : Employee;
 list : Employee[];
-readonly rootURL ="http://localhost:3000/api"
+// readonly rootURL ="http://localhost:3000/api"
+readonly rootURL ="https://data.ezy.kiwi/api"
 
 constructor(private http : HttpClient) { }
 

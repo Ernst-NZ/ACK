@@ -106,14 +106,7 @@ body {
    color: #fff;
  }
 
- button.btn-submit{
-   background-color: #38547b;
-   color: #fff;
-   width: 100%;
- }
- button.btn-submit:focus,button.btn-submit:hover{
-   background-color: #38547b;
- }
+ 
  input.ng-invalid.ng-dirty{
    border-bottom-color: red !important;
    box-shadow: 0 1px 0 0 red !important;
@@ -181,8 +174,12 @@ body {
 }
 .menuWidth {
     width: 90%;
-    font-size: 80%;
+    font-size: 70%;
     margin-bottom: 5px;
+    padding-left: 2%;
+    padding-top: 2%;
+    padding-bottom: 0;
+    height: auto;
 }
 // Sign Up
 div.sm-jumbotron{
@@ -200,15 +197,14 @@ button.btn-submit{
 button.btn-submit:focus,button.btn-submit:hover{
     background-color: #38547b;
 }
-button.btn-submit{
-    background-color: #38547b;
-    color: #fff;
-    width: 100%;
+button:focus{
+    background-color :rgb(46, 3, 3);
 }
-button.btn-submit:focus,button.btn-submit:hover{
-    background-color: #38547b;
+.mat-menu-item:hover:not([disabled]) {
+    background-color :rgb(46, 3, 3);
 }
- 
+
+
 input.ng-invalid.ng-dirty{
     border-bottom-color : #e91e63 !important;
     box-shadow: 0 1px 0 0 #e91e63 !important;
@@ -229,11 +225,21 @@ div.error-message i{
 }
 .tabs .tab a{
     font-size: 25px;
-    color: grey !important;
+    color: white !important;
+}
+.input-field .prefix.active {
+    color: maroon;
 }
  
 .tabs .tab a.active{
-    background-color: #fff !important;
+    background-color:  rgba(12, 60, 105, 1) !important;
+}
+
+.card .card-content {
+    background-color:  rgba(12, 60, 105, 1) !important;
+}
+.app-sign-up > form {
+    background-color:  rgba(12, 60, 105, 1) !important;
 }
 // SignUp
 
