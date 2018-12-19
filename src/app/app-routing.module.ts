@@ -27,81 +27,84 @@ const routes: Routes = [
     path: '',
     component: MenuComponent
   }, 
-  // {
-  //   path: 'lidmate',
-  //   component: LidmateComponent, canActivate:[AuthGuard]
-  // },
-  // {
-  //   path: 'lidmate', component: LidmateComponent,
-  //   children: [{ path: '', component: LidmateLysComponent}, 
-  //             { path: '', component: LidmaatComponent}]
-  // }, 
-  // {
-  //   path: 'signup', component: UserComponent,
-  //   children: [{ path: '', component: SignUpComponent }]
-  // },  
-  // {
-  //   path: 'login', component: UserComponent,
-  //   children: [{ path: '', component: SignInComponent }]
-  // },
-  // // { path : '', redirectTo:'/login', pathMatch : 'full'},
+  {
+    path: 'lidmate',
+    component: LidmateComponent, canActivate:[AuthGuard]
+  },
+  {
+    path: 'lidmate', component: LidmateComponent,
+    children: [{ path: '', component: LidmaatComponent}]
+  }, 
+  {
+    path: 'lidmate', component: LidmateComponent,
+    children: [{ path: '', component: LidmateLysComponent}]
+  }, 
+  {
+    path: 'signup', component: UserComponent,
+    children: [{ path: '', component: SignUpComponent }]
+  },  
+  {
+    path: 'login', component: UserComponent,
+    children: [{ path: '', component: SignInComponent }]
+  },
+  // { path : '', redirectTo:'/login', pathMatch : 'full'},
 
-  // {
-  //   path: 'kontakons',
-  //   component: KontakonsComponent
-  // },
-  // {
-  //   path: 'persedit',
-  //   component: PerseditComponent, canActivate:[AuthGuard]
-  // },
-  // {
-  //   path: 'registrasie',
-  //   component: RegistrasieComponent
-  // },
-  // {
-  //   path: 'doop',
-  //   component: DoopComponent
-  // },
-  // {
-  //   path: 'kerkraad',
-  //   component: KerkraadComponent
-  // },
-  // {
-  //   path: 'verwelkoming',
-  //   component: VerwelkomingComponent
-  // },
-  // {
-  //   path: 'gasvryheid',
-  //   component: GasvryheidComponent
-  // },
-  // {
-  //   path: 'jeug',
-  //   component: JeugComponent
-  // },
-  // {
-  //   path: 'ligging',
-  //   component: LiggingComponent
-  // },
-  // {
-  //   path: 'ligging',
-  //   component: LiggingComponent
-  // },
-  // {
-  //   path: 'inligting',
-  //   component: InligtingComponent
-  // },
-  // {
-  //   path: 'aboutus',
-  //   component: AboutusComponent
-  // },
-  // {
-  //   path: 'geloof',
-  //   component: GeloofComponent
-  // },
-  // {
-  //   path: 'eredienste',
-  //   component: ErediensteComponent
-  // }, 
+  {
+    path: 'kontakons',
+    component: KontakonsComponent
+  },
+  {
+    path: 'persedit',
+    component: PerseditComponent, canActivate:[AuthGuard]
+  },
+  {
+    path: 'registrasie',
+    component: RegistrasieComponent
+  },
+  {
+    path: 'doop',
+    component: DoopComponent
+  },
+  {
+    path: 'kerkraad',
+    component: KerkraadComponent
+  },
+  {
+    path: 'verwelkoming',
+    component: VerwelkomingComponent
+  },
+  {
+    path: 'gasvryheid',
+    component: GasvryheidComponent
+  },
+  {
+    path: 'jeug',
+    component: JeugComponent
+  },
+  {
+    path: 'ligging',
+    component: LiggingComponent
+  },
+  {
+    path: 'ligging',
+    component: LiggingComponent
+  },
+  {
+    path: 'inligting',
+    component: InligtingComponent
+  },
+  {
+    path: 'aboutus',
+    component: AboutusComponent
+  },
+  {
+    path: 'geloof',
+    component: GeloofComponent
+  },
+  {
+    path: 'eredienste',
+    component: ErediensteComponent
+  }, 
 ];
 
 @NgModule({
