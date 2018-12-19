@@ -28,6 +28,10 @@ const routes: Routes = [
     component: MenuComponent
   }, 
   {
+    path: 'menu',
+    component: MenuComponent
+  }, 
+  {
     path: 'lidmate',
     component: LidmateComponent, canActivate:[AuthGuard]
   },
@@ -40,14 +44,15 @@ const routes: Routes = [
     children: [{ path: '', component: LidmateLysComponent}]
   }, 
   {
-    path: 'signup', component: UserComponent,
+    path: 'sign-up', component: UserComponent,
     children: [{ path: '', component: SignUpComponent }]
   },  
   {
     path: 'login', component: UserComponent,
     children: [{ path: '', component: SignInComponent }]
   },
-  // { path : '', redirectTo:'/login', pathMatch : 'full'},
+  
+   { path : '', redirectTo:'/login', pathMatch : 'full'},
 
   {
     path: 'kontakons',

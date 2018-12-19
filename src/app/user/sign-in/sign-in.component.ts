@@ -21,11 +21,7 @@ export class SignInComponent implements OnInit {
       localStorage.setItem('userToken',data.access_token);
       this.userService.getUserClaims().subscribe((data: any) => {
         this.userClaims = data;});
-        if (this.userClaims.FirstName === '') {
-          localStorage.setItem('userName',"Welkom " && this.userClaims.UserName);
-        } else {
-          localStorage.setItem('userName',"Welkom " && this.userClaims.FirstName);
-        }
+       
       this.router.navigate(['/menu']);
     
     },

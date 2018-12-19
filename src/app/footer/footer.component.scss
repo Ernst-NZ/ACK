@@ -2,8 +2,10 @@
 footer {
     position: fixed;
     bottom:0;
-    width:100%;
+    padding-top: 0;
+    width:99%;
     height:50px;   /* Height of the footer */
     background-color: maroon;
     z-index:55;
+    text-align: center;
     }   

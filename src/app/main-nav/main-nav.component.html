@@ -35,7 +35,8 @@
        *ngIf="isHandset$ | async">
         <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>       
       </button>
-      <button mat-menu-item routerLink="/" style="color: white;">ACK Tauranga</button>
+      <button mat-menu-item routerLink="/" style="color: white;">ACK Tauranga<span *ngIf="userName" style="text-align: left">  Welkom {{userName}} </span></button>
+      
       <span class="spacer"></span>
       <button mat-button *ngIf="!(isHandset$ | async)"  [matMenuTriggerFor]="appStorie" class="sideButton d-none d-md-block">Ons<br>Gemeente</button>
       <mat-menu #appStorie="matMenu" class="sideMenu">
@@ -54,9 +55,8 @@
         <button mat-menu-item>Kerkraad</button>
       </mat-menu>
       <button *ngIf="!(userName)" mat-button class="sideButton"routerLink="/login">Login</button>       
-      <div class="sideButton">
-        {{userName}}<br>
-        <a class="sideButton" *ngIf="userName" (click)="Logout()">Logout</a>
+      <div class="sideButton">       
+        <button *ngIf="userName" mat-button class="sideButton"(click)="Logout()">Logout</button>  
       </div>
       <!-- <ul id="nav-mobile" *ngIf="!userClaims" class="right hide-on-med-and-down">
        <span>Welkom {{userClaims.UserName}}</span>
