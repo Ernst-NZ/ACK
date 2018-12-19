@@ -25,10 +25,7 @@ export class MainNavComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.userService.getUserClaims().subscribe((data: any) => {
-      this.userClaims = data;
-      this.userName = localStorage.getItem('userName');
-    });
+   
   }
  
   Logout() {

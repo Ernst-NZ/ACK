@@ -23,10 +23,10 @@ import { LidmaatComponent } from './lidmate/lidmaat/lidmaat.component'
 import { LidmateLysComponent } from './lidmate/lidmate-lys/lidmate-lys.component';
 
 const routes: Routes = [
-  {
-    path: '',
-    component: MenuComponent
-  }, 
+  // {
+  //   path: '',
+  //   component: MenuComponent
+  // }, 
   {
     path: 'menu',
     component: MenuComponent
@@ -48,7 +48,7 @@ const routes: Routes = [
     children: [{ path: '', component: LidmateLysComponent}]
   }, 
   {
-    path: 'sign-up', component: UserComponent,
+    path: 'signup', component: UserComponent,
     children: [{ path: '', component: SignUpComponent }]
   },  
   {

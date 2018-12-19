@@ -18,10 +18,7 @@ export class SignInComponent implements OnInit {
  
   OnSubmit(userName,password){
      this.userService.userAuthentication(userName,password).subscribe((data : any)=>{
-      localStorage.setItem('userToken',data.access_token);
-      this.userService.getUserClaims().subscribe((data: any) => {
-        this.userClaims = data;});
-       
+      localStorage.setItem('userToken',data.access_token);     
       this.router.navigate(['/menu']);
     
     },
