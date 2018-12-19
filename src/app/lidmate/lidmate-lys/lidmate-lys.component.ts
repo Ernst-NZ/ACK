@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { LidmaatService } from 'src/app/_shared/lidmaat.service';
-import { Lidmaat } from 'src/app/_shared/lidmaat.model';
+import { LidmaatService } from '../../_shared/lidmaat.service';
+import { Lidmaat } from '../../_shared/lidmaat.model';
 import { ToastrService } from 'ngx-toastr';
 
 @Component({
@@ -9,22 +9,23 @@ import { ToastrService } from 'ngx-toastr';
   styleUrls: ['./lidmate-lys.component.scss']
 })
 export class LidmateLysComponent implements OnInit {
-
-  constructor(private service: LidmaatService,
+  lidmaatLys$: object;
+  constructor(private lidmaatService: LidmaatService,
     private toastr: ToastrService) { }
 
   ngOnInit() {
-    this.service.refreshList();
+    this.lidmaatService.refreshList();
+    this.lidmaatLys$ = this.lidmaatService;
   }
 
   populateForm(lid: Lidmaat) {
-    this.service.formData = Object.assign({}, lid);
+    this.lidmaatService.formData = Object.assign({}, lid);
   }
 
   onDelete(id: number) {
     if (confirm('Are you sure to delete this record?')) {
-      this.service.deleteLidmaat(id).subscribe(res => {
-        this.service.refreshList();
+      this.lidmaatService.deleteLidmaat(id).subscribe(res => {
+        this.lidmaatService.refreshList();
         this.toastr.warning('Deleted successfully', 'ACK');
       });
     }

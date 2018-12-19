@@ -1,6 +1,6 @@
 <h4>Gemeente Lys</h4>
 <table class="table table-hover">
-  <tr *ngFor="let lid of service.list">
+  <tr *ngFor="let lid of lidmaatLys$">
     <td (click)="populateForm(lid)">[{{lid.LidmaatId}}] {{lid.NickName}}</td>
     <td (click)="populateForm(lid)">{{lid.LastName}}</td>
     <td (click)="populateForm(lid)">{{lid.Active}}</td>

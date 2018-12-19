@@ -32,15 +32,15 @@ export class SignUpComponent implements OnInit {
   }
  
   OnSubmit(form: NgForm) {    
-    this.userService.registerUser(form.value)
-      .subscribe((data: any) => {
-        if (data.Succeeded == true) {
-          this.resetForm(form);
-          this.toastr.success('User registration successful');
-        }
-        else
-          this.toastr.error(data.Errors[0]);
-      });
+    // this.userService.registerUser(form.value)
+    //   .subscribe((data: any) => {
+    //     if (data.Succeeded == true) {
+    //       this.resetForm(form);
+    //       this.toastr.success('User registration successful');
+    //     }
+    //     else
+    //       this.toastr.error(data.Errors[0]);
+    //   });
   }
  
 }

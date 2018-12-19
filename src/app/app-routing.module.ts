@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { UsersComponent } from './users/users.component';
 import { MenuComponent } from './menu/menu.component';
 import { AboutusComponent } from './aboutus/aboutus.component';
 import { GeloofComponent } from './geloof/geloof.component';
@@ -19,110 +18,90 @@ import { UserComponent } from './user/user.component';
 import { SignUpComponent } from './user/sign-up/sign-up.component';
 import { SignInComponent } from './user/sign-in/sign-in.component';
 import { AuthGuard } from './_auth/auth.guard';
-import { EmployeesComponent } from './employees/employees.component';
-import { EmployeeListComponent } from './employees/employee-list/employee-list.component';
-import { EmployeeComponent } from './employees/employee/employee.component';
 import { LidmateComponent } from './lidmate/lidmate.component';
+import { LidmaatComponent } from './lidmate/lidmaat/lidmaat.component'
+import { LidmateLysComponent } from './lidmate/lidmate-lys/lidmate-lys.component';
 
 const routes: Routes = [
   {
     path: '',
     component: MenuComponent
   }, 
-  {
-    path: 'menu',
-    component: MenuComponent
-  },
-  {
-    path: 'lidmate',
-    component: LidmateComponent, canActivate:[AuthGuard]
-  },
-  {
-    path: 'employees',
-    component: EmployeesComponent
-  },
-  {
-    path: 'employee',
-    component: EmployeeComponent
-  },
-  {
-    path: 'employee/employees',
-    component: EmployeesComponent
-  },
-  {
-    path: 'employee/employee-list',
-    component: EmployeeListComponent
-  },
-  {
-    path: 'signup', component: UserComponent,
-    children: [{ path: '', component: SignUpComponent }]
-  },  
-  {
-    path: 'login', component: UserComponent,
-    children: [{ path: '', component: SignInComponent }]
-  },
-  { path : '', redirectTo:'/login', pathMatch : 'full'},
+  // {
+  //   path: 'lidmate',
+  //   component: LidmateComponent, canActivate:[AuthGuard]
+  // },
+  // {
+  //   path: 'lidmate', component: LidmateComponent,
+  //   children: [{ path: '', component: LidmateLysComponent}, 
+  //             { path: '', component: LidmaatComponent}]
+  // }, 
+  // {
+  //   path: 'signup', component: UserComponent,
+  //   children: [{ path: '', component: SignUpComponent }]
+  // },  
+  // {
+  //   path: 'login', component: UserComponent,
+  //   children: [{ path: '', component: SignInComponent }]
+  // },
+  // // { path : '', redirectTo:'/login', pathMatch : 'full'},
 
-  {
-    path: 'kontakons',
-    component: KontakonsComponent
-  },
-  {
-    path: 'persedit',
-    component: PerseditComponent, canActivate:[AuthGuard]
-  },
-  {
-    path: 'registrasie',
-    component: RegistrasieComponent
-  },
-  {
-    path: 'doop',
-    component: DoopComponent
-  },
-  {
-    path: 'kerkraad',
-    component: KerkraadComponent
-  },
-  {
-    path: 'verwelkoming',
-    component: VerwelkomingComponent
-  },
-  {
-    path: 'gasvryheid',
-    component: GasvryheidComponent
-  },
-  {
-    path: 'jeug',
-    component: JeugComponent
-  },
-  {
-    path: 'ligging',
-    component: LiggingComponent
-  },
-  {
-    path: 'ligging',
-    component: LiggingComponent
-  },
-  {
-    path: 'inligting',
-    component: InligtingComponent
-  },
-  {
-    path: 'aboutus',
-    component: AboutusComponent
-  },
-  {
-    path: 'geloof',
-    component: GeloofComponent
-  },
-  {
-    path: 'eredienste',
-    component: ErediensteComponent
-  },
-  {
-    path: 'users',
-    component: UsersComponent
-  },
+  // {
+  //   path: 'kontakons',
+  //   component: KontakonsComponent
+  // },
+  // {
+  //   path: 'persedit',
+  //   component: PerseditComponent, canActivate:[AuthGuard]
+  // },
+  // {
+  //   path: 'registrasie',
+  //   component: RegistrasieComponent
+  // },
+  // {
+  //   path: 'doop',
+  //   component: DoopComponent
+  // },
+  // {
+  //   path: 'kerkraad',
+  //   component: KerkraadComponent
+  // },
+  // {
+  //   path: 'verwelkoming',
+  //   component: VerwelkomingComponent
+  // },
+  // {
+  //   path: 'gasvryheid',
+  //   component: GasvryheidComponent
+  // },
+  // {
+  //   path: 'jeug',
+  //   component: JeugComponent
+  // },
+  // {
+  //   path: 'ligging',
+  //   component: LiggingComponent
+  // },
+  // {
+  //   path: 'ligging',
+  //   component: LiggingComponent
+  // },
+  // {
+  //   path: 'inligting',
+  //   component: InligtingComponent
+  // },
+  // {
+  //   path: 'aboutus',
+  //   component: AboutusComponent
+  // },
+  // {
+  //   path: 'geloof',
+  //   component: GeloofComponent
+  // },
+  // {
+  //   path: 'eredienste',
+  //   component: ErediensteComponent
+  // }, 
 ];
 
 @NgModule({

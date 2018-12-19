@@ -55,7 +55,7 @@
       </mat-menu>
       <button *ngIf="!(userName)" mat-button class="sideButton"routerLink="/login">Login</button>       
       <div class="sideButton">
-        {{UserName}}<br>
+        {{userName}}<br>
         <a class="sideButton" *ngIf="userName" (click)="Logout()">Logout</a>
       </div>
       <!-- <ul id="nav-mobile" *ngIf="!userClaims" class="right hide-on-med-and-down">

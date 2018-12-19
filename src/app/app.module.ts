@@ -11,10 +11,8 @@ import { MatToolbarModule, MatButtonModule, MatSidenavModule, MatIconModule} fro
 import { MatCheckboxModule, MatMenuModule, } from '@angular/material';
 import { AlertModule } from 'ngx-bootstrap';
 import { ToastrModule } from 'ngx-toastr';
-import { UserService } from './_shared/user.service';
 import { RouterModule, Router, Routes } from '@angular/router';
 
-import { UsersComponent } from './users/users.component';
 import { MenuComponent } from './menu/menu.component';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { environment } from '../environments/environment';
@@ -42,20 +40,16 @@ import { UserComponent } from './user/user.component';
 import { SignInComponent } from './user/sign-in/sign-in.component';
 import { AuthGuard } from './_auth/auth.guard';
 import { AuthInterceptor } from './_auth/auth.intercepter';
-import { EmployeesComponent } from './employees/employees.component';
-import { EmployeeListComponent } from './employees/employee-list/employee-list.component';
-import { EmployeeComponent } from './employees/employee/employee.component';
-import { EmployeeService } from './_shared/employee.service';
 import { LidmateComponent } from './lidmate/lidmate.component';
 import { LidmateLysComponent } from './lidmate/lidmate-lys/lidmate-lys.component';
 import { LidmaatComponent } from './lidmate/lidmaat/lidmaat.component';
+import { UserService } from './_shared/user.service';
 import { LidmaatService } from './_shared/lidmaat.service';
 
 @NgModule({
   declarations: [
     AppComponent,
     MainNavComponent,
-    UsersComponent,
     MenuComponent,
     FooterComponent,
     AboutusComponent,
@@ -77,10 +71,6 @@ import { LidmaatService } from './_shared/lidmaat.service';
     SignInComponent,
     LidmateComponent,
     LidmaatComponent,
-    LidmateLysComponent,
-    EmployeeComponent,
-    EmployeesComponent,
-    EmployeeListComponent,
     LidmateLysComponent
   ],
   imports: [
@@ -111,7 +101,6 @@ import { LidmaatService } from './_shared/lidmaat.service';
   ],
   providers: [UserService, 
     AuthGuard,
-    EmployeeService,
     LidmaatService,
   {
     provide : HTTP_INTERCEPTORS,

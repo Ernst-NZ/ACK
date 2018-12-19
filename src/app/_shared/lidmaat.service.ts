@@ -10,12 +10,10 @@ formData : Lidmaat;
 list : Lidmaat[];
 // readonly rootURL ="http://localhost:3000/api"
 readonly rootURL ="https://data.ezy.kiwi/api"
-
   constructor(private http : HttpClient) { }
 
   postLidmaat(formData : Lidmaat){
     return this.http.post(this.rootURL+'/Persoon',formData);
-     
    }
 
    refreshList(){
@@ -25,7 +23,6 @@ readonly rootURL ="https://data.ezy.kiwi/api"
   
 putLidmaat(formData : Lidmaat){
   return this.http.put(this.rootURL+'/Persoon/'+formData.LidmaatId,formData);
-   
  }
 
  deleteLidmaat(id : number){

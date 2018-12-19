@@ -10,7 +10,7 @@ import { LidmaatService } from 'src/app/_shared/lidmaat.service';
 })
 export class LidmaatComponent implements OnInit {
 
-  constructor(private service: LidmaatService,
+  constructor(public service: LidmaatService,
     private toastr: ToastrService) { }
 
   ngOnInit() {
