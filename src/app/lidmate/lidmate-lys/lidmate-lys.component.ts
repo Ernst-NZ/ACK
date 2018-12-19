@@ -15,8 +15,8 @@ export class LidmateLysComponent implements OnInit {
 
   ngOnInit() {
     this.lidmaatService.refreshList();
-    this.lidmaatLys$ = this.lidmaatService;
-  }
+    this.lidmaatLys$ = this.lidmaatService.list
+   }
 
   populateForm(lid: Lidmaat) {
     this.lidmaatService.formData = Object.assign({}, lid);

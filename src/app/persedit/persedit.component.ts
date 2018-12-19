@@ -20,12 +20,13 @@ export class PerseditComponent implements OnInit {
 
 
     });
+    
   }
 
   Logout() {
     localStorage.removeItem('userToken');
     localStorage.removeItem('userName');
-    this.router.navigate(['/login']);
+    this.router.navigate(['/menu']);
   }
 
   emailTest() {

@@ -33,8 +33,12 @@ const routes: Routes = [
   }, 
   {
     path: 'lidmate',
-    component: LidmateComponent, canActivate:[AuthGuard]
+    component: LidmateComponent
   },
+  // {
+  //   path: 'lidmate',
+  //   component: LidmateComponent, canActivate:[AuthGuard]
+  // },
   {
     path: 'lidmate', component: LidmateComponent,
     children: [{ path: '', component: LidmaatComponent}]
@@ -51,9 +55,7 @@ const routes: Routes = [
     path: 'login', component: UserComponent,
     children: [{ path: '', component: SignInComponent }]
   },
-  
-   { path : '', redirectTo:'/login', pathMatch : 'full'},
-
+ 
   {
     path: 'kontakons',
     component: KontakonsComponent
@@ -110,6 +112,16 @@ const routes: Routes = [
     path: 'eredienste',
     component: ErediensteComponent
   }, 
+  { 
+    path: '',
+   redirectTo: '/menu',
+   pathMatch: 'full'
+   },
+
+  {
+   path: 'menu',
+   component: MenuComponent
+  },
 ];
 
 @NgModule({
