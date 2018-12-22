@@ -6,7 +6,7 @@
         <tr>
             <th>Naam</th>
             <th>Van</th>
-            <th>Gemeente</th>
+            <th>Laaste Besoek</th>
         </tr>
     </thead>
     <tr *ngFor="let lid of filteredLidmate">
@@ -16,7 +16,7 @@
             </a>
         </td>
         <td>{{ lid.LastName }}</td>
-        <td>{{ lid.Gemeente }}</td>
+        <td>{{ lid.LastVisit }}</td>
     </tr>
     <tr *ngIf="filteredLidmate && filteredLidmate.length">
         <td colspan="2">&nbsp;</td>
