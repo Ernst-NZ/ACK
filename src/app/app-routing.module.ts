@@ -21,6 +21,7 @@ import { AuthGuard } from './_auth/auth.guard';
 import { LidmateComponent } from './lidmate/lidmate.component';
 import { LidmaatComponent } from './lidmate/lidmaat/lidmaat.component'
 import { LidmateLysComponent } from './lidmate/lidmate-lys/lidmate-lys.component';
+import { DiensRoosterComponent } from './diens-rooster/diens-rooster.component';
 
 const routes: Routes = [
   // {
@@ -55,10 +56,13 @@ const routes: Routes = [
     path: 'login', component: UserComponent,
     children: [{ path: '', component: SignInComponent }]
   },
- 
   {
     path: 'kontakons',
     component: KontakonsComponent
+  }, 
+  {
+    path: 'diens-rooster',
+    component: DiensRoosterComponent
   },
   {
     path: 'persedit',

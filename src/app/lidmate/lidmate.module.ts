@@ -1,5 +1,9 @@
 import { NgModule }      from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { FormsModule }      from '@angular/forms';
+
+import { SharedModule } from '../_shared/shared.module';
+
 
  import { LidmateComponent }  from './lidmate.component'
  import { LidmateLysComponent } from './lidmate-lys/lidmate-lys.component';
@@ -8,7 +12,7 @@ import { CommonModule } from '@angular/common';
 
 
 @NgModule({
-  imports:      [ CommonModule ],
+  imports:      [ CommonModule, SharedModule, FormsModule ],
   declarations: [ LidmateComponent, LidmateLysComponent, FilterTextboxComponent, LidmaatComponent ],
   exports: [ LidmateComponent ]
 

@@ -15,7 +15,7 @@ export class LidmateComponent implements OnInit {
   constructor() {}
   
   ngOnInit() {
-      this.title = 'Customers';
+      this.title = 'Lidmate';
       this.mense = [
         {LidmaatId:1, FirstName: 'John', LastName: 'Doe', NickName: 'John', Gemeente: 'Tauranga' },
         {LidmaatId:2, FirstName: 'Koos', LastName: 'Nel', NickName: 'Koos', Gemeente: 'Tauranga' },

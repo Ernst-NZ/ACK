@@ -21,6 +21,7 @@ import { AuthGuard } from './_auth/auth.guard';
 import { AuthInterceptor } from './_auth/auth.intercepter';
 
 import { LidmateModule } from './lidmate/lidmate.module';
+import { SharedModule } from './_shared/shared.module';
 import { UserService } from './_shared/user.service';
 import { LidmaatService } from './_shared/lidmaat.service';
 
@@ -43,6 +44,7 @@ import { KalenderComponent } from './kalender/kalender.component';
 import { SignUpComponent } from './user/sign-up/sign-up.component';
 import { UserComponent } from './user/user.component';
 import { SignInComponent } from './user/sign-in/sign-in.component';
+import { DiensRoosterComponent } from './diens-rooster/diens-rooster.component';
 // import { LidmateComponent } from './lidmate/lidmate.component';
 // import { LidmateLysComponent } from './lidmate/lidmate-lys/lidmate-lys.component';
 // import { LidmaatComponent } from './lidmate/lidmaat/lidmaat.component';
@@ -71,6 +73,7 @@ import { SignInComponent } from './user/sign-in/sign-in.component';
     SignUpComponent,
     UserComponent,
     SignInComponent,
+    DiensRoosterComponent,
     // LidmateComponent,
   //   LidmaatComponent,
     // LidmateLysComponent
@@ -96,6 +99,7 @@ import { SignInComponent } from './user/sign-in/sign-in.component';
     LidmateModule,
     FormsModule,
     MatButtonModule,
+    SharedModule,
     ToastrModule.forRoot(),
     BrowserAnimationsModule,
     AlertModule.forRoot(),

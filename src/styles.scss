@@ -50,13 +50,20 @@ body {
 
  }
 
-
+ .mat-drawer-content {
+    position: relative;
+    z-index: 1;
+    display: block;
+    height: 100%;
+    overflow: hidden;
+}
  #container {
   height: 100%;
 
   #content {
-      z-index: 1;
+    //   z-index: 1;
    //   padding: 40px 40px;
+
    
 
       ul {
@@ -199,10 +206,12 @@ button.btn-submit:focus,button.btn-submit:hover{
     background-color: #38547b;
 }
 button:focus{
-    background-color :rgb(46, 3, 3);
+    background-color :red;
+    border: solid 1px yellow;
 }
 .mat-menu-item:hover:not([disabled]) {
-    background-color :rgb(46, 3, 3);
+    background-color : red;
+    border: solid 1px yellow;
 }
 
 

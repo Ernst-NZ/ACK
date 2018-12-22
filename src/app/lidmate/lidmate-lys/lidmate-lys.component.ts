@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { ILidmaat } from '../../_shared/interfaces'
 
 @Component({
@@ -6,8 +6,18 @@ import { ILidmaat } from '../../_shared/interfaces'
     templateUrl: './lidmate-lys.component.html'
 })
 export class LidmateLysComponent implements OnInit {
+    private _lidmate: ILidmaat[] = [];
+    @Input() get lidmate(): ILidmaat[] {
+        return this._lidmate;
+    }
+    
+    set customers(value: ILidmaat[]) {
+        if (value) {
+            this.filteredLidmate = this._lidmate = value;
+            this.calculateOrders();
+        }
+    }
 
-  
     filteredLidmate: any[] = [];
     customersOrderTotal: number;
     currencyCode: string = 'USD';
@@ -15,12 +25,6 @@ export class LidmateLysComponent implements OnInit {
     constructor() {}
     
     ngOnInit() {
-        this.filteredLidmate = [
-            {LidmaatId:1, FirstName: 'John', LastName: 'Doe', NickName: 'John', Gemeente: 'Tauranga', LastVisit: '01 Jan 2018' },
-            {LidmaatId:2, FirstName: 'Koos', LastName: 'Nel', NickName: 'Koos', Gemeente: 'Tauranga' , LastVisit: '02 Feb 2018' },
-            {LidmaatId:3, FirstName: 'Piet', LastName: 'Venter', NickName: 'Piet', Gemeente: 'Tauranga' , LastVisit: '03 Mar 2018' },
-            {LidmaatId:4, FirstName: 'Gert', LastName: 'Botha', NickName: 'Gert', Gemeente: 'Tauranga' , LastVisit: '04 Apr 2018' }
-          ];
 
     }
     
@@ -30,4 +34,22 @@ export class LidmateLysComponent implements OnInit {
             // this.customersOrderTotal += cust.orderTotal;
         });
     }
+
+    filter(data: string) {
+        if (data) {
+            this.filteredLidmate = this.customers.filter((cust: ILidmaat) => {
+                return cust.FirstName.toLowerCase().indexOf(data.toLowerCase()) > -1 ||
+                       cust.LastName.toLowerCase().indexOf(data.toLowerCase()) > -1 ||
+                       cust.LastVisit.toDateString().indexOf(data)> -1;
+            });
+            this.calculateOrders();
+        } else {
+            this.filteredLidmate = this.customers;
+        }
+    }
+    
+    sort(prop: string) {
+        // A sorter service will handle the sorting
+    }
 }
+ 

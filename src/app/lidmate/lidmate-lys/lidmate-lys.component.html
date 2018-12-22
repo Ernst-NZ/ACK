@@ -4,18 +4,18 @@
 <table class="table table-hover">
     <thead>
         <tr>
-            <th>Naam</th>
-            <th>Van</th>
-            <th>Laaste Besoek</th>
+            <th (click)="sort('FirstName')">Naam</th>
+            <th (click)="sort('LastName')">Van</th>
+            <th (click)="sort('LastVisit')">Laaste Besoek</th>
         </tr>
     </thead>
     <tr *ngFor="let lid of filteredLidmate">
         <td>
             <a>
-                {{ lid.FirstName }}
+                {{ lid.FirstName | capitalize}}
             </a>
         </td>
-        <td>{{ lid.LastName }}</td>
+        <td>{{ lid.LastName | capitalize}}</td>
         <td>{{ lid.LastVisit }}</td>
     </tr>
     <tr *ngIf="filteredLidmate && filteredLidmate.length">
