@@ -1,10 +1,33 @@
-<h4>Gemeente Lys</h4>
+<app-filter-textbox></app-filter-textbox>
+<br />
+<br />
 <table class="table table-hover">
-  <tr *ngFor="let lid of lidmaatLys$">
-      <!-- <tr *ngFor="let lid of lidmaatService.list"> -->
-    <td (click)="populateForm(lid)">[{{lid.LidmaatId}}] {{lid.NickName}}</td>
-    <td (click)="populateForm(lid)">{{lid.LastName}}</td>
-    <td (click)="populateForm(lid)">{{lid.Active}}</td>
-    <td><button (click)="onDelete(lid.LidmaatId)" class="btn btn-sm btn-outline-danger">X</button></td>
-  </tr>
+    <thead>
+        <tr>
+            <th>Naam</th>
+            <th>Van</th>
+            <th>Gemeente</th>
+        </tr>
+    </thead>
+    <tr *ngFor="let lid of filteredLidmate">
+        <td>
+            <a>
+                {{ lid.FirstName }}
+            </a>
+        </td>
+        <td>{{ lid.LastName }}</td>
+        <td>{{ lid.Gemeente }}</td>
+    </tr>
+    <tr *ngIf="filteredLidmate && filteredLidmate.length">
+        <td colspan="2">&nbsp;</td>
+        <td>
+            <!-- {{ customersOrderTotal }} -->
+            totaal
+        </td>
+    </tr>
+    <tr *ngIf="!filteredLidmate || !filteredLidmate.length">
+        <td colspan="4">Geen lidmate gevind</td>
+    </tr>
 </table>
+Aantal Lidmate: {{ filteredLidmate.length }}
+<br />

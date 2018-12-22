@@ -1,34 +1,33 @@
 import { Component, OnInit } from '@angular/core';
-import { LidmaatService } from '../../_shared/lidmaat.service';
-import { Lidmaat } from '../../_shared/lidmaat.model';
-import { ToastrService } from 'ngx-toastr';
+import { ILidmaat } from '../../_shared/interfaces'
 
 @Component({
-  selector: 'app-lidmate-lys',
-  templateUrl: './lidmate-lys.component.html',
-  styleUrls: ['./lidmate-lys.component.scss']
+    selector: 'app-lidmate-lys',
+    templateUrl: './lidmate-lys.component.html'
 })
 export class LidmateLysComponent implements OnInit {
-  lidmaatLys$: object;
-  constructor(private lidmaatService: LidmaatService,
-    private toastr: ToastrService) { }
 
-  ngOnInit() {
-    this.lidmaatService.refreshList();
-    this.lidmaatLys$ = this.lidmaatService.list
-   }
+  
+    filteredLidmate: any[] = [];
+    customersOrderTotal: number;
+    currencyCode: string = 'USD';
+    
+    constructor() {}
+    
+    ngOnInit() {
+        this.filteredLidmate = [
+            {LidmaatId:1, FirstName: 'John', LastName: 'Doe', NickName: 'John', Gemeente: 'Tauranga' },
+            {LidmaatId:2, FirstName: 'Koos', LastName: 'Nel', NickName: 'Koos', Gemeente: 'Tauranga' },
+            {LidmaatId:3, FirstName: 'Piet', LastName: 'Venter', NickName: 'Piet', Gemeente: 'Tauranga' },
+            {LidmaatId:4, FirstName: 'Gert', LastName: 'DBothaoe', NickName: 'Gert', Gemeente: 'Tauranga' }
+          ];
 
-  populateForm(lid: Lidmaat) {
-    this.lidmaatService.formData = Object.assign({}, lid);
-  }
-
-  onDelete(id: number) {
-    if (confirm('Are you sure to delete this record?')) {
-      this.lidmaatService.deleteLidmaat(id).subscribe(res => {
-        this.lidmaatService.refreshList();
-        this.toastr.warning('Deleted successfully', 'ACK');
-      });
     }
-  }
-
+    
+    calculateOrders() {
+        this.customersOrderTotal = 0;
+        this.filteredLidmate.forEach((cust: ILidmaat) => {
+            // this.customersOrderTotal += cust.orderTotal;
+        });
+    }
 }
