@@ -1,10 +1,8 @@
 import { NgModule }      from '@angular/core';
-import { CommonModule } from '@angular/common';
 import { FormsModule }      from '@angular/forms';
+import { CommonModule } from '@angular/common';
 
 import { SharedModule } from '../_shared/shared.module';
-
-
  import { LidmateComponent }  from './lidmate.component'
  import { LidmateLysComponent } from './lidmate-lys/lidmate-lys.component';
  import { FilterTextboxComponent } from './lidmate-lys/filter-textbox.component';

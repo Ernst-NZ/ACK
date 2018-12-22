@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 
-// import { CapitalizePipe } from './capitalize.pipe';
 import { CapitalizePipe } from './capitalize.pipe';
 @NgModule({
     declarations: [ CapitalizePipe ],

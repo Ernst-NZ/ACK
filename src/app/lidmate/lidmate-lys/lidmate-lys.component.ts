@@ -11,7 +11,7 @@ export class LidmateLysComponent implements OnInit {
         return this._lidmate;
     }
     
-    set customers(value: ILidmaat[]) {
+    set lidmate(value: ILidmaat[]) {
         if (value) {
             this.filteredLidmate = this._lidmate = value;
             this.calculateOrders();
@@ -37,15 +37,16 @@ export class LidmateLysComponent implements OnInit {
 
     filter(data: string) {
         if (data) {
-            this.filteredLidmate = this.customers.filter((cust: ILidmaat) => {
+            this.filteredLidmate = this.lidmate.filter((cust: ILidmaat) => {
                 return cust.FirstName.toLowerCase().indexOf(data.toLowerCase()) > -1 ||
-                       cust.LastName.toLowerCase().indexOf(data.toLowerCase()) > -1 ||
-                       cust.LastVisit.toDateString().indexOf(data)> -1;
+                      cust.LastName.toLowerCase().indexOf(data.toLowerCase()) > -1;
+                    //    cust.LastVisit.toDateString().indexOf(data.toLowerCase()) > -1; 
             });
             this.calculateOrders();
         } else {
-            this.filteredLidmate = this.customers;
+            this.filteredLidmate = this.lidmate;
         }
+        this.calculateOrders();
     }
     
     sort(prop: string) {
