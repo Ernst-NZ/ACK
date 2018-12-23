@@ -20,11 +20,7 @@
     <div class="form-group col-md-6">
       <label>Geboorte Datum</label>
       <input name="DOB" #DOB="ngModel" [(ngModel)]="service.formData.DOB" class="form-control">
-      <mat-form-field>
-          <input matInput [matDatepicker]="picker" placeholder="Choose a date">
-          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-          <mat-datepicker #picker></mat-datepicker>
-        </mat-form-field>
+     
     </div>
     <div class="form-group  col-md-3">
       <label>Geslag</label>
