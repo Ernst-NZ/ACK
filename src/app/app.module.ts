@@ -6,9 +6,10 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MainNavComponent } from './main-nav/main-nav.component';
 import { LayoutModule } from '@angular/cdk/layout';
-import { MatListModule, MatTableModule, MatPaginatorModule, MatSortModule } from '@angular/material';
+import { MatListModule, MatTableModule, MatPaginatorModule, MatSortModule, MatFormFieldModule, MatInputModule, MatRippleModule } from '@angular/material';
 import { MatToolbarModule, MatButtonModule, MatSidenavModule, MatIconModule} from '@angular/material';
 import { MatCheckboxModule, MatMenuModule, } from '@angular/material';
+import {MatDatepickerModule} from '@angular/material/datepicker';
 import { AlertModule } from 'ngx-bootstrap';
 import { ToastrModule } from 'ngx-toastr';
 import { FormsModule} from '@angular/forms';
@@ -93,6 +94,17 @@ import { DiensRoosterComponent } from './diens-rooster/diens-rooster.component';
     MatTableModule,
     MatPaginatorModule,
     MatSortModule,
+    MatTableModule,
+    MatPaginatorModule,
+    MatSortModule,
+    MatCheckboxModule,
+    MatIconModule,
+    MatButtonModule,
+    MatButtonModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatRippleModule,
+    MatDatepickerModule,
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,

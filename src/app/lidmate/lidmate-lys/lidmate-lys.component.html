@@ -15,7 +15,7 @@
                 {{ lid.FirstName | capitalize}}
             </a>
         </td>
-        <td>{{ lid.LastName | capitalize}}</td>
+        <td (click)="populateForm(lid)">{{ lid.LastName | capitalize}}</td>
         <td>{{ lid.Gemeente }}</td>
     </tr>
     <tr *ngIf="filteredLidmate && filteredLidmate.length">

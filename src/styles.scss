@@ -144,7 +144,9 @@ body {
  .blackFont {
      color: black;
   }
-
+  .whiteFont {
+    color: white;
+ }
 
 .left {
     text-align: left;
@@ -254,6 +256,12 @@ div.error-message i{
 // SignUp
 
 //Employee
+.form-group > label {
+    color: white;
+}
+[type="checkbox"]+label:before, [type="checkbox"]:not(.filled-in)+label:after {
+    border: 2px solid red;
+}
 .form-group>input{
     font-weight: bolder;
     height: 1.5em;
@@ -285,6 +293,9 @@ div.validation-error{
     margin-top: .25rem;
     font-size: 80%;
     color: #dc3545;
+}
+input:not([type]) {
+    color: yellow;
 }
 
 // xx Employee

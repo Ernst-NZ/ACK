@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 
 import { ILidmaat } from '../../_shared/interfaces'
+import { LidmaatService } from '../../_shared/lidmaat.service';
 import { SorterService } from '../../_core/sorter.service';
 
 @Component({
@@ -21,10 +22,11 @@ export class LidmateLysComponent implements OnInit {
     }
 
     filteredLidmate: any[] = [];
+    formData : ILidmaat;
     customersOrderTotal: number;
     currencyCode: string = 'USD';
     
-    constructor(private sorterService: SorterService) {}
+    constructor(private sorterService: SorterService, private lidmaatService: LidmaatService) {}
     
     ngOnInit() {
 
@@ -55,5 +57,9 @@ export class LidmateLysComponent implements OnInit {
         // A sorter service will handle the sorting
         this.sorterService.sort(this.filteredLidmate, prop);
     }
+
+    populateForm(lid: ILidmaat) {
+        this.lidmaatService.formData = Object.assign({}, lid);
+      }
 }
  
