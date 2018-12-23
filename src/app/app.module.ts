@@ -22,6 +22,7 @@ import { AuthInterceptor } from './_auth/auth.intercepter';
 
 import { LidmateModule } from './lidmate/lidmate.module';
 import { SharedModule } from './_shared/shared.module';
+import { CoreModule } from './_core/core.module';
 import { UserService } from './_shared/user.service';
 import { LidmaatService } from './_shared/lidmaat.service';
 
@@ -100,6 +101,7 @@ import { DiensRoosterComponent } from './diens-rooster/diens-rooster.component';
     FormsModule,
     MatButtonModule,
     SharedModule,
+    CoreModule,
     ToastrModule.forRoot(),
     BrowserAnimationsModule,
     AlertModule.forRoot(),

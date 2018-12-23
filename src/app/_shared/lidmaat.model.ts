@@ -12,5 +12,5 @@ export class Lidmaat {
  AddressID : number
  Gemeente  : String
  PublicDates  : String
- LastVisit: Date
+//  LastVisit: Date
 }

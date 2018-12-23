@@ -1,5 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
+
 import { ILidmaat } from '../../_shared/interfaces'
+import { SorterService } from '../../_core/sorter.service';
 
 @Component({
     selector: 'app-lidmate-lys',
@@ -22,7 +24,7 @@ export class LidmateLysComponent implements OnInit {
     customersOrderTotal: number;
     currencyCode: string = 'USD';
     
-    constructor() {}
+    constructor(private sorterService: SorterService) {}
     
     ngOnInit() {
 
@@ -51,6 +53,7 @@ export class LidmateLysComponent implements OnInit {
     
     sort(prop: string) {
         // A sorter service will handle the sorting
+        this.sorterService.sort(this.filteredLidmate, prop);
     }
 }
  

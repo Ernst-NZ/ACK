@@ -31,6 +31,6 @@ export interface ILidmaat {
  AddressID? : number
  Gemeente  : String
  PublicDates?  : String
- LastVisit?: Date
- LastNote?: String
+//  LastVisit?: Date
+//  LastNote?: String
 }

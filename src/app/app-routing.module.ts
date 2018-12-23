@@ -116,16 +116,12 @@ const routes: Routes = [
     path: 'eredienste',
     component: ErediensteComponent
   }, 
-  { 
-    path: '',
-   redirectTo: '/menu',
-   pathMatch: 'full'
-   },
-
   {
    path: 'menu',
    component: MenuComponent
   },
+  { path: '', pathMatch: 'full', redirectTo: '/menu'},
+  { path: '**', pathMatch: 'full', redirectTo: '/menu' }
 ];
 
 @NgModule({

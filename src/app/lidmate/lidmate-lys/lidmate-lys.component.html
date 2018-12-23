@@ -6,7 +6,7 @@
         <tr>
             <th (click)="sort('FirstName')">Naam</th>
             <th (click)="sort('LastName')">Van</th>
-            <th (click)="sort('LastVisit')">Laaste Besoek</th>
+            <th (click)="sort('Gemeente')">Gemeente</th>
         </tr>
     </thead>
     <tr *ngFor="let lid of filteredLidmate">
@@ -16,7 +16,7 @@
             </a>
         </td>
         <td>{{ lid.LastName | capitalize}}</td>
-        <td>{{ lid.LastVisit }}</td>
+        <td>{{ lid.Gemeente }}</td>
     </tr>
     <tr *ngIf="filteredLidmate && filteredLidmate.length">
         <td colspan="2">&nbsp;</td>
@@ -26,7 +26,7 @@
         </td>
     </tr>
     <tr *ngIf="!filteredLidmate || !filteredLidmate.length">
-        <td colspan="4">Geen lidmate gevind</td>
+        <td colspan="4">Geen lidmate gevind nie</td>
     </tr>
 </table>
 Aantal Lidmate: {{ filteredLidmate.length }}
