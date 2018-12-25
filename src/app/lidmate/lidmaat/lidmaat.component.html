@@ -19,23 +19,31 @@
   <div class="form-row">
     <div class="form-group col-md-6">
       <label>Geboorte Datum</label>
+      Normal field<br>
       <input name="DOB" #DOB="ngModel" [(ngModel)]="service.formData.DOB" class="form-control">
-      <input [ngModel]="service.formData.DOB | date: 'dd-MMM-yy'" 
-      (ngModelChange)="service.formData.DOB=$event" name="inputField" type="datetime" />
-     
+      <hr>
+      Some as above type = date<br>
+      <input type="date" name="DOB" #DOB="ngModel" [(ngModel)]="service.formData.DOB" class="form-control">
+      <hr>
+        Split Type DateTime<br>
+      <input [ngModel]="service.formData.DOB | date: 'dd-MMM-yyyy'" (ngModelChange)="service.formData.DOB=$event" name="inputField"
+        type="datetime" />
+      <hr>
+    
+
     </div>
     <div class="form-group  col-md-3">
       <label>Geslag</label>
     </div>
     <div class="form-group  col-md-3">
-     <select style='width: 80%;' class="custom-select" name="Gender" #Geslag="ngModel" [(ngModel)]="service.formData.Gender">
+      <select style='width: 80%;' class="custom-select" name="Gender" #Geslag="ngModel" [(ngModel)]="service.formData.Gender">
         <option value="Manlik">Manlik</option>
         <option value="Vroulik">Vroulik</option>
       </select>
     </div>
 
 
-  
+
   </div>
   <div class="form-row">
     <div class="form-group col-md-6">
