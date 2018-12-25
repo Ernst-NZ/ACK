@@ -14,35 +14,28 @@
   </div>
   <div class="form-group">
     <label>Email Address</label>
-    <input name="Email" #Email="ngModel" [(ngModel)]="service.formData.Email" class="form-control">
+    <input type='email' name="Email" #Email="ngModel" [(ngModel)]="service.formData.Email" class="form-control">
   </div>
   <div class="form-row">
     <div class="form-group col-md-6">
       <label>Geboorte Datum</label>
       <input name="DOB" #DOB="ngModel" [(ngModel)]="service.formData.DOB" class="form-control">
+      <input [ngModel]="service.formData.DOB | date: 'dd-MMM-yy'" 
+      (ngModelChange)="service.formData.DOB=$event" name="inputField" type="datetime" />
      
     </div>
     <div class="form-group  col-md-3">
       <label>Geslag</label>
     </div>
     <div class="form-group  col-md-3">
-      <!-- <label>Geslag</label> -->
-      <!-- <input name="Gender" #Geslag="ngModel" [(ngModel)]="service.formData.Gender" class="form-control"> -->
-      <select class="custom-select" name="Gender" #Geslag="ngModel" [(ngModel)]="service.formData.Gender">
+     <select style='width: 80%;' class="custom-select" name="Gender" #Geslag="ngModel" [(ngModel)]="service.formData.Gender">
         <option value="Manlik">Manlik</option>
         <option value="Vroulik">Vroulik</option>
       </select>
     </div>
 
 
-    <select name="geslagSelect" ng-model="service.formData.Gender">
-      <option value="Mankil">Manlik</option>
-      <option value="Vroulik">Vroulik</option>
-    </select>
-
-
-
-
+  
   </div>
   <div class="form-row">
     <div class="form-group col-md-6">

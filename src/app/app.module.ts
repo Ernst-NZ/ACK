@@ -20,6 +20,7 @@ import { AngularFittextModule } from 'angular-fittext';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { AuthGuard } from './_auth/auth.guard';
 import { AuthInterceptor } from './_auth/auth.intercepter';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
 import { LidmateModule } from './lidmate/lidmate.module';
 import { SharedModule } from './_shared/shared.module';
@@ -118,7 +119,8 @@ import { DiensRoosterComponent } from './diens-rooster/diens-rooster.component';
     BrowserAnimationsModule,
     AlertModule.forRoot(),
     AngularFittextModule,
-    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
+    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
+    NgbModule
   ],
   providers: [UserService, 
     AuthGuard,
