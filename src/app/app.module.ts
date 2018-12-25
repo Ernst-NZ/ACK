@@ -6,7 +6,7 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MainNavComponent } from './main-nav/main-nav.component';
 import { LayoutModule } from '@angular/cdk/layout';
-import { MatListModule, MatTableModule, MatPaginatorModule, MatSortModule, MatFormFieldModule, MatInputModule, MatRippleModule } from '@angular/material';
+import { MatListModule, MatTableModule, MatPaginatorModule, MatSortModule, MatFormFieldModule, MatInputModule, MatRippleModule, MatNativeDateModule } from '@angular/material';
 import { MatToolbarModule, MatButtonModule, MatSidenavModule, MatIconModule} from '@angular/material';
 import { MatCheckboxModule, MatMenuModule, } from '@angular/material';
 import {MatDatepickerModule} from '@angular/material/datepicker';
@@ -86,33 +86,27 @@ import { DiensRoosterComponent } from './diens-rooster/diens-rooster.component';
     AppRoutingModule,
     BrowserAnimationsModule,
     LayoutModule,
-    MatToolbarModule,
     MatButtonModule,
-    MatSidenavModule,
-    MatMenuModule,
+    MatButtonModule,
+    MatCheckboxModule,
+    MatFormFieldModule,
     MatIconModule,
     MatListModule,
-    MatTableModule,
+    MatMenuModule,
     MatPaginatorModule,
+    MatSidenavModule,
     MatSortModule,
     MatTableModule,
-    MatPaginatorModule,
-    MatSortModule,
-    MatCheckboxModule,
-    MatIconModule,
-    MatButtonModule,
-    MatButtonModule,
-    MatFormFieldModule,
+    MatToolbarModule,
     MatInputModule,
     MatRippleModule,
     MatDatepickerModule,
+    MatNativeDateModule,
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    BrowserAnimationsModule,
     LidmateModule,
-    FormsModule,
-    MatButtonModule,
+    FormsModule,    
     SharedModule,
     CoreModule,
     ToastrModule.forRoot(),

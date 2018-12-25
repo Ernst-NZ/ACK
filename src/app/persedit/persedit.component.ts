@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { UserService } from '../_shared/user.service';
 
+
 @Component({
   selector: 'app-persedit',
   templateUrl: './persedit.component.html',
