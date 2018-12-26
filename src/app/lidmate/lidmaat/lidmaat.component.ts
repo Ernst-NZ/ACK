@@ -47,7 +47,7 @@ export class LidmaatComponent implements OnInit {
      }
    }
   onSubmit(form: NgForm) {
-    if (form.value.id == null)
+    if (form.value.LidmaatId == null)
       this.insertRecord(form);
     else
       this.updateRecord(form);
