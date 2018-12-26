@@ -8,7 +8,7 @@ import { SharedModule } from '../_shared/shared.module';
  import { LidmateLysComponent } from './lidmate-lys/lidmate-lys.component';
  import { FilterTextboxComponent } from './lidmate-lys/filter-textbox.component';
  import { LidmaatComponent } from './lidmaat/lidmaat.component';
-import { MatDatepickerModule, MatNativeDateModule, MatFormFieldModule, MatButtonModule, MatCheckboxModule, MatIconModule, MatListModule, MatMenuModule, MatPaginatorModule, MatSidenavModule, MatSortModule, MatTableModule, MatToolbarModule, MatInputModule, MatRippleModule } from '@angular/material';
+import { MatDatepickerModule, MatNativeDateModule, MatFormFieldModule, MatButtonModule, MatCheckboxModule, MatIconModule, MatListModule, MatMenuModule, MatPaginatorModule, MatSidenavModule, MatSortModule, MatTableModule, MatToolbarModule, MatInputModule, MatRippleModule, NativeDateModule, MAT_DATE_FORMATS } from '@angular/material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
@@ -21,6 +21,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
                   MatButtonModule,
                   MatButtonModule,
                   MatCheckboxModule,
+                  MatDatepickerModule,
                   MatFormFieldModule,
                   MatIconModule,
                   MatListModule,
@@ -31,11 +32,12 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
                   MatTableModule,
                   MatToolbarModule,
                   MatInputModule,
-                  MatRippleModule,
-                  MatDatepickerModule,
-                  MatNativeDateModule, ],
+                  MatRippleModule,                  
+                  MatNativeDateModule,
+                  NativeDateModule ],
   declarations: [ LidmateComponent, LidmateLysComponent, FilterTextboxComponent, LidmaatComponent ],
-  exports: [ LidmateComponent ]
+  exports: [ LidmateComponent ],
+  
 
 })
 export class LidmateModule { 

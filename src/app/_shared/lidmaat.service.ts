@@ -8,8 +8,8 @@ import { HttpClient } from "@angular/common/http";
 export class LidmaatService {
 formData : Lidmaat;
 list : Lidmaat[];
-// readonly rootURL ="http://localhost:3000/api"
-readonly rootURL ="https://data.ezy.kiwi/api"
+ readonly rootURL ="http://localhost:3000/api"
+// readonly rootURL ="https://data.ezy.kiwi/api"
   constructor(private http : HttpClient) { }
 
   postLidmaat(formData : Lidmaat){

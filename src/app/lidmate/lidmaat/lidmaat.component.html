@@ -19,41 +19,29 @@
   <div class="form-row">
     <div class="form-group col-md-6">
       <label>Geboorte Datum</label>
-      Normal field<br>
-      <input name="DOB" #DOB="ngModel" [(ngModel)]="service.formData.DOB" class="form-control">
-      <hr>
-      Some as above type = date<br>
-      <input type="date" name="DOB" #DOB="ngModel" [(ngModel)]="service.formData.DOB" class="form-control">
-      <hr>
-        Split Type DateTime<br>
-      <input [ngModel]="service.formData.DOB | date: 'dd-MMM-yyyy'" (ngModelChange)="service.formData.DOB=$event" name="inputField"
-        type="datetime" />
-      <hr>
-      material Plein
-      <mat-form-field>
-        <input matInput [matDatepicker]="myDatepicker" name="DOB" #DOB="ngModel" [(ngModel)]="service.formData.DOB">
-        <mat-datepicker-toggle matSuffix [for]="myDatepicker"></mat-datepicker-toggle>
-        <mat-datepicker #myDatepicker></mat-datepicker>
-      </mat-form-field>
+      <!-- <mat-form-field> -->
+      <mat-datepicker-toggle matSuffix [for]="myDatepicker"></mat-datepicker-toggle>
+      <input class="max_Width_80" matInput [matDatepicker]="myDatepicker" name="DOB" #DOB="ngModel" [(ngModel)]="service.formData.DOB">
+      <mat-datepicker #myDatepicker></mat-datepicker>
+      <!-- </mat-form-field> -->
+    </div>
+    <div class="form-group  col-md-6">
+      <label>Geslag</label><br>
 
-    </div>
-    <div class="form-group  col-md-3">
-      <label>Geslag</label>
-    </div>
-    <div class="form-group  col-md-3">
-      <select style='width: 80%;' class="custom-select" name="Gender" #Geslag="ngModel" [(ngModel)]="service.formData.Gender">
+      <select class="custom-select max_Width_80" name="Gender" #Geslag="ngModel" [(ngModel)]="service.formData.Gender">
         <option value="Manlik">Manlik</option>
         <option value="Vroulik">Vroulik</option>
       </select>
     </div>
 
-
-
   </div>
   <div class="form-row">
     <div class="form-group col-md-6">
       <label>Huweliks Datum</label>
-      <input name="WeddingDate" #WeddingDate="ngModel" [(ngModel)]="service.formData.WeddingDate" class="form-control">
+      <mat-datepicker-toggle matSuffix [for]="myWeddingpicker"></mat-datepicker-toggle>
+      <input class="max_Width_80" matInput [matDatepicker]="myWeddingpicker" name="WeddingDate" #WeddingDate="ngModel"
+        [(ngModel)]="service.formData.WeddingDate">
+      <mat-datepicker #myWeddingpicker></mat-datepicker>
     </div>
     <div class="form-group  col-md-6">
       <label>Sel Foon</label>
@@ -73,6 +61,29 @@
         [(ngModel)]="service.formData.Active">
       <label class="form-check-label" for="defaultCheck1">Aktief
       </label>
+    </div>
+  </div>
+
+  <div class="form-row">
+    <div class="form-group col-md-6">
+      <label>Laaste Besoek</label>
+      <mat-datepicker-toggle matSuffix [for]="myVisitpicker"></mat-datepicker-toggle>
+      <input class="max_Width_80" matInput [matDatepicker]="myVisitpicker" name="VisitDate" #VisitDate="ngModel"
+        [(ngModel)]="service.formData.LastVisit">
+      <mat-datepicker #myVisitpicker></mat-datepicker>
+    </div>
+    <div class="form-group col-md-6">
+      <!-- <label>Notas</label>
+            <textarea rows="20" cols="50" name="comment" form="usrform" name="LastNotes" #LastNotes="ngModel" [(ngModel)]="service.formData.LastNotes">
+                Enter text here...</textarea> -->
+    </div>
+  </div>
+  <div class="form-row">
+    <div class="form-group col-md-12">
+      <label>Notas</label>
+      <textarea id="visitNotes" rows="20" cols="50" name="comment" form="usrform" name="LastNotes" #LastNotes="ngModel"
+        [(ngModel)]="service.formData.LastNotes">
+                Enter text here...</textarea>
     </div>
   </div>
   <div class="form-group">
