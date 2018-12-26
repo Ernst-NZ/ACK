@@ -1,7 +1,7 @@
 <form #form="ngForm" (submit)="onSubmit(form)" autocomplete="off">
   <input type="hidden" name="LidmaatId" #LidmaatId="ngModel" [(ngModel)]="service.formData.LidmaatId">
   <input type="hidden" name="Gemeente" #Gemeente="ngModel" [(ngModel)]="service.formData.Gemeente">
-  <input type="hidden" name="AddressId" #AddressId="ngModel" [(ngModel)]="service.formData.AddressId">
+  <input type="hidden" name="#AddressID" #AddressID="ngModel" [(ngModel)]="service.formData.AddressID">
   <div class="form-group">
     <label class='whiteFont'>Naam</label>
     <input name="FirstName" #FirstName="ngModel" [(ngModel)]="service.formData.FirstName" class="form-control" required>
