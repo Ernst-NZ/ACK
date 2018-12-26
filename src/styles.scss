@@ -182,6 +182,9 @@ body {
 .font05 {
   font-size: 0.5em;
 }
+.max_Width_80 {
+    max-width: 80%;
+}
 .menuWidth {
     width: 90%;
     font-size: 70%;
@@ -191,6 +194,29 @@ body {
     padding-bottom: 0;
     height: auto;
 }
+.mat-form-field-appearance-legacy .mat-form-field-underline {
+    height: 0;
+}
+.mat-form-field-appearance-legacy .mat-form-field-underline {
+     background-color: transparent; 
+}
+.mat-form-field {
+    max-height: 1em;
+}
+input[type=email]:not(.browser-default) {
+    color: yellow;
+}
+
+#scrollable-area {
+    margin: auto;   
+    max-height: 600px;
+    overflow-y: scroll; /* <-- here is what is important*/
+  }
+#visitNotes {
+    height: 200px;
+    color: yellow;
+}
+
 // Sign Up
 div.sm-jumbotron{
     margin: 0px;
