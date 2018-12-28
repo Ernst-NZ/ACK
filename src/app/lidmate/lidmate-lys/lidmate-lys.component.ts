@@ -3,6 +3,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { ILidmaat } from '../../_shared/interfaces'
 import { LidmaatService } from '../../_shared/lidmaat.service';
 import { SorterService } from '../../_core/sorter.service';
+import { filter } from 'rxjs/operators';
 
 @Component({
     selector: 'app-lidmate-lys',
@@ -13,7 +14,8 @@ export class LidmateLysComponent implements OnInit {
     @Input() get lidmate(): ILidmaat[] {
         return this._lidmate;
     }
-    
+    isVisible = true;
+
     set lidmate(value: ILidmaat[]) {
         if (value) {
             this.filteredLidmate = this._lidmate = value;
@@ -43,8 +45,9 @@ export class LidmateLysComponent implements OnInit {
         if (data) {
             this.filteredLidmate = this.lidmate.filter((cust: ILidmaat) => {
                 return cust.FirstName.toLowerCase().indexOf(data.toLowerCase()) > -1 ||
-                      cust.LastName.toLowerCase().indexOf(data.toLowerCase()) > -1;
-                    //    cust.LastVisit.toDateString().indexOf(data.toLowerCase()) > -1; 
+                       cust.LastName.toLowerCase().indexOf(data.toLowerCase()) > -1 ||
+                    //   cust.LastVisit.toString().indexOf(data.toLowerCase()) > -1 ||
+                       cust.LidmaatId.toString().indexOf(data.toLowerCase()) > -1; 
             });
             this.calculateOrders();
         } else {
@@ -60,6 +63,14 @@ export class LidmateLysComponent implements OnInit {
 
     populateForm(lid: ILidmaat) {
         this.lidmaatService.formData = Object.assign({}, lid);
+        this.isVisible = !this.isVisible;
+        this.filter(lid.LidmaatId.toString())        
       }
+
+      changeVisibility() {
+        this.isVisible = !this.isVisible;
+        this.filter("")
+        }
+        
 }
  

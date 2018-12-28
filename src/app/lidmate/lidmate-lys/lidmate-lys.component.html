@@ -1,4 +1,6 @@
-<app-filter-textbox  (changed)="filter($event)"></app-filter-textbox>
+<app-filter-textbox  [hidden]="!isVisible" (changed)="filter($event)"></app-filter-textbox>
+<button style="color: maroon;" [hidden]="isVisible" (click)="changeVisibility()">Lidmaat Lys</button>
+
 <br />
 <br />
 <div id="scrollable-area">
@@ -7,25 +9,18 @@
         <tr>
             <th (click)="sort('FirstName')">Naam</th>
             <th (click)="sort('LastName')">Van</th>
-            <th (click)="sort('Gemeente')">Gemeente</th>
+            <th (click)="sort('LastVisit')">Laaste Besoek</th>           
         </tr>
     </thead>
     <tr *ngFor="let lid of filteredLidmate">
-        <td>
+        <td (click)="populateForm(lid)">
             <a>
                 {{ lid.FirstName | capitalize}}
             </a>
         </td>
         <td (click)="populateForm(lid)">{{ lid.LastName | capitalize}}</td>
-        <td>{{ lid.Gemeente }}</td>
-    </tr>
-    <tr *ngIf="filteredLidmate && filteredLidmate.length">
-        <td colspan="2">&nbsp;</td>
-        <td>
-            <!-- {{ customersOrderTotal }} -->
-            totaal
-        </td>
-    </tr>
+        <td (click)="populateForm(lid)">{{ lid.LastVisit | date: 'dd-MMM-yy' }}</td>        
+    </tr>   
     <tr *ngIf="!filteredLidmate || !filteredLidmate.length">
         <td colspan="4">Geen lidmate gevind nie</td>
     </tr>

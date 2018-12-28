@@ -22,6 +22,8 @@ import { AuthGuard } from './_auth/auth.guard';
 import { AuthInterceptor } from './_auth/auth.intercepter';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
+import { Globals } from './globals';
+
 import { LidmateModule } from './lidmate/lidmate.module';
 import { SharedModule } from './_shared/shared.module';
 import { CoreModule } from './_core/core.module';
@@ -119,6 +121,7 @@ import { DiensRoosterComponent } from './diens-rooster/diens-rooster.component';
   providers: [UserService, 
     AuthGuard,
     LidmaatService,
+    Globals,
   {
     provide : HTTP_INTERCEPTORS,
     useClass: AuthInterceptor,

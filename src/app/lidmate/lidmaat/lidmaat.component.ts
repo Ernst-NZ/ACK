@@ -50,7 +50,7 @@ export class LidmaatComponent implements OnInit {
     if (form.value.LidmaatId == null)
       this.insertRecord(form);
     else
-      this.updateRecord(form);
+      this.updateRecord(form);      
   }
 
   insertRecord(form: NgForm) {
@@ -63,9 +63,11 @@ export class LidmaatComponent implements OnInit {
 
   updateRecord(form: NgForm) {
     this.service.putLidmaat(form.value).subscribe(res => {
-      this.toastr.info('Updated successfully', 'Lidmaat Register');
+      this.toastr.info('Updated successfully', '');
       this.resetForm(form);
-      this.service.refreshList();
+      // this.service.getLidmate()
+      // this.service.refreshList();    
+       window.location.reload();
     });
 
   }

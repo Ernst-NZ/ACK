@@ -1,34 +1,36 @@
-import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import {Injectable }from '@angular/core'; 
+import {HttpClient }from '@angular/common/http'; 
 
-import { Observable } from 'rxjs/Observable';
-import { map, catchError } from 'rxjs/operators';
+import {Observable }from 'rxjs/Observable'; 
+import {map, catchError }from 'rxjs/operators'; 
+import {Globals }from '../globals'; 
 
-// import { ICustomer, IOrder } from '../../app/shared/interfaces';
-import { ILidmaat } from '../../app/_shared/interfaces';
+import {ILidmaat }from '../../app/_shared/interfaces'; 
 
 @Injectable()
 export class DataService {
 
-    readonly rootURL ="https://data.ezy.kiwi/api"
+   readonly rootURL ="http://localhost:3000/api"
+  // readonly rootURL ="https://data.ezy.kiwi/api"
+  //   readonly rootURL = this.globals.dataSource && "/api"
     
-    constructor(private http: HttpClient) { }
+    constructor(private http:HttpClient, private globals:Globals) {}
 
-    getLidmate() : Observable<ILidmaat[]> {
-        return this.http.get<ILidmaat[]>(this.rootURL +'/Persoon')
+    getLidmate():Observable < ILidmaat[] >  {
+        return this.http.get < ILidmaat[] > (this.rootURL + '/Persoon')
             .pipe(
                 catchError(this.handleError)
-            );
+            ); 
     }
  
     
-    getLidmaat(id: number) : Observable<ILidmaat> {
-      return this.http.get<ILidmaat[]>(this.rootURL + '/Persoon')
+    getLidmaat(id:number):Observable < ILidmaat >  {
+      return this.http.get < ILidmaat[] > (this.rootURL + '/Persoon')
         .pipe(
-          map(lidmate => {
-            let lidmaat = lidmate.filter((lid: ILidmaat) => lid.LidmaatId === id);
-            return (lidmaat && lidmaat.length) ? lidmaat[0] : null;
-          }),
+          map(lidmate =>  {
+            let lidmaat = lidmate.filter((lid:ILidmaat) => lid.LidmaatId === id); 
+            return (lidmaat && lidmaat.length)?lidmaat[0]:null; 
+          }), 
           catchError(this.handleError)
         )
     }
@@ -45,15 +47,13 @@ export class DataService {
     // }
 
 
-    private handleError(error: any) {
-      console.error('server error:', error);
+    private handleError(error:any) {
+      console.error('server error:', error); 
       if (error.error instanceof Error) {
-          const errMessage = error.error.message;
-          return Observable.throw(errMessage);
-          // Use the following instead if using lite-server
-          // return Observable.throw(err.text() || 'backend server error');
+          const errMessage = error.error.message; 
+          return Observable.throw(errMessage); 
       }
-      return Observable.throw(error || 'Node.js server error');
+      return Observable.throw(error || 'Node.js server error'); 
     }
 
 }
