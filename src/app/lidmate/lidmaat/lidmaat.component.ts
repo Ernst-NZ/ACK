@@ -2,7 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
 import { LidmaatService } from 'src/app/_shared/lidmaat.service';
-
+import { Router } from '@angular/router';
+import { HttpErrorResponse } from '@angular/common/http';
 
 export interface Geslag {
   value: string;
@@ -21,7 +22,7 @@ export class LidmaatComponent implements OnInit {
     { value: 'Vroulik', viewValue: 'Vroulik'},
   ];
   constructor(public service: LidmaatService,
-    private toastr: ToastrService) { }
+    private toastr: ToastrService, private router : Router) { }
 
   ngOnInit() {
      this.resetForm();
