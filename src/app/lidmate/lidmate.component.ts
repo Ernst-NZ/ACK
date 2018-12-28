@@ -12,13 +12,25 @@ import { Router } from '@angular/router';
 export class LidmateComponent implements OnInit {
   title: string;
   mense: any[];
+  isVisible = true;
+  loading = true;
   
   constructor(private dataService: DataService,private router : Router) {}
   
   ngOnInit() {
+    this.loading = true;
       this.title = 'Lidmate';
       this.dataService.getLidmate()
-      .subscribe((lidmate: ILidmaat[]) => this.mense = lidmate);     
+      .subscribe((lidmate: ILidmaat[]) => this.mense = lidmate); 
+    //  this.loading = false;    
   }
+
+  persoonlik() {
+    this.isVisible = !this.isVisible;
+  }
+  
+  adres() {
+    this.isVisible = !this.isVisible;
+  } 
 }
 
