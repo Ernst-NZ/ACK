@@ -1,44 +1,44 @@
 <div class="jumbtron">
-    <h3 class="display-4 text-center">Lidmate</h3>
-    <div class="row">
-      <div class="col-md-5">
-        <app-lidmate-lys [lidmate]="mense"></app-lidmate-lys>
-      </div>
-      <!-- <img *ngIf="loading" src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA==" /> -->
-      <div class="col-md-7">
-        <!-- <app-lidmaat></app-lidmaat> -->
-        <div class="container">
-          <div class="row">
-            <div class="col s8">
-              <div class="card grey lighten-2">
-                <div class="card-tabs">
-                  <ul class="tabs-fixed-width tabs-transparent">
-                    <li class="tab">
-                      <button type="button" class="btn btn-info" (click)='persoonlik()' [hidden]="isVisible">Persoonlik</button>
-                    </li>
-                    <li class="tab">
-                      <button type="button" class="btn btn-info" (click)='adres()' [hidden]="!isVisible">Address</button>
-                    </li>
-                  </ul>
-                </div>                
-                <div class="card-content white">
-                  <div class="row">
-                    <div [hidden]="!isVisible">
-                        <app-lidmaat></app-lidmaat>
-                    </div>
-                    <div [hidden]="isVisible">
-                        <app-lid-address></app-lid-address>
-                    </div>
-                    
-                    
+  <h3 class="display-4 text-center">Lidmate</h3>
+  <div class="row">
+    <div class="col-md-5">
+      <app-lidmate-lys [lidmate]="mense"></app-lidmate-lys>
+    </div>
+    <!-- <img *ngIf="loading" src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA==" /> -->
+    <div class="col-md-7">
+      <!-- <app-lidmaat></app-lidmaat> -->
+      <div class="container">
+        <div class="row">
+          <div class="col s8">
+            <div class="card grey lighten-2">
+              <div class="card-tabs">
+                <ul class="tabs-fixed-width tabs-transparent">
+                  <li class="tab">
+                    <button type="button" class="btn btn-info" (click)='persoonlik()' [hidden]="isVisible">Na Persoonlike Inligting</button>
+                  </li>
+                  <li class="tab center">
+                    <button type="button" class="btn btn-warning" (click)='adres()' [hidden]="!isVisible">Na Adres
+                      Inligting</button>
+                  </li>
+                </ul>
+              </div>
+              <div class="card-content white">
+                <div class="row">
+                  <div [hidden]="!isVisible">
+                    <app-lidmaat></app-lidmaat>
                   </div>
+                  <div [hidden]="isVisible">
+                    <app-lid-address></app-lid-address>
+                  </div>
+
+
                 </div>
               </div>
             </div>
           </div>
         </div>
-        <!-- xxxxxx -->
       </div>
+      <!-- xxxxxx -->
     </div>
   </div>
-  
+</div>

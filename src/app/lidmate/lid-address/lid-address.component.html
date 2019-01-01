@@ -1,3 +1,37 @@
-<p>
-  lid-address works!
-</p>
+<hr>
+<form #formAddress="ngForm" (submit)="onSubmit(formAddress)" autocomplete="off"></form>
+    <h5>Adres</h5>
+    <div class="form-row">
+      <div class="form-group col-md-2">
+        <label>Nommer</label>
+        <input name="DOB" #EMPCode="ngModel" [(ngModel)]="service.formData.DOB" class="form-control">
+      </div>
+      <div class="form-group  col-md-10">
+    <label>Straat</label>
+        <input name="Geslag" #Mobile="ngModel" [(ngModel)]="service.formData.Geslag" class="form-control">
+      </div>   
+    </div>
+    <div class="form-row">
+      <div class="form-group col-md-6">
+        <label>Woon Buurt</label>
+        <input name="WeddingDate" #EMPCode="ngModel" [(ngModel)]="service.formData.WeddingDate" class="form-control">
+      </div>
+      <div class="form-group  col-md-6">
+    <label>Dorp</label>
+        <input name="MobilePhone" #Mobile="ngModel" [(ngModel)]="service.formData.MobilePhone" class="form-control">
+      </div>    
+    </div> 
+    <div class="form-row">
+      <div class="form-group col-md-6">
+        <label>Pos Kode</label>
+        <input name="DOB" #EMPCode="ngModel" [(ngModel)]="service.formData.DOB" class="form-control">
+      </div>
+      <div class="form-group  col-md-6">
+    <label>Huis Tel</label>
+        <input name="Active" #Mobile="ngModel" [(ngModel)]="service.formData.Active" class="form-control">
+      </div>   
+    </div>
+    <div class="form-group">
+      <button type="submit" [disabled]="form.invalid" class="btn btn-lg btn-block">SUBMIT</button>
+    </div>
+</form>

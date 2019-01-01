@@ -1,6 +1,6 @@
 import {Injectable }from '@angular/core'; 
 import {Lidmaat }from './lidmaat.model'; 
-import {HttpClient }from "@angular/common/http"; 
+import {HttpClient, HttpHeaders }from "@angular/common/http"; 
 import {Observable }from 'rxjs/Observable'; 
 import {catchError }from 'rxjs/operators'; 
 import {ILidmaat }from '../../app/_shared/interfaces'; 
@@ -12,7 +12,7 @@ import {Globals }from '../globals';
 export class LidmaatService {
 formData:Lidmaat; 
 list:Lidmaat[]; 
-readonly rootURL ="http://localhost:3000/api"
+ readonly rootURL ="http://localhost:3000/api"
 // readonly rootURL ="https://data.ezy.kiwi/api"
 // readonly rootURL = this.globals.dataSource && "/api"
   constructor(private http:HttpClient, private globals:Globals) {}
@@ -35,7 +35,9 @@ readonly rootURL ="http://localhost:3000/api"
 
 
 putLidmaat(formData:Lidmaat) {
-  return this.http.put(this.rootURL + '/Persoon/' + formData.LidmaatId, formData); 
+  var reqHeader = new HttpHeaders( {'No-Auth':'True'})
+    
+  return this.http.put(this.rootURL + '/Persoon/' + formData.LidmaatId, formData,); 
  }
 
  deleteLidmaat(id:number) {

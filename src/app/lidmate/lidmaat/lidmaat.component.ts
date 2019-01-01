@@ -4,6 +4,7 @@ import { ToastrService } from 'ngx-toastr';
 import { LidmaatService } from 'src/app/_shared/lidmaat.service';
 import { Router } from '@angular/router';
 import { HttpErrorResponse } from '@angular/common/http';
+import { ILidmaat } from 'src/app/_shared/interfaces';
 
 export interface Geslag {
   value: string;
@@ -16,7 +17,7 @@ export interface Geslag {
 })
 export class LidmaatComponent implements OnInit {
 
-
+  mense: any;
   gender: Geslag[] = [
     { value: 'Manlik', viewValue: 'Manlik'},
     { value: 'Vroulik', viewValue: 'Vroulik'},
@@ -41,34 +42,36 @@ export class LidmaatComponent implements OnInit {
        MobilePhone: '',
        Email: '',
        WeddingDate: null,
-       Active: null,
+       IsActive: '',
        AddressID: null,
        Gemeente: '',
        PublicDates: ''
      }
    }
-  onSubmit(form: NgForm) {
-    if (form.value.LidmaatId == null)
-      this.insertRecord(form);
+  onSubmit(formLid: NgForm) {
+    if (formLid.value.LidmaatId == null)
+      this.insertRecord(formLid);
     else
-      this.updateRecord(form);      
+      this.updateRecord(formLid);      
   }
 
-  insertRecord(form: NgForm) {
-    this.service.postLidmaat(form.value).subscribe(res => {
-      this.toastr.success('Inserted successfully', 'ACK');
-      this.resetForm(form);
+  insertRecord(formLid: NgForm) {
+    this.service.postLidmaat(formLid.value).subscribe(res => {
+      this.toastr.success('Suksesvol Bygevoeg', '');
+     // this.resetForm(formLid);
       this.service.refreshList();
     });
   }
 
-  updateRecord(form: NgForm) {
-    this.service.putLidmaat(form.value).subscribe(res => {
-      this.toastr.info('Updated successfully', '');
-      this.resetForm(form);
+  updateRecord(formLid: NgForm) {
+    this.service.putLidmaat(formLid.value).subscribe(res => {
+      this.toastr.info('Suksesvol Verander', '');
+   //   this.resetForm(formLid);
       // this.service.getLidmate()
-      // this.service.refreshList();    
-       window.location.reload();
+       this.service.refreshList();    
+      // window.location.reload();
+      this.service.getLidmate()
+      .subscribe((lidmate: ILidmaat[]) => this.mense = lidmate); 
     });
 
   }

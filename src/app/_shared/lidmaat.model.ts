@@ -8,7 +8,7 @@ export class Lidmaat {
  MobilePhone?  : String
  Email?  : String
  WeddingDate? : Date
- Active? : String
+ IsActive? : String
  AddressID? : number
  Gemeente  : String
  PublicDates?  : String
