@@ -15,3 +15,14 @@ export class Lidmaat {
  LastVisit?: Date
  LastNote?: String
 }
+
+export class Address {
+  Id:Number
+  StreetNumber?:String
+  StreetOne?:String
+  StreetTwo?:String
+  Suburb?:String
+  Town?:String
+  PostCode?:String
+  Phone?:String
+}
