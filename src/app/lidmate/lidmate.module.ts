@@ -25,7 +25,7 @@ import { LidAddressComponent } from './lid-address/lid-address.component';
                   MatDatepickerModule, MatNativeDateModule,
                   RouterModule, ],
   declarations: [ LidmateComponent, LidmateLysComponent, FilterTextboxComponent, LidmaatComponent, LidAddressComponent ],
-  exports: [ LidmateComponent ]
+  exports: [ LidmateComponent, LidmaatComponent ]
 
 })
 export class LidmateModule { 

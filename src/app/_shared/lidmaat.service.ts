@@ -57,7 +57,6 @@ constructor(private http:HttpClient, private globals:Globals) {}
 
    // Address
    postAddress(formAdd:Address) {
-    console.log("Before post address")
     return this.http.post(this.rootURL + '/Addresse', formAdd); 
    }
 

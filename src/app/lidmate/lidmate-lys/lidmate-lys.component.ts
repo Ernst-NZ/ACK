@@ -1,9 +1,9 @@
 import { Component, OnInit, Input } from '@angular/core';
-
 import { ILidmaat } from '../../_shared/interfaces'
 import { LidmaatService } from '../../_shared/lidmaat.service';
 import { SorterService } from '../../_core/sorter.service';
 import { filter } from 'rxjs/operators';
+import { Globals } from '../../globals';
 
 @Component({
     selector: 'app-lidmate-lys',
@@ -28,7 +28,8 @@ export class LidmateLysComponent implements OnInit {
     customersOrderTotal: number;
     currencyCode: string = 'USD';
     
-    constructor(private sorterService: SorterService, private lidmaatService: LidmaatService) {}
+    constructor(private sorterService: SorterService, private lidmaatService: LidmaatService,
+        private globals: Globals ) {}
     
     ngOnInit() {
 
@@ -64,7 +65,8 @@ export class LidmateLysComponent implements OnInit {
     populateForm(lid: ILidmaat) {
         this.lidmaatService.formData = Object.assign({}, lid);
         this.isVisible = !this.isVisible;
-        this.filter(lid.LidmaatId.toString())        
+        this.filter(lid.LidmaatId.toString())
+        this.globals.lidmaatId = lid.LidmaatId;
       }
 
       changeVisibility() {

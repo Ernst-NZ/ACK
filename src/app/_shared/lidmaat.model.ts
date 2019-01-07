@@ -17,7 +17,7 @@ export class Lidmaat {
 }
 
 export class Address {
-  Id:Number
+  Id:String
   StreetNumber?:String
   StreetOne?:String
   StreetTwo?:String

@@ -14,6 +14,7 @@ export class LidmateComponent implements OnInit {
   mense: any[];
   isVisible = true;
   loading = true;
+  Lidmaatxx: 99;
   
   constructor(private dataService: DataService,private router : Router) {}
   
