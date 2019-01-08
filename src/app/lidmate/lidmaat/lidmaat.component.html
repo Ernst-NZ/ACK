@@ -1,3 +1,4 @@
+<button (click)="testOnLidmaat()">test this</button>
 <form #formLid="ngForm" (submit)="onSubmit(formLid)" autocomplete="off">
   <input type="hidden" name="LidmaatId" #LidmaatId="ngModel" [(ngModel)]="service.formData.LidmaatId">
   <input type="hidden" name="Gemeente" #Gemeente="ngModel" [(ngModel)]="service.formData.Gemeente">
@@ -78,5 +79,7 @@
     <button type="submit" [disabled]="formLid.invalid" class="btn btn-lg btn-block">SUBMIT</button>
   </div>
 </form>
+
+
 
 

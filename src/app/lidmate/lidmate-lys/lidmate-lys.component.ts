@@ -73,6 +73,10 @@ export class LidmateLysComponent implements OnInit {
         this.isVisible = !this.isVisible;
         this.filter("")
         }
+
+        test() {
+            alert("xx")
+        }
         
 }
  

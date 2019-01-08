@@ -1,9 +1,9 @@
 <hr>
+<button (click)="updateLid()">test Address</button>
 <form #formAdd="ngForm" (submit)="onSubmit(formAdd)" autocomplete="off">
-  <!-- <input type="hidden" name="LidmaatId" #LidmaatId="ngModel" [(ngModel)]="service.formData.LidmaatId"> -->
-   <input type="hidden" name="Id" #AddressID="ngModel" [(ngModel)]="service.formAdd.Id">
+  <input type="hidden" name="Id" #AddressID="ngModel" [(ngModel)]="service.formAdd.Id">
   <h5>Adres</h5>
- <div class="form-row">
+  <div class="form-row">
     <div class="form-group col-md-2">
       <label>Nommer</label>
       <input name="StreetNumber" #StreetNumber="ngModel" [(ngModel)]="service.formAdd.StreetNumber" class="form-control">
@@ -13,37 +13,27 @@
       <input name="StreetOne" #StreetOne="ngModel" [(ngModel)]="service.formAdd.StreetOne" class="form-control">
     </div>
   </div>
-  <!-- <div class="form-row">
+  <div class="form-row">
     <div class="form-group col-md-6">
-      <label>Straat</label>
-      <input name="StreetTwo" #StreetTwo="ngModel" [(ngModel)]="service.formAddress.StreetTwo" class="form-control">
+      <label>Woonbuurt</label>
+      <input name="Suburb" #Suburb="ngModel" [(ngModel)]="service.formAdd.Suburb" class="form-control">
     </div>
     <div class="form-group  col-md-6">
       <label>Dorp</label>
-      <input name="MobilePhone" #Mobile="ngModel" [(ngModel)]="service.formData.MobilePhone" class="form-control">
+      <input name="Town" #Town="ngModel" [(ngModel)]="service.formAdd.Town" class="form-control">
     </div>
-  </div> -->
-  <!-- <div class="form-row">
-      <div class="form-group col-md-6">
-        <label>Woonbuurt</label>
-        <input name="Suburb" #Suburb="ngModel" [(ngModel)]="service.formAddress.Suburb" class="form-control">
-      </div>
-      <div class="form-group  col-md-6">
-        <label>Dorp</label>
-        <input name="Town" #Town="ngModel" [(ngModel)]="service.formAddress.Town" class="form-control">
-      </div>
-    </div>
+  </div>
   <div class="form-row">
     <div class="form-group col-md-6">
       <label>Poskode</label>
-      <input name="PostCode" #PostCode="ngModel" [(ngModel)]="service.formAddress.PostCode" class="form-control">
+      <input name="PostCode" #PostCode="ngModel" [(ngModel)]="service.formAdd.PostCode" class="form-control">
     </div>
     <div class="form-group  col-md-6">
       <label>Huis Tel</label>
-      <input name="Phone" #Phone="ngModel" [(ngModel)]="service.formAddress.Phone" class="form-control">
+      <input name="Phone" #Phone="ngModel" [(ngModel)]="service.formAdd.Phone" class="form-control">
     </div>
-  </div>  -->
+  </div>
   <div class="form-group">
-      <button type="submit" [disabled]="formAdd.invalid" class="btn btn-lg btn-block">SUBMIT</button>
-    </div>
+    <button type="submit" [disabled]="formAdd.invalid" class="btn btn-lg btn-block">SUBMIT</button>
+  </div>
 </form>

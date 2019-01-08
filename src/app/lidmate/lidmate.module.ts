@@ -5,13 +5,14 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { Routes, RouterModule } from '@angular/router';
 
 import { SharedModule } from '../_shared/shared.module';
- import { LidmateComponent }  from './lidmate.component'
- import { LidmateLysComponent } from './lidmate-lys/lidmate-lys.component';
- import { FilterTextboxComponent } from './lidmate-lys/filter-textbox.component';
- import { LidmaatComponent } from './lidmaat/lidmaat.component';
+import { LidmateComponent }  from './lidmate.component'
+import { LidmateLysComponent } from './lidmate-lys/lidmate-lys.component';
+import { LidmaatComponent } from './lidmaat/lidmaat.component';
+import { LidAddressComponent } from './lid-address/lid-address.component';
+
+import { FilterTextboxComponent } from './lidmate-lys/filter-textbox.component';
 import { MatDatepickerModule, MatNativeDateModule, MatFormFieldModule, MatButtonModule, MatCheckboxModule, MatIconModule, MatListModule, MatMenuModule, MatPaginatorModule, MatSidenavModule, MatSortModule, MatTableModule, MatToolbarModule, MatInputModule, MatRippleModule } from '@angular/material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { LidAddressComponent } from './lid-address/lid-address.component';
 
 
 @NgModule({

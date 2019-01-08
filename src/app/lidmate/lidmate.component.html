@@ -25,10 +25,10 @@
               <div class="card-content white">
                 <div class="row">
                   <div [hidden]="!isVisible">
-                    <app-lidmaat></app-lidmaat>
+                    <app-lidmaat #lidmaat></app-lidmaat>
                   </div>
                   <div [hidden]="isVisible">
-                    <app-lid-address></app-lid-address>
+                    <app-lid-address #address (updateLidmaat)="lidmaat.testOnLidmaat($event)"></app-lid-address>
                   </div>
 
 

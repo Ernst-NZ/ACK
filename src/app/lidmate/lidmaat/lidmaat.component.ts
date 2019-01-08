@@ -33,7 +33,7 @@ export class LidmaatComponent implements OnInit {
       if (formLid != null)
         formLid.resetForm();
       this.service.formData = {
-        LidmaatId: null,
+       LidmaatId: null,
        FirstName: '',
        LastName: '',
        NickName: '',
@@ -65,6 +65,7 @@ export class LidmaatComponent implements OnInit {
   }
 
   updateRecord(formLid: NgForm) {
+    console.log(formLid);
     this.service.putLidmaat(formLid.value).subscribe(res => {
       this.toastr.info('Suksesvol Verander', '');
    //   this.resetForm(formLid);
@@ -74,13 +75,25 @@ export class LidmaatComponent implements OnInit {
       this.service.getLidmate()
       .subscribe((lidmate: ILidmaat[]) => this.mense = lidmate); 
     });
-
   }
 
-  testOnLidmaat() {
-    alert("testOnLidmaat")
+  testOnLidmaat($event) { 
+    alert("testOnLidmaat can do update from here");
+    console.log($event);
+    alert('ui param from Component: ' + $event.addressId);
+    this.service.formData.AddressID = $event.addressId;
+    console.log(this.service.formData);   
+    this.service.putLidmaat(this.service.formData).subscribe(res => {
+      this.toastr.info('Suksesvol Verander', '');
+   //   this.resetForm(formLid);
+      // this.service.getLidmate()
+       this.service.refreshList();    
+      // window.location.reload();
+      this.service.getLidmate()
+      .subscribe((lidmate: ILidmaat[]) => this.mense = lidmate); 
+    });
   }
-  
+ 
 }
 
 

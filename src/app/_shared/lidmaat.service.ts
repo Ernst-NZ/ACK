@@ -82,4 +82,8 @@ constructor(private http:HttpClient, private globals:Globals) {}
     return this.http.delete(this.rootURL + '/Addresse/' + id); 
    }
 
+   testOnLidmaatService() {
+     alert("Test On Lidmaat Service")
+   }
+
  }
