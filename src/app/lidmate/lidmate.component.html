@@ -1,10 +1,13 @@
 <div class="jumbtron">
-  <h3 class="display-4 text-center">Lidmate</h3>
+  <!-- <h4 class="text-center">Lidmate</h4> -->
   <div class="row">
     <div class="col-md-5">
-      <app-lidmate-lys [lidmate]="mense"></app-lidmate-lys>
+      <app-lidmate-lys (getDetails)="getDetails($event)" [lidmate]="mense"></app-lidmate-lys>
     </div>
     <div class="col-md-7">
+      <div style='margin-top: 2em; margin-left: 1em'>
+        <h5>{{ lidmaatDetails }}</h5>
+      </div>
       <div class="container">
         <div class="row">
           <div class="col s8">
@@ -15,7 +18,7 @@
                     <button type="button" class="btn btn-info" (click)='persoonlik()' [hidden]="isVisible">Na
                       Persoonlike Inligting</button>
                   </li>
-                  <li class="tab center">
+                  <li class="right">
                     <button type="button" class="btn btn-warning" (click)='adres()' [hidden]="!isVisible">Na Adres
                       Inligting</button>
                   </li>

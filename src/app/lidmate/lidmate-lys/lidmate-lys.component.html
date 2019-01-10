@@ -1,7 +1,5 @@
-<app-filter-textbox  [hidden]="!isVisible" (changed)="filter($event)"></app-filter-textbox>
+<app-filter-textbox (changed)="filter($event)"></app-filter-textbox>
 <button style="color: maroon;" [hidden]="isVisible" (click)="changeVisibility()">Lidmaat Lys</button>
-
-<br />
 <br />
 <div id="scrollable-area">
 <table class="table table-hover">
@@ -27,4 +25,3 @@
 </table>
 </div>
 Aantal Lidmate: {{ filteredLidmate.length }}
-<br />
