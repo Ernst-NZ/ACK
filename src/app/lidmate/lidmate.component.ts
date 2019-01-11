@@ -3,6 +3,8 @@ import { LidmaatService } from '../_shared/lidmaat.service';
 import { ILidmaat } from '../_shared/interfaces';
 import { DataService } from '../_core/data.service';
 import { Router } from '@angular/router';
+import { Globals } from '../globals';
+
 
 @Component({
   selector: 'app-lidmate',
@@ -14,16 +16,19 @@ export class LidmateComponent implements OnInit {
   mense: any[];
   isVisible = true;
   loading = true;
-  Lidmaatxx: 99;
-  
-  constructor(private dataService: DataService,private router : Router) {}
+  lidmaatDetails: String;
+   
+  constructor(private dataService: DataService,private router : Router,
+            private globals: Globals) {}
   
   ngOnInit() {
     this.loading = true;
-      this.title = 'Lidmate';
-      this.dataService.getLidmate()
+    this.title = 'Lidmate';
+    this.dataService.getLidmate()
       .subscribe((lidmate: ILidmaat[]) => this.mense = lidmate); 
-    //  this.loading = false;    
+    //  this.loading = false;
+   // this.lidmaatDetails = this.globals.lidmaatDetails; 
+    this.lidmaatDetails = this.globals.lidmaatDetails;    
   }
 
   persoonlik() {
@@ -33,5 +38,6 @@ export class LidmateComponent implements OnInit {
   adres() {
     this.isVisible = !this.isVisible;
   } 
+
 }
 

@@ -32,7 +32,7 @@ export interface ILidmaat {
  Gemeente:String
  PublicDates?:String
  LastVisit?:Date
- LastNote?:String
+ LastNotes?:String
 }
 
 export interface IAddress {

@@ -13,7 +13,7 @@ export class Lidmaat {
  Gemeente  : String
  PublicDates?  : String
  LastVisit?: Date
- LastNote?: String
+ LastNotes?: String
 }
 
 export class Address {

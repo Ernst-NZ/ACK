@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { ILidmaat } from '../../_shared/interfaces'
 import { LidmaatService } from '../../_shared/lidmaat.service';
 import { SorterService } from '../../_core/sorter.service';
@@ -9,7 +9,7 @@ import { Globals } from '../../globals';
     selector: 'app-lidmate-lys',
     templateUrl: './lidmate-lys.component.html'
 })
-export class LidmateLysComponent implements OnInit {
+export class LidmateLysComponent implements OnInit {    
     private _lidmate: ILidmaat[] = [];
     @Input() get lidmate(): ILidmaat[] {
         return this._lidmate;
@@ -23,10 +23,17 @@ export class LidmateLysComponent implements OnInit {
         }
     }
 
+    // @Output() updateDetails = new EventEmitter();
+    // getDetails(details){
+    //     alert('first step')
+    //   this.updateDetails.emit({ details: details })
+    // }    
+
     filteredLidmate: any[] = [];
     formData : ILidmaat;
     customersOrderTotal: number;
     currencyCode: string = 'USD';
+    
     
     constructor(private sorterService: SorterService, private lidmaatService: LidmaatService,
         private globals: Globals ) {}
@@ -67,16 +74,14 @@ export class LidmateLysComponent implements OnInit {
         this.isVisible = !this.isVisible;
         this.filter(lid.LidmaatId.toString())
         this.globals.lidmaatId = lid.LidmaatId;
+        this.globals.lidmaatDetails = lid.FirstName + ' ' + lid.LastName;
       }
 
       changeVisibility() {
         this.isVisible = !this.isVisible;
         this.filter("")
         }
-
-        test() {
-            alert("xx")
-        }
+      
         
 }
  

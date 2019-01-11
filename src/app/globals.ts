@@ -6,6 +6,7 @@ export class Globals {
   lidmaatId: Number;
   addressId: Number;
   lidmaatDetails: String;
+  addressDetails: String;
 //  dataSource: "https://data.ezy.kiwi"
   dataSource: "http://localhost:3000"
 

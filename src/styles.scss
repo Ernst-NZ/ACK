@@ -148,6 +148,10 @@ body {
     color: white;
  }
 
+ .smallBottom {
+     margin-bottom: 0;
+ }
+
 .left {
     text-align: left;
 }
@@ -284,6 +288,9 @@ div.error-message i{
 //Employee
 .form-group > label {
     color: white;
+    margin-bottom: 0%;
+    font-weight: bold;
+    font-size: 1em;
 }
 [type="checkbox"]+label:before, [type="checkbox"]:not(.filled-in)+label:after {
     border: 2px solid red;
@@ -292,9 +299,16 @@ div.error-message i{
     font-weight: bolder;
     height: 1.5em;
 }
-.form-group>label{
+
+.dateLabel {
+    color: white;
+    margin-bottom: 0%;
     font-weight: bold;
     font-size: 1em;
+}
+
+.form-group {
+    margin-bottom: 1em;    
 }
 
 button[type="submit"]{
@@ -323,5 +337,6 @@ div.validation-error{
 input:not([type]) {
     color: yellow;
 }
+
 
 // xx Employee

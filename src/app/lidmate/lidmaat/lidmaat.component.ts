@@ -45,7 +45,7 @@ export class LidmaatComponent implements OnInit {
        PublicDates:''
      }
    }
-  onSubmit(formLid:NgForm) {
+  onSubmit(formLid:NgForm) {   
     if (formLid.value.LidmaatId == null)
       this.insertRecord(formLid); 
     else
@@ -53,7 +53,13 @@ export class LidmaatComponent implements OnInit {
   }
 
   insertRecord(formLid:NgForm) {
-    formLid['Gemeente'].setValue("Tauranaga"); 
+    formLid.controls['Gemeente'].setValue('Tauranga');
+    if (formLid.value.IsActive === 'false') {
+      formLid.controls['IsActive'].setValue('');
+     } 
+     if (formLid.value.PublicDates === 'false') {
+      formLid.controls['PublicDates'].setValue('');
+     } 
     this.service.postLidmaat(formLid.value).subscribe(res =>  {
       this.toastr.success('Suksesvol Bygevoeg', ''); 
       this.service.refreshList(); 
@@ -61,7 +67,15 @@ export class LidmaatComponent implements OnInit {
   }
 
   updateRecord(formLid:NgForm) {
-    console.log(formLid); 
+     formLid.controls['Gemeente'].setValue('Tauranga');
+    if (formLid.value.IsActive = 'false') {
+      formLid.controls['IsActive'].setValue('');
+     } 
+     if (formLid.value.PublicDates = 'false') {
+      formLid.controls['PublicDates'].setValue('');
+     } 
+    console.log(formLid);  
+   
     this.service.putLidmaat(formLid.value).subscribe(res =>  {
       this.toastr.info('Suksesvol Verander', ''); 
        this.service.refreshList(); 
@@ -71,7 +85,7 @@ export class LidmaatComponent implements OnInit {
     }); 
   }
 
-  updateLidmaat($event) {
+  updateLidmaat($event) {    
     this.service.formData.AddressID = $event.addressId; 
     this.service.putLidmaat(this.service.formData).subscribe(res =>  {
       this.toastr.info('Suksesvol Verander', ''); 
