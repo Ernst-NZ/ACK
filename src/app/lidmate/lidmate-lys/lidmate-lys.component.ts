@@ -1,5 +1,5 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-import { ILidmaat } from '../../_shared/interfaces'
+import { ILidmaat, IAddress } from '../../_shared/interfaces'
 import { LidmaatService } from '../../_shared/lidmaat.service';
 import { SorterService } from '../../_core/sorter.service';
 import { filter } from 'rxjs/operators';
@@ -23,6 +23,19 @@ export class LidmateLysComponent implements OnInit {
         }
     }
 
+    private _adresse: IAddress[] = [];
+    @Input() get adres(): IAddress[] {
+        return this._adresse;
+    }
+
+
+    set adres(value: IAddress[]) {
+        if (value) {
+            this.filteredAddresse = this._adresse = value;
+        console.log(this.filteredAddresse)    
+        }
+    }
+
     // @Output() updateDetails = new EventEmitter();
     // getDetails(details){
     //     alert('first step')
@@ -30,6 +43,7 @@ export class LidmateLysComponent implements OnInit {
     // }    
 
     filteredLidmate: any[] = [];
+    filteredAddresse: any[] = [];
     formData : ILidmaat;
     customersOrderTotal: number;
     currencyCode: string = 'USD';

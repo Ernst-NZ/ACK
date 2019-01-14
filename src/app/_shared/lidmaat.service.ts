@@ -65,6 +65,13 @@ constructor(private http:HttpClient, private globals:Globals) {}
     .toPromise().then(res => this.listAddress = res as Address[]); 
    }
   
+  // getAddress():Observable < IAddress[] >  {
+  //   return this.http.get < IAddress[] > (this.rootURL + '/Addresse')
+  //       .pipe(
+  //           catchError(this.handleError)
+  //       ); 
+  //  }
+  
   getAddress():Observable < IAddress[] >  {
     return this.http.get < IAddress[] > (this.rootURL + '/Addresse')
         .pipe(

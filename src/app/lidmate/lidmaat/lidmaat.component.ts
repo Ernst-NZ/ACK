@@ -15,7 +15,6 @@ export interface Geslag {
   styleUrls:['./lidmaat.component.scss']
 })
 export class LidmaatComponent implements OnInit {
-  lidmaatXX:number; 
   mense:any; 
   gender:Geslag[] = [ {value:'Manlik', viewValue:'Manlik'},  {value:'Vroulik', viewValue:'Vroulik'}, 
   ]; 
@@ -95,6 +94,9 @@ export class LidmaatComponent implements OnInit {
       .subscribe((lidmate:ILidmaat[]) => this.mense = lidmate); 
     }); 
   }
+
+  // adresse
+
 }
 
 

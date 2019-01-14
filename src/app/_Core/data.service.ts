@@ -5,7 +5,7 @@ import {Observable }from 'rxjs/Observable';
 import {map, catchError }from 'rxjs/operators'; 
 import {Globals }from '../globals'; 
 
-import {ILidmaat }from '../../app/_shared/interfaces'; 
+import {ILidmaat, IAddress }from '../../app/_shared/interfaces'; 
 
 @Injectable()
 export class DataService {
@@ -35,6 +35,14 @@ export class DataService {
         )
     }
 
+    getAddress():Observable < IAddress[] >  {
+      return this.http.get < IAddress[] > (this.rootURL + '/addresse/' + 6)
+          .pipe(
+              catchError(this.handleError)
+          ); 
+  }
+
+
     // getOrders(id: number) : Observable<IOrder[]> {
     //   return this.http.get<IOrder[]>(this.baseUrl + 'orders.json')
     //     .pipe(
@@ -44,6 +52,18 @@ export class DataService {
     //       }),
     //       catchError(this.handleError)
     //     );
+    // }
+
+
+    // getAddress(id:number):Observable < IAddress >  {
+    //   return this.http.get < IAddress[] > (this.rootURL + '/addresse')
+    //     .pipe(
+    //       map(addresse =>  {
+    //         let adres = addresse.filter((adres:IAddress) => adres.Id === id); 
+    //         return (lidmaat && lidmaat.length)?lidmaat[0]:null; 
+    //       }), 
+    //       catchError(this.handleError)
+    //     )
     // }
 
 
