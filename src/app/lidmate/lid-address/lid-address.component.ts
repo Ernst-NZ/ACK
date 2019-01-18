@@ -11,9 +11,9 @@ import { LidmaatComponent } from '../lidmaat/lidmaat.component'
   styleUrls: ['./lid-address.component.scss']
 })
 export class LidAddressComponent implements OnInit {
-  @Output() updateLidmaat = new EventEmitter();
+  @Output() updateAdres = new EventEmitter();
    updateLid(addressId){
-     this.updateLidmaat.emit({ addressId: addressId })
+     this.updateAdres.emit({ addressId: addressId })
    }
   addresse: any;
   constructor(public service: LidmaatService,  private toastr: ToastrService,

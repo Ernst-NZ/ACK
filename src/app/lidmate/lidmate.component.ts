@@ -15,7 +15,7 @@ import { Globals } from '../globals';
 export class LidmateComponent implements OnInit {
   title: string;
   mense: any[];
-  addresse: any[];
+  huise: any[];
   isVisible = true;
   loading = true;
   temp$ = Object;
@@ -29,16 +29,10 @@ export class LidmateComponent implements OnInit {
     this.loading = true;
     this.title = 'Lidmate';
     this.dataService.getLidmate()
-      .subscribe((lidmate: ILidmaat[]) => this.mense = lidmate);
-      
-      this.dataService.getAddress()
-      .subscribe((adresse: IAddress[]) => this.addresse = adresse);  
-      console.log(this.addresse)  
-    
+      .subscribe((lidmate: ILidmaat[]) => this.mense = lidmate); 
 
-    // this.dataService.getLidmate()
-    //   .subscribe((lidmate: ILidmaat[]) => this.mense = lidmate); 
-  //  this.lidmaatDetails = this.globals.lidmaatDetails;    
+      this.dataService.getAddress()
+      .subscribe((addresse: IAddress[]) => this.huise = addresse); 
   }
 
   persoonlik() {

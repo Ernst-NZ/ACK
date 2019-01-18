@@ -15,7 +15,8 @@ export interface Geslag {
   styleUrls:['./lidmaat.component.scss']
 })
 export class LidmaatComponent implements OnInit {
-  mense:any; 
+  mense:any;
+   
   gender:Geslag[] = [ {value:'Manlik', viewValue:'Manlik'},  {value:'Vroulik', viewValue:'Vroulik'}, 
   ]; 
   constructor(public service:LidmaatService, 

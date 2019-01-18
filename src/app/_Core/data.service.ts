@@ -35,8 +35,21 @@ export class DataService {
         )
     }
 
+    geAddress(id:number):Observable < IAddress >  {
+      return this.http.get < IAddress[] > (this.rootURL + '/Addresse')
+        .pipe(
+          map(addresse =>  {
+            let adres = addresse.filter((huis:IAddress) => huis.Id === id); 
+            return (adres && adres.length)?adres[0]:null; 
+          }), 
+          catchError(this.handleError)
+        )
+    }
+    
+
     getAddress():Observable < IAddress[] >  {
-      return this.http.get < IAddress[] > (this.rootURL + '/addresse/' + 6)
+      console.log('ID in data ')
+      return this.http.get < IAddress[] > (this.rootURL + '/addresse')
           .pipe(
               catchError(this.handleError)
           ); 

@@ -36,7 +36,7 @@ export interface ILidmaat {
 }
 
 export interface IAddress {
-  Id:String
+  Id:Number
   StreetNumber?:String
   StreetOne?:String
   StreetTwo?:String
