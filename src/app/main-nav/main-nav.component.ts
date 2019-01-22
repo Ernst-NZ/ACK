@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { Router, NavigationEnd } from '@angular/router';
 import { UserService } from '../_shared/user.service';
+import { Globals } from '../globals';
 
 @Component({
   selector: 'app-main-nav',
@@ -20,7 +21,8 @@ export class MainNavComponent implements OnInit {
       map(result => result.matches)
     );
 
-  constructor(private breakpointObserver: BreakpointObserver, private router: Router, private userService: UserService) {
+  constructor(private breakpointObserver: BreakpointObserver, private router: Router,
+     private userService: UserService, private globals: Globals) {
     router.events.subscribe((_: NavigationEnd) => this.currentUrl = _.url);
   }
 

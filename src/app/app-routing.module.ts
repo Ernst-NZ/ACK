@@ -23,6 +23,7 @@ import { LidmaatComponent } from './lidmate/lidmaat/lidmaat.component'
 import { LidmateLysComponent } from './lidmate/lidmate-lys/lidmate-lys.component';
 import { DiensRoosterComponent } from './diens-rooster/diens-rooster.component';
 import { LidAddressComponent } from './lidmate/lid-address/lid-address.component';
+import { KategeseComponent } from './kategese/kategese.component';
 
 const routes: Routes = [
   // {
@@ -33,22 +34,30 @@ const routes: Routes = [
     path: 'menu',
     component: MenuComponent
   }, 
-  {
-    path: 'lidmate',
-    component: LidmateComponent
-  },
   // {
   //   path: 'lidmate',
   //   component: LidmateComponent, canActivate:[AuthGuard]
   // },
   {
-    path: 'lidmate', component: LidmateComponent,
-    children: [{ path: '', component: LidmaatComponent}]
-  }, 
+    path: 'kategese',
+    component: KategeseComponent
+  },
+  // {
+  //   path: 'lidmate',
+  //   component: LidmateComponent, canActivate:[AuthGuard]
+  // },
+
+
   {
-    path: 'lidmate', component: LidmateComponent,
-    children: [{ path: '', component: LidmateLysComponent}]
+    path: 'lidmate', component: LidmateComponent, canActivate:[AuthGuard],
+    children: [{ path: '', component: LidmaatComponent, canActivate:[AuthGuard]}]
   }, 
+  // {
+  //   path: 'lidmate', component: LidmateComponent, canActivate:[AuthGuard],
+  //   children: [{ path: '', component: LidmateLysComponent, canActivate:[AuthGuard]}]
+  // }, 
+
+
   {
     path: 'signup', component: UserComponent,
     children: [{ path: '', component: SignUpComponent }]
@@ -57,17 +66,17 @@ const routes: Routes = [
     path: 'login', component: UserComponent,
     children: [{ path: '', component: SignInComponent }]
   },
-  {
-    path: 'persoon', component: LidmateComponent,
-    children: [{ path: '', component: LidmaatComponent }]
-  },  
-  {
-    path: 'adres', component: LidmateComponent,
-    children: [{ path: '', component: LidAddressComponent }]
-  },
+  // {
+  //   path: 'persoon', component: LidmateComponent,
+  //   children: [{ path: '', component: LidmaatComponent }]
+  // },  
+  // {
+  //   path: 'adres', component: LidmateComponent,
+  //   children: [{ path: '', component: LidAddressComponent }]
+  // },
   {
     path: 'kontakons',
-    component: KontakonsComponent
+    component: KontakonsComponent, canActivate:[AuthGuard]
   }, 
   {
     path: 'diens-rooster',

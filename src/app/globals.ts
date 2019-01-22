@@ -8,8 +8,8 @@ export class Globals {
   lidmaatDetails: String;
   addressDetails: String;
 //  dataSource: "https://data.ezy.kiwi"
-  dataSource: "http://localhost:3000"
-
-  
+  dataSource: "http://localhost:3000";
+  userName: String;
+  authenticate: Boolean = false;
 
 }

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { UserService } from '../_shared/user.service';
-
+import { Globals } from '../globals';
 
 @Component({
   selector: 'app-persedit',
@@ -13,11 +13,20 @@ export class PerseditComponent implements OnInit {
   // 'use strict';
   // //  nodemailer = require('nodemailer');
 
-  constructor(private router: Router, private userService: UserService) { }
+  constructor(private router: Router, private userService: UserService,
+    private globals: Globals) { }
 
   ngOnInit() {
     this.userService.getUserClaims().subscribe((data: any) => {
       this.userClaims = data;
+      this.globals.userName = "Welkom" && this.userClaims.FirstName;
+      alert(this.globals.userName)
+      if (localStorage.getItem('userToken')) {
+        this.globals.authenticate = true;  
+      } else {
+        this.globals.authenticate =false;
+      }
+      alert(this.globals.authenticate)
 
 
     });
@@ -28,6 +37,7 @@ export class PerseditComponent implements OnInit {
     localStorage.removeItem('userToken');
     localStorage.removeItem('userName');
     this.router.navigate(['/menu']);
+    this.globals.userName = '';
   }
 
   emailTest() {
