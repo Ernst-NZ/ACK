@@ -35,7 +35,7 @@
        *ngIf="isHandset$ | async">
         <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>       
       </button>
-      <button mat-menu-item routerLink="/" style="color: white;">ACK Tauranga<span *ngIf="userName" style="text-align: left">  Welkom {{userName}} </span></button>
+      <button mat-menu-item routerLink="/" style="color: white; max-width: 10em;">ACK Tauranga<span *ngIf="userName" style="text-align: left">  Welkom {{userName}} </span></button>
       
       <span class="spacer"></span>
       <button mat-button *ngIf="!(isHandset$ | async)"  [matMenuTriggerFor]="appStorie" class="sideButton d-none d-md-block">Ons<br>Gemeente</button>

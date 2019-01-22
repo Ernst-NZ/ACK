@@ -50,6 +50,7 @@ import { SignUpComponent } from './user/sign-up/sign-up.component';
 import { UserComponent } from './user/user.component';
 import { SignInComponent } from './user/sign-in/sign-in.component';
 import { DiensRoosterComponent } from './diens-rooster/diens-rooster.component';
+import { AfkondigingsComponent } from './afkondigings/afkondigings.component';
 // import { LidmateComponent } from './lidmate/lidmate.component';
 // import { LidmateLysComponent } from './lidmate/lidmate-lys/lidmate-lys.component';
 // import { LidmaatComponent } from './lidmate/lidmaat/lidmaat.component';
@@ -79,6 +80,7 @@ import { DiensRoosterComponent } from './diens-rooster/diens-rooster.component';
     UserComponent,
     SignInComponent,
     DiensRoosterComponent,
+    AfkondigingsComponent,
     // LidmateComponent,
   //   LidmaatComponent,
     // LidmateLysComponent
