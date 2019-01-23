@@ -30,9 +30,10 @@ export class SignInComponent implements OnInit {
   }
  
   setUser() {
+    var Welkom = "Welkom "
     this.userService.getUserClaims().subscribe((data: any) => {
       this.userClaims = data;
-      this.globals.userName = "Welkom" && this.userClaims.FirstName;
+      this.globals.userName = Welkom.concat(this.userClaims.FirstName, " !");
     },
     (err : HttpErrorResponse)=>{
       this.isLoginError = true;

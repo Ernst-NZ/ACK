@@ -34,5 +34,8 @@ export class MainNavComponent implements OnInit {
     localStorage.removeItem('userToken');
     localStorage.removeItem('userName');
     this.userClaims = '';
+    this.router.navigate(['/menu']);
+    this.globals.userName = '';
   }
+ 
 }
