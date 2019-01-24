@@ -11,5 +11,5 @@ export class Globals {
   dataSource: "http://localhost:3000";
   userName: String;
   authenticate: Boolean = false;
-
+  adminUser: Boolean = false;
 }

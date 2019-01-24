@@ -7,7 +7,7 @@
             <li class="tab">
               <a routerLink='/login' routerLinkActive='active'>Sign In</a>
             </li>
-            <li class="tab">
+            <li *ngIf='this.globals.userName' class="tab">
               <a  routerLink='/signup' routerLinkActive='active' class="offset-m6">Sign Up</a>
             </li>
           </ul>

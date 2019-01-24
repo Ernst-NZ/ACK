@@ -34,6 +34,9 @@ export class SignInComponent implements OnInit {
     this.userService.getUserClaims().subscribe((data: any) => {
       this.userClaims = data;
       this.globals.userName = Welkom.concat(this.userClaims.FirstName, " !");
+      if (this.userClaims.FirstName === "Ernst" || this.userClaims.FirstName === "Mario") {
+        this.globals.adminUser = true;
+      }
     },
     (err : HttpErrorResponse)=>{
       this.isLoginError = true;
