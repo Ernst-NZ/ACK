@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { UserService } from '../_shared/user.service';
 import { Globals } from '../globals';
+import { NgxSpinnerService } from 'ngx-spinner';
 
 @Component({
   selector: 'app-persedit',
@@ -14,7 +15,7 @@ export class PerseditComponent implements OnInit {
   // //  nodemailer = require('nodemailer');
 
   constructor(private router: Router, private userService: UserService,
-    private globals: Globals) { }
+    private globals: Globals, private spinner: NgxSpinnerService) { }
 
   ngOnInit() {
     this.userService.getUserClaims().subscribe((data: any) => {
@@ -30,6 +31,14 @@ export class PerseditComponent implements OnInit {
 
 
     });
+
+    /** spinner starts on init */
+    this.spinner.show();
+ 
+    setTimeout(() => {
+        /** spinner ends after 5 seconds */
+        this.spinner.hide();
+    }, 9000);
     
   }
 

@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { NgxSpinnerModule } from 'ngx-spinner';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -118,7 +119,8 @@ import { KategeseComponent } from './kategese/kategese.component';
     AlertModule.forRoot(),
     AngularFittextModule,
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
-    NgbModule
+    NgbModule,
+    NgxSpinnerModule
   ],
   providers: [UserService, 
     AuthGuard,

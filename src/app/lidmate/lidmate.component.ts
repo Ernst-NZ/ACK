@@ -5,7 +5,7 @@ import { DataService } from '../_core/data.service';
 import { Address} from '../_shared/lidmaat.model';
 import { Router } from '@angular/router';
 import { Globals } from '../globals';
-
+import { NgxSpinnerService } from 'ngx-spinner';
 
 @Component({
   selector: 'app-lidmate',
@@ -23,9 +23,19 @@ export class LidmateComponent implements OnInit {
   tempAddress: IAddress = new Address();
    
   constructor(private dataService: DataService,private router : Router,
-            private globals: Globals, private service: LidmaatService) {}
+            private globals: Globals, private service: LidmaatService, 
+            private spinner: NgxSpinnerService) {}
   
   ngOnInit() {
+     /** spinner starts on init */
+     this.spinner.show();
+ 
+     setTimeout(() => {
+         /** spinner ends after 5 seconds */
+         this.spinner.hide();
+     }, 9000);
+
+
     this.loading = true;
     this.title = 'Lidmate';
     this.dataService.getLidmate()

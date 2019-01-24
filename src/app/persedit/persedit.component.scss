@@ -1,0 +1,20 @@
+#syncContainer {
+  display: inline-block;
+  padding-top: 0px;
+  padding-left:10px;
+  color: red;  
+
+  #syncIcon {
+    display: inherit;
+    animation: syncRotate 1.5s linear infinite;
+    transform-box: fill-box;
+    
+    
+    // animation-name: syncRotate;
+    // animation-duration: 1s;
+    // /* Things added */
+    // animation-iteration-count: infinite;
+    // transform-box: inherit;
+    // display: inline-block;
+  }
+}
