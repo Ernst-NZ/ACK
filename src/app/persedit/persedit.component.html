@@ -25,44 +25,35 @@
   </div>
 </div>
 <div id="syncContainer">
-  <a><svg id="syncIcon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 48 48" fill="white">
-      <path d="M24 8v-6l-8 8 8 8v-6c6.63 0 12 5.37 12 12 0 2.03-.51 3.93-1.39 5.61l2.92 2.92c1.55-2.48 2.47-5.39 2.47-8.53 0-8.84-7.16-16-16-16zm0 28c-6.63 0-12-5.37-12-12 0-2.03.51-3.93 1.39-5.61l-2.92-2.92c-1.55 2.48-2.47 5.39-2.47 8.53 0 8.84 7.16 16 16 16v6l8-8-8-8v6z" />
+  <a><svg id="syncIcon" 
+          xmlns="http://www.w3.org/2000/svg" 
+          width="124" 
+          height="124" 
+          viewBox="0 0 48 48" 
+          fill="yellow">
+      <path d="M24 8v-6l-8 8 8 8v-6c6.63 0 12 5.37 12 12 0 2.03-.51 3.93-1.39 
+      5.61l2.92 2.92c1.55-2.48 2.47-5.39 2.47-8.53 0-8.84-7.16-16-16-16zm0 
+      28c-6.63 0-12-5.37-12-12 0-2.03.51-3.93 1.39-5.61l-2.92-2.92c-1.55 2.48-2.47 
+      5.39-2.47 8.53 0 8.84 7.16 16 16 16v6l8-8-8-8v6z" />
       <path d="M0 0h48v48h-48z" fill="none" />
     </svg>
   </a>Syncing...
 </div>
 
-<div class="footer">
-  <footer class="page-footer bg-dark font-small fixed">
-    <div class="footer-copyright text-center white py-1">
-      <span class="text-light center">&copy; <a (click)="showVersion()">ZEDS</a> - <span [hidden]="this.globals.isSyncing">Developed
-          by <a class="text-info" href="http://www.zealsystems.co.nz">Zeal Systems Ltd</a></span></span>
 
-      <div id="syncContainer">
-        <a><svg id="syncIcon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 48 48" fill="white">
-            <path d="M24 8v-6l-8 8 8 8v-6c6.63 0 12 5.37 12 12 0 2.03-.51 3.93-1.39 5.61l2.92 2.92c1.55-2.48 2.47-5.39 2.47-8.53 0-8.84-7.16-16-16-16zm0 28c-6.63 0-12-5.37-12-12 0-2.03.51-3.93 1.39-5.61l-2.92-2.92c-1.55 2.48-2.47 5.39-2.47 8.53 0 8.84 7.16 16 16 16v6l8-8-8-8v6z" />
-            <path d="M0 0h48v48h-48z" fill="none" />
-          </svg>
-        </a>Syncing...
-      </div>
-
-    </div>
-  </footer>
-</div>
-<ngx-spinner
+<!-- <ngx-spinner
   bdColor="rgba(51,51,51,0.8)"
   size="medium"
   color="#fff"
   type="ball-scale-multiple">
  <p style="font-size: 20px; color: red">Loading...</p>
-</ngx-spinner>
-<!-- <ngx-spinner
-bdOpacity = 0.3
+</ngx-spinner> -->
+<ngx-spinner
+bdOpacity = 0.9
 bdColor = ""
 size = "medium"
 color = "#f30808"
 type = "ball-circus"
-fullScreen = "false"
->
-<p style="color: darkblue" > Loading... </p>
-</ngx-spinner> -->
+fullScreen = "false">vvv
+<p style="color: white" > Loading... </p>
+</ngx-spinner>
