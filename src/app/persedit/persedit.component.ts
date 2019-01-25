@@ -21,14 +21,12 @@ export class PerseditComponent implements OnInit {
     this.userService.getUserClaims().subscribe((data: any) => {
       this.userClaims = data;
       this.globals.userName = "Welkom" && this.userClaims.FirstName;
-      alert(this.globals.userName)
       if (localStorage.getItem('userToken')) {
         this.globals.authenticate = true;  
       } else {
         this.globals.authenticate =false;
       }
-      alert(this.globals.authenticate)
-
+  
 
     });
 
@@ -38,7 +36,7 @@ export class PerseditComponent implements OnInit {
     setTimeout(() => {
         /** spinner ends after 5 seconds */
         this.spinner.hide();
-    }, 9000);
+    }, 5000);
     
   }
 

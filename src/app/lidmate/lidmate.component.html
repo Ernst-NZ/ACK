@@ -1,31 +1,12 @@
-<!-- <ngx-spinner
-  bdColor="rgba(51,51,51,0.8)"
-  size="medium"
-  color="#fff"
-  type="ball-scale-multiple">
- <p style="font-size: 20px; color: red">Loading...</p>
-</ngx-spinner>
-<ngx-spinner
-bdOpacity = 0.3
-bdColor = ""
-size = "medium"
-color = "#f30808"
-type = "ball-circus"
-fullScreen = "false"
->
-<p style="color: darkblue" > Loading... </p>
-</ngx-spinner> -->
-
 <div class="jumbtron">
   <!-- <h4 class="text-center">Lidmate</h4> -->
   <div class="row">
     <div class="col-md-5">
-      <app-lidmate-lys #Address [lidmate]="mense"  [adresse]='huise'></app-lidmate-lys>
+      <app-lidmate-lys #lys [lidmate]="mense"  [adresse]='huise'></app-lidmate-lys>
     </div>
     <div class="col-md-7">
       <div style='margin-top: 2em; margin-left: 1em'>        
-        <h5>{{ this.globals.lidmaatDetails }}</h5> 
-        
+        <h5>{{ this.globals.lidmaatDetails }}</h5>        
       </div>
       <div class="container">
         <div class="row">
@@ -49,7 +30,7 @@ fullScreen = "false"
                     <app-lidmaat #lidmaat></app-lidmaat>
                   </div>
                   <div [hidden]="isVisible">
-                    <app-lid-address #address (updateLidmaat)="lidmaat.updateLidmaat($event)"></app-lid-address>
+                    <app-lid-address #address (updateLidmaat)="lidmaat.updateLidmaat($event)" ></app-lid-address>
                   </div>
                 </div>
               </div>
@@ -60,3 +41,12 @@ fullScreen = "false"
     </div>
   </div>
 </div>
+<ngx-spinner
+bdOpacity = 0.9
+bdColor = "rgba(51,51,51,0.8)"
+size = "medium"
+color = "#f30808"
+type = "ball-running-dots"
+fullScreen = "false">
+<p style="color: rgb(251, 255, 0)" > Loading... </p>
+</ngx-spinner>

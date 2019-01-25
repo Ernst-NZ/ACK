@@ -15,9 +15,9 @@ formData:Lidmaat;
 formAdd:Address; 
 list:Lidmaat[]; 
 listAddress:Address[]; 
- readonly rootURL = "http://localhost:3000/api"
+// readonly rootURL = "http://localhost:3000/api"
 // readonly rootURL ="https://data.ezy.kiwi/api"
-// readonly rootURL = this.globals.dataSource && "/api"
+ readonly rootURL = this.globals.dataSource + "/api"
 constructor(private http:HttpClient, private globals:Globals) {}
 
   postLidmaat(formData:Lidmaat) {
@@ -42,7 +42,6 @@ constructor(private http:HttpClient, private globals:Globals) {}
    }
 
   deleteLidmaat(id:number) {
-    alert(id); 
     return this.http.delete(this.rootURL + '/Persoon/' + id); 
    }
 
@@ -85,7 +84,6 @@ constructor(private http:HttpClient, private globals:Globals) {}
    }
 
   deleteAddress(id:number) {
-    alert(id); 
     return this.http.delete(this.rootURL + '/Addresse/' + id); 
    }
    

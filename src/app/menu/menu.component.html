@@ -34,7 +34,7 @@
   </div>
 
   <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12" style="text-align: center">
-    <a class="btn btn-danger" routerLink="/kerkraad">Bedienings &raquo;</a>
+    <a class="btn btn-warning" routerLink="/kerkraad">Bedienings &raquo;</a>
     <div class="content">
         <div class="content-overlay"></div>
         <img class="content-image" src="../../assets/services2.png" style="width: 100%" />
@@ -65,7 +65,7 @@
 <div class="row" style='width: 99%;'>
 
   <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12" style="text-align: center">
-    <a class="btn btn-warning" routerLink="/ligging">Waar is ons &raquo;</a>
+    <a class="btn btn-danger" routerLink="/ligging">Waar is ons &raquo;</a>
     <div class="content">
         <div class="content-overlay">
         </div>
@@ -78,14 +78,15 @@
   </div> 
 
   <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12" style="text-align: center">
-    <a class="btn btn-danger" routerLink="/persedit">Kerk Navrae &raquo;</a>
+    <a class="btn btn-warning" routerLink="/persedit">Kerk Navrae &raquo;</a>
     <div class="content">
         <div class="content-overlay"></div>
         <img class="content-image" src="../../assets/Info2.png" style="width: 100%" />
         <div class="content-details fadeIn-top">
-            <a class="btn btn-light" style="min-height: 5em;" routerLink="/lidmate">Persoonlike<br>Besonderhede<br>(Admin)</a><br><br><br>
-            <a class="btn btn-light" routerLink="/login">Nuwe Gebruiker<br>(Admin)</a><br>
-            <a class="btn btn-light" routerLink="/kontakons">Kontak Ons</a><br>
+            <a class="btn" routerLink="/kontakons">Kontak Ons</a><br><br>
+            <a [hidden]='!this.globals.adminUser'  class="btn btn-light menuWidth" style="min-height: 5em;" routerLink="/lidmate">Persoonlike<br>Besonderhede<br>(Admin)</a><br>
+            <a [hidden]="!this.globals.adminUser" class="btn btn-light menuWidth" routerLink="/login">Nuwe Gebruiker<br>(Admin)</a><br>
+           
             <!-- <a class="btn btn-light menuWidth" routerLink="/registrasie">Nuwe Registrasie</a><br>
             <a class="btn btn-light menuWidth" routerLink="/doop">Doop Aansoek</a><br> -->
         </div>

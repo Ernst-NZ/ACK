@@ -3,6 +3,7 @@ import { UserService } from 'src/app/_shared/user.service';
 import { Router } from '@angular/router';
 import { HttpErrorResponse } from '@angular/common/http';
 import { Globals } from '../../globals';
+import { NgxSpinnerService } from 'ngx-spinner';
 
 @Component({
   selector: 'app-sign-in',
@@ -12,34 +13,31 @@ import { Globals } from '../../globals';
 export class SignInComponent implements OnInit {
   isLoginError : boolean = false;
   userClaims: any;
+  syncing: boolean = false; 
   constructor(private userService : UserService, private router : Router,
-    private globals: Globals) { }
+    private globals: Globals, private spinner: NgxSpinnerService) { }
  
   ngOnInit() {
+
   }
  
   OnSubmit(userName,password){
+     /** spinner starts on init */
+     this.syncing = true;
+     this.spinner.show();
+ 
      this.userService.userAuthentication(userName,password).subscribe((data : any)=>{
-      localStorage.setItem('userToken',data.access_token);  
-      this.setUser();
-      this.router.navigate(['/menu']);
+      this.userService.setUser();
+
+      localStorage.setItem('userToken',data.access_token);
+      this.spinner.hide();
+      this.syncing = false;  
+      this.router.navigate(['/menu']);      
     },
     (err : HttpErrorResponse)=>{
       this.isLoginError = true;
     });
   }
  
-  setUser() {
-    var Welkom = "Welkom "
-    this.userService.getUserClaims().subscribe((data: any) => {
-      this.userClaims = data;
-      this.globals.userName = Welkom.concat(this.userClaims.FirstName, " !");
-      if (this.userClaims.FirstName === "Ernst" || this.userClaims.FirstName === "Mario") {
-        this.globals.adminUser = true;
-      }
-    },
-    (err : HttpErrorResponse)=>{
-      this.isLoginError = true;
-    });
-  }
+  
 }

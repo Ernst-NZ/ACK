@@ -26,10 +26,21 @@ color: whitesmoke;
 .sideButton {
   line-height: 1;
   padding: auto;
-  margin-bottom: 20px;
+  top: 0;
+  
   border-bottom: solid 1 px black;
 }
 
+#Name {
+  color: white; 
+  max-width: 10em; 
+  left: 0;
+  position: absolute;
+}
+#hamburger {
+  left: 0;
+  position: absolute;
+}
 .sideMenu {
   line-height: 1;
   padding: auto;
@@ -44,6 +55,7 @@ color: whitesmoke;
 
 mat-toolbar {
   background-color: maroon;
+  text-align: -webkit-right;
   /* position: fixed; */
 }
 
@@ -65,4 +77,8 @@ mat-toolbar a {
   background: maroon;
   color: #fff;
   align-items: baseline;
+}
+.mat-drawer {
+  background-color: rgba(0,0,0,0.12);
+  color: #f8f9fa;
 }

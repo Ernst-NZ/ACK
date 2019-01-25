@@ -29,13 +29,8 @@ export class LidmateComponent implements OnInit {
   ngOnInit() {
      /** spinner starts on init */
      this.spinner.show();
- 
-     setTimeout(() => {
-         /** spinner ends after 5 seconds */
-         this.spinner.hide();
-     }, 9000);
-
-
+     this.globals.isSyncing = true;    
+    
     this.loading = true;
     this.title = 'Lidmate';
     this.dataService.getLidmate()
@@ -43,6 +38,8 @@ export class LidmateComponent implements OnInit {
 
       this.dataService.getAddress()
       .subscribe((addresse: IAddress[]) => this.huise = addresse); 
+      this.spinner.hide();
+     // this.globals.isSyncing = false;
   }
 
   persoonlik() {

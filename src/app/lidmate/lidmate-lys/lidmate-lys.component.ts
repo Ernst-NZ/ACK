@@ -5,6 +5,7 @@ import {SorterService }from '../../_core/sorter.service';
 import {DataService }from '../../_core/data.service'; 
 import {filter }from 'rxjs/operators'; 
 import {Globals }from '../../globals'; 
+import { NgxSpinnerService } from 'ngx-spinner';
 
 @Component( {
     selector:'app-lidmate-lys', 
@@ -20,22 +21,20 @@ export class LidmateLysComponent implements OnInit {
     @Input()get adresse():IAddress[] {
         return this._addresse; 
     }
-
-
+    defaultDate = "1900-01-01T00:00:00"
     isVisible = true; 
    
 
     set lidmate(value:ILidmaat[]) {
         if (value) {
             this.filteredLidmate = this._lidmate = value; 
-            this.calculateOrders(); 
+            this.globals.isSyncing = false;
         }
     }
 
    set adresse(value:IAddress[]) {
         if (value) {
             this.filteredAddresse = this._addresse = value; 
-        console.log(this.filteredAddresse)
         }
     }
 
@@ -48,10 +47,10 @@ export class LidmateLysComponent implements OnInit {
     
     
     constructor(private dataService:DataService, private sorterService:SorterService, private lidmaatService:LidmaatService, 
-        private globals:Globals) {}
+        private globals:Globals, private spinner: NgxSpinnerService) {}
     
     ngOnInit() {
-
+        
     }
     
     calculateOrders() {
@@ -77,15 +76,20 @@ export class LidmateLysComponent implements OnInit {
     }
 
     filterAdres(data:string) {
-        if (data) {
+        alert(data)
+        if (data === "0") {
+            return null;
+        } if (data) {
+            alert("nie nul nie");
             this.filteredAddresse = this.adresse.filter((add:IAddress) =>  {
                 return add.Id.toString().indexOf(data.toLowerCase()) > -1; 
             }); 
-            console.log(this.filteredAddresse)
-        }else {
-            this.filteredAddresse = this.adresse; 
+
+            console.log("het Addres")
+        } else {
+            this.filteredAddresse = null; 
         }
-        console.log(this.filteredAddresse)
+        console.log("Geen Adres")
     }
     
     sort(prop:string) {
@@ -101,13 +105,20 @@ export class LidmateLysComponent implements OnInit {
         this.globals.lidmaatId = lid.LidmaatId; 
         this.globals.lidmaatDetails = lid.FirstName + ' ' + lid.LastName; 
         console.log("Check ID: " + lid.AddressID)
-        this.populateAddressForm(this.filteredAddresse[0])
+        if (lid.AddressID === 0) {
+            this.lidmaatService.formAdd = Object.assign( {}, null);
+            this.globals.lidmaatDetails = this.globals.lidmaatDetails + ' - Geen Adres'
+        } else {
+            this.populateAddressForm(this.filteredAddresse[0])
+        }
+        
         console.log(this.filteredAddresse)
       }
 
       populateAddressForm(adres:IAddress) {
-        this.lidmaatService.formAdd = Object.assign( {}, adres); 
-        console.log(adres);
+            this.lidmaatService.formAdd = Object.assign( {}, adres);
+            this.globals.lidmaatDetails = this.globals.lidmaatDetails + ' - Adres: ' + adres.StreetNumber + ' ' + adres.StreetOne
+                  
       }
      
       changeVisibility() {

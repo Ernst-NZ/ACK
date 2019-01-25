@@ -10,9 +10,9 @@ import {ILidmaat, IAddress }from '../../app/_shared/interfaces';
 @Injectable()
 export class DataService {
 
-   readonly rootURL ="http://localhost:3000/api"
+ //  readonly rootURL ="http://localhost:3000" + "/api"
   // readonly rootURL ="https://data.ezy.kiwi/api"
-  //   readonly rootURL = this.globals.dataSource && "/api"
+     readonly rootURL = this.globals.dataSource + "/api"
     
     constructor(private http:HttpClient, private globals:Globals) {}
 
@@ -48,11 +48,11 @@ export class DataService {
     
 
     getAddress():Observable < IAddress[] >  {
-      console.log('ID in data ')
-      return this.http.get < IAddress[] > (this.rootURL + '/addresse')
+      return this.http.get < IAddress[] > (this.rootURL + '/addresse')      
           .pipe(
               catchError(this.handleError)
-          ); 
+          );
+           
   }
 
 

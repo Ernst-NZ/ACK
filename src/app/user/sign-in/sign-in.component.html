@@ -21,3 +21,14 @@
        </div>
      </div>
 </form>
+
+<ngx-spinner
+bdOpacity = 0.9
+bdColor = ""
+size = "medium"
+color = "#f30808"
+type = "ball-running-dots"
+fullScreen = "false">
+<p style="color: white" > Loading... </p>
+</ngx-spinner>
+<p [hidden]="!this.syncing" style="text-align: center; font-size: 2em; color: red;">Loading...</p>

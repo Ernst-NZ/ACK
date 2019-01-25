@@ -1,13 +1,15 @@
 import {Injectable }from '@angular/core'; 
 import {HttpClient, HttpHeaders }from '@angular/common/http'; 
+import { HttpErrorResponse } from '@angular/common/http';
 import {User }from './user.model'; 
 import {Globals }from '../globals'; 
  
 @Injectable()
 export class UserService {
- readonly rootURL ="http://localhost:3000"
+//  readonly rootURL ="http://localhost:3000"
+ userClaims: any;
 // readonly rootURL ="https://data.ezy.kiwi"
-// readonly rootURL = this.globals.dataSource
+readonly rootURL = this.globals.dataSource
  
   constructor(private http:HttpClient, private globals:Globals) {}
  
@@ -33,4 +35,18 @@ export class UserService {
   getUserClaims() {
     return  this.http.get(this.rootURL + '/api/GetUserClaims'); 
    }
+
+   setUser() {
+    var Welkom = "Welkom "
+    this.getUserClaims().subscribe((data: any) => {
+      this.userClaims = data;
+      this.globals.userName = Welkom.concat(this.userClaims.FirstName, " !");
+      if (this.userClaims.FirstName === "Ernst" || this.userClaims.FirstName === "Mario") {
+        this.globals.adminUser = true;
+      }
+    },
+    (err : HttpErrorResponse)=>{
+      
+    });
+  }
 }

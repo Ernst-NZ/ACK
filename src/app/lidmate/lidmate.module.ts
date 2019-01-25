@@ -3,7 +3,7 @@ import { FormsModule }      from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { Routes, RouterModule } from '@angular/router';
-
+import { NgxSpinnerModule } from 'ngx-spinner';
 import { SharedModule } from '../_shared/shared.module';
 import { LidmateComponent }  from './lidmate.component'
 import { LidmateLysComponent } from './lidmate-lys/lidmate-lys.component';
@@ -24,7 +24,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
                   MatSidenavModule, MatSortModule, MatTableModule,
                   MatToolbarModule, MatInputModule, MatRippleModule,
                   MatDatepickerModule, MatNativeDateModule,
-                  RouterModule, ],
+                  RouterModule,
+                  NgxSpinnerModule ],
   declarations: [ LidmateComponent, LidmateLysComponent, FilterTextboxComponent, LidmaatComponent, LidAddressComponent ],
   exports: [ LidmateComponent, LidmaatComponent ]
 
