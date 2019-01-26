@@ -7,7 +7,7 @@ type = "ball-running-dots"
 fullScreen = "false">
 <p style="color: white" > Loading... </p>
 </ngx-spinner>
-<form class="col s12 white pull-right" #userRegistrationForm="ngForm" (ngSubmit)="OnSubmit(userRegistrationForm)">
+<form class="col s12 white pull-right" #userRegistrationForm="ngForm" (ngSubmit)="OnSubmit(userRegistrationForm)"  autocomplete="off">
   <div class="row">
     <div class="input-field col s6">
       <input class="validate blackFont" type="text" name="UserName" #UserName="ngModel" [(ngModel)]="user.UserName" required>
@@ -26,8 +26,8 @@ fullScreen = "false">
   </div>
   <div class="row">
     <div class="input-field col s6">
-      <input class="blackFont" type="text" name="FirstName" #FirstName="ngModel" [(ngModel)]="user.FirstName">
-      <label>First Name</label>
+      <input class="validate blackFont" type="text" name="FirstName" #FirstName="ngModel" [(ngModel)]="user.FirstName" required>
+      <label data-error="Required field!">FirstName</label>
     </div>
     <div class="input-field col s6">
       <input class="blackFont" type="text" name="LastName" #LastName="ngModel" [(ngModel)]="user.LastName">

@@ -3,7 +3,9 @@ import {NgForm }from '@angular/forms';
 import {ToastrService }from 'ngx-toastr'; 
 import {LidmaatService }from 'src/app/_shared/lidmaat.service'; 
 import {Router }from '@angular/router'; 
-import {ILidmaat }from 'src/app/_shared/interfaces'; 
+import {ILidmaat }from 'src/app/_shared/interfaces';
+import { NgxSpinnerService } from 'ngx-spinner';
+
 
 export interface Geslag {
   value:string; 
@@ -20,7 +22,8 @@ export class LidmaatComponent implements OnInit {
   gender:Geslag[] = [ {value:'Manlik', viewValue:'Manlik'},  {value:'Vroulik', viewValue:'Vroulik'}, 
   ]; 
   constructor(public service:LidmaatService, 
-    private toastr:ToastrService, private router:Router) {}
+    private toastr:ToastrService, private router:Router,
+    private spinner: NgxSpinnerService) {}
 
   ngOnInit() {
      this.resetForm(); 
@@ -45,9 +48,10 @@ export class LidmaatComponent implements OnInit {
        PublicDates:''
      }
    }
-  onSubmit(formLid:NgForm) {   
+  onSubmit(formLid:NgForm) {
+    this.spinner.show();   
     if (formLid.value.LidmaatId == null)
-      this.insertRecord(formLid); 
+      this.insertRecord(formLid);       
     else
       this.updateRecord(formLid); 
   }
@@ -64,17 +68,15 @@ export class LidmaatComponent implements OnInit {
       this.toastr.success('Lidmaat Bygevoeg', ''); 
       this.service.refreshList(); 
     }); 
+    this.spinner.hide();
   }
 
   updateRecord(formLid:NgForm) {
      formLid.controls['Gemeente'].setValue('Tauranga');
-     alert(formLid.value.IsActive)
     if (formLid.value.IsActive = 'false') {
-      alert("1")
       formLid.controls['IsActive'].setValue('');
      } 
      if (formLid.value.PublicDates = 'false') {
-      alert("2")
       formLid.controls['PublicDates'].setValue('');
      } 
     console.log(formLid);  
@@ -86,6 +88,7 @@ export class LidmaatComponent implements OnInit {
        this.service.getLidmate()
        .subscribe((lidmate:ILidmaat[]) => this.mense = lidmate); 
     }); 
+    this.spinner.hide();
   }
 
   updateLidmaat($event) { 
