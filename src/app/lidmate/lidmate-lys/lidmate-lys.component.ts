@@ -77,8 +77,9 @@ export class LidmateLysComponent implements OnInit {
 
     filterAdres(data:string) {
         if (data === "0") {
-            return null;
             console.log("Geen Adres")
+            return null;
+           
         } if (data) {
             this.filteredAddresse = this.adresse.filter((add:IAddress) =>  {
                 return add.Id.toString().indexOf(data.toLowerCase()) > -1; 
@@ -102,7 +103,6 @@ export class LidmateLysComponent implements OnInit {
         this.globals.lidmaatDetails = lid.FirstName + ' ' + lid.LastName;
         this.filter(lid.LidmaatId.toString()); 
         if (lid.AddressID) {
-            alert(lid.AddressID);
             
             this.filterAdres(lid.AddressID.toString());
             this.populateAddressForm(this.filteredAddresse[0])

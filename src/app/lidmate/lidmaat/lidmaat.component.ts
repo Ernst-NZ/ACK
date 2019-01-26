@@ -68,10 +68,13 @@ export class LidmaatComponent implements OnInit {
 
   updateRecord(formLid:NgForm) {
      formLid.controls['Gemeente'].setValue('Tauranga');
+     alert(formLid.value.IsActive)
     if (formLid.value.IsActive = 'false') {
+      alert("1")
       formLid.controls['IsActive'].setValue('');
      } 
      if (formLid.value.PublicDates = 'false') {
+      alert("2")
       formLid.controls['PublicDates'].setValue('');
      } 
     console.log(formLid);  
@@ -86,7 +89,6 @@ export class LidmaatComponent implements OnInit {
   }
 
   updateLidmaat($event) { 
-    alert("update from adres")   
     this.service.formData.AddressID = $event.addressId; 
     this.service.putLidmaat(this.service.formData).subscribe(res =>  {
       this.toastr.info('Lidmaat Inligting Verander', ''); 

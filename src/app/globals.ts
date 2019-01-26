@@ -10,7 +10,7 @@ export class Globals {
 //  dataSource: String =  "https://data.ezy.kiwi"
   dataSource: String = "http://localhost:3000";
   userName: String;
-  authenticate: Boolean = false;
-  adminUser: Boolean = false;
+  authenticate: boolean = false;
+  adminUser: boolean = false;
   isSyncing: boolean = false;
 }
