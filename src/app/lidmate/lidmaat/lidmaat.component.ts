@@ -85,7 +85,8 @@ export class LidmaatComponent implements OnInit {
     }); 
   }
 
-  updateLidmaat($event) {    
+  updateLidmaat($event) { 
+    alert("update from adres")   
     this.service.formData.AddressID = $event.addressId; 
     this.service.putLidmaat(this.service.formData).subscribe(res =>  {
       this.toastr.info('Suksesvol Verander', ''); 
