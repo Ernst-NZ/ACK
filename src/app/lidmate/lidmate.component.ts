@@ -49,26 +49,10 @@ export class LidmateComponent implements OnInit {
   adres() {
     this.isVisible = !this.isVisible;
   } 
+  skoonForm() {
+    this.service.formAdd = Object.assign( {}, null);
+    this.service.formData = Object.assign( {}, null);
+  }
 
-  // getAddress() {
-  //   this.dataService.getAddress(4)
-  //   .then(address => {
-  //     this.tempAddress = address;
-  //     if (address.length > 0) {
-  //       console.log('###############################################################')
-  //       this.tempAddress = address[0];
- 
-  //   })
-  //     .catch(error => {
-  //       console.error(error);
-  //       alert(error.message);
-  //     });
-  //     return '';
-  // }
-  // getAddress() {
-  //   this.dataService.getLidmate()
-  //   .subscribe((lidmate: ILidmaat[]) => this.addresse = lidmate);  
-  //   console.log(this.addresse)  
-  //   }
-
+  
 }
