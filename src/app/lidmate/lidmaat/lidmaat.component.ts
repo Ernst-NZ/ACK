@@ -61,7 +61,7 @@ export class LidmaatComponent implements OnInit {
       formLid.controls['PublicDates'].setValue('');
      } 
     this.service.postLidmaat(formLid.value).subscribe(res =>  {
-      this.toastr.success('Suksesvol Bygevoeg', ''); 
+      this.toastr.success('Lidmaat Bygevoeg', ''); 
       this.service.refreshList(); 
     }); 
   }
@@ -77,7 +77,7 @@ export class LidmaatComponent implements OnInit {
     console.log(formLid);  
    
     this.service.putLidmaat(formLid.value).subscribe(res =>  {
-      this.toastr.info('Suksesvol Verander', ''); 
+      this.toastr.info('Lidmaat Inligting Verander', ''); 
        this.service.refreshList(); 
       // window.location.reload();
        this.service.getLidmate()
@@ -89,7 +89,7 @@ export class LidmaatComponent implements OnInit {
     alert("update from adres")   
     this.service.formData.AddressID = $event.addressId; 
     this.service.putLidmaat(this.service.formData).subscribe(res =>  {
-      this.toastr.info('Suksesvol Verander', ''); 
+      this.toastr.info('Lidmaat Inligting Verander', ''); 
        this.service.refreshList(); 
       // window.location.reload();
       this.service.getLidmate()

@@ -37,7 +37,7 @@ export class LidAddressComponent implements OnInit {
           }
   }
  onSubmit(formAdd: NgForm) {
-   if (formAdd.value.Id == null)
+   if (formAdd.value.Id == null && formAdd.value.Id !== 0)
      this.insertRecord(formAdd);
    else
      this.updateRecord(formAdd);      
@@ -45,7 +45,7 @@ export class LidAddressComponent implements OnInit {
 
  insertRecord(formAdd: NgForm) {
    this.service.postAddress(formAdd.value).subscribe(res => {
-    this.toastr.success('Suksesvol Gestoor', '');
+    this.toastr.success('Adres Gestoor', '');
     // this.resetForm(formLid);
      this.updateLid(res["Id"]);
      this.service.refreshList();
@@ -54,11 +54,9 @@ export class LidAddressComponent implements OnInit {
 
  updateRecord(formAdd: NgForm) {
    this.service.putAddress(formAdd.value).subscribe(res => {
-     this.toastr.info('Suksesvol Verander', '');
-  //   this.resetForm(formLid);
-     // this.service.getLidmate()
-      this.service.refreshList();    
-     // window.location.reload();
+     this.toastr.info('Adres Verander', '');
+     this.updateLid(formAdd.value.Id);
+     this.service.refreshList();    
      this.service.getAddress()
      .subscribe((addresse: IAddress[]) => this.addresse = addresse); 
    });

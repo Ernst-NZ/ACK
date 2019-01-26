@@ -78,6 +78,7 @@ export class LidmateLysComponent implements OnInit {
     filterAdres(data:string) {
         if (data === "0") {
             return null;
+            console.log("Geen Adres")
         } if (data) {
             this.filteredAddresse = this.adresse.filter((add:IAddress) =>  {
                 return add.Id.toString().indexOf(data.toLowerCase()) > -1; 
@@ -87,7 +88,7 @@ export class LidmateLysComponent implements OnInit {
         } else {
             this.filteredAddresse = null; 
         }
-        console.log("Geen Adres")
+       
     }
     
     sort(prop:string) {
