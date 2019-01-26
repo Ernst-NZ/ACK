@@ -76,11 +76,9 @@ export class LidmateLysComponent implements OnInit {
     }
 
     filterAdres(data:string) {
-        alert(data)
         if (data === "0") {
             return null;
         } if (data) {
-            alert("nie nul nie");
             this.filteredAddresse = this.adresse.filter((add:IAddress) =>  {
                 return add.Id.toString().indexOf(data.toLowerCase()) > -1; 
             }); 
@@ -99,21 +97,20 @@ export class LidmateLysComponent implements OnInit {
 
     populateForm(lid:ILidmaat) {
         this.lidmaatService.formData = Object.assign( {}, lid); 
-        this.isVisible =  ! this.isVisible; 
-        this.filter(lid.LidmaatId.toString())
-        this.filterAdres(lid.AddressID.toString())
-        this.globals.lidmaatId = lid.LidmaatId; 
-        this.globals.lidmaatDetails = lid.FirstName + ' ' + lid.LastName; 
-        console.log("Check ID: " + lid.AddressID)
-        if (lid.AddressID === 0) {
+        this.isVisible =  ! this.isVisible;   
+        this.globals.lidmaatDetails = lid.FirstName + ' ' + lid.LastName;
+        this.filter(lid.LidmaatId.toString()); 
+        if (lid.AddressID) {
+            alert(lid.AddressID);
+            
+            this.filterAdres(lid.AddressID.toString());
+            this.populateAddressForm(this.filteredAddresse[0])
+        } else {
             this.lidmaatService.formAdd = Object.assign( {}, null);
             this.globals.lidmaatDetails = this.globals.lidmaatDetails + ' - Geen Adres'
-        } else {
-            this.populateAddressForm(this.filteredAddresse[0])
-        }
-        
-        console.log(this.filteredAddresse)
-      }
+        }        
+        this.globals.lidmaatId = lid.LidmaatId; 
+       }
 
       populateAddressForm(adres:IAddress) {
             this.lidmaatService.formAdd = Object.assign( {}, adres);
