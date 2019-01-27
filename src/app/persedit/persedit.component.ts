@@ -15,7 +15,7 @@ export class PerseditComponent implements OnInit {
   // //  nodemailer = require('nodemailer');
 
   constructor(private router: Router, private userService: UserService,
-    private globals: Globals, private spinner: NgxSpinnerService) { }
+    public globals: Globals, private spinner: NgxSpinnerService) { }
 
   ngOnInit() {
     this.userService.getUserClaims().subscribe((data: any) => {

@@ -15,7 +15,7 @@ export class SignInComponent implements OnInit {
   userClaims: any;
   syncing: boolean = false; 
   constructor(private userService : UserService, private router : Router,
-    private globals: Globals, private spinner: NgxSpinnerService) { }
+    public globals: Globals, private spinner: NgxSpinnerService) { }
  
   ngOnInit() {
 

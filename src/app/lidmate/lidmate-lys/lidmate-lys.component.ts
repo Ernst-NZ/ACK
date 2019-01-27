@@ -22,9 +22,7 @@ export class LidmateLysComponent implements OnInit {
         return this._addresse; 
     }
     defaultDate = "1900-01-01T00:00:00"
-    isVisible = true; 
-   
-
+    
     set lidmate(value:ILidmaat[]) {
         if (value) {
             this.filteredLidmate = this._lidmate = value; 
@@ -47,10 +45,10 @@ export class LidmateLysComponent implements OnInit {
     
     
     constructor(private dataService:DataService, private sorterService:SorterService, private lidmaatService:LidmaatService, 
-        private globals:Globals, private spinner: NgxSpinnerService) {}
+        public globals: Globals, private spinner: NgxSpinnerService) {}
     
     ngOnInit() {
-        
+        this.globals.filter = true;        
     }
     
     calculateOrders() {
@@ -61,12 +59,15 @@ export class LidmateLysComponent implements OnInit {
     }
 
     filter(data:string) {
+        this.globals.myFilter = data;
         if (data) {
             this.filteredLidmate = this.lidmate.filter((cust:ILidmaat) =>  {
                 return cust.FirstName.toLowerCase().indexOf(data.toLowerCase()) > -1 || 
                        cust.LastName.toLowerCase().indexOf(data.toLowerCase()) > -1 || 
                     //   cust.LastVisit.toString().indexOf(data.toLowerCase()) > -1 ||
-                       cust.LidmaatId.toString().indexOf(data.toLowerCase()) > -1; 
+                 //   cust.LastNotes.toString().indexOf(data.toLowerCase()) ||
+                       cust.LidmaatId.toString().indexOf(data.toLowerCase()) > -1;
+                    
             }); 
             this.calculateOrders(); 
         }else {
@@ -84,9 +85,7 @@ export class LidmateLysComponent implements OnInit {
             this.filteredAddresse = this.adresse.filter((add:IAddress) =>  {
                 return add.Id.toString().indexOf(data.toLowerCase()) > -1; 
             }); 
-
-            console.log("het Addres")
-        } else {
+      } else {
             this.filteredAddresse = null; 
         }
        
@@ -99,7 +98,7 @@ export class LidmateLysComponent implements OnInit {
 
     populateForm(lid:ILidmaat) {
         this.lidmaatService.formData = Object.assign( {}, lid); 
-        this.isVisible =  ! this.isVisible;   
+        this.globals.filter =  false;   
         this.globals.lidmaatDetails = lid.FirstName + ' ' + lid.LastName;
         this.filter(lid.LidmaatId.toString()); 
         if (lid.AddressID) {
@@ -120,8 +119,8 @@ export class LidmateLysComponent implements OnInit {
       }
      
       changeVisibility() {
-        this.isVisible =  ! this.isVisible; 
-        this.filter("")
+        this.globals.filter =  true; 
+        this.filter("");
         }
       
         

@@ -22,7 +22,7 @@ export class MainNavComponent implements OnInit {
     );
 
   constructor(private breakpointObserver: BreakpointObserver, private router: Router,
-     private userService: UserService, private globals: Globals) {
+     private userService: UserService, public globals: Globals) {
     router.events.subscribe((_: NavigationEnd) => this.currentUrl = _.url);
   }
 

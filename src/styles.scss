@@ -212,7 +212,8 @@ input[type=email]:not(.browser-default) {
 }
 
 #scrollable-area {
-    margin: auto;   
+    margin: auto;
+    margin: 2mm;   
     max-height: 600px;
     overflow-y: scroll; /* <-- here is what is important*/
   }

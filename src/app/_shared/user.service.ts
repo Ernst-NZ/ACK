@@ -25,6 +25,7 @@ readonly rootURL = this.globals.dataSource
     return this.http.post(this.rootURL + '/api/User/Register', body,  {headers:reqHeader }); 
   }
   
+  
   userAuthentication(userName, password) {
     var data = "username=" + userName + "&password=" + password + "&grant_type=password"; 
     var reqHeader = new HttpHeaders( {'Content-Type':'application/x-www-urlencoded', 'No-Auth':'True'}); 

@@ -37,8 +37,10 @@ constructor(private http:HttpClient, private globals:Globals) {}
    }
 
   putLidmaat(formData:Lidmaat) {
+//    var reqHeader = new HttpHeaders( {'No-Auth':'True', 'Access-Control-Allow-Origin':'*'})
     var reqHeader = new HttpHeaders( {'No-Auth':'True'})
-    return this.http.put(this.rootURL + '/Persoon/' + formData.LidmaatId, formData, ); 
+    return this.http.post(this.rootURL + '/Persoon/' + formData.LidmaatId, 
+    formData, {headers:reqHeader }); 
    }
 
   deleteLidmaat(id:number) {
@@ -80,7 +82,8 @@ constructor(private http:HttpClient, private globals:Globals) {}
 
   putAddress(formAdd:Address) {
     var reqHeader = new HttpHeaders( {'No-Auth':'True'})
-    return this.http.put(this.rootURL + '/Addresse/' + formAdd.Id, formAdd, ); 
+    return this.http.post(this.rootURL + '/Addresse/' + formAdd.Id, formAdd,
+     {headers:reqHeader } ); 
    }
 
   deleteAddress(id:number) {

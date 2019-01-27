@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { LidmaatService } from '../_shared/lidmaat.service';
 import { ILidmaat, IAddress  } from '../_shared/interfaces';
 import { DataService } from '../_core/data.service';
@@ -13,6 +13,7 @@ import { NgxSpinnerService } from 'ngx-spinner';
   styleUrls: ['./lidmate.component.scss']
 })
 export class LidmateComponent implements OnInit {
+ 
   title: string;
   mense: any[];
   huise: any[];
@@ -23,7 +24,7 @@ export class LidmateComponent implements OnInit {
   tempAddress: IAddress = new Address();
    
   constructor(private dataService: DataService,private router : Router,
-            private globals: Globals, private service: LidmaatService, 
+            public globals: Globals, private service: LidmaatService, 
             private spinner: NgxSpinnerService) {}
   
   ngOnInit() {
@@ -53,6 +54,19 @@ export class LidmateComponent implements OnInit {
     this.service.formAdd = Object.assign( {}, null);
     this.service.formData = Object.assign( {}, null);
   }
+updateList() {
+    this.spinner.show();
+    this.globals.isSyncing = true;    
+    
+    this.loading = true;
+    this.title = 'Lidmate';
+    this.dataService.getLidmate()
+      .subscribe((lidmate: ILidmaat[]) => this.mense = lidmate); 
 
+    this.dataService.getAddress()
+      .subscribe((addresse: IAddress[]) => this.huise = addresse); 
+    this.spinner.hide();
+    this.globals.filter = true;
+}
   
 }

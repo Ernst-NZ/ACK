@@ -1,7 +1,7 @@
 import { NgModule }      from '@angular/core';
 import { FormsModule }      from '@angular/forms';
 import { CommonModule } from '@angular/common';
-import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { Routes, RouterModule } from '@angular/router';
 import { NgxSpinnerModule } from 'ngx-spinner';
 import { SharedModule } from '../_shared/shared.module';
