@@ -12,6 +12,7 @@ color: whitesmoke;
 .sidenav {
   width: 100px;
   box-shadow: 3px 0 6px rgba(0,0,0,.24);
+  
 }
 .hidden {
   display: none;
@@ -26,9 +27,13 @@ color: whitesmoke;
 .sideButton {
   line-height: 1;
   padding: auto;
-  top: 0;
-  
-  border-bottom: solid 1 px black;
+  top: 0;  
+}
+
+.sideItems {
+  margin-bottom: 0.5em;
+  border: solid 1px white;
+  padding: 5px;
 }
 
 #Name {
@@ -46,8 +51,21 @@ color: whitesmoke;
   padding: auto;
 }
 
-.sideMenu.Button {
-  background-color: red;
+#cdk-overlay-0 > div {
+  border-radius: 20px;
+}
+
+.sideMenu.button {
+  background-color: maroon;  
+}
+
+.sideMenuddItem {
+  background-color: maroon;
+  border-radius: 20px;
+  border: 2px solid yellow;
+  margin: 5px;
+  left: -5px;
+  color: white;
 }
 .spacer {
   flex: 1 1 auto;

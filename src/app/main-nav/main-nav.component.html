@@ -1,70 +1,70 @@
 <mat-sidenav-container class="sidenav-container" style="left: 0mm;">
-   <mat-sidenav #drawer class="sidenav"
-   [ngClass]="{hidden: !(isHandset$ | async)}"
-   fixedInViewport="false" [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+  <mat-sidenav #drawer class="sidenav" [ngClass]="{hidden: !(isHandset$ | async)}" fixedInViewport="false" [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
     [mode]="(isHandset$ | async) ? 'over' : 'side'" [opened]="!(isHandset$ | async)">
     <mat-toolbar color="primary">Menu</mat-toolbar>
     <mat-nav-list>
-      <button mat-button [matMenuTriggerFor]="appStorie" class="sideButton">Ons<br>Gemeente</button>
+      <button mat-button [matMenuTriggerFor]="appStorie" class="sideButton sideItems">Ons<br>Gemeente</button>
       <mat-menu #appStorie="matMenu" class="sideMenu">
-        <button mat-menu-item routerLink="/aboutus">Ons storie ...</button>
-        <button mat-menu-item routerLink="/inligting">Kerk Inligting</button>
-        <button mat-menu-item routerLink="/geloof">Geloofsverwoording van die ACK NZ</button>
+        <button mat-menu-item class="sideMenuddItem" routerLink="/aboutus">Ons storie ...</button>
+        <button mat-menu-item class="sideMenuddItem" routerLink="/inligting">Kerk Inligting</button>
+        <button mat-menu-item class="sideMenuddItem" routerLink="/geloof">Geloofsverwoording van die ACK NZ</button>
       </mat-menu>
-      <button mat-button class="sideButton"routerLink="/eredienste">Eredienste</button>
-      <button mat-button class="sideButton" routerLink="/ligging">Waar is ons</button>
-      <button mat-button [matMenuTriggerFor]="appMenu" class="sideMenu hidden-sm hidden-md">Bedieninge</button>
+      <button mat-button class="sideButton sideItems" routerLink="/eredienste">Eredienste</button>
+
+      <button mat-button [matMenuTriggerFor]="appMenu" class="sideMenu sideItems">Bedieninge</button>
       <mat-menu #appMenu="matMenu">
-        <button mat-menu-item>Kategese</button>
-        <button mat-menu-item>Jeug Bediening</button>
-        <button mat-menu-item>Gasvryheid</button>
-        <button mat-menu-item>Verwelkomimg</button>
-        <button mat-menu-item>Kerkraad</button>
+        <button mat-menu-item class="sideMenuddItem" routerLink="/kategese">Kategese</button>
+        <button mat-menu-item class="sideMenuddItem" routerLink="/jeug">Jeug Bediening</button>
+        <button mat-menu-item class="sideMenuddItem" routerLink="/gasvryheid">Gasvryheid</button>
+        <button mat-menu-item class="sideMenuddItem" routerLink="/verweloming">Verwelkomimg</button>
+        <button mat-menu-item class="sideMenuddItem" routerLink="/kerkraad">Kerkraad</button>
       </mat-menu>
-      <button *ngIf="!userClaims" mat-button class="sideButton"routerLink="/login">Admin</button>  
+
+      <button mat-button class="sideButton sideItems" routerLink="/ligging">Waar is ons</button>
+
+      <button mat-button [matMenuTriggerFor]="appKontak" class="sideMenu sideItems">Kerk Navrae</button>
+      <mat-menu #appKontak="matMenu">
+        <button mat-menu-item class="sideMenuddItem" routerLink="/kontakons">Kontak Ons</button>
+        <button mat-menu-item [hidden]='!this.globals.adminUser' class="sideMenuddItem" routerLink="/lidmate">lidmate</button>
+        <button mat-menu-item [hidden]='!this.globals.adminUser' class="sideMenuddItem" routerLink="/login">Nuwe
+          gebruiker</button>
+      </mat-menu>
+
+      <!-- <button *ngIf="!userClaims" mat-button class="sideButton"routerLink="/login">Kerk Navrae</button>  
       <a mat-list-item routerLink="/users" [class.activated]="currentUrl == '/users'">
         <i class="material-icons">supervised_user_circle</i>
-      </a>
+      </a> -->
 
 
     </mat-nav-list>
   </mat-sidenav>
   <mat-sidenav-content class="mainBackGround">
     <mat-toolbar color="primary">
-      <button id="hamburger" type="button" aria-label="Toggle sidenav" mat-icon-button (click)="drawer.toggle()"
-       *ngIf="isHandset$ | async">
-        <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>       
+      <button id="hamburger" type="button" aria-label="Toggle sidenav" mat-icon-button (click)="drawer.toggle()" *ngIf="isHandset$ | async">
+        <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
       </button>
-      <button *ngIf="!(isHandset$ | async)" mat-menu-item routerLink="/" id="Name">ACK Tauranga</button>
+      <button style="margin-left: 2em;" mat-menu-item routerLink="/" id="Name">ACK Tauranga</button>
+
+      <span class="spacer"></span>
+      <button mat-button *ngIf="!(isHandset$ | async)" [matMenuTriggerFor]="appStorie" class="sideButton d-none d-md-block">Ons<br>Gemeente</button>
       
-      <span class="spacer"></span>     
-      <button mat-button *ngIf="!(isHandset$ | async)"  [matMenuTriggerFor]="appStorie" class="sideButton d-none d-md-block">Ons<br>Gemeente</button>
-      <mat-menu #appStorie="matMenu" *ngIf="!(isHandset$ | async)" class="sideMenu">
-        <button mat-menu-item routerLink="/aboutus">Ons storie ...</button>
-        <button mat-menu-item routerLink="/inligting">Kerk Inligting</button>
-        <button mat-menu-item routerLink="/geloof">Geloofsverwoording van die ACK NZ</button>
-      </mat-menu>
       <button mat-button class="sideButton" *ngIf="!(isHandset$ | async)" routerLink="/eredienste">Eredienste</button>
-      <button mat-button class="sideButton" *ngIf="!(isHandset$ | async)" routerLink="/ligging">Waar is ons</button>
-      <button mat-button  *ngIf="!(isHandset$ | async)" [matMenuTriggerFor]="appMenu" class="sideMenu d-none d-md-block">Bedieninge</button>
-      <mat-menu #appMenu="matMenu" *ngIf="!(isHandset$ | async)">
-        <button mat-menu-item>Kategese</button>
-        <button mat-menu-item>Jeug Bediening</button>
-        <button mat-menu-item>Gasvryheid</button>
-        <button mat-menu-item>Verwelkomimg</button>
-        <button mat-menu-item>Kerkraad</button>
-      </mat-menu>
+      
+      <button mat-button *ngIf="!(isHandset$ | async)" [matMenuTriggerFor]="appMenu" class="sideMenu d-none d-md-block">Bedieninge</button>
+      
+      <button mat-button *ngIf="!(isHandset$ | async)" [matMenuTriggerFor]="appKontak" class="sideMenu d-none d-md-block">Kerk Navrae</button>
+     
+      
       <span style="font-size: 14px;" class="sideButton">{{ this.globals.userName }}</span>
-      <button *ngIf="!(this.globals.userName)" mat-button class="sideButton"routerLink="/login">Login</button>       
-      <div class="sideButton">       
-        <button *ngIf="this.globals.userName" mat-button class="sideButton"(click)="Logout()">Logout</button>  
-      </div>     
+      <button *ngIf="!(this.globals.userName)" mat-button class="sideButton" routerLink="/login">Login</button>
+      <div class="sideButton">
+        <button *ngIf="this.globals.userName" mat-button class="sideButton" style="padding-right: 2px; left: 25px; margin-bottom: 5px" (click)="Logout()">Logout</button>
+      </div>
     </mat-toolbar>
     <div class="content">
-      <ng-content></ng-content>      
+      <ng-content></ng-content>
     </div>
     <br>
 
-  </mat-sidenav-content> 
+  </mat-sidenav-content>
 </mat-sidenav-container>
-

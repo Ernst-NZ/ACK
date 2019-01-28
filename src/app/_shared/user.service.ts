@@ -38,10 +38,10 @@ readonly rootURL = this.globals.dataSource
    }
 
    setUser() {
-    var Welkom = "Welkom "
+    var Welkom = "Hi "
     this.getUserClaims().subscribe((data: any) => {
       this.userClaims = data;
-      this.globals.userName = Welkom.concat(this.userClaims.FirstName, " !");
+      this.globals.userName = Welkom.concat(this.userClaims.FirstName);
       if (this.userClaims.UserName === "Ernst" || this.userClaims.UserName === "Mario") {
         this.globals.adminUser = true;
       } else {

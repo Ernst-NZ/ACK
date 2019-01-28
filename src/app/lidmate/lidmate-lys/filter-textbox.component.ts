@@ -10,7 +10,7 @@ template: `
           color: maroon;
           max-height: 1.5em;
           margin-top: 1.5em;
-          margin-bottom: 1em;" type="text" [(ngModel)]="filter" />
+          margin-bottom: 1.25em;" type="text" [(ngModel)]="filter" />
     `
 })
 export class FilterTextboxComponent implements OnInit {
