@@ -1,5 +1,11 @@
 <app-filter-textbox style="margin-bottom: 0.5em;" [hidden]="!(this.globals.filter)" (changed)="filter($event)"></app-filter-textbox>
 <button style="color: maroon; margin-top: 2.5em; margin-bottom: 0.5em" [hidden]="this.globals.filter" (click)="changeVisibility()">Lidmaat Lys</button>
+<select class="custom-select" style="width: 7em; margin-left: 15px;" name="isActive" #isActive="ngModel" 
+[(ngModel)]="this.globals.activeOnly" (change)="getActive()">
+    <option value="True">Aktief</option>
+    <option value="">Onaktief</option>
+    <option value="All">Almal</option>
+  </select>
 <br />
 <div id="scrollable-area">
 <table class="table table-hover">

@@ -15,8 +15,6 @@ formData:Lidmaat;
 formAdd:Address; 
 list:Lidmaat[]; 
 listAddress:Address[]; 
-// readonly rootURL = "http://localhost:3000/api"
-// readonly rootURL ="https://data.ezy.kiwi/api"
  readonly rootURL = this.globals.dataSource + "/api"
 constructor(private http:HttpClient, private globals:Globals) {}
 
@@ -25,11 +23,13 @@ constructor(private http:HttpClient, private globals:Globals) {}
    }
 
   refreshList() {
+    this.globals.lidmaatDetails = '';
     this.http.get(this.rootURL + '/Persoon')
     .toPromise().then(res => this.list = res as Lidmaat[]); 
    }
   
   getLidmate():Observable < ILidmaat[] >  {
+    this.globals.lidmaatDetails = '';
     return this.http.get < ILidmaat[] > (this.rootURL + '/Persoon')
         .pipe(
             catchError(this.handleError)
@@ -66,12 +66,6 @@ constructor(private http:HttpClient, private globals:Globals) {}
     .toPromise().then(res => this.listAddress = res as Address[]); 
    }
   
-  // getAddress():Observable < IAddress[] >  {
-  //   return this.http.get < IAddress[] > (this.rootURL + '/Addresse')
-  //       .pipe(
-  //           catchError(this.handleError)
-  //       ); 
-  //  }
   
   getAddress():Observable < IAddress[] >  {
     return this.http.get < IAddress[] > (this.rootURL + '/Addresse')

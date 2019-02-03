@@ -15,4 +15,5 @@ export class Globals {
   isSyncing: boolean = false;
   myFilter: String;
   filter: boolean;
+  activeOnly: string = "True";
 }

@@ -7,11 +7,23 @@ import {filter }from 'rxjs/operators';
 import {Globals }from '../../globals'; 
 import { NgxSpinnerService } from 'ngx-spinner';
 
+export interface isActive {
+    value:string; 
+    viewValue:string; 
+  }
+
 @Component( {
     selector:'app-lidmate-lys', 
     templateUrl:'./lidmate-lys.component.html'
 })
+
+
 export class LidmateLysComponent implements OnInit {
+    @Output() goGetActive = new EventEmitter();
+    getactive(){
+      this.goGetActive.emit();
+    }
+
     private _lidmate:ILidmaat[] = []; 
     @Input()get lidmate():ILidmaat[] {
         return this._lidmate; 
@@ -21,7 +33,10 @@ export class LidmateLysComponent implements OnInit {
     @Input()get adresse():IAddress[] {
         return this._addresse; 
     }
-    defaultDate = "1900-01-01T00:00:00"
+    gender:isActive[] = [ {value:'True', viewValue:'Aktief'},
+                          {value:'', viewValue:'Onaktief'},
+                          {value:'All', viewValue:'Almal'}, 
+  ];
     
     set lidmate(value:ILidmaat[]) {
         if (value) {
@@ -123,6 +138,11 @@ export class LidmateLysComponent implements OnInit {
         this.filter("");
         }
       
+        getActive() {
+            this.getactive();
+            this.globals.filter =  true; 
+            this.filter("");
+        }
         
 }
  

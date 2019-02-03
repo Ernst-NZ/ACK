@@ -5,12 +5,13 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 //     template: `    Soek: <input style="width: 60%;" type="text" [(ngModel)]="filter" />
 // `
 template: `
-        Filter: <input style="width: 60%; 
+        Filter: <input style="width: 50%; 
           background-color: white;
           color: maroon;
-          max-height: 1.5em;
+          max-height: 2em;
           margin-top: 1.5em;
-          margin-bottom: 1.25em;" type="text" [(ngModel)]="filter" />
+          margin-bottom: 1.25em;
+          padding-left: 0.75em;" type="text" [(ngModel)]="filter" />
     `
 })
 export class FilterTextboxComponent implements OnInit {
