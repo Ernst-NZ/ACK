@@ -27,6 +27,7 @@ readonly rootURL = this.globals.dataSource
   
   
   userAuthentication(userName, password) {
+    console.log("user Athen")
     var data = "username=" + userName + "&password=" + password + "&grant_type=password"; 
     var reqHeader = new HttpHeaders( {'Content-Type':'application/x-www-urlencoded', 'No-Auth':'True'}); 
     return this.http.post(this.rootURL + '/token', data,  {headers:reqHeader }); 
@@ -34,13 +35,16 @@ readonly rootURL = this.globals.dataSource
 
 
   getUserClaims() {
-    return  this.http.get(this.rootURL + '/api/GetUserClaims'); 
+    console.log("get User claims")
+    return  this.http.get(this.rootURL + '/api/GetUserClaims');   
    }
 
    setUser() {
+    console.log("Set User")
     var Welkom = "Hi "
     this.getUserClaims().subscribe((data: any) => {
       this.userClaims = data;
+      console.log(this.userClaims)
       this.globals.userName = Welkom.concat(this.userClaims.FirstName);
       if (this.userClaims.UserName === "Ernst" || this.userClaims.UserName === "Mario") {
         this.globals.adminUser = true;

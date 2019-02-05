@@ -5,7 +5,7 @@ import {Observable }from 'rxjs/Observable';
 import {map, catchError }from 'rxjs/operators'; 
 import {Globals }from '../globals'; 
 
-import {ILidmaat, IAddress }from '../../app/_shared/interfaces'; 
+import {ILidmaat, IAddress, IGroup  }from '../../app/_shared/interfaces'; 
 
 @Injectable()
 export class DataService {
@@ -33,7 +33,6 @@ export class DataService {
           catchError(this.handleError)
         );
     }
-
     
     getLidmaat(id:number):Observable < ILidmaat >  {
       this.globals.lidmaatDetails = '';
@@ -73,6 +72,24 @@ export class DataService {
           return Observable.throw(errMessage); 
       }
       return Observable.throw(error || 'Node.js server error'); 
+    }
+
+    getGroups(setGroup: string) : Observable<IGroup[]> {
+      return this.http.get<IGroup[]>(this.rootURL + '/Group')
+        .pipe(
+          map(groepe => {
+            let custGroep = groepe.filter((groep: IGroup) => groep.Group === setGroup);
+            return custGroep;
+          }),
+          catchError(this.handleError)
+        );
+    }
+
+    getGroepe() : Observable<IGroup[]> {
+      return this.http.get<IGroup[]>(this.rootURL + '/Group')
+        .pipe(
+          catchError(this.handleError)
+        );
     }
 
 }

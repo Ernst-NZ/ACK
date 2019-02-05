@@ -45,3 +45,10 @@ export interface IAddress {
   PostCode?:String
   Phone?:String
 }
+
+export interface IGroup {
+ PersoonId:Number
+ Group:String
+ Name:String
+ Date:Date
+}
