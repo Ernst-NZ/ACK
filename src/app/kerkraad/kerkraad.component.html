@@ -1,64 +1,56 @@
- <p>
-  kerkraad works!
-</p>
-<button type="button" class="btn btn-info btn-sm" (click)='getGroepe()' >
-  Skoon form</button>
-   <table>
-  <tr>
-    <th>Kerk Groep</th>
-    <th>Naam</th>
-    <th>Datum</th>
-    <th></th>
-    <th></th>
-  </tr>
-  <tr>
-    <td>
-      <!-- <input type="text" [(ngModel)]="newStudent.name" /> -->
-      <input type="text"  />
-    </td>
-    <td>
-      <input type="text"  />
-    </td>
-    <td>
-      <input type="text"  />
-    </td>
-    <td>
-      <button (click)="addStudent()">Add</button>
-    </td>
-    <td>
-      <button (click)="clearNewStudent()">Cancel</button>
-    </td>
-  </tr>
-  <tr *ngFor="let groep of groepe" [attr.data-id]="groep.Id">
-    <td>
-      <!-- <input type="text" *ngIf="student.editing" [(ngModel)]="oldStudent.name" /> -->
-      <!-- <input type="text" *ngIf="student.editing" [(ngModel)]="oldStudent.name" /> -->
-  
-      <span>
-       111 <!-- {{groep.Groep}}  -->
-      </span>
-    </td>
-    <td>
-      <!-- <select *ngIf="student.editing" [(ngModel)]="oldStudent.gender">
-        <option value="m">Male</option>
-        <option value="f">FeMale</option>
-      </select> -->
-      <span>
-        {{groep.Name}} 
-      </span>
-    </td>
-    <td>
-      <!-- <input type="text" *ngIf="student.editing" [(ngModel)]="oldStudent.country" />-->
-      <span >{{groep.Date}}</span> 
-    </td>
-    
-    <td>
-      <!-- <button *ngIf="student.editing" (click)="updateStudent();student.editing=false">Update</button>
-      <button *ngIf="!student.editing" (click)="student.editing=true;getStudent(student.id);">Edit</button> -->
-    </td>
-    <td>
-      <!-- <button *ngIf="student.editing" (click)="student.editing=false">Cancel</button>
-      <button *ngIf="!student.editing" (click)="deleteStudent(student.id)">Delete</button> -->
-    </td>
-  </tr>
-</table>
+<table>
+    <tr>
+      <th>Datum</th>
+      <th>Kerk Groep</th>
+      <th>Naam</th>
+
+      <th></th>
+      <th></th>
+    </tr>
+    <tr>
+      <td>
+        <input type="text" [(ngModel)]="newGroep.Date" />
+      </td>
+      <td>
+        <input type="text" [(ngModel)]="newGroep.Group1" />
+      </td>
+      <td>
+        <input type="text" [(ngModel)]="newGroep.Name" />
+      </td>
+      <td>
+        <button (click)="addStudent()">Add</button>
+      </td>
+      <td>
+        <button (click)="clearNewStudent()">Cancel</button>
+      </td>
+    </tr>
+    <tr *ngFor="let xx of groepe" [attr.data-id]="xx.Id">
+      <td>
+        <input type="text" *ngIf="xx.Editing" [(ngModel)]="oldGroep.Date" />
+        <span *ngIf="!xx.Editing">{{xx.Date | date:'dd MMM yy'}}</span>
+      </td>
+      <td>
+        <input type="text" *ngIf="xx.Editing" [(ngModel)]="oldGroep.Group1" />
+        <span *ngIf="!xx.Editing">
+          {{xx.Group1}}
+        </span>
+      </td>
+      <td>
+        <input type="text" *ngIf="xx.Editing" [(ngModel)]="oldGroep.Name" />
+        <span *ngIf="!xx.Editing">
+          {{xx.Name}}
+        </span>
+      </td>
+
+      <td>
+        <button class="btn btn-success btn-sm" *ngIf="xx.Editing" (click)="updateGroep();this.editing=false">Update</button>
+        <button class="btn btn-info btn-sm" *ngIf="!xx.Editing" (click)="xx.editing=true;getGroep(xx.Id);">Edit</button>
+      </td>
+      <td>
+        <!-- <button *ngIf="student.editing" (click)="student.editing=false">Cancel</button>
+          <button *ngIf="!student.editing" (click)="deleteStudent(student.id)">Delete</button> -->
+        <button (click)="this.editing=false">Cancel</button>
+        <button (click)="deleteStudent(student.id)">Delete</button>
+      </td>
+    </tr>
+  </table>

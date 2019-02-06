@@ -48,7 +48,14 @@ export interface IAddress {
 
 export interface IGroup {
  PersoonId:Number
- Group:String
+ Group1:String
  Name:String
  Date:Date
+}
+
+export class Group implements IGroup {
+  PersoonId:Number
+  Group1:String
+  Name:String
+  Date:Date
 }

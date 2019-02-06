@@ -1,7 +1,7 @@
-import { Component, OnInit, AfterContentInit } from '@angular/core';
+import { Component, OnInit, AfterContentInit, AfterContentChecked } from '@angular/core';
 import { Globals } from '../globals';
 import { DataService } from '../_core/data.service';
-import { IGroup } from '../_shared/interfaces';
+import { IGroup, Group } from '../_shared/interfaces';
 
 
 @Component({
@@ -9,26 +9,39 @@ import { IGroup } from '../_shared/interfaces';
   templateUrl: './kerkraad.component.html',
   styleUrls: ['./kerkraad.component.scss']
 })
-export class KerkraadComponent implements OnInit, AfterContentInit {
+export class KerkraadComponent implements OnInit {
   isEditing: boolean;
   groepe:Array<IGroup> = [];;
-  //newGroep: IGroup = new Student();
-  // oldStudent: IStudent = new Student();
+  newGroep: IGroup = new Group();
+  oldGroep: IGroup = new Group();
 
   constructor(public globals:Globals, private dataService:DataService) { }
 
   ngOnInit() {
-       this.getGroepe();
+    this.dataService.getGroepe()
+      .subscribe((groep:IGroup[]) => this.groepe = groep);
+    this.isEditing = false;
+    console.log(this.groepe);    
   }
 
-  ngAfterContentInit() {
-    this.getGroepe();
+ setEdit (groupId) {
+   this.getGroep(groupId); 
+   this.isEditing = !this.isEditing;
+ }
+
+ getGroep(groepId) {
+   this.isEditing = true;
+   alert(groepId)
+    this.dataService.getGroep(groepId).
+    subscribe(editGroepe => {
+        if (editGroepe.length > 0) {
+          this.oldGroep = editGroepe[0];
+          console.log(this.oldGroep)
+          alert("Got Old Group")
+        }
+      });
   }
-  getGroepe() {    
-      this.dataService.getGroepe()
-      .subscribe((groep:IGroup[]) => this.groepe = groep); 
-      console.log(this.groepe);    
-  }
+
 
    getStudents() {
   //   this.service.getStudents().

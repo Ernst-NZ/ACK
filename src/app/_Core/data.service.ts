@@ -78,7 +78,7 @@ export class DataService {
       return this.http.get<IGroup[]>(this.rootURL + '/Group')
         .pipe(
           map(groepe => {
-            let custGroep = groepe.filter((groep: IGroup) => groep.Group === setGroup);
+            let custGroep = groepe.filter((groep: IGroup) => groep.Group1 === setGroup);
             return custGroep;
           }),
           catchError(this.handleError)
@@ -87,6 +87,13 @@ export class DataService {
 
     getGroepe() : Observable<IGroup[]> {
       return this.http.get<IGroup[]>(this.rootURL + '/Group')
+        .pipe(
+          catchError(this.handleError)
+        );
+    }
+
+    getGroep(groepId: number) : Observable<IGroup[]> {
+      return this.http.get<IGroup[]>(this.rootURL + '/Group/' + groepId)
         .pipe(
           catchError(this.handleError)
         );
