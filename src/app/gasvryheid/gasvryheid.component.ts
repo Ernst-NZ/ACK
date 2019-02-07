@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService } from '../_core/data.service';
 import { IGroup, Group } from '../_shared/interfaces';
+import { map, catchError } from 'rxjs/operators';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-gasvryheid',
@@ -21,18 +23,33 @@ export class GasvryheidComponent implements OnInit {
    }
 
   ngOnInit() {
-    this.getStudents();
+    this.service.getGroepe()
+    .subscribe((groep:IGroup[]) => this.students = groep);
+    console.log(this.students); 
   }
 
 
   getStudents() {
-    this.service.getStudents().
-      then(students => {
+    this.service.getStudents()
+    .pipe(
+      map(students => {
+        console.log("get students")
+        console.log(students)
         this.students = students;
-      }).catch(error => {
-        console.error(error);
-        alert(error.message);
-      });
+        console.log(this.students)
+      }),
+      catchError(this.handleError)
+    );    
+  }
+
+  private handleError(error:any) {
+    console.error('server error:', error); 
+    if (error.error instanceof Error) {
+        const errMessage = error.error.message; 
+        console.log(errMessage)
+        return Observable.throw(errMessage); 
+    }
+    return Observable.throw(error || 'Node.js server error'); 
   }
 
   // addStudent() {
