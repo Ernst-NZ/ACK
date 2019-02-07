@@ -98,5 +98,49 @@ export class DataService {
           catchError(this.handleError)
         );
     }
+// ################################################
+    getStudents() {
+      return this.http.get<IGroup[]>(this.rootURL + '/Group')
+      .pipe(        
+        catchError(this.handleError)
+      );
+    }
+   
+    // addStudent(student: IStudent) {
+    //   alert(student)
+    //   return this.connection.insert<IStudent>({
+    //     into: 'Students',
+    //     return: true, // as id is autoincrement, so we would like to get the inserted value
+    //     values: [student]
+    //   });
+    // }
+  
+    // deleteStudent(studentId: number) {
+    //   return this.connection.remove({
+    //     from: 'Students',
+    //     where: {
+    //       id: studentId
+    //     }
+    //   });
+    // }
+  
+    // updateStudent(studentId: number, updateValue: IStudent) {
+    //   return this.connection.update({
+    //     in: 'Students',
+    //     where: {
+    //       id: studentId
+    //     },
+    //     set: updateValue
+    //   });
+    // }
+  
+    // getStudent(studentId: number) {
+    //   return this.connection.select<IStudent>({
+    //     from: 'Students',
+    //     where: {
+    //       id: studentId
+    //     }
+    //   });
+    // }
 
 }
