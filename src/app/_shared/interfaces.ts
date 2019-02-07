@@ -47,6 +47,7 @@ export interface IAddress {
 }
 
 export interface IGroup {
+ Id:Number
  PersoonId:Number
  Group1:String
  Name:String
@@ -54,6 +55,7 @@ export interface IGroup {
 }
 
 export class Group implements IGroup {
+  Id:Number
   PersoonId:Number
   Group1:String
   Name:String

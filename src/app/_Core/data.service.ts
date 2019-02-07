@@ -99,12 +99,7 @@ export class DataService {
         );
     }
 // ################################################
-    getStudents() {
-      return this.http.get<IGroup[]>(this.rootURL + '/Group')
-      .pipe(                
-        catchError(this.handleError)
-      );
-    }
+ 
    
     // addStudent(student: IStudent) {
     //   alert(student)

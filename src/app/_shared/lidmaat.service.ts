@@ -3,7 +3,7 @@ import {Lidmaat, Address }from './lidmaat.model';
 import {HttpClient, HttpHeaders }from "@angular/common/http"; 
 import {Observable }from 'rxjs/Observable'; 
 import {catchError }from 'rxjs/operators'; 
-import {ILidmaat }from '../../app/_shared/interfaces'; 
+import {ILidmaat, Group }from '../../app/_shared/interfaces'; 
 import {IAddress }from '../../app/_shared/interfaces'; 
 import {Globals }from '../globals'; 
 
@@ -83,5 +83,23 @@ constructor(private http:HttpClient, private globals:Globals) {}
   deleteAddress(id:number) {
     return this.http.delete(this.rootURL + '/Addresse/' + id); 
    }
+
+   // Groepe
+   postGroep(formAdd:Group) {
+     console.log(formAdd)
+    return this.http.post(this.rootURL + '/Group', formAdd); 
+   }
+
+
+   putGroep(formData:Group) {
+    //    var reqHeader = new HttpHeaders( {'No-Auth':'True', 'Access-Control-Allow-Origin':'*'})
+        var reqHeader = new HttpHeaders( {'No-Auth':'True'})
+        return this.http.post(this.rootURL + '/Group/' + formData.Id, 
+        formData, {headers:reqHeader }); 
+       }
+    
+   deleteGroep(id:number) {
+        return this.http.delete(this.rootURL + '/Group/' + id); 
+      }
    
  }

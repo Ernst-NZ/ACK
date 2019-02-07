@@ -1,56 +1,108 @@
-import { Component, OnInit } from '@angular/core';
-import { DataService } from '../_core/data.service';
-import { IGroup, Group } from '../_shared/interfaces';
-import { map, catchError } from 'rxjs/operators';
-import { Observable } from 'rxjs';
+import {Component, OnInit }from '@angular/core'; 
+import {DataService }from '../_core/data.service'; 
+import {IGroup, Group }from '../_shared/interfaces'; 
+import {map, catchError }from 'rxjs/operators'; 
+import {Observable }from 'rxjs'; 
+import {LidmaatService }from '../_shared/lidmaat.service'; 
 
-@Component({
-  selector: 'app-gasvryheid',
-  templateUrl: './gasvryheid.component.html',
-  styleUrls: ['./gasvryheid.component.scss']
+export interface groepLys {
+  value:string; 
+  viewValue:string; 
+}
+
+@Component( {
+  selector:'app-gasvryheid', 
+  templateUrl:'./gasvryheid.component.html', 
+  styleUrls:['./gasvryheid.component.scss']
 })
 export class GasvryheidComponent implements OnInit {
 
   
-  private service:DataService;
-  students: Array<IGroup> = [];
-  newStudent: IGroup = new Group();
-  oldStudent: IGroup = new Group();
+  private service:DataService; 
+  groepe:Array < IGroup >  = []; 
+  newGroep:IGroup = new Group(); 
+//  oldGroep: IGroup = new Group();
+  oldGroep:any; 
+  errors:any; 
+  Group1:groepLys[] = [ {value:'Kerkraad', viewValue:'Kerkraad'},  {value:'Verwelkoming', viewValue:'Verwelkoming'},  {value:'Gasvryheid', viewValue:'Gasvryheid'},  {value:'Jeug', viewValue:'Jeug bediening'}, 
+]; 
 
-
-  constructor(service: DataService) {
-    this.service = service;
+  constructor(service:DataService, private lidmaatService:LidmaatService ) {
+    this.service = service; 
    }
 
   ngOnInit() {
     this.service.getGroepe()
-    .subscribe((groep:IGroup[]) => this.students = groep);
-    console.log(this.students); 
+    .subscribe((groep:IGroup[]) => this.groepe = groep); 
   }
 
-
-  getStudents() {
-    this.service.getStudents()
-    .pipe(
-      map(students => {
-        console.log("get students")
-        console.log(students)
-        this.students = students;
-        console.log(this.students)
-      }),
-      catchError(this.handleError)
-    );    
+  refreshData() {
+    this.service.getGroepe()
+    .subscribe((groep:IGroup[]) => this.groepe = groep); 
   }
 
-  private handleError(error:any) {
-    console.error('server error:', error); 
-    if (error.error instanceof Error) {
-        const errMessage = error.error.message; 
-        console.log(errMessage)
-        return Observable.throw(errMessage); 
+  getGroep(groepId) {
+    this.service.getGroep(groepId).
+      subscribe((groepe:IGroup[]) =>  {
+        if (groepe) {
+          this.oldGroep = groepe; 
+          console.log(this.oldGroep); 
+        }
+        error =>  {
+          this.errors = error
+        }
+      }); 
+  }
+
+  addGroep() {
+    this.groepe = null; 
+    this.lidmaatService.postGroep(this.newGroep).
+    subscribe(); 
+    alert('Successfully added')
+    this.refreshData(); 
+    this.clearNewGroep()
+    error =>  {
+      this.errors = error
+      alert(this.errors)
     }
-    return Observable.throw(error || 'Node.js server error'); 
   }
+
+  updateGroep() {
+    this.groepe = null; 
+    this.lidmaatService.putGroep(this.oldGroep).
+      subscribe(); 
+      alert('Successfully Changed')
+      this.refreshData(); 
+      this.clearOldGroep(); 
+      error =>  {
+        this.errors = error
+        alert(this.errors)
+      }
+  }
+
+  deleteGroep(groepId) {
+    this.groepe = null; 
+    this.lidmaatService.deleteGroep(groepId).
+    subscribe(); 
+   
+    alert('Successfully deleted')
+    this.refreshData(); 
+    error =>  {
+      this.errors = error
+      alert(this.errors)
+        }
+  }
+       
+
+  clearNewGroep() {
+    this.newGroep = new Group(); 
+  }
+
+  clearOldGroep() {
+    this.oldGroep = new Group(); 
+  }
+
+ 
 
   // addStudent() {
   //   this.service.addStudent(this.newStudent).
@@ -66,9 +118,9 @@ export class GasvryheidComponent implements OnInit {
   //     });
   // }
 
-  clearNewStudent() {
-    this.newStudent = new Group();
-  }
+  // clearNewStudent() {
+  //   this.newGroep = new Group();
+  // }
 
   // deleteStudent(studentId) {
   //   this.service.deleteStudent(studentId).

@@ -26,3 +26,11 @@ export class Address {
   PostCode?:String
   Phone?:String
 }
+
+export class Group {
+  Id:Number
+  PersoonId:Number
+  Group1:String
+  Name:String
+  Date:Date
+}
