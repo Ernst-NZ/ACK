@@ -1,0 +1,98 @@
+<!-- <app-filter-textbox style="margin-bottom: 0.5em;" (changed)="filter($event)"></app-filter-textbox> -->
+
+<table>
+  <tr>
+    <th (click)="sort('Date')">Datum</th>
+    <th (click)="sort('Group1')">Groep</th>
+    <th (click)="sort('Name')">Naam</th>
+    <th></th>
+    <th></th>
+  </tr>
+  <tr>
+    <td>       
+      <input type="date" [(ngModel)]="newGroep.Date" class="form-control"
+       style="background-color: white; height: 2.25em;
+       margin-bottom: 0px; color: black; border-radius: 5px;
+       padding-left: 5px" />
+    </td>
+    <td>
+      <select class="custom-select max_Width_80" name="Group1" #groepLys="ngModel" [(ngModel)]="newGroep.Group1">
+        <option value="Tema">Tema</option>
+        <option value="Skriflesing">Skriflesing</option>
+        <option value="Kerkraad">Kerkraad</option>
+        <option value="Verwelkoming">Verwelkomimng</option>
+        <option value="Gasvryheid">Gasvryheid</option>
+        <option value="Jeug">Jeug Bediening</option>
+      </select>
+    </td>
+    <td>
+      <input type="text" [(ngModel)]="newGroep.Name" class="form-control"
+      style="background-color: white; height: 2.25em;
+      margin-bottom: 0px; color: black;  border-radius: 5px;
+       padding-left: 5px" />
+    </td>
+    <td>
+      <button class="btn btn-success btn-sm"  (click)="addGroep()">Add</button>
+    </td>
+    <td>
+      <button class="btn btn-secondary btn-sm" (click)="clearNewGroep()">Cancel</button>
+    </td>
+  </tr>
+  <tr *ngFor="let groep of groepe" [attr.data-id]="groep.Id">
+    <td>
+      <!-- <input type="text" *ngIf="groep.editing" 
+      [(ngModel)]="oldGroep.Date" class="form-control"
+      style="background-color: white; height: 2.25em;
+      margin-bottom: 0px; color: black;  border-radius: 5px;
+      padding-left: 5px" /> -->
+
+      <div *ngIf="groep.editing"  class="form-group smallBottom">
+        <mat-datepicker-toggle matSuffix [for]="myDatepicker"></mat-datepicker-toggle>
+        <input class="max_Width_80" style='margin-bottom: 0px' 
+        matInput [matDatepicker]="myDatepicker" name="Date" #DOB="ngModel" 
+        [(ngModel)]="oldGroep.Date"
+        mat-datepicker-locale="{ $mdDateLocaleProvider.formatDate: 'yyyy-MM-dd' }" >
+        <mat-datepicker #myDatepicker></mat-datepicker>
+      </div>
+      
+      <span *ngIf="!groep.editing">
+        {{groep.Date | date:'dd MMM yy'}}
+      </span>
+    </td>
+    <td>     
+      <select  *ngIf="groep.editing" class="custom-select max_Width_80" name="Group1" #groepLys="ngModel" [(ngModel)]="oldGroep.Group1">
+          <option value="Tema">Tema</option>
+          <option value="Skriflesing">Skriflesing</option>
+          <option value="Kerkraad">Kerkraad</option>
+          <option value="Verwelkoming">Verwelkomimng</option>
+          <option value="Gasvryheid">Gasvryheid</option>
+          <option value="Jeug">Jeug Bediening</option>
+      </select>
+      <span *ngIf="!groep.editing">{{groep.Group1}}</span>
+    </td>
+    <td>
+      <input type="text" *ngIf="groep.editing" [(ngModel)]="oldGroep.Name" class="form-control"
+      style="background-color: white; height: 2.25em;
+      margin-bottom: 0px; color: black;  border-radius: 5px;
+       padding-left: 5px" />
+      <span *ngIf="!groep.editing">{{groep.Name}}</span>
+    </td>
+    <td>
+      <button class="btn btn-success btn-sm" *ngIf="groep.editing" (click)="updateGroep();groep.editing=false">Update</button>
+      <button class="btn btn-info btn-sm" *ngIf="!groep.editing" (click)="groep.editing=true;getGroep(groep.Id);">Edit</button>
+    </td>
+    <td>
+      <button class="btn btn-secondary btn-sm"  *ngIf="groep.editing" (click)="groep.editing=false">Cancel</button>
+      <button class="btn btn-danger btn-sm" *ngIf="!groep.editing" (click)="deleteGroep(groep.Id)">Delete</button>
+    </td>
+  </tr>
+</table>
+<ngx-spinner
+bdOpacity = 0.9
+bdColor = ""
+size = "medium"
+color = "#f30808"
+type = "ball-running-dots"
+fullScreen = "false">
+<p style="color: white" > Loading... </p>
+</ngx-spinner>

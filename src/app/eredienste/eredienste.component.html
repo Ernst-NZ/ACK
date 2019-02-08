@@ -1,9 +1,116 @@
-<p class='heading'>ACK Tauranga</p>
-<br>
-<p>Elke Sondag aand</p>
-<p>St Enoch's Kerk</p>
-<p>134 Sixteenth Avenue</p>
-<p>Tauranga</p>
-<br>
-<p>Tyd: 6nm - Somer (Daylight Savings) </p>
-<p>Tyd: 5nm - Winter (Daylight Savings) </p>
+<p class='heading center'>ACK Tauranga</p>
+<div class="row" style="color: wheat; padding-left: 15px; margin-bottom: 0px;">
+  <div class='col-xs-12 col-md-5 col-lg-4 col-xl-3'>
+    <span style="font-weight: bold; text-decoration: underline; font-size: 1.25em"> Tema vir Sondag: {{tema[0].Date |
+      date:'dd MMM yyyy'}} </span>
+  </div>
+  <div class='col-xs-12 col-md-7 col-lg-8 col-xl-9'>
+    <span style="font-weight: bold; font-size: 1.5m">{{tema[0].Name}} </span>
+  </div>
+</div>
+<div class="row" style="border-bottom: white double 2px; color: wheat; padding-left: 15px">
+    <div class='col-xs-12 col-md-5 col-lg-4 col-xl-3'>
+    <span style="font-weight: bold; text-decoration: underline; font-size: 1em">Skriflesing vir Sondag:</span> </div>
+    <div class='col-xs-12 col-md-7 col-lg-8 col-xl-9'>
+    <span style="font-weight: bold; font-size: 1em">{{skrif[0].Name}} </span>
+  </div>
+</div>
+
+<div class='row'>
+  <div class="col-xs-12 col-sm-12 col-md-5" style=" 
+  font-weight: bold; font-size: 1em">
+    <p>Elke Sondag aand</p>
+    <p>St Enoch's Kerk</p>
+    <p>134 Sixteenth Avenue</p>
+    <p>Tauranga</p>
+    <br>
+    <p>Tyd: 6nm - Somer (Daylight Savings) </p>
+    <p>Tyd: 5nm - Winter (Daylight Savings) </p>
+
+  </div>
+  <div class="col-1">
+  </div>
+  <div class="col-xs-12 col-sm-12 col-md-6">
+    <table style="width: 95%">
+      <tr>
+        <th colspan="3" style="text-align: center; 
+                        text-decoration: underline; 
+                        font-weight: bold; font-size: 2em">KERKRAAD</th>
+      </tr>
+      <tr *ngFor="let groep1 of kerkraad">
+        <td style="width: 25%; padding-left: 2px; padding-right: 0px;">
+          <span> {{groep1.Date | date:'dd MMM yy'}} </span>
+        </td>
+        <td style="width: 30%; padding-left: 2px; padding-right: 0px;">
+          <span>{{groep1.Group1}}</span>
+        </td>
+        <td style="width: 45%; padding-left: 2px; padding-right: 0px;">
+          <span>{{groep1.Name}}</span>
+        </td>
+      </tr>
+    </table>
+    <br>
+    <table style="width: 95%">
+      <tr>
+        <th colspan="3" style="text-align: center; 
+                          text-decoration: underline; 
+                          font-weight: bold; font-size: 2em">VERWELKOMING</th>
+      </tr>
+      <tr *ngFor="let groep2 of welkom">
+          <td style="width: 25%; padding-left: 2px; padding-right: 0px;">
+              <span> {{groep2.Date | date:'dd MMM yy'}} </span>
+            </td>
+            <td style="width: 30%; padding-left: 2px; padding-right: 0px;">
+              <span>{{groep2.Group1}}</span>
+            </td>
+            <td style="width: 45%; padding-left: 2px; padding-right: 0px;">
+              <span>{{groep2.Name}}</span>
+            </td>
+          </tr>
+        </table>
+    <br>
+    <table style="width: 95%">
+      <tr>
+        <th colspan="3" style="text-align: center; 
+                          text-decoration: underline; 
+                          font-weight: bold; font-size: 2em">GASVRYHEID</th>
+      </tr>
+      <tr *ngFor="let groep3 of gasvry">
+          <td style="width: 25%; padding-left: 2px; padding-right: 0px;">
+              <span> {{groep3.Date | date:'dd MMM yy'}} </span>
+            </td>
+            <td style="width: 30%; padding-left: 2px; padding-right: 0px;">
+              <span>{{groep3.Group1}}</span>
+            </td>
+            <td style="width: 45%; padding-left: 2px; padding-right: 0px;">
+              <span>{{groep3.Name}}</span>
+            </td>
+          </tr>
+        </table>
+    <br>
+    <table style="width: 95%">
+      <tr>
+        <th colspan="3" style="text-align: center; 
+                            text-decoration: underline; 
+                            font-weight: bold; font-size: 2em">JEUG
+          BEDIENING</th>
+      </tr>
+      <tr *ngFor="let groep4 of jeug">
+          <td style="width: 25%; padding-left: 2px; padding-right: 0px;">
+              <span> {{groep4.Date | date:'dd MMM yy'}} </span>
+            </td>
+            <td style="width: 30%; padding-left: 2px; padding-right: 0px;">
+              <span>{{groep4.Group1}}</span>
+            </td>
+            <td style="width: 45%; padding-left: 2px; padding-right: 0px;">
+              <span>{{groep4.Name}}</span>
+            </td>
+          </tr>
+        </table>
+    <ngx-spinner bdOpacity=0.9 bdColor="" size="medium" color="#f30808" type="ball-running-dots" fullScreen="false">
+      <p style="color: white"> Loading... </p>
+    </ngx-spinner>
+
+
+  </div>
+</div>

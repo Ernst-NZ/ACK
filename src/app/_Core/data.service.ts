@@ -8,9 +8,9 @@ import {Globals }from '../globals';
 import {ILidmaat, IAddress, IGroup  }from '../../app/_shared/interfaces'; 
 
 @Injectable()
-export class DataService {
-
-     readonly rootURL = this.globals.dataSource + "/api"
+export class DataService {  
+   
+     readonly rootURL = this.globals.dataSource + "/api";
     
     constructor(private http:HttpClient, private globals:Globals) {}
 
@@ -28,6 +28,34 @@ export class DataService {
         .pipe(
           map(lede => {
             let custLede = lede.filter((lid: ILidmaat) => lid.IsActive === active);
+            return custLede;
+          }),
+          catchError(this.handleError)
+        );
+    }
+
+    getBirthday(active: string, fromMonth: number, fromDay: number, endDay: number) : Observable<ILidmaat[]> {
+      this.globals.lidmaatDetails = '';
+      if (fromDay < endDay) {
+        endDay = 0;
+      }
+
+
+    
+      //this.nextSunday.setDate(this.nextSunday.getMonth());
+      return this.http.get<ILidmaat[]>(this.rootURL + '/Persoon')
+        .pipe(
+          map(lede => {
+            let custLede = lede.filter((lid: ILidmaat) => 
+            lid.IsActive === 'True' &&
+            new Date(lid.DOB).getMonth() === fromMonth &&
+            new Date(lid.DOB).getDate() > fromDay &&
+            (new Date(lid.DOB).getDate() < fromDay + 7 ||
+            new Date(lid.DOB).getMonth() === fromMonth + 1 &&
+            new Date(lid.DOB).getDate() > 0 &&
+            new Date(lid.DOB).getDate() < endDay)
+            )
+            
             return custLede;
           }),
           catchError(this.handleError)
@@ -73,12 +101,15 @@ export class DataService {
       }
       return Observable.throw(error || 'Node.js server error'); 
     }
-
-    getGroups(setGroup: string) : Observable<IGroup[]> {
+    // yourDate.setDate(yourDate.getDate() + 1)
+    getGroups(setGroup: string, einde: Date) : Observable<IGroup[]> {
       return this.http.get<IGroup[]>(this.rootURL + '/Group')
         .pipe(
           map(groepe => {
-            let custGroep = groepe.filter((groep: IGroup) => groep.Group1 === setGroup);
+            let custGroep = groepe.filter((groep: IGroup) => 
+            groep.Group1 === setGroup && 
+            new Date(groep.Date) >  new Date() &&
+            new Date(groep.Date) <  new Date(einde));
             return custGroep;
           }),
           catchError(this.handleError)

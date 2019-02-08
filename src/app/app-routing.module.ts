@@ -24,6 +24,7 @@ import { LidmateLysComponent } from './lidmate/lidmate-lys/lidmate-lys.component
 import { DiensRoosterComponent } from './diens-rooster/diens-rooster.component';
 import { LidAddressComponent } from './lidmate/lid-address/lid-address.component';
 import { KategeseComponent } from './kategese/kategese.component';
+import { DienslysComponent } from './dienslys/dienslys.component';
 
 const routes: Routes = [
   // {
@@ -34,6 +35,10 @@ const routes: Routes = [
     path: 'menu',
     component: MenuComponent
   }, 
+  {
+    path: 'dienslys',
+    component: DienslysComponent
+  },
   // {
   //   path: 'lidmate',
   //   component: LidmateComponent, canActivate:[AuthGuard]

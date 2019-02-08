@@ -33,9 +33,10 @@ export class LidmateLysComponent implements OnInit {
     @Input()get adresse():IAddress[] {
         return this._addresse; 
     }
-    gender:isActive[] = [ {value:'True', viewValue:'Aktief'},
+    status:isActive[] = [ {value:'True', viewValue:'Aktief'},
                           {value:'', viewValue:'Onaktief'},
                           {value:'All', viewValue:'Almal'}, 
+                          {value:'Birthday', viewValue:'Verjaarsdae'}, 
   ];
     
     set lidmate(value:ILidmaat[]) {
@@ -56,13 +57,13 @@ export class LidmateLysComponent implements OnInit {
     formData:ILidmaat;
     formAdd:IAddress; 
     customersOrderTotal:number; 
-    currencyCode:string = 'USD'; 
+    currencyCode:string = 'USD';
     
-    
+        
     constructor(private dataService:DataService, private sorterService:SorterService, private lidmaatService:LidmaatService, 
         public globals: Globals, private spinner: NgxSpinnerService) {}
     
-    ngOnInit() {
+    ngOnInit() {       
         this.globals.filter = true;        
     }
     

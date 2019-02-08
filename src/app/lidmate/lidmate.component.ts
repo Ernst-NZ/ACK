@@ -22,27 +22,50 @@ export class LidmateComponent implements OnInit {
   loading = true; 
   temp$ = Object; 
   lidmaatDetails:String; 
-  tempAddress:IAddress = new Address(); 
+  tempAddress:IAddress = new Address();
+  today:Date = new Date();    
+  toSunday:number = 7 - this.today.getDay();
+  nextSunday:Date = new Date(this.today.setDate(this.today.getDate() + this.toSunday));
+  toBirthday:Date = this.toBirthday =  new Date(this.nextSunday.setDate(this.nextSunday.getDate() + 7));
+  thisMonth:number = this.nextSunday.setDate(this.nextSunday.getMonth());
+  toMonth:number = this.toBirthday.setDate(this.toBirthday.getMonth());
+  thisDay:number = this.nextSunday.setDate(this.nextSunday.getDay());
+  toDay:number = this.toBirthday.setDate(this.toBirthday.getDay());
+  monthEnd:any; 
    
   constructor(private dataService:DataService, private router:Router, 
             public globals:Globals, private service:LidmaatService, 
             private spinner:NgxSpinnerService) {}
   
   ngOnInit() {
-     /** spinner starts on init */
      this.spinner.show(); 
      this.globals.isSyncing = true; 
     
     this.loading = true; 
     this.title = 'Lidmate'; 
-  //  this.dataService.getLidmate()
     this.dataService.getActive(this.globals.activeOnly)
       .subscribe((lidmate:ILidmaat[]) => this.mense = lidmate); 
 
       this.dataService.getAddress()
       .subscribe((addresse:IAddress[]) => this.huise = addresse); 
+      this.setDates();
       this.spinner.hide(); 
-     // this.globals.isSyncing = false;
+  }
+
+
+  setDates()  {
+    var d = new Date();
+    var n = d.getMonth();
+    console.log(n);
+    this.today= new Date();    
+    this.toSunday = 7 - this.today.getDay();
+    this.nextSunday = new Date(this.today.setDate(this.today.getDate() + this.toSunday));
+    this.toBirthday = this.toBirthday =  new Date(this.nextSunday.setDate(this.nextSunday.getDate() + 7));
+    this.thisMonth = this.nextSunday.getMonth();
+    this.toMonth = this.toBirthday.getMonth();
+    this.thisDay = this.nextSunday.getDate();
+    this.toDay = this.toBirthday.getDate();
+    console.log(this.thisMonth)
   }
 
   persoonlik() {
@@ -54,12 +77,25 @@ getActive() {
   this.globals.isSyncing = true; 
  this.loading = true;
  if (this.globals.activeOnly === "All") {
+   console.log("all")
   this.dataService.getLidmate()
   .subscribe((lidmate:ILidmaat[]) => this.mense = lidmate); 
-
  } else {
+
+  if (this.globals.activeOnly === "Birthday") {
+    console.log("BDay")
+    // if(this.thisDay < this.toDay) {
+  
+    // }
+    this.dataService.getBirthday(this.globals.activeOnly,
+       this.thisMonth, this.thisDay, this.toDay)
+    .subscribe((lidmate:ILidmaat[]) => this.mense = lidmate);
+  
+   } else {
+  console.log("res")
   this.dataService.getActive(this.globals.activeOnly)
   .subscribe((lidmate:ILidmaat[]) => this.mense = lidmate);
+   }
  }
  
    this.dataService.getAddress()

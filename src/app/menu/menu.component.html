@@ -26,7 +26,11 @@
         <div class="content-overlay"></div>
         <img class="content-image" src="../../assets/cross-sunset.jpeg" style="width: 100%" />
         <div class="content-details fadeIn-top">
-          <a class="btn btn-light" routerLink="/eredienste">Eredienste</a><br>
+          <a class="btn btn-light" routerLink="/eredienste">Eredienste</a><br><br>
+          <!-- <a [hidden]="!this.globals.adminUser" class="btn btn-light menuWidth" routerLink="/dienslys">Diens Rooster<br>(Admin)</a><br>
+            -->
+          <a class="btn btn-light menuWidth" routerLink="/dienslys">Diens Rooster<br>(Admin)</a><br>
+          
           <!-- <a class="btn btn-light menuWidth" routerLink="/eredienste">Afkondigings</a><br>
           <a class="btn btn-light menuWidth" routerLink="/diens-rooster">Diens Rooster</a><br> -->
         </div>
