@@ -8,9 +8,10 @@ template: `
         Filter: <input style="width: 50%; 
           background-color: white;
           color: maroon;
-          max-height: 2em;
+          max-height: 2.25em;
           margin-top: 1.5em;
           margin-bottom: 1.25em;
+          border-radius: 5px;
           padding-left: 0.75em;" type="text" [(ngModel)]="filter" />
     `
 })

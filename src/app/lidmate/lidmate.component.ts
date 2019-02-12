@@ -53,19 +53,22 @@ export class LidmateComponent implements OnInit {
   }
 
 
-  setDates()  {
-    var d = new Date();
-    var n = d.getMonth();
-    console.log(n);
-    this.today= new Date();    
-    this.toSunday = 7 - this.today.getDay();
-    this.nextSunday = new Date(this.today.setDate(this.today.getDate() + this.toSunday));
-    this.toBirthday = this.toBirthday =  new Date(this.nextSunday.setDate(this.nextSunday.getDate() + 7));
+  setDates()  {    
+    this.today= new Date();
+    if (this.today.getDay() !== 7)  {
+      this.nextSunday = this.today;
+      console.log(this.nextSunday);
+
+    } else {
+      this.toSunday = 7 - this.today.getDay();
+      this.nextSunday = new Date(this.today.setDate(this.today.getDate() + this.toSunday));
+      console.log(this.nextSunday);
+    }
+    this.toBirthday = this.toBirthday =  new Date(this.toBirthday.setDate(this.nextSunday.getDate() + 7));
     this.thisMonth = this.nextSunday.getMonth();
-    this.toMonth = this.toBirthday.getMonth();
     this.thisDay = this.nextSunday.getDate();
     this.toDay = this.toBirthday.getDate();
-    console.log(this.thisMonth)
+    console.log(this.thisDay);
   }
 
   persoonlik() {
@@ -83,10 +86,6 @@ getActive() {
  } else {
 
   if (this.globals.activeOnly === "Birthday") {
-    console.log("BDay")
-    // if(this.thisDay < this.toDay) {
-  
-    // }
     this.dataService.getBirthday(this.globals.activeOnly,
        this.thisMonth, this.thisDay, this.toDay)
     .subscribe((lidmate:ILidmaat[]) => this.mense = lidmate);

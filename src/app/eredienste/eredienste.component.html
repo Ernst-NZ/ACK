@@ -1,18 +1,19 @@
 <p class='heading center'>ACK Tauranga</p>
-<div class="row" style="color: wheat; padding-left: 15px; margin-bottom: 0px;">
+<div class="row" *ngIf="tema" style="color: wheat; padding-left: 15px; margin-bottom: 0px;">
   <div class='col-xs-12 col-md-5 col-lg-4 col-xl-3'>
-    <span style="font-weight: bold; text-decoration: underline; font-size: 1.25em"> Tema vir Sondag: {{tema[0].Date |
+    <span style="font-weight: bold; text-decoration: underline; font-size: 1.25em"> 
+      Tema vir Sondag: {{tema.Date |
       date:'dd MMM yyyy'}} </span>
   </div>
   <div class='col-xs-12 col-md-7 col-lg-8 col-xl-9'>
-    <span style="font-weight: bold; font-size: 1.5m">{{tema[0].Name}} </span>
+    <span style="font-weight: bold; font-size: 1.5m">{{tema.Name}} </span>
   </div>
 </div>
-<div class="row" style="border-bottom: white double 2px; color: wheat; padding-left: 15px">
+<div  *ngIf="skrif" class="row" style="border-bottom: white double 2px; color: wheat; padding-left: 15px">
     <div class='col-xs-12 col-md-5 col-lg-4 col-xl-3'>
     <span style="font-weight: bold; text-decoration: underline; font-size: 1em">Skriflesing vir Sondag:</span> </div>
     <div class='col-xs-12 col-md-7 col-lg-8 col-xl-9'>
-    <span style="font-weight: bold; font-size: 1em">{{skrif[0].Name}} </span>
+    <span style="font-weight: bold; font-size: 1em">{{skrif.Name}} </span>
   </div>
 </div>
 
@@ -114,3 +115,12 @@
 
   </div>
 </div>
+<ngx-spinner
+bdOpacity = 0.9
+bdColor = "rgba(51,51,51,0.8)"
+size = "medium"
+color = "#f30808"
+type = "ball-running-dots"
+fullScreen = "false">
+<p style="color: rgb(251, 255, 0)" > Loading... </p>
+</ngx-spinner>

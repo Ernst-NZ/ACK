@@ -26,13 +26,13 @@ export class SignInComponent implements OnInit {
      this.syncing = true;
      this.spinner.show();
  
-     this.userService.userAuthentication(userName,password).subscribe((data : any)=>{
-      this.userService.setUser();
+     this.userService.userAuthentication(userName,password).subscribe((data : any)=>{    
 
       localStorage.setItem('userToken',data.access_token);
       this.spinner.hide();
       this.syncing = false;  
-      this.router.navigate(['/menu']);      
+      this.router.navigate(['/menu']);
+      this.userService.setUser();      
     },
     (err : HttpErrorResponse)=>{
       this.isLoginError = true;

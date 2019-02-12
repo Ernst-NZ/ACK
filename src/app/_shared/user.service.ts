@@ -46,7 +46,9 @@ readonly rootURL = this.globals.dataSource
       this.userClaims = data;
       console.log(this.userClaims)
       this.globals.userName = Welkom.concat(this.userClaims.FirstName);
-      if (this.userClaims.UserName === "Ernst" || this.userClaims.UserName === "Mario") {
+      if (this.userClaims.UserName === "Ernst" || 
+          this.userClaims.UserName === "Mario" ||
+          this.userClaims.UserName === "Kerk admin") {
         this.globals.adminUser = true;
       } else {
         this.globals.adminUser = false;

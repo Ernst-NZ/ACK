@@ -1,6 +1,6 @@
 <!-- <app-filter-textbox style="margin-bottom: 0.5em;" (changed)="filter($event)"></app-filter-textbox> -->
 
-<table>
+<table *ngIf="groepe">
   <tr>
     <th (click)="sort('Date')">Datum</th>
     <th (click)="sort('Group1')">Groep</th>

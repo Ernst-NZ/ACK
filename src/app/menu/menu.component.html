@@ -1,125 +1,137 @@
 <div class='col-12' style='margin-left: -20px;'>
-    <div style='width: 80%; margin: 0 auto' class='center heading'>
-        <div class='center'>
-            ACK Tauranga
-        </div>
+  <div style='width: 80%; margin: 0 auto' class='center heading'>
+    <div class='center'>
+      ACK Tauranga
     </div>
+  </div>
 </div>
+  <div class='center' *ngIf="tema">
+    <span style="font-weight: bold; text-decoration: underline; font-size: 1.25em">
+      Tema vir Sondag: {{tema.Date |
+      date:'dd MMM yyyy'}} </span>
+    <span style="font-weight: bold; font-size: 1.25em; padding-left: 15px;">{{tema.Name}}</span>
+  </div>
+
+  <div class='center' *ngIf="skrif">
+    <span *ngIf="!(isHandset$ | async)" style="font-weight: bold; text-decoration: underline; font-size: 1.25em">
+      Skriflesing vir Sondag:</span>
+    <span style="font-weight: bold; font-size: 1.25em; padding-left: 15px;">{{skrif.Name}}</span>
+  </div>
+
+
 <br>
 <div class="row" style='width: 99%;'>
 
   <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12" style="text-align: center">
     <a class="btn btn-warning" routerLink="/aboutus">Ons Gemeente &raquo;</a>
     <div class="content">
-        <img class="content-image" src="../../assets/Kerk2.jpg" style="width: 100%" />
-        <div class="content-details fadeIn-top">
-          <a class="btn btn-light menuWidth" routerLink="/aboutus">Ons Storie...</a><br>
-          <a class="btn btn-light menuWidth"  routerLink="/inligting">Kerk Inligting</a><br>
-          <a class="btn btn-light menuWidth" routerLink="/geloof">Geloofsverwoording<br>van die ACK NZ</a>
-        </div>
+      <img class="content-image" src="../../assets/Kerk2.jpg" style="width: 100%" />
+      <div class="content-details fadeIn-top">
+        <a class="btn btn-light menuWidth" routerLink="/aboutus">Ons Storie...</a><br>
+        <a class="btn btn-light menuWidth" routerLink="/inligting">Kerk Inligting</a><br>
+        <a class="btn btn-light menuWidth" routerLink="/geloof">Geloofsverwoording<br>van die ACK NZ</a>
+      </div>
     </div>
   </div>
 
   <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12" style="text-align: center">
     <a class="btn btn-danger" routerLink="/eredienste">Eredienste &raquo;</a>
     <div class="content">
-        <div class="content-overlay"></div>
-        <img class="content-image" src="../../assets/cross-sunset.jpeg" style="width: 100%" />
-        <div class="content-details fadeIn-top">
-          <a class="btn btn-light" routerLink="/eredienste">Eredienste</a><br><br>
-          <!-- <a [hidden]="!this.globals.adminUser" class="btn btn-light menuWidth" routerLink="/dienslys">Diens Rooster<br>(Admin)</a><br>
-            -->
-          <a class="btn btn-light menuWidth" routerLink="/dienslys">Diens Rooster<br>(Admin)</a><br>
-          
-          <!-- <a class="btn btn-light menuWidth" routerLink="/eredienste">Afkondigings</a><br>
-          <a class="btn btn-light menuWidth" routerLink="/diens-rooster">Diens Rooster</a><br> -->
-        </div>
+      <div class="content-overlay"></div>
+      <img class="content-image" src="../../assets/cross-sunset.jpeg" style="width: 100%" />
+      <div class="content-details fadeIn-top">
+        <a class="btn btn-light" routerLink="/eredienste">Eredienste</a><br><br>
+        <a [hidden]="!this.globals.adminUser" class="btn btn-light menuWidth" routerLink="/dienslys">Diens Rooster<br>(Admin)</a><br>
+      </div>
     </div>
   </div>
 
   <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12" style="text-align: center">
     <a class="btn btn-warning" routerLink="/kerkraad">Bedieninge &raquo;</a>
     <div class="content">
-        <div class="content-overlay"></div>
-        <img class="content-image" src="../../assets/services2.png" style="width: 100%" />
-        <div class="content-details fadeIn-top">
-          <a class="btn btn-light menuWidth" routerLink="/kategese">Kategese</a><br>
-          <a class="btn btn-light menuWidth" routerLink="/jeug">Jeug Bediening</a><br>
-            <a class="btn btn-light menuWidth" routerLink="/gasvryheid">Gasvryheid</a><br>
-            <a class="btn btn-light menuWidth" routerLink="/verwelkoming">Verwelkoming</a><br>
-            <a class="btn btn-light menuWidth" routerLink="/kerkraad">Kerkraad</a><br>
-        </div>
+      <div class="content-overlay"></div>
+      <img class="content-image" src="../../assets/services2.png" style="width: 100%" />
+      <div class="content-details fadeIn-top">
+        <a class="btn btn-light menuWidth" routerLink="/kategese">Kategese</a><br>
+        <a class="btn btn-light menuWidth" routerLink="/jeug">Jeug Bediening</a><br>
+        <a class="btn btn-light menuWidth" routerLink="/gasvryheid">Gasvryheid</a><br>
+        <a class="btn btn-light menuWidth" routerLink="/verwelkoming">Verwelkoming</a><br>
+        <a class="btn btn-light menuWidth" routerLink="/kerkraad">Kerkraad</a><br>
+      </div>
     </div>
   </div>
 
   <!-- <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12" style="text-align: center">
-    <a class="btn btn-warning" routerLink="/kalender">Kalender &raquo;</a>
-    <div class="content">
-        <div class="content-overlay"></div>
-        <img class="content-image" src="../../assets/Events2.jpg" style="width: 100%" />
-        <div class="content-details fadeIn-top">
-            <a class="btn btn-light menuWidth" routerLink="/kalender">Kalender</a><br>
-        </div>
-    </div>
-  </div> -->
- 
+  <a class="btn btn-warning" routerLink="/kalender">Kalender &raquo;</a>
+  <div class="content">
+      <div class="content-overlay"></div>
+      <img class="content-image" src="../../assets/Events2.jpg" style="width: 100%" />
+      <div class="content-details fadeIn-top">
+          <a class="btn btn-light menuWidth" routerLink="/kalender">Kalender</a><br>
+      </div>
+  </div>
+</div> -->
+
 
 </div>
 <hr style="color: maroon;">
 <div class="row" style='width: 99%;'>
 
   <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12" style="text-align: center">
-    <a class="btn btn-danger" routerLink="/ligging">Waar is ons &raquo;</a>
+    <!-- <a class="btn btn-danger" routerLink="/ligging">Waar is ons &raquo;</a> -->
+    <a class="btn btn-danger" href="https://google.com/maps/place/134 Sixteenth Avenue, Tauranga">Waar is ons &raquo;</a>
+    
     <div class="content">
-        <div class="content-overlay">
-        </div>
-        <img class="content-image" src="../../assets/Direction3.jpg"
-          style="width: 100%" />
-        <div class="content-details fadeIn-top">
-          <a class="btn btn-light" routerLink="/ligging">Waar is ons</a>
-        </div>
-    </div>
-  </div> 
-
-  <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12" style="text-align: center">
-    <a class="btn btn-warning" routerLink="/persedit">Kerk Navrae &raquo;</a>
-    <div class="content">
-        <div class="content-overlay"></div>
-        <img class="content-image" src="../../assets/Info2.png" style="width: 100%" />
-        <div class="content-details fadeIn-top">
-            <a class="btn" routerLink="/kontakons">Kontak Ons</a><br><br>
-            <a [hidden]='!this.globals.adminUser'  class="btn btn-light menuWidth" style="min-height: 5em;" routerLink="/lidmate">Persoonlike<br>Besonderhede<br>(Admin)</a><br>
-            <a [hidden]="!this.globals.adminUser" class="btn btn-light menuWidth" routerLink="/login">Nuwe Gebruiker<br>(Admin)</a><br>
-           
-            <!-- <a class="btn btn-light menuWidth" routerLink="/registrasie">Nuwe Registrasie</a><br>
-            <a class="btn btn-light menuWidth" routerLink="/doop">Doop Aansoek</a><br> -->
-        </div>
+      <div class="content-overlay">
+      </div>
+      <img class="content-image" src="../../assets/Direction3.jpg" style="width: 100%" />
+      <div class="content-details fadeIn-top">
+        <!-- <a class="btn btn-light" routerLink="/ligging">Waar is ons</a> -->
+        <a class="btn btn-light" target="_Blank" href="https://google.com/maps/place/134 Sixteenth Avenue, Tauranga">Waar is ons</a>
+      </div>
     </div>
   </div>
 
-   
   <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12" style="text-align: center">
-  <a target="blank" class="btn btn-danger" href="https://www.facebook.com/Afrikaanse-Christen-Kerk-Tauranga-ACK-Tauranga-130715893700159/">Facebook &raquo;</a>
-  <div class="content">
+    <a class="btn btn-warning" routerLink="/kontakons">Kerk Navrae &raquo;</a>
+    <div class="content">
+      <div class="content-overlay"></div>
+      <img class="content-image" src="../../assets/Info2.png" style="width: 100%" />
+      <div class="content-details fadeIn-top">
+        <a class="btn" routerLink="/kontakons">Kontak Ons</a><br><br>
+        <a [hidden]='!this.globals.adminUser' class="btn btn-light menuWidth" style="min-height: 5em;" routerLink="/lidmate">Persoonlike<br>Besonderhede<br>(Admin)</a><br>
+        <a [hidden]="!this.globals.adminUser" class="btn btn-light menuWidth" routerLink="/login">Nuwe Gebruiker<br>(Admin)</a><br>
+
+        <!-- <a class="btn btn-light menuWidth" routerLink="/registrasie">Nuwe Registrasie</a><br>
+          <a class="btn btn-light menuWidth" routerLink="/doop">Doop Aansoek</a><br> -->
+      </div>
+    </div>
+  </div>
+
+
+  <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12" style="text-align: center">
+    <a target="blank" class="btn btn-danger" href="https://www.facebook.com/Afrikaanse-Christen-Kerk-Tauranga-ACK-Tauranga-130715893700159/">Facebook
+      &raquo;</a>
+    <div class="content">
       <div class="content-overlay">
       </div>
       <img class="content-image" src="../../assets/fb3.jpg" style="width: 100%" />
       <div class="content-details fadeIn-top">
-        <a target="blank" class="btn btn-light" href="https://www.facebook.com/Afrikaanse-Christen-Kerk-Tauranga-ACK-Tauranga-130715893700159/">Ons Facebook Blad</a>
+        <a target="blank" class="btn btn-light" href="https://www.facebook.com/Afrikaanse-Christen-Kerk-Tauranga-ACK-Tauranga-130715893700159/">Ons
+          Facebook Blad</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12" style="text-align: center">
+  <a class="btn btn-warning" routerLink="/kontakons">Kontak Ons &raquo;</a>
+  <div class="content">
+      <div class="content-overlay"></div>
+      <img class="content-image" src="../../assets/contact5.jpg" style="width: 100%" />
+      <div class="content-details fadeIn-top">
+          <a class="btn btn-light menuWidth" routerLink="/kontakons">Kontak Ons</a><br>
       </div>
   </div>
-</div> 
- 
-  <!-- <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12" style="text-align: center">
-    <a class="btn btn-warning" routerLink="/kontakons">Kontak Ons &raquo;</a>
-    <div class="content">
-        <div class="content-overlay"></div>
-        <img class="content-image" src="../../assets/contact5.jpg" style="width: 100%" />
-        <div class="content-details fadeIn-top">
-            <a class="btn btn-light menuWidth" routerLink="/kontakons">Kontak Ons</a><br>
-        </div>
-    </div>
-  </div> -->
+</div> -->
 
 </div>
-

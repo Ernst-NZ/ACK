@@ -1,5 +1,5 @@
 import {Injectable }from '@angular/core'; 
-import {HttpClient }from '@angular/common/http'; 
+import {HttpClient, HttpHeaders }from '@angular/common/http'; 
 
 import {Observable }from 'rxjs/Observable'; 
 import {map, catchError }from 'rxjs/operators'; 
@@ -40,20 +40,26 @@ export class DataService {
         endDay = 0;
       }
 
-
-    
       //this.nextSunday.setDate(this.nextSunday.getMonth());
-      return this.http.get<ILidmaat[]>(this.rootURL + '/Persoon')
+      var reqHeader = new HttpHeaders( {'No-Auth':'True'})
+      return this.http.get<ILidmaat[]>(this.rootURL + '/Persoon', {headers:reqHeader })
         .pipe(
           map(lede => {
             let custLede = lede.filter((lid: ILidmaat) => 
             lid.IsActive === 'True' &&
+            lid.PublicDates !== '' &&
             new Date(lid.DOB).getMonth() === fromMonth &&
-            new Date(lid.DOB).getDate() > fromDay &&
-            (new Date(lid.DOB).getDate() < fromDay + 7 ||
+            new Date(lid.DOB).getDate() >= fromDay &&
+            (new Date(lid.DOB).getDate() < fromDay + 7 ||  // DOB New Month
             new Date(lid.DOB).getMonth() === fromMonth + 1 &&
             new Date(lid.DOB).getDate() > 0 &&
-            new Date(lid.DOB).getDate() < endDay)
+            new Date(lid.DOB).getDate() < endDay) || // wedding Date
+            new Date(lid.WeddingDate).getMonth() === fromMonth &&
+            new Date(lid.WeddingDate).getDate() >= fromDay &&
+            (new Date(lid.WeddingDate).getDate() < fromDay + 7 || // Wedding Date new month
+            new Date(lid.WeddingDate).getMonth() === fromMonth + 1 &&
+            new Date(lid.WeddingDate).getDate() > 0 &&
+            new Date(lid.WeddingDate).getDate() < endDay)
             )
             
             return custLede;
@@ -103,13 +109,15 @@ export class DataService {
     }
     // yourDate.setDate(yourDate.getDate() + 1)
     getGroups(setGroup: string, einde: Date) : Observable<IGroup[]> {
+    var begin = new Date()
+    begin.setDate(-1);
       return this.http.get<IGroup[]>(this.rootURL + '/Group')
         .pipe(
           map(groepe => {
             let custGroep = groepe.filter((groep: IGroup) => 
             groep.Group1 === setGroup && 
-            new Date(groep.Date) >  new Date() &&
-            new Date(groep.Date) <  new Date(einde));
+            new Date(groep.Date) >=  new Date(begin) &&
+            new Date(groep.Date) <=  new Date(einde));
             return custGroep;
           }),
           catchError(this.handleError)
@@ -130,43 +138,7 @@ export class DataService {
         );
     }
 // ################################################
+
  
-   
-    // addStudent(student: IStudent) {
-    //   alert(student)
-    //   return this.connection.insert<IStudent>({
-    //     into: 'Students',
-    //     return: true, // as id is autoincrement, so we would like to get the inserted value
-    //     values: [student]
-    //   });
-    // }
-  
-    // deleteStudent(studentId: number) {
-    //   return this.connection.remove({
-    //     from: 'Students',
-    //     where: {
-    //       id: studentId
-    //     }
-    //   });
-    // }
-  
-    // updateStudent(studentId: number, updateValue: IStudent) {
-    //   return this.connection.update({
-    //     in: 'Students',
-    //     where: {
-    //       id: studentId
-    //     },
-    //     set: updateValue
-    //   });
-    // }
-  
-    // getStudent(studentId: number) {
-    //   return this.connection.select<IStudent>({
-    //     from: 'Students',
-    //     where: {
-    //       id: studentId
-    //     }
-    //   });
-    // }
 
 }

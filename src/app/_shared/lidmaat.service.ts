@@ -34,7 +34,7 @@ constructor(private http:HttpClient, private globals:Globals) {}
         .pipe(
             catchError(this.handleError)
         ); 
-   }
+   } 
 
   putLidmaat(formData:Lidmaat) {
 //    var reqHeader = new HttpHeaders( {'No-Auth':'True', 'Access-Control-Allow-Origin':'*'})
@@ -86,8 +86,10 @@ constructor(private http:HttpClient, private globals:Globals) {}
 
    // Groepe
    postGroep(formAdd:Group) {
+    var reqHeader = new HttpHeaders( {'No-Auth':'True'})
      console.log(formAdd)
-    return this.http.post(this.rootURL + '/Group', formAdd); 
+    return this.http.post(this.rootURL + '/Group', 
+    formAdd, {headers:reqHeader }); 
    }
 
 
