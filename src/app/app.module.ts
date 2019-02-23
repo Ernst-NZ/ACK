@@ -57,6 +57,19 @@ import { DienslysComponent } from './dienslys/dienslys.component';
 // import { LidmateLysComponent } from './lidmate/lidmate-lys/lidmate-lys.component';
 // import { LidmaatComponent } from './lidmate/lidmaat/lidmaat.component';
 
+import { AngularFireModule } from 'angularfire2';
+import { AngularFireAuth } from 'angularfire2/auth';
+import { AngularFireDatabase } from 'angularfire2/database';
+
+const config = {
+  apiKey: "AIzaSyA8kKJtSCOtVjiaGmtY8sCbaxU1gJLAxH8",
+    authDomain: "acksendgrid.firebaseapp.com",
+    databaseURL: "https://acksendgrid.firebaseio.com",
+    projectId: "acksendgrid",
+    storageBucket: "acksendgrid.appspot.com",
+    messagingSenderId: "130116908361"
+};
+
 
 @NgModule({
   declarations: [
@@ -122,12 +135,15 @@ import { DienslysComponent } from './dienslys/dienslys.component';
     AngularFittextModule,
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
     NgbModule,
-    NgxSpinnerModule
+    NgxSpinnerModule,
+    AngularFireModule.initializeApp(config)
   ],
   providers: [UserService, 
     AuthGuard,
     LidmaatService,
     Globals,
+    AngularFireAuth,
+    AngularFireDatabase,
   {
     provide : HTTP_INTERCEPTORS,
     useClass: AuthInterceptor,
