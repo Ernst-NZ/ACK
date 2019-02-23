@@ -1,25 +1,25 @@
 <p class='heading center'>ACK Tauranga</p>
 <div class="row" *ngIf="tema" style="color: wheat; padding-left: 15px; margin-bottom: 0px;">
-  <div class='col-xs-12 col-md-5 col-lg-4 col-xl-3'>
+  <div class='col-xs-12 col-md-5 col-lg-4 col-xl-3' *ngIf="tema.length > 0">
     <span style="font-weight: bold; text-decoration: underline; font-size: 1.25em"> 
-      Tema vir Sondag: {{tema.Date |
+      Tema vir Sondag: {{tema[0]['Date'] |
       date:'dd MMM yyyy'}} </span>
   </div>
-  <div class='col-xs-12 col-md-7 col-lg-8 col-xl-9'>
-    <span style="font-weight: bold; font-size: 1.5m">{{tema.Name}} </span>
+  <div class='col-xs-12 col-md-7 col-lg-8 col-xl-9'  *ngIf="tema.length > 0">
+    <span style="font-weight: bold; font-size: 1.5m">{{tema[0]['Name']}} </span>
   </div>
 </div>
 <div  *ngIf="skrif" class="row" style="border-bottom: white double 2px; color: wheat; padding-left: 15px">
-    <div class='col-xs-12 col-md-5 col-lg-4 col-xl-3'>
+    <div class='col-xs-12 col-md-5 col-lg-4 col-xl-3'  *ngIf="skrif.length > 0" >
     <span style="font-weight: bold; text-decoration: underline; font-size: 1em">Skriflesing vir Sondag:</span> </div>
-    <div class='col-xs-12 col-md-7 col-lg-8 col-xl-9'>
-    <span style="font-weight: bold; font-size: 1em">{{skrif.Name}} </span>
+    <div class='col-xs-12 col-md-7 col-lg-8 col-xl-9'  *ngIf="skrif.length > 0" >
+    <span style="font-weight: bold; font-size: 1em">{{skrif[0]['Name']}} </span>
   </div>
 </div>
 
 <div class='row'>
   <div class="col-xs-12 col-sm-12 col-md-5" style=" 
-  font-weight: bold; font-size: 1em">
+  font-weight: bold; font-size: 1.75em">
     <p>Elke Sondag aand</p>
     <p>St Enoch's Kerk</p>
     <p>134 Sixteenth Avenue</p>
