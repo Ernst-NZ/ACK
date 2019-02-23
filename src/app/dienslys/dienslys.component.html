@@ -47,12 +47,16 @@
       padding-left: 5px" /> -->
 
       <div *ngIf="groep.editing"  class="form-group smallBottom">
-        <mat-datepicker-toggle matSuffix [for]="myDatepicker"></mat-datepicker-toggle>
+        <!-- <mat-datepicker-toggle matSuffix [for]="myDatepicker"></mat-datepicker-toggle>
         <input class="max_Width_80" style='margin-bottom: 0px' 
         matInput [matDatepicker]="myDatepicker" name="Date" #DOB="ngModel" 
         [(ngModel)]="oldGroep.Date"
         mat-datepicker-locale="{ $mdDateLocaleProvider.formatDate: 'yyyy-MM-dd' }" >
-        <mat-datepicker #myDatepicker></mat-datepicker>
+        <mat-datepicker #myDatepicker></mat-datepicker> -->
+        <input type="date" [(ngModel)]="oldGroep.Date" class="form-control"
+       style="background-color: white; height: 2.25em;
+       margin-bottom: 0px; color: black; border-radius: 5px;
+       padding-left: 5px" />
       </div>
       
       <span *ngIf="!groep.editing">

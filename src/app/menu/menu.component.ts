@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Globals } from '../globals';
 import { DataService } from '../_core/data.service';
 import { IGroup } from '../_shared/interfaces';
+import { UserService } from '../_shared/user.service';
 
 @Component({
   selector: 'app-menu',
@@ -15,11 +16,13 @@ export class MenuComponent implements OnInit {
   today:Date = new Date();
   weekEinde:Date = new Date(this.today.setDate(this.today.getDate() + 7)); 
 
-  constructor(public globals: Globals, service:DataService,) {
+  constructor(private userService : UserService, 
+    public globals: Globals, service:DataService,) {
     this.service = service; 
    }
 
   ngOnInit() {
+    this.userService.setUser(); 
     this.service.getGroups("Tema", this.weekEinde)
     .subscribe((Tema:IGroup[]) => this.tema = Tema);
   

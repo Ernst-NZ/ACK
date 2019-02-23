@@ -6,6 +6,7 @@ import {Router }from '@angular/router';
 import {ILidmaat }from 'src/app/_shared/interfaces';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { Globals } from 'src/app/globals';
+import { isNull } from 'util';
 
 
 export interface Geslag {
@@ -81,10 +82,11 @@ export class LidmaatComponent implements OnInit {
 
   updateRecord(formLid:NgForm) {
      formLid.controls['Gemeente'].setValue('Tauranga');
-     if (formLid.value.IsActive === 'false') {
+     console.log(formLid.value.IsActive)
+     if (formLid.value.IsActive !== 'true' ) {
        formLid.controls['IsActive'].setValue('');
       } 
-      if (formLid.value.PublicDates === 'false') {
+      if (formLid.value.PublicDates !== 'true') {
        formLid.controls['PublicDates'].setValue('');
       } 
     console.log(formLid);  

@@ -107,10 +107,10 @@ export class DataService {
       }
       return Observable.throw(error || 'Node.js server error'); 
     }
-    // yourDate.setDate(yourDate.getDate() + 1)
+    
     getGroups(setGroup: string, einde: Date) : Observable<IGroup[]> {
-    var begin = new Date()
-    begin.setDate(-1);
+    var begin = new Date();
+    begin = new Date(begin.setDate(begin.getDate() -1));
       return this.http.get<IGroup[]>(this.rootURL + '/Group')
         .pipe(
           map(groepe => {

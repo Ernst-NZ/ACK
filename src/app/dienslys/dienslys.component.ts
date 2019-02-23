@@ -95,7 +95,8 @@ export class DienslysComponent implements OnInit {
 
   updateGroep() {
     this.spinner.show(); 
-    this.groepe = null; 
+    this.groepe = null;
+ //   this.oldGroep.Date = new Date(this.oldGroep.Date.setDate(this.oldGroep.Date + 1)); 
     this.lidmaatService.putGroep(this.oldGroep).
       subscribe(res =>  {
         this.clearOldGroep();
