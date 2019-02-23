@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Http, Headers, Response, URLSearchParams } from '@angular/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import 'rxjs/add/operator/toPromise';
 
 @Component({
   selector: 'app-jeug',
@@ -7,7 +10,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class JeugComponent implements OnInit {
 
-  constructor() { }
+  constructor(private http: Http) { }
 
   ngOnInit() {
   }

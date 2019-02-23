@@ -16,6 +16,7 @@ import { ToastrModule } from 'ngx-toastr';
 import { FormsModule} from '@angular/forms';
 import { RouterModule, Router, Routes } from '@angular/router';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { HttpModule } from '@angular/http';
 import { environment } from '../environments/environment';
 import { AngularFittextModule } from 'angular-fittext';
 import { ServiceWorkerModule } from '@angular/service-worker';
@@ -56,7 +57,18 @@ import { DienslysComponent } from './dienslys/dienslys.component';
 // import { LidmateComponent } from './lidmate/lidmate.component';
 // import { LidmateLysComponent } from './lidmate/lidmate-lys/lidmate-lys.component';
 // import { LidmaatComponent } from './lidmate/lidmaat/lidmaat.component';
+import { AngularFireModule } from 'angularfire2';
+import { AngularFireAuth } from 'angularfire2/auth';
+import { AngularFireDatabase } from 'angularfire2/database';
 
+const config = {
+  apiKey: "AIzaSyD0oNx4YsOD39CgEfS2mx4Ev0Z-WD2kLz0",
+    authDomain: "ackemail-1234.firebaseapp.com",
+    databaseURL: "https://ackemail-1234.firebaseio.com",
+    projectId: "ackemail-1234",
+    storageBucket: "ackemail-1234.appspot.com",
+    messagingSenderId: "919818838108"
+};
 
 @NgModule({
   declarations: [
@@ -112,6 +124,7 @@ import { DienslysComponent } from './dienslys/dienslys.component';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
+    HttpModule,
     LidmateModule,
     FormsModule,    
     SharedModule,
@@ -122,12 +135,15 @@ import { DienslysComponent } from './dienslys/dienslys.component';
     AngularFittextModule,
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
     NgbModule,
-    NgxSpinnerModule
+    NgxSpinnerModule,
+    AngularFireModule.initializeApp(config)
   ],
   providers: [UserService, 
     AuthGuard,
     LidmaatService,
     Globals,
+    AngularFireAuth,
+    AngularFireDatabase,
   {
     provide : HTTP_INTERCEPTORS,
     useClass: AuthInterceptor,
