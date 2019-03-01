@@ -21,8 +21,8 @@ export class ErediensteComponent implements OnInit, AfterContentChecked {
   today:Date = new Date();
   maandEinde:Date = new Date(this.today.setDate(this.today.getDate() + 27));
   weekEinde:Date = new Date(this.today.setDate(this.today.getDate() + 7));
+  hasTema:Boolean = true;
  
-
   constructor(service:DataService, private lidmaatService:LidmaatService,
     private spinner: NgxSpinnerService, private sorterService:SorterService,) {
       this.service = service; 
@@ -52,6 +52,13 @@ export class ErediensteComponent implements OnInit, AfterContentChecked {
 }
 
 ngAfterContentChecked() { 
+  // if (this.tema.length > 0) {
+  //   if (this.tema[0]['Name']) {
+  //     this.hasTema = true; 
+  //     console.log(this.tema[0]['Name'])
+  //  } 
+  // }
+  console.log(this.tema)
   if (this.kerkraad) {
     this.sorterService.sort(this.kerkraad, "Date"); 
   }

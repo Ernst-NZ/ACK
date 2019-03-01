@@ -6,16 +6,18 @@
   </div>
 </div>
   <div class='center' *ngIf="tema">
-    <span style="font-weight: bold; text-decoration: underline; font-size: 1.25em">
-      Tema vir Sondag: {{tema.Date |
+    <span *ngIf="tema.length > 0" style="font-weight: bold; text-decoration: underline; font-size: 1.25em">
+      Tema vir Sondag: {{tema[0]['Date'] |
       date:'dd MMM yyyy'}} </span>
-    <span style="font-weight: bold; font-size: 1.25em; padding-left: 15px;">{{tema.Name}}</span>
+    <span *ngIf="tema.length > 0" style="font-weight: bold; font-size: 1.25em; padding-left: 15px;">
+      {{tema[0]['Name']}}</span>
   </div>
 
   <div class='center' *ngIf="skrif">
-    <span *ngIf="!(isHandset$ | async)" style="font-weight: bold; text-decoration: underline; font-size: 1.25em">
+    <span *ngIf="skrif.length > 0" style="font-weight: bold; text-decoration: underline; font-size: 1.25em">
       Skriflesing vir Sondag:</span>
-    <span style="font-weight: bold; font-size: 1.25em; padding-left: 15px;">{{skrif.Name}}</span>
+    <span *ngIf="skrif.length > 0" style="font-weight: bold; font-size: 1.25em; padding-left: 15px;">
+      {{skrif[0]['Name']}}</span>
   </div>
 
 
@@ -51,12 +53,8 @@
     <div class="content">
       <div class="content-overlay"></div>
       <img class="content-image" src="../../assets/services2.png" style="width: 100%" />
-      <div class="content-details fadeIn-top">
-        <a class="btn btn-light menuWidth" routerLink="/kategese">Kategese</a><br>
-        <a class="btn btn-light menuWidth" routerLink="/jeug">Jeug Bediening</a><br>
-        <a class="btn btn-light menuWidth" routerLink="/gasvryheid">Gasvryheid</a><br>
-        <a class="btn btn-light menuWidth" routerLink="/verwelkoming">Verwelkoming</a><br>
-        <a class="btn btn-light menuWidth" routerLink="/kerkraad">Kerkraad</a><br>
+      <div class="content-details fadeIn-top">       
+        <a class="btn btn-light" routerLink="/kerkraad">Bedieninge</a><br>
       </div>
     </div>
   </div>

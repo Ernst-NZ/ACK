@@ -94,6 +94,7 @@ constructor(private http:HttpClient, private globals:Globals) {}
 
 
    putGroep(formData:Group) {
+     console.log(formData)
     //    var reqHeader = new HttpHeaders( {'No-Auth':'True', 'Access-Control-Allow-Origin':'*'})
         var reqHeader = new HttpHeaders( {'No-Auth':'True'})
         return this.http.post(this.rootURL + '/Group/' + formData.Id, 
@@ -101,7 +102,9 @@ constructor(private http:HttpClient, private globals:Globals) {}
        }
     
    deleteGroep(id:number) {
-        return this.http.delete(this.rootURL + '/Group/' + id); 
+    var reqHeader = new HttpHeaders( {'No-Auth':'True'})
+        return this.http.delete(this.rootURL + '/Group/' + id, 
+        {headers:reqHeader });  
       }
    
  }
