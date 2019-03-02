@@ -6,10 +6,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./kontakons.component.scss']
 })
 export class KontakonsComponent implements OnInit {
+  composeEmail : any;
 
   constructor() { }
 
   ngOnInit() {
+    this.composeEmail = {emailType: 'navraag', emailTo: 'ernst@hotmail.co.nz', naam: '', emailFrom: '', subject: '', body: '' }
   }
+  sendEmail() {
+    console.log(this.composeEmail)
+};
 
 }
