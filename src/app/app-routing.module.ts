@@ -39,30 +39,14 @@ const routes: Routes = [
     path: 'dienslys',
     component: DienslysComponent
   },
-  // {
-  //   path: 'lidmate',
-  //   component: LidmateComponent, canActivate:[AuthGuard]
-  // },
   {
     path: 'kategese',
     component: KategeseComponent
   },
-  // {
-  //   path: 'lidmate',
-  //   component: LidmateComponent, canActivate:[AuthGuard]
-  // },
-
-
   {
     path: 'lidmate', component: LidmateComponent, canActivate:[AuthGuard],
     children: [{ path: '', component: LidmaatComponent, canActivate:[AuthGuard]}]
   }, 
-  // {
-  //   path: 'lidmate', component: LidmateComponent, canActivate:[AuthGuard],
-  //   children: [{ path: '', component: LidmateLysComponent, canActivate:[AuthGuard]}]
-  // }, 
-
-
   {
     path: 'signup', component: UserComponent,
     children: [{ path: '', component: SignUpComponent }]
@@ -71,17 +55,9 @@ const routes: Routes = [
     path: 'login', component: UserComponent,
     children: [{ path: '', component: SignInComponent }]
   },
-  // {
-  //   path: 'persoon', component: LidmateComponent,
-  //   children: [{ path: '', component: LidmaatComponent }]
-  // },  
-  // {
-  //   path: 'adres', component: LidmateComponent,
-  //   children: [{ path: '', component: LidAddressComponent }]
-  // },
   {
     path: 'kontakons',
-    component: KontakonsComponent, canActivate:[AuthGuard]
+    component: KontakonsComponent
   }, 
   {
     path: 'diens-rooster',

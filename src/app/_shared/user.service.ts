@@ -45,7 +45,10 @@ readonly rootURL = this.globals.dataSource
     this.getUserClaims().subscribe((data: any) => {
       this.userClaims = data;
       console.log(this.userClaims)
-      this.globals.userName = Welkom.concat(this.userClaims.FirstName);
+      if (this.userClaims.UserName !=='ack') {
+        this.globals.userName = Welkom.concat(this.userClaims.FirstName);
+      }
+     
       if (this.userClaims.UserName === "Ernst" || 
           this.userClaims.UserName === "Mario" ||
           this.userClaims.UserName === "admin") {

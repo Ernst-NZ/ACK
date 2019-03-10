@@ -1,51 +1,65 @@
-<div>
-  <h3>
+<div class='row'>
 
-    <p>
-      <u>Straat Adres:</u><br>
-      134 16de Laan Tauranga Suid
-    </p>
+  <div class="col-sm-12 col-md-5">
+    <h3>
 
-    <p>
-      <u>Email Adres:</u><br>
-      2m.weyers@gmail.com
-    </p>
+      <p>
+        <u>Straat Adres:</u><br>
+        134 16de Laan Tauranga Suid
+      </p>
 
-    <p>
-      <u>Kontak Nr:</u><br>
-      Mario Weyers:<br>
-      022 089 4395
-    </p>
+      <p>
+        <u>Email Adres:</u><br>
+        2m.weyers@gmail.com
+      </p>
 
-    <!-- <a href="mailto:2m.weyers@gmail.com?subject=Internet Navraag&body=">Email ons</a> -->
-  </h3>
-</div>
-<div class='cols-sm-12 col-md-4' style='background-color: rgb(223, 217, 217); 
+      <p>
+        <u>Kontak Nr:</u><br>
+        Mario Weyers:<br>
+        022 089 4395
+      </p>
+
+      <!-- <a href="mailto:2m.weyers@gmail.com?subject=Internet Navraag&body=">Email ons</a> -->
+    </h3>
+  </div>
+  <div class='col-sm-12 col-md-6' style='background-color: rgb(223, 217, 217); 
            border: solid 1px black; color: black'>
-<h3>Stuur vir ons 'n Email</h3>
-<form>
-  <div class="form-group">
-    <label style='color: black'>Naam</label>
-    <input style='background-color: gray' name="naam" #naam="ngModel" [(ngModel)]="composeEmail.naam" class="form-control" required>
-    <div class="validation-error" *ngIf="naam.invalid && naam.touched">Verpligte veld.</div>
+    <h3>Stuur vir ons 'n E-Pos</h3>
+    <form>
+      <div class="form-group">
+        <label style='color: black'>Naam</label>
+        <input style='width:95%; border: solid 1px black; color: black; background-color: white;' name="EmailNaam" #EmailNaam="ngModel"
+          [(ngModel)]="composeEmail.EmailNaam" class="form-control" required>
+        <div class="validation-error" *ngIf="EmailNaam.invalid && EmailNaam.touched">Verpligte veld.</div>
+      </div>
+      <div class="form-group">
+        <label style='color: black'>Kontak Email Adres</label>
+        <input style='width:95%; border: solid 1px black; color: black; background-color: white;' name="EmailFrom" #EmailFrom="ngModel"
+          [(ngModel)]="composeEmail.EmailFrom" class="form-control" required>
+        <div class="validation-error" *ngIf="EmailFrom.invalid && EmailFrom.touched">Verpligte veld.</div>
+      </div>
+      <div class="form-group">
+        <label style='color: black'>Onderwerp</label>
+        <input style='width:95%;border: solid 1px black; color: black; background-color: white;' name="Subject" #Subject="ngModel" [(ngModel)]="composeEmail.Subject"
+          class="form-control" required>
+        <div class="validation-error" *ngIf="Subject.invalid && Subject.touched">Verpligte veld.</div>
+      </div>
+      <div class="form-group">
+        <label style='color: black'>Boodskap</label>
+        <textarea style="width:95%; background-color: white; height: 10em;" name="Body" #Body="ngModel"
+          (ngModel)="composeEmail.Body"></textarea>
+        <div class="validation-error" *ngIf="Body.invalid && Body.touched">Verpligte veld.</div>
+      </div>
+      <a class="btn btn-primary" (click)="sendEmail()">Stuur E-pos</a>
+    </form>    
   </div>
-  <div class="form-group">
-    <label style='color: black'>Kontak Email Adres</label>
-    <input  style='background-color: gray' name="emailFrom" #emailFrom="ngModel" [(ngModel)]="composeEmail.emailfrom" class="form-control" required>
-    <div class="validation-error" *ngIf="emailFrom.invalid && emailFrom.touched">Verpligte veld.</div>
-  </div>
-  <div class="form-group">
-    <label style='color: black'>Onderwerp</label>
-    <input style='background-color: gray'  name="subject" #subject="ngModel" [(ngModel)]="composeEmail.subject" class="form-control" required>
-    <div class="validation-error" *ngIf="subject.invalid && subject.touched">Verpligte veld.</div>
-  </div>
-  <div class="form-group">
-    <label style='color: black'>Boodskap</label>
-    <textarea style="width:95%; background-color: white; height: 10em;" 
-            name="body" #body="ngModel" [(ngModel)]="composeEmail.body" ></textarea>
-    <div class="validation-error" *ngIf="subject.invalid && subject.touched">Verpligte veld.</div>
-  </div>
-
- </form>
-<a class="btn btn-primary" (click)="sendEmail()">Send</a>
 </div>
+<ngx-spinner
+bdOpacity = 0.9
+bdColor = ""
+size = "medium"
+color = "#f30808"
+type = "ball-running-dots"
+fullScreen = "false">
+<p style="color: white" > Loading... </p>
+</ngx-spinner>

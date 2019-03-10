@@ -61,3 +61,22 @@ export class Group implements IGroup {
   Name:String
   Date:Date
 }
+export class IEmail {
+  EmailType:String
+  EmailNaam:String
+  EmailTo:String
+  EmailFrom:String
+  Subject:String
+  Body:Date
+  Attachement: Object
+}
+
+export class Email implements IEmail {
+  EmailType:String
+  EmailNaam:String
+  EmailTo:String
+  EmailFrom:String
+  Subject:String
+  Body:Date
+  Attachement: Object
+}

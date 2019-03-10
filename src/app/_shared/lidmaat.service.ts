@@ -4,7 +4,7 @@ import {HttpClient, HttpHeaders }from "@angular/common/http";
 import {Observable }from 'rxjs/Observable'; 
 import {catchError }from 'rxjs/operators'; 
 import {ILidmaat, Group }from '../../app/_shared/interfaces'; 
-import {IAddress }from '../../app/_shared/interfaces'; 
+import {IAddress, IEmail }from '../../app/_shared/interfaces'; 
 import {Globals }from '../globals'; 
 
 @Injectable( {
@@ -106,5 +106,14 @@ constructor(private http:HttpClient, private globals:Globals) {}
         return this.http.delete(this.rootURL + '/Group/' + id, 
         {headers:reqHeader });  
       }
+
+    sendEmail(formData:{}) {
+        //    var reqHeader = new HttpHeaders( {'No-Auth':'True', 'Access-Control-Allow-Origin':'*'})
+       
+            return this.http.post(this.rootURL + '/values/',
+            formData          
+            ); 
+           
+           }
    
  }

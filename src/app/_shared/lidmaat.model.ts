@@ -34,3 +34,13 @@ export class Group {
   Name:String
   Date:Date
 }
+
+export class Email {
+  EmailType:String
+  EmailNaam:String
+  EmailTo:String
+  EmailFrom:String
+  Subject:String
+  Body:Date
+  Attachement: Object
+}

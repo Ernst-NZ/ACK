@@ -3,8 +3,17 @@
   height: 100%;
 }
 .mainBackGround {
-  background: -webkit-linear-gradient(270deg, rgba(5, 25, 43, 1) 10%, rgba(5, 25, 43, 1) 11%, rgba(11, 59, 104, 1) 80%, rgba(12, 60, 105, 1) 81%);
-color: whitesmoke;
+  /* background: -webkit-linear-gradient(270deg, rgba(5, 25, 43, 1) 10%, rgba(5, 25, 43, 1) 11%, rgba(11, 59, 104, 1) 80%, rgba(12, 60, 105, 1) 81%); */
+  background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url("../../assets/cross-sunset.jpeg");
+  height: 100%; 
+
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  color: whitesmoke;
+  font-size: 1.25em;
+  /* text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black; */
 /* background-color:whitesmoke; */
 
 }
