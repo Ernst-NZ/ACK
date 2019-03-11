@@ -1,9 +1,30 @@
-<diV>
-<div class="bg">
+<div style='background-color: rgb(223, 217, 217); 
+           border: solid 1px black; color: black'>
+    <h3>Stuur Epos aan Gemeente</h3>
+    <form>
+       <div class="form-group">
+        <label style='color: black'>Boodskap</label>
+        <div style="background-color: white;">
+          <app-ngx-editor 
+          name="Body" #Body="ngModel"
+          [(ngModel)]="composeEmail.Body"
+          [placeholder]="'Boodskap vir die gemeente...'" 
+          [spellcheck]="true" 
+          [(ngModel)]="htmlContent"
+          height="500px" minHeight="50px"></app-ngx-editor>
+        </div>
+        <div class="validation-error" *ngIf="Body.invalid && Body.touched">Verpligte veld.</div>
+      </div>
+      <a class="btn btn-primary" (click)="sendEmail()">Stuur E-pos</a>
+    </form>    
+  </div>
 
-<p>
-  jeug works!
-</p>
-
-</div>
-</diV>
+<ngx-spinner
+bdOpacity = 0.9
+bdColor = ""
+size = "medium"
+color = "#f30808"
+type = "ball-running-dots"
+fullScreen = "false">
+<p style="color: white" > Loading... </p>
+</ngx-spinner>

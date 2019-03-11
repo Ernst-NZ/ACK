@@ -22,6 +22,9 @@ import { ServiceWorkerModule } from '@angular/service-worker';
 import { AuthGuard } from './_auth/auth.guard';
 import { AuthInterceptor } from './_auth/auth.intercepter';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import { NgxEditorModule } from 'ngx-editor';
+import { AngularFontAwesomeModule } from 'angular-font-awesome';
+
 
 import { Globals } from './globals';
 
@@ -122,7 +125,9 @@ import { DienslysComponent } from './dienslys/dienslys.component';
     AngularFittextModule,
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
     NgbModule,
-    NgxSpinnerModule
+    NgxSpinnerModule,
+    NgxEditorModule,
+    AngularFontAwesomeModule    
   ],
   providers: [UserService, 
     AuthGuard,
