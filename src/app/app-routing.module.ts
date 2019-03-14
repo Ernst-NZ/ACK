@@ -25,6 +25,7 @@ import { DiensRoosterComponent } from './diens-rooster/diens-rooster.component';
 import { LidAddressComponent } from './lidmate/lid-address/lid-address.component';
 import { KategeseComponent } from './kategese/kategese.component';
 import { DienslysComponent } from './dienslys/dienslys.component';
+import { EmailsComponent } from './emails/emails.component';
 
 const routes: Routes = [
   // {
@@ -61,11 +62,15 @@ const routes: Routes = [
   }, 
   {
     path: 'diens-rooster',
-    component: DiensRoosterComponent
+    component: DiensRoosterComponent, canActivate:[AuthGuard]
   },
   {
     path: 'persedit',
     component: PerseditComponent, canActivate:[AuthGuard]
+  },
+  {
+    path: 'emails',
+    component: EmailsComponent, canActivate:[AuthGuard]
   },
   {
     path: 'registrasie',

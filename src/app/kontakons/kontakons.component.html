@@ -47,7 +47,7 @@
       <div class="form-group">
         <label style='color: black'>Boodskap</label>
         <textarea style="width:95%; background-color: white; height: 10em;" name="Body" #Body="ngModel"
-          (ngModel)="composeEmail.Body"></textarea>
+          [(ngModel)]="composeEmail.Body"></textarea>
         <div class="validation-error" *ngIf="Body.invalid && Body.touched">Verpligte veld.</div>
       </div>
       <a class="btn btn-primary" (click)="sendEmail()">Stuur E-pos</a>

@@ -12,14 +12,8 @@ import { HttpErrorResponse } from '@angular/common/http';
   styleUrls: ['./kontakons.component.scss']
 })
 export class KontakonsComponent implements OnInit {
-  // composeEmail: {
-  //   EmailType: string, EmailTo: string,
-  //   EmailNaam: string, EmailFrom: string,
-  //   Subject: string, Body: string
-  // };
-
-  composeEmail = {
-      EmailType: 'navraag', EmailTo: 'ernst@hotmail.co.nz',
+   composeEmail = {
+      EmailType: 'Navraag', EmailTo: 'admin@acktauranga.nz',
       EmailNaam: '', EmailFrom: '',
       Subject: '', Body: ''
     }
@@ -50,13 +44,11 @@ export class KontakonsComponent implements OnInit {
         '<br><br><b><u>Boodskap</u></b> - ', this.composeEmail.Body)
     }
     this.composeEmail.EmailType = "Navraag";
-    this.composeEmail.EmailFrom = 'navrae@acktauranga.nz';
+    this.composeEmail.EmailFrom = 'admn@acktauranga.nz';
     this.service.sendEmail(this.composeEmail).subscribe(res => {
       this.toastr.success('Email gestuur', '');
       this.spinner.hide();
       this.composeEmail.Body = "Email is gestuur."
-    });
-    
+    });    
   };
-
 }

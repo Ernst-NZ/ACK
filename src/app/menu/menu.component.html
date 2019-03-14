@@ -8,7 +8,7 @@
   <div class='center' *ngIf="tema">
     <span *ngIf="tema.length > 0" style="font-weight: bold; text-decoration: underline; font-size: 1.25em">
       Tema vir Sondag: {{tema[0]['Date'] |
-      date:'dd MMM yyyy'}} </span>
+      date:'dd MMM'}} </span>
     <span *ngIf="tema.length > 0" style="font-weight: bold; font-size: 1.25em; padding-left: 15px;">
       {{tema[0]['Name']}}</span>
   </div>
@@ -19,8 +19,6 @@
     <span *ngIf="skrif.length > 0" style="font-weight: bold; font-size: 1.25em; padding-left: 15px;">
       {{skrif[0]['Name']}}</span>
   </div>
-
-
 <br>
 <div class="row" style='width: 99%;'>
 
@@ -100,8 +98,8 @@
       <div class="content-details fadeIn-top">
         <a class="btn" routerLink="/kontakons">Kontak Ons</a>
         <a [hidden]='!this.globals.adminUser' class="btn btn-light menuWidth" routerLink="/lidmate">Persoonlike<br>Besonderhede</a>
+        <a [hidden]="!this.globals.adminUser" class="btn btn-light menuWidth" routerLink="/emails">gemeente Email</a>
         <a [hidden]="!this.globals.adminUser" class="btn btn-light menuWidth" routerLink="/login">Nuwe Gebruiker</a>
-
         <!-- <a class="btn btn-light menuWidth" routerLink="/registrasie">Nuwe Registrasie</a><br>
           <a class="btn btn-light menuWidth" routerLink="/doop">Doop Aansoek</a><br> -->
       </div>

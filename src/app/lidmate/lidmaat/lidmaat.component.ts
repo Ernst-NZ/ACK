@@ -65,10 +65,10 @@ export class LidmaatComponent implements OnInit {
 
   insertRecord(formLid:NgForm) {
     formLid.controls['Gemeente'].setValue('Tauranga');
-    if (formLid.value.IsActive === 'false') {
+    if (formLid.value.IsActive !== 'true') {
       formLid.controls['IsActive'].setValue('');
      } 
-     if (formLid.value.PublicDates === 'false') {
+     if (formLid.value.PublicDates !== 'true') {
       formLid.controls['PublicDates'].setValue('');
      } 
     this.service.postLidmaat(formLid.value).subscribe(res =>  {
@@ -83,10 +83,10 @@ export class LidmaatComponent implements OnInit {
   updateRecord(formLid:NgForm) {
      formLid.controls['Gemeente'].setValue('Tauranga');
      console.log(formLid.value.IsActive)
-     if (formLid.value.IsActive !== 'true' ) {
+     if (formLid.value.IsActive !== true) {
        formLid.controls['IsActive'].setValue('');
       } 
-      if (formLid.value.PublicDates !== 'true') {
+      if (formLid.value.PublicDates !== true) {
        formLid.controls['PublicDates'].setValue('');
       } 
     console.log(formLid);  

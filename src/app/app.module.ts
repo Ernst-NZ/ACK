@@ -56,6 +56,7 @@ import { SignInComponent } from './user/sign-in/sign-in.component';
 import { DiensRoosterComponent } from './diens-rooster/diens-rooster.component';
 import { KategeseComponent } from './kategese/kategese.component';
 import { DienslysComponent } from './dienslys/dienslys.component';
+import { EmailsComponent } from './emails/emails.component';
 // import { LidmateComponent } from './lidmate/lidmate.component';
 // import { LidmateLysComponent } from './lidmate/lidmate-lys/lidmate-lys.component';
 // import { LidmaatComponent } from './lidmate/lidmaat/lidmaat.component';
@@ -87,6 +88,7 @@ import { DienslysComponent } from './dienslys/dienslys.component';
     DiensRoosterComponent,
     KategeseComponent,
     DienslysComponent,
+    EmailsComponent,
     // LidmateComponent,
   //   LidmaatComponent,
     // LidmateLysComponent
