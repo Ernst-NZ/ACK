@@ -4,7 +4,7 @@ import { LidmaatService } from '../_shared/lidmaat.service';
 import { ToastrService } from 'ngx-toastr';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { UserService } from '../_shared/user.service';
-import { HttpErrorResponse } from '@angular/common/http';
+import { HttpErrorResponse, HttpResponse } from '@angular/common/http';
 
 @Component({
   selector: 'app-kontakons',
@@ -44,11 +44,11 @@ export class KontakonsComponent implements OnInit {
         '<br><br><b><u>Boodskap</u></b> - ', this.composeEmail.Body)
     }
     this.composeEmail.EmailType = "Navraag";
-    this.composeEmail.EmailFrom = 'admn@acktauranga.nz';
+    this.composeEmail.EmailFrom = 'admin@acktauranga.nz';
     this.service.sendEmail(this.composeEmail).subscribe(res => {
       this.toastr.success('Email gestuur', '');
       this.spinner.hide();
-      this.composeEmail.Body = "Email is gestuur."
+      this.composeEmail.Body = "Email is gestuur.";    
     });    
   };
 }

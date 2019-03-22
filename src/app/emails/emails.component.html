@@ -1,6 +1,13 @@
 <div style='background-color: rgb(223, 217, 217); 
            border: solid 1px black; color: black'>
     <h3>Stuur Epos aan Gemeente</h3>
+    <div class="form-group">
+      <label style='color: black'>Onderwerp</label>
+      <input style='width:95%; border: solid 1px black; color: black; background-color: white;' 
+      name="Subject" #Subject="ngModel"
+        [(ngModel)]="composeEmail.Subject" class="form-control" required>
+      <div class="validation-error" *ngIf="Subject.invalid && Subject.touched">Verpligte veld.</div>
+    </div>
    
     <form>        
        <div class="form-group">
