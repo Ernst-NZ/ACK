@@ -32,11 +32,12 @@ export class EmailsComponent implements OnInit {
     if (confirm("Is jy seker jy will die epos aan die hele gemeente stuur? Die stuur van die epos kan tot 5 minute neem.")) {
       this.spinner.show();   
       this.composeEmail.EmailType = "Batch";
-      this.composeEmail.EmailFrom = 'navrae@acktauranga.nz';
+      this.composeEmail.EmailFrom = 'admin@acktauranga.nz';
       this.service.sendEmail(this.composeEmail).subscribe(res => {
         this.toastr.success('Email gestuur', '');
         this.spinner.hide();      
       });
+      this.spinner.hide(); 
     }    
   };
 
