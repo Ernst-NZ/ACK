@@ -32,10 +32,13 @@ const routes: Routes = [
   //   path: '',
   //   component: MenuComponent
   // }, 
-  {
-    path: 'menu',
-    component: MenuComponent
-  }, 
+  // {
+  //   path: 'menu',
+  //   component: MenuComponent
+  // },
+  
+  { path: 'menu', component: MenuComponent, canActivate: [AuthGuard] },
+ 
   {
     path: 'dienslys',
     component: DienslysComponent
@@ -120,12 +123,12 @@ const routes: Routes = [
     path: 'eredienste',
     component: ErediensteComponent
   }, 
-  {
-   path: 'menu',
-   component: MenuComponent
-  },
-  { path: '', pathMatch: 'full', redirectTo: '/menu'},
-  { path: '**', pathMatch: 'full', redirectTo: '/menu' }
+  // {
+  //  path: 'menu',
+  //  component: MenuComponent
+  // },
+  { path: '', pathMatch: 'full', redirectTo: '/menu', canActivate: [AuthGuard] },
+  { path: '**', pathMatch: 'full', redirectTo: '/menu', canActivate: [AuthGuard] }
 ];
 
 @NgModule({

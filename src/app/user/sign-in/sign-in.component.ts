@@ -29,6 +29,7 @@ export class SignInComponent implements OnInit {
      this.userService.userAuthentication(userName,password).subscribe((data : any)=>{    
 
       localStorage.setItem('userToken',data.access_token);
+      localStorage.setItem('userName',userName);
       this.spinner.hide();
       this.syncing = false;  
       this.router.navigate(['/menu']);

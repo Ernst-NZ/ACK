@@ -26,7 +26,7 @@ export class KontakonsComponent implements OnInit {
     if (!localStorage.getItem("userToken") ) {
       this.userService.userAuthentication("ack","123").subscribe((data : any)=>{    
         console.log("set User")   
-        localStorage.setItem('userToken',data.access_token);        
+        localStorage.setItem('userToken',data.access_token);                
         this.userService.setUser();      
       },
       (err : HttpErrorResponse)=>{
