@@ -109,7 +109,7 @@ constructor(private http:HttpClient, private globals:Globals) {}
 
     sendEmail(formData:{}) {
         //    var reqHeader = new HttpHeaders( {'No-Auth':'True', 'Access-Control-Allow-Origin':'*'})
-       
+       console.log(formData)
             return this.http.post(this.rootURL + '/values/',
             formData          
             ); 

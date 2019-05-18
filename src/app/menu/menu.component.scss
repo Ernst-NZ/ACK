@@ -1,10 +1,10 @@
 /*Tabs*/
 html,
- body {
-   height: 100%;
-   background-color: black;
-   
- }
+body {
+  height: 100%;
+  background-color: black;
+
+}
 
 .content {
   position: relative;
@@ -13,7 +13,7 @@ html,
   overflow: hidden;
   font-size: 1em;
   text-shadow: none;
-  min-height: 10em; 
+  min-height: 10em;
   width: 100%;
 }
 
@@ -87,48 +87,51 @@ html,
 
 /*end of tabs*/
 
+.topBanner {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
+    url("../../assets/cross-sunset.jpeg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+}
+
+.gemeenteBanner {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
+    url("../../assets/prayer-2544994_1920.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+}
+
+.diensteBanner {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
+    url("../../assets/cross-671379_1920.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+}
+
+.bedienBanner {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
+    url("../../assets/tea-lights-2223898_1920.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+}
 
 
+.col1 {
+  padding-right: 0;
+}
+.colLast {
+  padding-left: 0;
+}
+.colMiddle {
+  padding-left: 0;
+  padding-right: 0;
+}
 
-// // #intro {
-// // //  text-align: center;
-// //   background-color: white;
-// //   color: black; margin: 2em;
-// // }
-
-// .intro {
-//   text-align: center;
-//   background-color: white;
-//   color: black; 
-//   margin: 3em;
-//   margin-left: -10px; 
-// }
-
-// // #logo {
-// //   width: "80%"
-// // }
-
-// // #info {
-// //   text-align: center;
-// //   margin: auto;
-// //   width: 80%;
-// //   line-height: 1;
-// // }
-// .heading {
-//   font-size: 2em;
-//   font-weight: bold;
-//   text-align: left;
-// }
-// .subHeading {
-//   font-size: 2em;
-//   text-align: left;
-// }
-// .center {
-//   text-align: center
-// }
-// .left {
-//   text-align: left;
-// }
-// // .right {
-// //   text-align: right;
-// // }

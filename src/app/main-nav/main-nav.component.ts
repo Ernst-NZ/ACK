@@ -31,11 +31,12 @@ export class MainNavComponent implements OnInit {
   }
  
   Logout() {
-    localStorage.removeItem('userToken');
+   // localStorage.removeItem('userToken');
     localStorage.removeItem('userName');
     this.userClaims = '';
     this.router.navigate(['/menu']);
     this.globals.userName = '';
+    this.globals.adminUser = false;
   }
  
 }

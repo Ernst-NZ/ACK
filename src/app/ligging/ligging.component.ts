@@ -92,7 +92,7 @@ export class LiggingComponent implements OnInit {
         iconLayer
       ],
       view: new ol.View({
-        center: ol.proj.fromLonLat([176.153000, -37.706180]),
+        center: ol.proj.fromLonLat([176.153000, -37.705900]),
         zoom:   18
       })
     });
