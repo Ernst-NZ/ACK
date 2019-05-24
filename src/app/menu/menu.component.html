@@ -1,472 +1,460 @@
-<div class="topBanner" style="min-height: 500px;">
-  <div class="container center">
-    <h1 style="font-size: 2em"><u><b>AFRIKAANSE CHRISTEN KERK TAURANGA</b></u></h1>
-  </div>
-  <div *ngIf="!(isHandset$ | async)" style="min-height: 250px">    
-    <!-- <div class="col-md-4 col-sm-12" style="text-align: center; padding: 2em;">
-      <h1><u>Biddend</u></h1>gereelde gesprek met God is prioriteit vir ons.
-    </div>
-    <div class="col-md-4 col-sm-12" style="text-align: center; padding: 2em;">
-      <h1><u>Afhanklik</u></h1>
-      van die almagtige God (Vader, Seun en Heilige Gees,) wat die totale skepping in sy hande onderhou.
-    </div>
-    <div class="col-md-4 col-sm-12" style="text-align: center; padding: 2em;">
-      <h1><u>Saam</u></h1>
-      gedring deur Jesus se liefde gee ons om vir mekaar en vir die vreemedeling in ons midde wat by ons wil inskakel.
-    </div>
-  </div>
-  <div class="container center">
-    <br> <br>
-    <h2><b> Die ACK Tauranga is 'n gemeente van die Afrikaanse Christen Kerk in New Zealand.<br>
+<div class="container" style="width: 100%;">
 
-        Die ACK van NZ is ’n onafhanklike denominasie wat in NZ ontstaan het weens ’n behoefte onder ’n groep
-        Suid-Afrikaners aan ’n geestelike bediening in Afrikaans.</b></h2> -->
-  </div>
 
-  <!-- Banner -->
-  <div class='center' *ngIf="tema">
-    <br>
-    <span *ngIf="tema.length > 0" style="font-weight: bold; text-decoration: underline; font-size: 1.25em">
-      Tema vir Sondag: {{tema[0]['Date'] |
+  <div class="container topBanner" style="min-height: 500px;">
+    <div class="container center">
+      <h1 style="font-size: 2em"><u><b>AFRIKAANSE CHRISTEN KERK TAURANGA</b></u></h1>
+    </div>
+    <div *ngIf="!(isHandset$ | async)" style="min-height: 100px">
+    </div>
+
+    <!-- Banner -->
+    <div class='center' *ngIf="tema">
+      <br>
+      <span *ngIf="tema.length > 0" style="font-weight: bold; text-decoration: underline; font-size: 1.25em">
+        Tema vir Sondag: {{tema[0]['Date'] |
                 date:'dd MMM'}} </span>
-    <span *ngIf="tema.length > 0" style="font-weight: bold; font-size: 1.25em; padding-left: 15px;">
-      {{tema[0]['Name']}}</span>
+      <span *ngIf="tema.length > 0" style="font-weight: bold; font-size: 1.25em; padding-left: 15px;">
+        {{tema[0]['Name']}}</span>
+    </div>
+    <div class='center' *ngIf="skrif">
+      <span *ngIf="skrif.length > 0" style="font-weight: bold; text-decoration: underline; font-size: 1.25em">
+        Skriflesing vir Sondag:</span>
+      <span *ngIf="skrif.length > 0" style="font-weight: bold; font-size: 1.25em; padding-left: 15px;">
+        {{skrif[0]['Name']}}</span>
+      <br>
+    </div>
   </div>
-  <div class='center' *ngIf="skrif">
-    <span *ngIf="skrif.length > 0" style="font-weight: bold; text-decoration: underline; font-size: 1.25em">
-      Skriflesing vir Sondag:</span>
-    <span *ngIf="skrif.length > 0" style="font-weight: bold; font-size: 1.25em; padding-left: 15px;">
-      {{skrif[0]['Name']}}</span>
+
+
+  <!-- admin -->
+  <br *ngIf="this.globals.adminUser">
+  <div *ngIf="this.globals.adminUser" class="center" style="background-color: black; padding: 15px;">
+
+    <h2><u>Kerk Admin</u></h2>
+  </div>
+  <div *ngIf="this.globals.adminUser" style="height: 180px; background-color: darkred">
+    <br>
+    <div class="row">
+      <div class="col-md-3 col-sm-6">
+        <div style="text-align: center; color: white; background-color: black; opacity: 0.8;
+          margin: 5px; height: 100%; padding: 10px">
+          <a class="btn btn-warning btn-large" routerLink="/dienslys">Diens
+            Rooster<br>(Admin)</a>
+        </div>
+      </div>
+
+      <div class="col-md-3 col-sm-6">
+        <div style="text-align: center; color: white; background-color: black; opacity: 0.8;
+          margin: 5px; height: 100%; padding: 10px;">
+          <a class="btn btn-warning btn-large" routerLink="/lidmate">Persoonlike<br>Besonderhede</a>
+        </div>
+      </div>
+
+      <div class="col-md-3 col-sm-6">
+        <div style="text-align: center; color: white; background-color: black; opacity: 0.8;
+          margin: 5px; height: 100%; padding: 10px">
+          <a class="btn btn-warning btn-large" routerLink="/emails">Gemeente
+            Email</a>
+        </div>
+      </div>
+      <div class="col-md-3 col-sm-6">
+        <div style="text-align: center; color: white; background-color: black; opacity: 0.8;
+          margin: 5px; height: 100%; padding: 10px">
+          <a class="btn btn-warning btn-large" routerLink="/login">Nuwe Gebruiker</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- gemeente -->
+  <br>
+  <div class="center" style="background-color: black; padding: 15px;">
+    <h2><u>Gemeente Inligting</u></h2>
+  </div>
+
+  <div class="gemeenteBanner">
+    <div class="row">
+      <div class="col-md-4 col-sm-12" style="text-align: center; padding: 2em;">
+        <h1><u>Biddend</u></h1>gereelde gesprek met God is prioriteit vir ons.
+      </div>
+      <div class="col-md-4 col-sm-12" style="text-align: center; padding: 2em;">
+        <h1><u>Afhanklik</u></h1>
+        van die almagtige God (Vader, Seun en Heilige Gees,) wat die totale skepping in sy hande onderhou.
+      </div>
+      <div class="col-md-4 col-sm-12" style="text-align: center; padding: 2em;">
+        <h1><u>Saam</u></h1>
+        gedring deur Jesus se liefde gee ons om vir mekaar en vir die vreemedeling in ons midde wat by ons wil inskakel.
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-4 col-sm-12">
+        <div style="text-align: center; color: white; background-color: black; opacity: 0.8;
+        margin: 5px; height: 100%; padding: 10px">
+          <a class="btn btn-warning" routerLink="/aboutus" style="padding-bottom: 20px; 
+           margin-bottom: 5px;">Ons Storie &raquo;</a>
+          <div class="left">
+            <ul>
+              <li>Die ACK Tauranga is 'n gemeente van die Afrikaanse Christen Kerk in New Zealand.</li>
+              <li>Die ACK van NZ is ’n onafhanklike denominasie wat in NZ ontstaan (1998) het weens
+                ’n behoefte onder ’n groep Suid-Afrikaners......</li>
+            </ul>
+
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-4 col-sm-12">
+        <div style="text-align: center; color: white; background-color: black; opacity: 0.8;
+        margin: 5px; height: 100%; padding: 10px;">
+          <a class="btn btn-warning" routerLink="//inligting" style="padding-bottom: 20px; 
+           margin-bottom: 5px;">Kerk Inligting &raquo;</a>
+          <div class='left'>
+            <ul>
+              <li>Leraar - Mario Weyers</li>
+              <li>Ons gemeente se Roeping in hierdie land waarheen die Here ons gelei het, is om die mees liefdevolle en
+                uitreikende Christelike tuiste in New Zealand te wees vir gemeentelede, hulle familielede
+                .......................</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-4 col-sm-12">
+        <div style="text-align: center; color: white; background-color: black; opacity: 0.8;
+        margin: 5px; height: 100%; padding: 10px">
+          <a class="btn btn-warning" routerLink="/geloof" style="padding-bottom: 20px; 
+           margin-bottom: 5px;">Ons Glo in .. &raquo;</a>
+          <div class="left">
+            Geloofsverwoording van die ACK
+            <ul>
+              <li>Ons Glo in:</li>
+              <li>in die heilige, unieke God wat Homself openbaar het as Vader, Seun en Heilige Gees – God Drie-enig.
+              </li>
+              <li> dat God as Vader alles gemaak het en daarvoor ......</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+    </div>
     <br>
   </div>
-</div>
-
-
-<!-- admin -->
-<br *ngIf="this.globals.adminUser">
-<div *ngIf="this.globals.adminUser" class="center" style="background-color: black; padding: 15px;">
-
-  <h2><u>Kerk Admin</u></h2>
-</div>
-<div *ngIf="this.globals.adminUser" style="height: 180px; background-color: darkred">
   <br>
-  <div class="row">
-    <div class="col-md-3 col-sm-6">
-      <div style="text-align: center; color: white; background-color: black; opacity: 0.8;
-          margin: 5px; height: 100%; padding: 10px">
-        <a class="btn btn-warning btn-large" routerLink="/dienslys">Diens
-          Rooster<br>(Admin)</a>
-      </div>
-    </div>
 
-    <div class="col-md-3 col-sm-6">
-      <div style="text-align: center; color: white; background-color: black; opacity: 0.8;
-          margin: 5px; height: 100%; padding: 10px;">
-        <a class="btn btn-warning btn-large" routerLink="/lidmate">Persoonlike<br>Besonderhede</a>
-      </div>
-    </div>
-
-    <div class="col-md-3 col-sm-6">
-      <div style="text-align: center; color: white; background-color: black; opacity: 0.8;
-          margin: 5px; height: 100%; padding: 10px">
-        <a class="btn btn-warning btn-large" routerLink="/emails">Gemeente
-          Email</a>
-      </div>
-    </div>
-    <div class="col-md-3 col-sm-6">
-      <div style="text-align: center; color: white; background-color: black; opacity: 0.8;
-          margin: 5px; height: 100%; padding: 10px">
-        <a class="btn btn-warning btn-large" routerLink="/login">Nuwe Gebruiker</a>
-      </div>
-    </div>
-
+  <!-- eredienste -->
+  <div class="center" style="background-color: black; padding: 15px;">
+    <h2><u>Eredienste</u></h2>
   </div>
-</div>
-
-<!-- gemeente -->
-<br>
-<div class="center" style="background-color: black; padding: 15px;">
-  <h2><u>Gemeente Inligting</u></h2>
-</div>
-
-<div class="gemeenteBanner">
-    <div class="row">    
-        <div class="col-md-4 col-sm-12" style="text-align: center; padding: 2em;">
-          <h1><u>Biddend</u></h1>gereelde gesprek met God is prioriteit vir ons.
-        </div>
-        <div class="col-md-4 col-sm-12" style="text-align: center; padding: 2em;">
-          <h1><u>Afhanklik</u></h1>
-          van die almagtige God (Vader, Seun en Heilige Gees,) wat die totale skepping in sy hande onderhou.
-        </div>
-        <div class="col-md-4 col-sm-12" style="text-align: center; padding: 2em;">
-          <h1><u>Saam</u></h1>
-          gedring deur Jesus se liefde gee ons om vir mekaar en vir die vreemedeling in ons midde wat by ons wil inskakel.
-        </div>
-      </div>
-
-  <div class="row">
-    <div class="col-md-4 col-sm-12">
-      <div style="text-align: center; color: white; background-color: black; opacity: 0.8;
-        margin: 5px; height: 100%; padding: 10px">
-        <a class="btn btn-warning" routerLink="/aboutus" style="padding-bottom: 20px; 
-           margin-bottom: 5px;">Ons Storie &raquo;</a>
-        <div class="left">
-          <ul>
-            <li>Die ACK Tauranga is 'n gemeente van die Afrikaanse Christen Kerk in New Zealand.</li>
-            <li>Die ACK van NZ is ’n onafhanklike denominasie wat in NZ ontstaan (1998) het weens
-              ’n behoefte onder ’n groep Suid-Afrikaners......</li>
-          </ul>
-
-        </div>
-      </div>
-    </div>
-
-    <div class="col-md-4 col-sm-12">
-      <div style="text-align: center; color: white; background-color: black; opacity: 0.8;
-        margin: 5px; height: 100%; padding: 10px;">
-        <a class="btn btn-warning" routerLink="//inligting" style="padding-bottom: 20px; 
-           margin-bottom: 5px;">Kerk Inligting &raquo;</a>
-        <div class='left'>
-          <ul>
-            <li>Leraar - Mario Weyers</li>
-            <li>Ons gemeente se Roeping in hierdie land waarheen die Here ons gelei het, is om die mees liefdevolle en
-              uitreikende Christelike tuiste in New Zealand te wees vir gemeentelede, hulle familielede
-              .......................</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-
-    <div class="col-md-4 col-sm-12">
-      <div style="text-align: center; color: white; background-color: black; opacity: 0.8;
-        margin: 5px; height: 100%; padding: 10px">
-        <a class="btn btn-warning" routerLink="/geloof" style="padding-bottom: 20px; 
-           margin-bottom: 5px;">Ons Glo in .. &raquo;</a>
-        <div class="left">
-          Geloofsverwoording van die ACK
-          <ul>
-            <li>Ons Glo in:</li>
-            <li>in die heilige, unieke God wat Homself openbaar het as Vader, Seun en Heilige Gees – God Drie-enig.</li>
-            <li> dat God as Vader alles gemaak het en daarvoor ......</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-
-  </div>
-  <br>
-</div>
-<br>
-
-<!-- eredienste -->
-<div class="center" style="background-color: black; padding: 15px;">
-  <h2><u>Eredienste</u></h2>
-</div>
-<div class="diensteBanner">
-  <div class="row">
-    <div class="col-md-6 col-sm-12" style=" 
+  <div class="diensteBanner">
+    <div class="row">
+      <div class="col-md-6 col-sm-12" style=" 
           font-weight: bold; font-size: 1.75em;">
-      <div style="margin: 10px">
-        <p>Elke Sondag aand</p>
-        <p>St Enoch's Kerk</p>
-        <p>134 Sixteenth Avenue</p>
-        <p>Tauranga</p>
+        <div style="margin: 10px">
+          <p>Elke Sondag aand</p>
+          <p>St Enoch's Kerk</p>
+          <p>134 Sixteenth Avenue</p>
+          <p>Tauranga</p>
+        </div>
       </div>
-    </div>
 
-    <div class="col-md-6 col-sm-12" style=" 
+      <div class="col-md-6 col-sm-12" style=" 
           font-weight: bold; font-size: 1.75em;">
-      <div style="margin: 10px">
-        <br>
-        <p>Tyd: 6nm - Somer<br>(Daylight Savings) </p>
-        <br>
-        <p>Tyd: 5nm - Winter </p>
+        <div style="margin: 10px">
+          <br>
+          <p>Tyd: 6nm - Somer<br>(Daylight Savings) </p>
+          <br>
+          <p>Tyd: 5nm - Winter </p>
+        </div>
+
+
       </div>
 
 
+
     </div>
-
-
-
-  </div>
-  <div class="center" style="border-bottom: solid 2px white">
-    <h2>Diensbeurte</h2>
-  </div>
-  <div class="row">
-    <div class="col-md-6 col-sm-12" style=" 
+    <div class="center" style="border-bottom: solid 2px white">
+      <h2>Diensbeurte</h2>
+    </div>
+    <div class="row">
+      <div class="col-md-6 col-sm-12" style=" 
             font-weight: bold;">
-      <table class='table-bordered black' style='margin: 10px; width: 95%; opacity: 0.8'>
-        <tr>
-          <th colspan="3" style="text-align: center; 
+        <table class='table-bordered black' style='margin: 10px; width: 95%; opacity: 0.8'>
+          <tr>
+            <th colspan="3" style="text-align: center; 
                               text-decoration: underline; 
                               font-weight: bold;">KERKRAAD</th>
-        </tr>
-        <tr *ngFor="let groep1 of kerkraad">
-          <td style="width: 25%; padding-left: 2px; padding-right: 0px;">
-            <span> {{groep1.Date | date:'dd MMM yy'}} </span>
-          </td>
-          <td style="width: 30%; padding-left: 2px; padding-right: 0px;">
-            <span>{{groep1.Group1}}</span>
-          </td>
-          <td style="width: 45%; padding-left: 2px; padding-right: 0px;">
-            <span>{{groep1.Name}}</span>
-          </td>
-        </tr>
-      </table>
-    </div>
+          </tr>
+          <tr *ngFor="let groep1 of kerkraad">
+            <td style="width: 25%; padding-left: 2px; padding-right: 0px;">
+              <span> {{groep1.Date | date:'dd MMM yy'}} </span>
+            </td>
+            <td style="width: 30%; padding-left: 2px; padding-right: 0px;">
+              <span>{{groep1.Group1}}</span>
+            </td>
+            <td style="width: 45%; padding-left: 2px; padding-right: 0px;">
+              <span>{{groep1.Name}}</span>
+            </td>
+          </tr>
+        </table>
+      </div>
 
-    <div class="col-md-6 col-sm-12" style=" 
+      <div class="col-md-6 col-sm-12" style=" 
             font-weight: bold;">
 
-      <table class='table-bordered black' style="margin: 10px; width: 95%; opacity: 0.8">
-        <tr>
-          <th colspan="3" style="text-align: center; 
+        <table class='table-bordered black' style="margin: 10px; width: 95%; opacity: 0.8">
+          <tr>
+            <th colspan="3" style="text-align: center; 
                           text-decoration: underline; 
                           font-weight: bold;">VERWELKOMING</th>
-        </tr>
-        <tr *ngFor="let groep2 of welkom">
-          <td style="width: 25%; padding-left: 2px; padding-right: 0px;">
-            <span> {{groep2.Date | date:'dd MMM yy'}} </span>
-          </td>
-          <td style="width: 30%; padding-left: 2px; padding-right: 0px;">
-            <span>{{groep2.Group1}}</span>
-          </td>
-          <td style="width: 45%; padding-left: 2px; padding-right: 0px;">
-            <span>{{groep2.Name}}</span>
-          </td>
-        </tr>
-      </table>
+          </tr>
+          <tr *ngFor="let groep2 of welkom">
+            <td style="width: 25%; padding-left: 2px; padding-right: 0px;">
+              <span> {{groep2.Date | date:'dd MMM yy'}} </span>
+            </td>
+            <td style="width: 30%; padding-left: 2px; padding-right: 0px;">
+              <span>{{groep2.Group1}}</span>
+            </td>
+            <td style="width: 45%; padding-left: 2px; padding-right: 0px;">
+              <span>{{groep2.Name}}</span>
+            </td>
+          </tr>
+        </table>
 
+      </div>
     </div>
-  </div>
 
-  <div class="row">
-    <div class="col-md-6 col-sm-12" style=" 
+    <div class="row">
+      <div class="col-md-6 col-sm-12" style=" 
             font-weight: bold;">
-      <table class='table-bordered black' style='margin: 10px; width: 95%; opacity: 0.8'>
-        <tr>
-          <th colspan="3" style="text-align: center; 
+        <table class='table-bordered black' style='margin: 10px; width: 95%; opacity: 0.8'>
+          <tr>
+            <th colspan="3" style="text-align: center; 
                           text-decoration: underline; 
                           font-weight: bold;">GASVRYHEID</th>
-        </tr>
-        <tr *ngFor="let groep3 of gasvry">
-          <td style="width: 25%; padding-left: 2px; padding-right: 0px;">
-            <span> {{groep3.Date | date:'dd MMM yy'}} </span>
-          </td>
-          <td style="width: 30%; padding-left: 2px; padding-right: 0px;">
-            <span>{{groep3.Group1}}</span>
-          </td>
-          <td style="width: 45%; padding-left: 2px; padding-right: 0px;">
-            <span>{{groep3.Name}}</span>
-          </td>
-        </tr>
-      </table>
-    </div>
+          </tr>
+          <tr *ngFor="let groep3 of gasvry">
+            <td style="width: 25%; padding-left: 2px; padding-right: 0px;">
+              <span> {{groep3.Date | date:'dd MMM yy'}} </span>
+            </td>
+            <td style="width: 30%; padding-left: 2px; padding-right: 0px;">
+              <span>{{groep3.Group1}}</span>
+            </td>
+            <td style="width: 45%; padding-left: 2px; padding-right: 0px;">
+              <span>{{groep3.Name}}</span>
+            </td>
+          </tr>
+        </table>
+      </div>
 
-    <div class="col-md-6 col-sm-12" style=" 
+      <div class="col-md-6 col-sm-12" style=" 
             font-weight: bold;">
 
-      <table class='table-bordered black' style='margin: 10px; width: 95%; opacity: 0.8'>
-        <tr>
-          <th colspan="3" style="text-align: center; 
+        <table class='table-bordered black' style='margin: 10px; width: 95%; opacity: 0.8'>
+          <tr>
+            <th colspan="3" style="text-align: center; 
                           text-decoration: underline; 
                           font-weight: bold;">JEUG
-            BEDIENING</th>
-        </tr>
-        <tr *ngFor="let groep4 of jeug">
-          <td style="width: 25%; padding-left: 2px; padding-right: 0px;">
-            <span> {{groep4.Date | date:'dd MMM yy'}} </span>
-          </td>
-          <td style="width: 30%; padding-left: 2px; padding-right: 0px;">
-            <span>{{groep4.Group1}}</span>
-          </td>
-          <td style="width: 45%; padding-left: 2px; padding-right: 0px;">
-            <span>{{groep4.Name}}</span>
-          </td>
-        </tr>
-      </table>
+              BEDIENING</th>
+          </tr>
+          <tr *ngFor="let groep4 of jeug">
+            <td style="width: 25%; padding-left: 2px; padding-right: 0px;">
+              <span> {{groep4.Date | date:'dd MMM yy'}} </span>
+            </td>
+            <td style="width: 30%; padding-left: 2px; padding-right: 0px;">
+              <span>{{groep4.Group1}}</span>
+            </td>
+            <td style="width: 45%; padding-left: 2px; padding-right: 0px;">
+              <span>{{groep4.Name}}</span>
+            </td>
+          </tr>
+        </table>
 
-    </div>
-  </div>
-  <br><br>
-
-</div>
-<br>
-
-<!-- bedieninge -->
-<div class="center" style="background-color: black; padding: 15px;">
-  <h2><u>Bedieninge</u></h2>
-</div>
-<div class="bedienBanner">
-
-  <div class="row">
-    <div class="col-md-6 col-sm-12 col1">
-      <div style="text-align: left; color: white; background-color: black; opacity: 0.8;
-              margin: 5px; height: 100%">
-        <p class='heading center'>Kerkraad</p>
-        <ol class="b" style="list-style-type:disc;">
-          <li>Die Kerkraad funksioneer as die bestuur van die gemeente in samewerkimg met die leeraar</li>
-          <li>Die kerkraad vergader maandeliks op die tweede Sondag van die maand na afloop van die erediens</li>
-          <li>Kommunikasie met die kerkraad word verwelkom</li>
-          <li>Vir amptelike doeleindes word skriftelike kommunikasie verkies (Brief of epos)</li>
-        </ol>
       </div>
     </div>
-
-    <div class="col-md-6 col-sm-12 colLast">
-      <div style="text-align: left; color: white; background-color: black; opacity: 0.8;
-                margin: 5px; height: 100%;">
-        <p class='heading center'>Verwelkoming</p>
-        <h4></h4>
-        <ol class="b" style="list-style-type:disc;">
-          <li>Die verwekomings bediening bestaan uit vrywillegers wat graag besoekers by die erediens verwelkom</li>
-          <li>Indien jy ons vir die eerste keer besoek meld asb aan by die verwekoming span wat navrae sal hanteer en
-            sal help om jou tuis te laat voel</li>
-        </ol>
-      </div>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-md-6 col-sm-12 col1">
-      <div style="text-align: left; color: white; background-color: black; opacity: 0.8;
-                margin: 5px; height: 100%">
-        <p class='heading center'>Jeug Bediening</p>
-        <ol class="b" style="list-style-type:disc;">
-          <li>Die bediening van kinders in die gemeente vind plaas volgens ouderdoms verdeling tydens die erediens</li>
-          <li>Ons verwelkom kinders in die diens tot na afloop van 'n kort kinder boodskap waarna die Sondag skool in
-            aanvang neem</li>
-          <li>Kwartaalikse uitstappies word beplan en ouers is welkom om mee te doen</li>
-          <li>Aan die einde van die jaar sluit ons af met 'n kerssangdiens waarin ons die betrokkenheid van ons kinder
-            beklemtoon</li>
-        </ol>
-      </div>
-    </div>
-
-    <div class="col-md-6 col-sm-12 colLast">
-      <div style="text-align: left; color: white; background-color: black; opacity: 0.8;
-                  margin: 5px; height: 100%;">
-        <p class='heading center'>Gasvryheid</p>
-        <h4></h4>
-        <ol class="b" style="list-style-type:disc;">
-          <li>Die gasvryheids bediening bestaan uit vrywillegers wat na afoop van die diens dit moontlik maak om
-            gesellig saam te verkeer om 'n koppie koffie</li>
-        </ol>
-      </div>
-    </div>
-  </div>
-
-  <div class="row">
-    <div class="col-md-3 col-sm-12 col1">
-      <div style="text-align: left; color: white; background-color: black; opacity: 0.8;
-        margin: 5px; height: 100%;">
-        <p class='heading center'>Kategese</p>
-        <ol class="b" style="list-style-type:disc;">
-          <li>Vir Jonger en Ouer volwassenes volgens behoefte</li>
-        </ol>
-      </div>
-    </div>
-
-    <div class="col-md-3 col-sm-12" style="padding-right: 0px; padding-left: 0px;">
-      <div style="text-align: left; color: white; background-color: black; opacity: 0.8;
-        margin: 5px; height: 100%;">
-        <p class='heading center'>Uitreik</p>
-        <ol class="b" style="list-style-type:disc;">
-          <li>Gemeenskaps projekte en evangelisasie word verwelkom volgens die inisiatief van lidmate en die kerkraad
-          </li>
-        </ol>
-      </div>
-    </div>
-
-    <div class="col-md-3 col-sm-12" style="padding-right: 0px; padding-left: 0px;">
-      <div style="text-align: left; color: white; background-color: black; opacity: 0.8;
-        margin: 5px; height: 100%;">
-        <p class='heading center'>Barmhartigheid</p>
-        <ol class="b" style="list-style-type:disc;">
-          <li>Ons neem graag kennis van individue of gesinne wat weens omstandighede spesiale behoeftes het</li>
-        </ol>
-      </div>
-    </div>
-    <div class="col-md-3 col-sm-12" style="padding-left: 0px;">
-      <div style="text-align: left; color: white; background-color: black; opacity: 0.8;
-        margin: 5px; height: 100%;">
-        <p class='heading center'>Besoeke</p>
-        <ol class="b" style="list-style-type:disc;">
-          <li>Ons neem graag kennis van mede Suid Afrikaners wat ondresteuning nodig het</li>
-        </ol>
-      </div>
-    </div>
+    <br><br>
 
   </div>
   <br>
-</div>
 
+  <!-- bedieninge -->
+  <div class="center" style="background-color: black; padding: 15px;">
+    <h2><u>Bedieninge</u></h2>
+  </div>
+  <div class="bedienBanner">
 
-<!-- kontak ons -->
-<br>
-<div class="center" style="background-color: black; padding: 15px; border-bottom: solid 1px white">
-  <h2><u>Kontak Ons</u></h2>
-</div>
-<div style='background-color: black'>
-  <div class="row">
-    <div class="col-md-6 col-sm-12 left">
-      <div style="margin: 10px">
-        <p>
-          <u>Straat Adres:</u><br>
-          134 16de Laan Tauranga Suid
-        </p>
-
-        <p>
-          <u>Email Adres:</u><br>
-          2m.weyers@gmail.com
-        </p>
-
-        <p>
-          <u>Kontak Nr:</u><br>
-          Mario Weyers:<br>
-          022 089 4395
-        </p>
+    <div class="row">
+      <div class="col-md-6 col-sm-12 col1">
+        <div style="text-align: left; color: white; background-color: black; opacity: 0.8;
+              margin: 5px; height: 100%">
+          <p class='heading center'>Kerkraad</p>
+          <ol class="b" style="list-style-type:disc;">
+            <li>Die Kerkraad funksioneer as die bestuur van die gemeente in samewerkimg met die leeraar</li>
+            <li>Die kerkraad vergader maandeliks op die tweede Sondag van die maand na afloop van die erediens</li>
+            <li>Kommunikasie met die kerkraad word verwelkom</li>
+            <li>Vir amptelike doeleindes word skriftelike kommunikasie verkies (Brief of epos)</li>
+          </ol>
+        </div>
       </div>
-      <div style="padding: 50px;">
-        <a href="https://www.facebook.com/Afrikaanse-Christen-Kerk-Tauranga-ACK-Tauranga-130715893700159/" 
-        target="_Blank"
-        style="padding-bottom: 20px; 
-          margin-bottom: 5px;">
-          <div><img src="../../assets/fb1.jpg" height="150" /></div>Ons<br>Facebook &raquo;
-        </a>
 
+      <div class="col-md-6 col-sm-12 colLast">
+        <div style="text-align: left; color: white; background-color: black; opacity: 0.8;
+                margin: 5px; height: 100%;">
+          <p class='heading center'>Verwelkoming</p>
+          <h4></h4>
+          <ol class="b" style="list-style-type:disc;">
+            <li>Die verwekomings bediening bestaan uit vrywillegers wat graag besoekers by die erediens verwelkom</li>
+            <li>Indien jy ons vir die eerste keer besoek meld asb aan by die verwekoming span wat navrae sal hanteer en
+              sal help om jou tuis te laat voel</li>
+          </ol>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-6 col-sm-12 col1">
+        <div style="text-align: left; color: white; background-color: black; opacity: 0.8;
+                margin: 5px; height: 100%">
+          <p class='heading center'>Jeug Bediening</p>
+          <ol class="b" style="list-style-type:disc;">
+            <li>Die bediening van kinders in die gemeente vind plaas volgens ouderdoms verdeling tydens die erediens
+            </li>
+            <li>Ons verwelkom kinders in die diens tot na afloop van 'n kort kinder boodskap waarna die Sondag skool in
+              aanvang neem</li>
+            <li>Kwartaalikse uitstappies word beplan en ouers is welkom om mee te doen</li>
+            <li>Aan die einde van die jaar sluit ons af met 'n kerssangdiens waarin ons die betrokkenheid van ons kinder
+              beklemtoon</li>
+          </ol>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-sm-12 colLast">
+        <div style="text-align: left; color: white; background-color: black; opacity: 0.8;
+                  margin: 5px; height: 100%;">
+          <p class='heading center'>Gasvryheid</p>
+          <h4></h4>
+          <ol class="b" style="list-style-type:disc;">
+            <li>Die gasvryheids bediening bestaan uit vrywillegers wat na afoop van die diens dit moontlik maak om
+              gesellig saam te verkeer om 'n koppie koffie</li>
+          </ol>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-3 col-sm-12 col1">
+        <div style="text-align: left; color: white; background-color: black; opacity: 0.8;
+        margin: 5px; height: 100%;">
+          <p class='heading center'>Kategese</p>
+          <ol class="b" style="list-style-type:disc;">
+            <li>Vir Jonger en Ouer volwassenes volgens behoefte</li>
+          </ol>
+        </div>
+      </div>
+
+      <div class="col-md-3 col-sm-12" style="padding-right: 0px; padding-left: 0px;">
+        <div style="text-align: left; color: white; background-color: black; opacity: 0.8;
+        margin: 5px; height: 100%;">
+          <p class='heading center'>Uitreik</p>
+          <ol class="b" style="list-style-type:disc;">
+            <li>Gemeenskaps projekte en evangelisasie word verwelkom volgens die inisiatief van lidmate en die kerkraad
+            </li>
+          </ol>
+        </div>
+      </div>
+
+      <div class="col-md-3 col-sm-12" style="padding-right: 0px; padding-left: 0px;">
+        <div style="text-align: left; color: white; background-color: black; opacity: 0.8;
+        margin: 5px; height: 100%;">
+          <p class='heading center'>Barmhartigheid</p>
+          <ol class="b" style="list-style-type:disc;">
+            <li>Ons neem graag kennis van individue of gesinne wat weens omstandighede spesiale behoeftes het</li>
+          </ol>
+        </div>
+      </div>
+      <div class="col-md-3 col-sm-12" style="padding-left: 0px;">
+        <div style="text-align: left; color: white; background-color: black; opacity: 0.8;
+        margin: 5px; height: 100%;">
+          <p class='heading center'>Besoeke</p>
+          <ol class="b" style="list-style-type:disc;">
+            <li>Ons neem graag kennis van mede Suid Afrikaners wat ondresteuning nodig het</li>
+          </ol>
+        </div>
       </div>
 
     </div>
-    <div class="col-md-6 col-sm-12 left">
-      <form>
-        <div class="form-group">
-          <label style='color:white; font-size: 0.75em'>Naam</label>
-          <input style='width:95%; color: white; background-color: black; font-size: 1em;' name="EmailNaam" #EmailNaam="ngModel"
-            [(ngModel)]="composeEmail.EmailNaam" class="form-control" required>
-          <div class="validation-error" *ngIf="EmailNaam.invalid && EmailNaam.touched">Verpligte veld.</div>
+    <br>
+  </div>
+
+
+  <!-- kontak ons -->
+  <br>
+  <div class="center" style="background-color: black; padding: 15px; border-bottom: solid 1px white">
+    <h2><u>Kontak Ons</u></h2>
+  </div>
+  <div style='background-color: black'>
+    <div class="row">
+      <div class="col-md-6 col-sm-12 left">
+        <div style="margin: 10px">
+          <p>
+            <u>Straat Adres:</u><br>
+            134 16de Laan Tauranga Suid
+          </p>
+
+          <p>
+            <u>Email Adres:</u><br>
+            2m.weyers@gmail.com
+          </p>
+
+          <p>
+            <u>Kontak Nr:</u><br>
+            Mario Weyers:<br>
+            022 089 4395
+          </p>
         </div>
-        <div class="form-group">
-          <label style="font-size: 0.75em">Kontak Email Adres</label>
-          <input style='width:95%; color: white; background-color: black;font-size: 1em' name="EmailFrom" #EmailFrom="ngModel"
-            [(ngModel)]="composeEmail.EmailFrom" class="form-control" required>
-          <div class="validation-error" *ngIf="EmailFrom.invalid && EmailFrom.touched">Verpligte veld.</div>
+        <div style="padding: 50px;">
+          <a href="https://www.facebook.com/Afrikaanse-Christen-Kerk-Tauranga-ACK-Tauranga-130715893700159/"
+            target="_Blank" style="padding-bottom: 20px; 
+          margin-bottom: 5px;">
+            <div><img src="../../assets/fb1.jpg" height="150" /></div>Ons<br>Facebook &raquo;
+          </a>
+
         </div>
-        <div class="form-group">
-          <label style="font-size: 0.75em">Onderwerp</label>
-          <input style='width:95%; color: white; background-color: black;font-size: 1em' name="Subject" #Subject="ngModel"
-            [(ngModel)]="composeEmail.Subject" class="form-control" required>
-          <div class="validation-error" *ngIf="Subject.invalid && Subject.touched">Verpligte veld.</div>
-        </div>
-        <div class="form-group">
-          <label>Boodskap</label>
-          <textarea [hidden]="this.sending" style="width:95%; background-color: black; color: white; height: 10em;font-size: 1em" name="Body" #Body="ngModel"
-            [(ngModel)]="composeEmail.Body"></textarea>
-          <div class="validation-error" *ngIf="Body.invalid && Body.touched">Verpligte veld.</div>
-        </div>
-        <a class="btn btn-default" (click)="sendEmail()">Stuur E-pos</a>
-        <div *ngIf="this.sending">
+
+      </div>
+      <div class="col-md-6 col-sm-12 left">
+        <form>
+          <div class="form-group">
+            <label style='color:white; font-size: 0.75em'>Naam</label>
+            <input style='width:95%; color: white; background-color: black; font-size: 1em;' name="EmailNaam"
+              #EmailNaam="ngModel" [(ngModel)]="composeEmail.EmailNaam" class="form-control" required>
+            <div class="validation-error" *ngIf="EmailNaam.invalid && EmailNaam.touched">Verpligte veld.</div>
+          </div>
+          <div class="form-group">
+            <label style="font-size: 0.75em">Kontak Email Adres</label>
+            <input style='width:95%; color: white; background-color: black;font-size: 1em' name="EmailFrom"
+              #EmailFrom="ngModel" [(ngModel)]="composeEmail.EmailFrom" class="form-control" required>
+            <div class="validation-error" *ngIf="EmailFrom.invalid && EmailFrom.touched">Verpligte veld.</div>
+          </div>
+          <div class="form-group">
+            <label style="font-size: 0.75em">Onderwerp</label>
+            <input style='width:95%; color: white; background-color: black;font-size: 1em' name="Subject"
+              #Subject="ngModel" [(ngModel)]="composeEmail.Subject" class="form-control" required>
+            <div class="validation-error" *ngIf="Subject.invalid && Subject.touched">Verpligte veld.</div>
+          </div>
+          <div class="form-group">
+            <label>Boodskap</label>
+            <textarea [hidden]="this.sending"
+              style="width:95%; background-color: black; color: white; height: 10em;font-size: 1em" name="Body"
+              #Body="ngModel" [(ngModel)]="composeEmail.Body"></textarea>
+            <div class="validation-error" *ngIf="Body.invalid && Body.touched">Verpligte veld.</div>
+          </div>
+          <a class="btn btn-default" (click)="sendEmail()">Stuur E-pos</a>
+          <div *ngIf="this.sending">
             <div id="syncContainer">
-              <a><svg id="syncIcon" xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48" fill="yellow">
+              <a><svg id="syncIcon" xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48"
+                  fill="yellow">
                   <path d="M24 8v-6l-8 8 8 8v-6c6.63 0 12 5.37 12 12 0 2.03-.51 3.93-1.39 
                           5.61l2.92 2.92c1.55-2.48 2.47-5.39 2.47-8.53 0-8.84-7.16-16-16-16zm0 
                           28c-6.63 0-12-5.37-12-12 0-2.03.51-3.93 1.39-5.61l-2.92-2.92c-1.55 2.48-2.47 
@@ -476,18 +464,19 @@
               </a> Stuur E-pos...
             </div>
           </div>
-      </form>
-      <br>
+        </form>
+        <br>
+      </div>
     </div>
   </div>
-</div>
 
-<!-- Kaart -->
-<br>
-<div class="center" style="background-color: black; padding: 15px;">
-  <h2><u>Kerk Adres</u></h2>
+  <!-- Kaart -->
+  <br>
+  <div class="center" style="background-color: black; padding: 15px;">
+    <h2><u>Kerk Adres</u></h2>
+  </div>
+  <app-ligging></app-ligging>
+  <ngx-spinner bdOpacity=0.9 bdColor="" size="medium" color="#f30808" type="ball-running-dots" fullScreen="false">
+    <p style="color: white"> Loading... </p>
+  </ngx-spinner>
 </div>
-<app-ligging></app-ligging>
-<ngx-spinner bdOpacity=0.9 bdColor="" size="medium" color="#f30808" type="ball-running-dots" fullScreen="false">
-  <p style="color: white"> Loading... </p>
-</ngx-spinner>

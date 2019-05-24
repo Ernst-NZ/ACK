@@ -45,13 +45,13 @@ readonly rootURL = this.globals.dataSource
     this.getUserClaims().subscribe((data: any) => {
       this.userClaims = data;
       console.log(this.userClaims)
-      if (this.userClaims.UserName !=='ack') {
+      if (this.userClaims.UserNametoUpperCase( ) !=='ACK') {
         this.globals.userName = Welkom.concat(this.userClaims.FirstName);
       }
      
-      if (this.userClaims.UserName === "Ernst" || 
-          this.userClaims.UserName === "Mario" ||
-          this.userClaims.UserName === "admin") {
+      if (this.userClaims.UserName.toUpperCase( ) === "ERNST" || 
+          this.userClaims.UserName.toUpperCase( ) === "MARIO" ||
+          this.userClaims.UserName.toUpperCase( ) === "ADMIN") {
         this.globals.adminUser = true;
       } else {
         this.globals.adminUser = false;

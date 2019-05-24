@@ -54,8 +54,8 @@
         <button *ngIf="this.globals.userName" mat-button class="sideButton" style="padding-right: 2px; left: 25px; margin-bottom: 5px" (click)="Logout()">Logout</button>
       </div>
     </mat-toolbar>
-    <div class="content">
-      <ng-content></ng-content>
+    <div class="container-fluid">
+      <ng-content style="width: 100%"></ng-content>
     </div>
     <br>
 
