@@ -14,7 +14,7 @@ export class FooterComponent implements OnInit {
   }
 
   showVersion() {
-    alert("ACK Version 2.5.18");
+    alert("ACK Version 19.5.25");
   }
 
 }
