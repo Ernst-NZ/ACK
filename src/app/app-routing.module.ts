@@ -26,6 +26,7 @@ import { LidAddressComponent } from './lidmate/lid-address/lid-address.component
 import { KategeseComponent } from './kategese/kategese.component';
 import { DienslysComponent } from './dienslys/dienslys.component';
 import { EmailsComponent } from './emails/emails.component';
+import { WykeComponent } from './wyke/wyke.component';
 
 const routes: Routes = [
   // {
@@ -42,6 +43,10 @@ const routes: Routes = [
   {
     path: 'dienslys',
     component: DienslysComponent
+  },
+  {
+    path: 'wyke',
+    component: WykeComponent
   },
   {
     path: 'kategese',

@@ -1,0 +1,71 @@
+<!-- <table *ngIf="groepe"> -->
+    <table *ngIf="wyke" style="max-width: 500px">
+    <tr>      
+      <th (click)="sort('WykId')">Wyk Nr</th>
+      <th (click)="sort('wykeNaam')">Kerk raad</th>      
+      <th></th>
+      <th></th>
+    </tr>   
+    <tr>           
+        <td>
+          <input type="number" [(ngModel)]="newWyk.WykId" class="form-control"
+          style="background-color: white; height: 2.25em;
+          margin-bottom: 0px; color: black;  border-radius: 5px;
+           padding-left: 5px; width: 4em" />
+        </td>
+        <td>
+            <select 
+              class="custom-select max_Width_80" 
+              name="Kerkraad" 
+              #wykeLys="ngModel" 
+              [(ngModel)]="newWyk.Kerkraad">
+                <option *ngFor="let wyknaam of wykeNaam" [value]="wyknaam.viewValue" >{{ wyknaam.viewValue}}</option> 
+            </select>
+          </td>
+        <td>
+          <button class="btn btn-success btn-sm"  (click)="addWyk()">Add</button>
+        </td>
+        <td>
+          <button class="btn btn-secondary btn-sm" (click)="clearNewWyk()">Cancel</button>
+        </td>
+      </tr>
+    <tr *ngFor="let wyk of wyke" [attr.data-id]="wyk.Id">
+        <td>         
+            <span>{{wyk.WykId}}</span>           
+          </td>     
+      <td>     
+          <!-- <select  *ngIf="wyk.editing && oldWyk" 
+            class="custom-select max_Width_80" 
+            name="Kerkraad" 
+            #Kerkraad="ngModel" 
+            [(ngModel)]="oldWyk.Kerkraad">             
+              <option *ngFor="let wyknaam of wykeNaam" [value]="wyknaam.viewValue" 
+            >{{ wyknaam.viewValue}}</option> 
+          </select> -->
+          <input type="text" *ngIf="wyk.editing && oldWyk" [(ngModel)]="oldWyk.Kerkraad" class="form-control"
+          style="background-color: white; height: 2.25em;
+          margin-bottom: 0px; color: black;  border-radius: 5px;
+           padding-left: 5px" />
+          <span *ngIf="!wyk.editing">{{wyk.Kerkraad}}</span> 
+      </td>
+      
+      <td>
+        <button class="btn btn-success btn-sm" *ngIf="wyk.editing" (click)="updateWyk();wyk.editing=false">Update</button>
+        <button class="btn btn-info btn-sm" *ngIf="!wyk.editing" (click)="wyk.editing=true;getWyk(wyk.Id);">Edit</button>
+      </td>
+      <td>
+        <button class="btn btn-secondary btn-sm"  *ngIf="wyk.editing" (click)="wyk.editing=false">Cancel</button>
+        <button class="btn btn-danger btn-sm" *ngIf="!wyk.editing" (click)="deleteWyk(wyk.Id)">Delete</button>
+      </td>
+    </tr>
+  </table>
+  <ngx-spinner
+  bdOpacity = 0.9
+  bdColor = ""
+  size = "medium"
+  color = "#f30808"
+  type = "ball-running-dots"
+  fullScreen = "false">
+  <p style="color: white" > Loading... </p>
+  </ngx-spinner>
+ 

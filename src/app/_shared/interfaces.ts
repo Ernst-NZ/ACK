@@ -33,6 +33,7 @@ export interface ILidmaat {
  PublicDates?:String
  LastVisit?:Date
  LastNotes?:String
+ WykId?:Number
 }
 
 export interface IAddress {
@@ -79,4 +80,16 @@ export class Email implements IEmail {
   Subject:String
   Body:Date
   Attachement: Object
+}
+
+export class IWyke {
+  Id:Number
+  WykId:Number
+  Kerkraad:String
+}
+
+export class Wyke implements IWyke {
+  Id:Number
+  WykId:Number
+  Kerkraad:String
 }

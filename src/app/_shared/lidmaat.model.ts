@@ -14,6 +14,7 @@ export class Lidmaat {
  PublicDates?  : String
  LastVisit?: Date
  LastNotes?: String
+ WykId?: Number
 }
 
 export class Address {

@@ -10,9 +10,7 @@ import { NgxSpinnerService } from 'ngx-spinner';
   styleUrls: ['./persedit.component.scss']
 })
 export class PerseditComponent implements OnInit {
-  userClaims: any;
-  // 'use strict';
-  // //  nodemailer = require('nodemailer');
+  userClaims: any; 
 
   constructor(private router: Router, private userService: UserService,
     public globals: Globals, private spinner: NgxSpinnerService) { }

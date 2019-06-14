@@ -38,27 +38,43 @@ readonly rootURL = this.globals.dataSource
     console.log("get User claims")
     return  this.http.get(this.rootURL + '/api/GetUserClaims');   
    }
-
    setUser() {
-    console.log("Set User")
     var Welkom = "Hi "
-    this.getUserClaims().subscribe((data: any) => {
-      this.userClaims = data;
-      console.log(this.userClaims)
-      if (this.userClaims.UserNametoUpperCase( ) !=='ACK') {
-        this.globals.userName = Welkom.concat(this.userClaims.FirstName);
-      }
-     
-      if (this.userClaims.UserName.toUpperCase( ) === "ERNST" || 
-          this.userClaims.UserName.toUpperCase( ) === "MARIO" ||
-          this.userClaims.UserName.toUpperCase( ) === "ADMIN") {
-        this.globals.adminUser = true;
-      } else {
-        this.globals.adminUser = false;
-      }
-    },
-    (err : HttpErrorResponse)=>{
-      
-    });
+    var naam = localStorage.getItem('userName')
+    if (naam !== 'ack') {
+      this.globals.userName = Welkom.concat(naam);
+    }
+    if (naam.toUpperCase( ) === "ERNST" ||
+      naam.toUpperCase( ) === "MARIO" ||
+      naam.toUpperCase( ) === "ADMIN") {
+      this.globals.adminUser = true;
+    } else {
+      this.globals.adminUser = false;
+    }
+
   }
+
+  //  setUser() {
+  //   console.log("Set User")
+  //   var Welkom = "Hi "
+  //   this.getUserClaims().subscribe((data: any) => {
+  //     this.userClaims = data;
+  //     console.log(this.userClaims)
+  //     if(this.userClaims) {
+  //       if (this.userClaims.UserNametoUpperCase( ) !=='ACK') {
+  //         this.globals.userName = Welkom.concat(this.userClaims.FirstName);
+  //       }       
+  //       if (this.userClaims.UserName.toUpperCase( ) === "ERNST" || 
+  //           this.userClaims.UserName.toUpperCase( ) === "MARIO" ||
+  //           this.userClaims.UserName.toUpperCase( ) === "ADMIN") {
+  //         this.globals.adminUser = true;
+  //       } else {
+  //         this.globals.adminUser = false;
+  //       }
+  //     }    
+  //   },
+  //   (err : HttpErrorResponse)=>{
+      
+  //   });
+  // }
 }

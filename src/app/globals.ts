@@ -7,8 +7,8 @@ export class Globals {
   addressId: Number;
   lidmaatDetails: String = "Voeg nuwe lidmaat by";
   addressDetails: String;
-  dataSource: String =  "https://data.acktauranga.nz"
-//  dataSource: String = "http://localhost:3000";
+//  dataSource: String =  "https://data.acktauranga.nz"
+  dataSource: String = "http://localhost:3000";
   userName: String;
   authenticate: boolean = false;
   adminUser: boolean = false;

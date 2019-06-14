@@ -7,7 +7,8 @@
     <option value="All">Almal</option>
     <option value="Birthday">Verjaarsdae</option>
   </select>
-<br />
+<!-- <hr style="border-width: 2px; border-color: white;"/> -->
+Aantal Lidmate: {{ filteredLidmate.length }}
 <div id="scrollable-area">
 <table class="table table-hover">
     <thead>
@@ -51,7 +52,7 @@
     </tr>
 </table>
 </div>
-Aantal Lidmate: {{ filteredLidmate.length }}
+
 
 <ngx-spinner
 bdOpacity = 0.9

@@ -1,5 +1,5 @@
 import {Component, OnInit, Input, Output, EventEmitter }from '@angular/core'; 
-import {ILidmaat, IAddress }from '../../_shared/interfaces'
+import {ILidmaat, IAddress, IWyke }from '../../_shared/interfaces'
 import {LidmaatService }from '../../_shared/lidmaat.service'; 
 import {SorterService }from '../../_core/sorter.service'; 
 import {DataService }from '../../_core/data.service'; 
@@ -58,13 +58,15 @@ export class LidmateLysComponent implements OnInit {
     formAdd:IAddress; 
     customersOrderTotal:number; 
     currencyCode:string = 'USD';
-    
+    wyke: Array<IWyke> = [];
         
     constructor(private dataService:DataService, private sorterService:SorterService, private lidmaatService:LidmaatService, 
         public globals: Globals, private spinner: NgxSpinnerService) {}
     
     ngOnInit() {       
-        this.globals.filter = true;        
+        this.globals.filter = true;  
+        this.dataService.getWyke()
+      .subscribe((wyk: IWyke[]) => this.wyke = wyk);      
     }
     
     calculateOrders() {
@@ -80,9 +82,14 @@ export class LidmateLysComponent implements OnInit {
             this.filteredLidmate = this.lidmate.filter((cust:ILidmaat) =>  {
                 return cust.FirstName.toLowerCase().indexOf(data.toLowerCase()) > -1 || 
                        cust.LastName.toLowerCase().indexOf(data.toLowerCase()) > -1 || 
-                    //   cust.LastVisit.toString().indexOf(data.toLowerCase()) > -1 ||
-                 //   cust.LastNotes.toString().indexOf(data.toLowerCase()) ||
+                       cust.Gemeente.toLowerCase().indexOf(data.toLowerCase()) > -1 || 
                        cust.LidmaatId.toString().indexOf(data.toLowerCase()) > -1;
+                       
+//                       cust.LastNotes.indexOf(data) > -1 
+ //                      cust.LastNotes.toLowerCase().indexOf(data.toLowerCase()) > -1; 
+                   //    cust.WykId.toString().indexOf(data.toLowerCase()) > -1 ||
+                  //  cust.LastNotes.toString().indexOf(data.toLowerCase()) ||
+                       
                     
             }); 
             this.calculateOrders(); 
@@ -113,6 +120,12 @@ export class LidmateLysComponent implements OnInit {
     }
 
     populateForm(lid:ILidmaat) {
+        var tempId = this.wyke.filter(function(wyk) {
+            return wyk.WykId === 2;
+        })[0];
+        console.log(tempId.Kerkraad);
+        lid.WykId = 2;
+      //  lid.WykId = tempId.Kerkraad;
         this.lidmaatService.formData = Object.assign( {}, lid); 
         this.globals.filter =  false;   
         this.globals.lidmaatDetails = lid.FirstName + ' ' + lid.LastName;
