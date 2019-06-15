@@ -47,15 +47,12 @@ export class WykeComponent implements OnInit {
     }
   }
 
-  getWyk(wykId) {
-    console.log(wykId);
+  getWyk(WykId) {
     this.spinner.show();
-    this.service.getWyk(wykId).
+    this.service.getWyk(WykId).
       subscribe((wyke: IWyke[]) => {
         if (wyke) {
           this.oldWyk = wyke;
-          console.log("this.oldWyk");
-          console.log(this.oldWyk);
           this.spinner.hide();
         }
         error => {
@@ -106,10 +103,10 @@ export class WykeComponent implements OnInit {
     }
   }
 
-  deleteWyk(wykId) {
+  deleteWyk(WykId) {
     this.spinner.show();
     this.wyke = null;
-    this.lidmaatService.deleteWyk(wykId).
+    this.lidmaatService.deleteWyk(WykId).
       subscribe(() => {
         this.toastr.warning('Rekord verwyder', '');
         this.refreshData();

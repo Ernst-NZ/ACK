@@ -29,12 +29,17 @@ export class LidmaatComponent implements OnInit {
   @Output() updateLys = new EventEmitter();
   updatelys(){
     this.updateLys.emit();
+
+    // @Output() updateLid = new EventEmitter();
+    // updateLid(){
+    //   this.updateLid.emit();
+      
+
   }
   mense:any;
   private dataService: DataService;   
   gender:Geslag[] = [ {value:'Manlik', viewValue:'Manlik'},  {value:'Vroulik', viewValue:'Vroulik'}, 
   ]; 
- // wyke: Wyke[];
   wyke: Array<IWyke> = [];
   constructor(public service:LidmaatService, 
     dataService: DataService, 
@@ -47,8 +52,6 @@ export class LidmaatComponent implements OnInit {
      this.resetForm();
      this.dataService.getWyke()
       .subscribe((wyk: IWyke[]) => this.wyke = wyk);
-
-    //  this.wyke = [{value:1, viewValue:'Dough'}, {value:2, viewValue:'Ernst'}, {value:3, viewValue:'Hannes'}, {value:4, viewValue:'Hendrik'}, {value:5, viewValue:'Kitty'}, {value:6, viewValue:'MJ'}, {value:7, viewValue:'Poppie'},] 
   }
 
     resetForm(formLid?:NgForm) {
@@ -67,7 +70,9 @@ export class LidmaatComponent implements OnInit {
        IsActive:'true',  
        AddressID:null, 
        Gemeente:'', 
-       PublicDates:''
+       PublicDates:'',
+       WykID:'',
+       LastNotes:''
      }
    }
   onSubmit(formLid:NgForm) {
@@ -85,34 +90,53 @@ export class LidmaatComponent implements OnInit {
     //  } 
      if (formLid.value.PublicDates !== 'true') {
       formLid.controls['PublicDates'].setValue('');
-     } 
+     }
+     console.log("Naam from Form: " && formLid.value.WykID)
+     var tempId = this.wyke.filter(function(wyk) {
+      return wyk.Kerkraad === formLid.value.WykID;
+  })[0]; 
+     formLid.controls['WykID'].setValue(tempId.WykId);
+     formLid.value.WykID
+     console.log("ID to data : " && formLid.value.WykID)
     this.service.postLidmaat(formLid.value).subscribe(res =>  {
       this.toastr.success('Lidmaat Bygevoeg', ''); 
       this.service.refreshList();
       this.updatelys();
+      this.resetForm();
       this.spinner.hide(); 
-    }); 
-    
+    });     
   }
 
   updateRecord(formLid:NgForm) {
      formLid.controls['Gemeente'].setValue('Tauranga');
-     console.log(formLid.value.IsActive)
-     if (formLid.value.IsActive !== true) {
+    //  console.log(formLid.value.IsActive)
+     if (formLid.value.IsActive !== true && formLid.value.IsActive !== "True") {
        formLid.controls['IsActive'].setValue('');
       } 
-      if (formLid.value.PublicDates !== true) {
+      if (formLid.value.PublicDates !== "True" && formLid.value.PublicDates !== true) {
        formLid.controls['PublicDates'].setValue('');
       } 
-    console.log(formLid);  
+      if (formLid.value.WykID == "") {
+        formLid.controls['WykID'].setValue('0');
+       } 
+       if (formLid.value.LastNotes == "") {
+        formLid.controls['LastNotes'].setValue('');
+       } 
+    console.log("Naam from form: " + formLid.value.WykID);
+    var tempId = this.wyke.filter(function(wyk) {
+      return wyk.Kerkraad === formLid.value.WykID;
+  })[0];   
+  formLid.controls['WykID'].setValue(tempId.WykId);
+  formLid.value.WykID
+  console.log("ID to data: " && formLid.value.WykID);
    
     this.service.putLidmaat(formLid.value).subscribe(res =>  {
       this.toastr.info('Lidmaat Inligting Verander', ''); 
        this.service.refreshList(); 
        this.updatelys();
+       this.resetForm();       
        this.spinner.hide();
-    }); 
-   
+    });    
   }
 
   updateLidmaat($event) { 

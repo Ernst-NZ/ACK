@@ -129,8 +129,8 @@ export class DataService {
       );
   }
 
-  getWyk(wykId: number): Observable<IWyke[]> {
-    return this.http.get<IWyke[]>(this.rootURL + '/Wykes/' + wykId)
+  getWyk(WykId: number): Observable<IWyke[]> {
+    return this.http.get<IWyke[]>(this.rootURL + '/Wykes/' + WykId)
       .pipe(
         catchError(this.handleError)
       );

@@ -32,8 +32,8 @@ export interface ILidmaat {
  Gemeente:String
  PublicDates?:String
  LastVisit?:Date
- LastNotes?:String
- WykId?:Number
+ LastNotes:String
+ WykID:String
 }
 
 export interface IAddress {

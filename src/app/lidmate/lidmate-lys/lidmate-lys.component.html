@@ -1,3 +1,4 @@
+Aantal Lidmate: {{ filteredLidmate.length }}<br/>
 <app-filter-textbox style="margin-bottom: 0.5em;" [hidden]="!(this.globals.filter)" (changed)="filter($event)"></app-filter-textbox>
 <button style="color: maroon; margin-top: 2.5em; margin-bottom: 0.5em" [hidden]="this.globals.filter" (click)="changeVisibility()">Lidmaat Lys</button>
 <select class="custom-select" style="width: 8em; margin-left: 15px;" name="isActive" #isActive="ngModel" 
@@ -8,7 +9,7 @@
     <option value="Birthday">Verjaarsdae</option>
   </select>
 <!-- <hr style="border-width: 2px; border-color: white;"/> -->
-Aantal Lidmate: {{ filteredLidmate.length }}
+
 <div id="scrollable-area">
 <table class="table table-hover">
     <thead>
