@@ -88,9 +88,10 @@ getActive() {
   if (this.globals.activeOnly === "Birthday") {
     this.dataService.getBirthday(this.globals.activeOnly,
        this.thisMonth, this.thisDay, this.toDay)
-    .subscribe((lidmate:ILidmaat[]) => this.mense = lidmate);
-  
-   } else {
+    .subscribe((lidmate:ILidmaat[]) => this.mense = lidmate);  
+   } 
+   
+   else {
   console.log("res")
   this.dataService.getActive(this.globals.activeOnly)
   .subscribe((lidmate:ILidmaat[]) => this.mense = lidmate);

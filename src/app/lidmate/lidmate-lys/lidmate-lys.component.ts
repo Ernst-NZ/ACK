@@ -59,6 +59,7 @@ export class LidmateLysComponent implements OnInit {
     customersOrderTotal: number;
     currencyCode: string = 'USD';
     wyke: Array<IWyke> = [];
+    wykeFilter = false;
 
     constructor(private dataService: DataService, private sorterService: SorterService, private lidmaatService: LidmaatService,
         public globals: Globals, private spinner: NgxSpinnerService) { }
@@ -78,18 +79,23 @@ export class LidmateLysComponent implements OnInit {
 
     filter(data: string) {
         this.globals.myFilter = data;
-        if (data) {
+        if (data && this.wykeFilter) {
             this.filteredLidmate = this.lidmate.filter((cust: ILidmaat) => {
-                return cust.FirstName.toLowerCase().indexOf(data.toLowerCase()) > -1 ||
-                    cust.LastName.toLowerCase().indexOf(data.toLowerCase()) > -1 ||
-                    cust.LastNotes.toLowerCase().indexOf(data.toLowerCase()) > -1 ||
-                    cust.WykID.toLowerCase().indexOf(data.toLowerCase()) > -1 ||
-                    cust.LidmaatId.toString().indexOf(data.toLowerCase()) > -1;
+                return cust.WykID.toLowerCase().indexOf(data.toLowerCase()) > -1;
             });
-
-            this.calculateOrders();
-        } else {
-            this.filteredLidmate = this.lidmate;
+        } else { 
+            if (data) {
+                this.filteredLidmate = this.lidmate.filter((cust: ILidmaat) => {
+                    return cust.FirstName.toLowerCase().indexOf(data.toLowerCase()) > -1 ||
+                        cust.LastName.toLowerCase().indexOf(data.toLowerCase()) > -1 ||
+                        cust.LastNotes.toLowerCase().indexOf(data.toLowerCase()) > -1 ||
+                        cust.WykID.toLowerCase().indexOf(data.toLowerCase()) > -1 ||
+                        cust.LidmaatId.toString().indexOf(data.toLowerCase()) > -1;
+                });
+            }
+            else { 
+                this.filteredLidmate = this.lidmate;
+            }
         }
         this.calculateOrders();
     }
@@ -149,6 +155,12 @@ export class LidmateLysComponent implements OnInit {
     }
 
     getActive() {
+        if (this.globals.activeOnly === "Wyke") {
+            this.wykeFilter = true;
+            this.globals.activeOnly = "True";
+        } else {
+            this.wykeFilter = false;
+        }
         this.getactive();
         this.globals.filter = true;
         this.filter("");
