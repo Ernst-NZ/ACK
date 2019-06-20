@@ -88,8 +88,8 @@ export class LidmateLysComponent implements OnInit {
                 this.filteredLidmate = this.lidmate.filter((cust: ILidmaat) => {
                     return cust.FirstName.toLowerCase().indexOf(data.toLowerCase()) > -1 ||
                         cust.LastName.toLowerCase().indexOf(data.toLowerCase()) > -1 ||
-                        cust.LastNotes.toLowerCase().indexOf(data.toLowerCase()) > -1 ||
-                        cust.WykID.toLowerCase().indexOf(data.toLowerCase()) > -1 ||
+                          // cust.LastNotes.toLowerCase().indexOf(data.toLowerCase()) > -1 ||
+                        // cust.WykID.toLowerCase().indexOf(data.toLowerCase()) > -1 ||
                         cust.LidmaatId.toString().indexOf(data.toLowerCase()) > -1;
                 });
             }
