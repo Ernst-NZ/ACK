@@ -20,6 +20,40 @@
 <!-- [hidden]="!this.globals.adminUser" -->
 <!-- *ngIf="this.globals.adminUser" -->
 <!-- Holidays / Trips -->
+
+<!-- Studies - Admin -->
+
+<div *ngIf="this.globals.adminUser" style="background-color: maroon; padding-right: 1%">
+  <div class="row" style='padding: 2%'>
+    <div style="text-align: center">
+      <h1>Studies</h1>
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere veritatis facilis consequatur illum adipisci
+        sequi ipsum, laudantium ad alias consequuntur ratione repellat perferendis itaque labore accusamus.</p>
+    </div>
+  </div>
+  <div class="row" style='padding: 2%'>
+    <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12" style="text-align: center;">
+      <a class="btn btn-warning" style="padding-bottom: 20px; margin-bottom: 1em;" target="_Blank"
+        href="https://www.udemy.com/the-complete-guide-to-angular-2/learn/lecture/6656060#questions">Udemy &raquo;</a><br>
+      <div class="content beachBanner">
+      </div>
+    </div>
+
+    <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12" style="text-align: center">
+      <a class="btn btn-warning" style="padding-bottom: 20px; margin-bottom: 1em;" routerLink="/lidmate">Wiki &raquo;</a><br>
+      <div class="content bBanner">
+      </div>
+    </div>
+
+    <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12" style="text-align: center">
+      <a class="btn btn-warning" style="padding-bottom: 20px; margin-bottom: 1em;" routerLink="/lidmate">Wiki &raquo;</a><br>
+      <div class="content bBanner">
+      </div>
+    </div>
+  </div>
+</div>
+
+
 <div  style="background-color: black; padding-right: 1%;">
   <div class="row" style='padding: 2%'>
     <div class="container center">
@@ -50,45 +84,7 @@
   </div>
 </div>
 <br>
-<!-- Studies - Admin -->
 
-<div *ngIf="this.globals.adminUser" style="background-color: maroon; padding-right: 1%">
-  <div class="row" style='padding: 2%'>
-    <div style="text-align: center">
-      <h1>Studies</h1>
-      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere veritatis facilis consequatur illum adipisci
-        sequi ipsum, laudantium ad alias consequuntur ratione repellat perferendis itaque labore accusamus.</p>
-    </div>
-  </div>
-  <div class="row" style='padding: 2%'>
-    <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12" style="text-align: center;">
-      <a class="btn btn-warning" style="padding-bottom: 20px; margin-bottom: 1em;" target="_Blank"
-        href="https://www.udemy.com/the-complete-guide-to-angular-2/learn/lecture/6656060#questions">Udemy &raquo;</a><br>
-      <div class="content beachBanner">
-      </div>
-    </div>
-
-    <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12" style="text-align: center">
-      <a class="btn btn-warning btn-large" style="width: 100%;" routerLink="/lidmate">Wiki</a><br>
-      <div class="content aBanner">
-      </div>
-    </div>
-
-    <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12" style="text-align: center">
-      <a class="btn btn-warning" style="padding-bottom: 20px; margin-bottom: 1em;" target="_Blank"
-        href="http://chinacruisecanada.blogspot.com/">China 2015 &raquo;</a><br>
-      <div class="content bBanner">
-      </div>
-    </div>
-  </div>
- 
-
-
-
-
-  
-
-</div>
 
 <br>
 <!-- Projects -->

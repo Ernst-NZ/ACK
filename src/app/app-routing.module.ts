@@ -22,7 +22,6 @@ import { LidmateComponent } from './lidmate/lidmate.component';
 import { LidmaatComponent } from './lidmate/lidmaat/lidmaat.component'
 import { LidmateLysComponent } from './lidmate/lidmate-lys/lidmate-lys.component';
 import { DiensRoosterComponent } from './diens-rooster/diens-rooster.component';
-import { LidAddressComponent } from './lidmate/lid-address/lid-address.component';
 import { KategeseComponent } from './kategese/kategese.component';
 import { DienslysComponent } from './dienslys/dienslys.component';
 import { EmailsComponent } from './emails/emails.component';

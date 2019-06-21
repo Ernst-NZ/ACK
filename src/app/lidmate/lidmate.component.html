@@ -2,7 +2,7 @@
   <!-- <h4 class="text-center">Lidmate</h4> -->
   <div class="row">
     <div class="col-md-5">
-      <app-lidmate-lys #lys [lidmate]="mense" [wikiLys]="wikiLys" (goGetActive)="getActive()"></app-lidmate-lys>
+      <app-lidmate-lys #lys [wikiLys]="wikiLys" ></app-lidmate-lys>
     </div>
     <div class="col-md-7">
       <div class="row" style="flex-wrap: unset; margin-bottom: 0px;">         
@@ -12,23 +12,15 @@
      
     </div> 
       <div class="container">
-        <div class="row">
-          <div class="col-sm-12">
             <div class="card grey lighten-2">
               
               <div class="card-content white">
-                <div class="row">
                   <div [hidden]="!isVisible">
                     <app-lidmaat #lidmaat (updateLys)="updateList()" ></app-lidmaat>
                   </div>
-                  <div [hidden]="isVisible">
-                    <app-lid-address #address (updateAdres)="lidmaat.updateLidmaat($event)"></app-lid-address>
-                  </div>
-                </div>
+                 
               </div>
-            </div>
-          </div>
-        </div>
+            </div>        
       </div>
     </div>
   </div>

@@ -22,15 +22,16 @@
       <textarea id="Code" rows="50" cols="50" name="Code" 
                 form="formWiki" name="Code" #Code="ngModel"
                 style="height: 15em; background-color: white; color:black;  font-family: Lato;"
-        [(ngModel)]="service.formWiki.Code">
+        [(ngModel)]="service.formWiki.Code" required>
+        <div class="validation-error" *ngIf="Code.invalid && Code.touched">Required Field.</div>
                 Enter code here...</textarea>
     </div>
   </div>
 
+  <button type="submit" [disabled]="formWiki.invalid" class="btn btn-lg btn-block">SUBMIT</button> 
  
-  <div class="form-group">
-    <button type="submit" [disabled]="formWiki.invalid" class="btn btn-lg btn-block">SUBMIT</button>
-  </div>
+  <button class="btn btn-danger btn-block"  [disabled]="!service.formWiki.Id" (click)="deleteWiki(service.formWiki.Id)">Delete</button>
+
 </form>
 <ngx-spinner bdOpacity=0.9 bdColor="" size="medium" color="#f30808" type="ball-running-dots" fullScreen="false">
   <p style="color: white"> Loading... </p>

@@ -166,7 +166,7 @@ export class LidmaatService {
  
   deleteWiki(id: number) {
     var reqHeader = new HttpHeaders({ 'No-Auth': 'True' })
-    return this.http.delete(this.rootURL + '/Wykes/' + id,
+    return this.http.delete(this.rootURL + '/Wikis/' + id,
       { headers: reqHeader });
   }
 }
