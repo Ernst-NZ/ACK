@@ -44,6 +44,7 @@ readonly rootURL = this.globals.dataSource
     if (naam !== 'ack') {
       this.globals.userName = Welkom.concat(naam);
     }
+    console.log("User Name: " + naam.toUpperCase( ))
     if (naam.toUpperCase( ) === "ERNST" ||
       naam.toUpperCase( ) === "MARIO" ||
       naam.toUpperCase( ) === "ADMIN") {
@@ -51,7 +52,7 @@ readonly rootURL = this.globals.dataSource
     } else {
       this.globals.adminUser = false;
     }
-
+    console.log(this.globals.adminUser)
   }
 
   //  setUser() {

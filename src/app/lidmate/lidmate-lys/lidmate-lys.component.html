@@ -1,33 +1,23 @@
-Aantal Lidmate: {{ filteredLidmate.length }}<br/>
+Aantal Lidmate: {{ filteredWiki.length }}<br/>
 <app-filter-textbox style="margin-bottom: 0.5em;" [hidden]="!(this.globals.filter)" (changed)="filter($event)"></app-filter-textbox>
-<button style="color: maroon; margin-top: 2.5em; margin-bottom: 0.5em" [hidden]="this.globals.filter" (click)="changeVisibility()">Lidmaat Lys</button>
-<select class="custom-select" style="width: 8em; margin-left: 15px;" name="isActive" #isActive="ngModel" 
-[(ngModel)]="this.globals.activeOnly" (change)="getActive()">
-    <option value="True">Aktief</option>
-    <option value="">Onaktief</option>
-    <option value="All">Almal</option>
-    <option value="Birthday">Verjaarsdae</option>
-    <option value="Wyke">Wyk Indeling</option>
-  </select>
-<!-- <hr style="border-width: 2px; border-color: white;"/> -->
+<button style="color: maroon; margin-top: 2.5em; margin-bottom: 0.5em" [hidden]="this.globals.filter" (click)="changeVisibility()">Wiki Lys</button>
+
 
 <div id="scrollable-area">
 <table class="table table-hover">
     <thead>
         <tr>
-            <th (click)="sort('FirstName')">Naam</th>
-            <th (click)="sort('LastName')">Van</th>
-            <th (click)="sort('LastVisit')">Laaste Besoek</th>           
+            <th (click)="sort('Subject')">Subject</th>
+            <th (click)="sort('Description')">Description</th>
         </tr>
     </thead>
-    <tr *ngFor="let lid of filteredLidmate">
-        <td (click)="populateForm(lid)">
+    <tr *ngFor="let wiki of filteredWiki">
+        <td (click)="populateForm(wiki)">
             <a>
-                {{ lid.FirstName | capitalize}}
+                {{ wiki.Subject | capitalize}}
             </a>
         </td>
-        <td (click)="populateForm(lid)">{{ lid.LastName | capitalize}}</td>        
-        <td (click)="populateForm(lid)">{{ lid.LastVisit | date: 'dd-MMM-yy' }}</td>        
+        <td (click)="populateForm(wiki)">{{ wiki.Description }}</td>        
     </tr>   
     <tr  [hidden]='!(this.globals.isSyncing)'>
         <td colspan="4">           
@@ -44,12 +34,12 @@ Aantal Lidmate: {{ filteredLidmate.length }}<br/>
                             5.39-2.47 8.53 0 8.84 7.16 16 16 16v6l8-8-8-8v6z" />
                             <path d="M0 0h48v48h-48z" fill="none" />
                           </svg>
-                        </a>  Kry Inligting...
+                        </a>  Getting info ...
                       </div>
         </td>
     </tr>
-    <tr *ngIf="!filteredLidmate || !filteredLidmate.length">
-        <td colspan="4">Geen lidmate gevind nie</td>
+    <tr *ngIf="!filteredWiki || !filteredWiki.length">
+        <td colspan="4">No Wiki</td>
        
     </tr>
 </table>

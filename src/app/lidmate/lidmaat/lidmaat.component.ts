@@ -29,14 +29,10 @@ export class LidmaatComponent implements OnInit {
   @Output() updateLys = new EventEmitter();
   updatelys(){
     this.updateLys.emit();
-
-    // @Output() updateLid = new EventEmitter();
-    // updateLid(){
-    //   this.updateLid.emit();
-      
-
   }
+
   mense:any;
+  errors: any;
   private dataService: DataService;   
   gender:Geslag[] = [ {value:'Manlik', viewValue:'Manlik'},  {value:'Vroulik', viewValue:'Vroulik'}, 
   ]; 
@@ -54,7 +50,19 @@ export class LidmaatComponent implements OnInit {
       .subscribe((wyk: IWyke[]) => this.wyke = wyk);
   }
 
-    resetForm(formLid?:NgForm) {
+  resetForm(formWiki?:NgForm) {
+    if (formWiki != null)
+      formWiki.resetForm(); 
+    this.service.formWiki =  {
+     Id:0, 
+     Subject:'', 
+     Description:'', 
+     Code:'', 
+     Category:'',
+   }
+ }
+
+    resetFormx(formLid?:NgForm) {
       if (formLid != null)
         formLid.resetForm(); 
       this.service.formData =  {
@@ -75,7 +83,63 @@ export class LidmaatComponent implements OnInit {
        LastNotes:''
      }
    }
-  onSubmit(formLid:NgForm) {
+  onSubmit(formWiki:NgForm) {
+    this.spinner.show();   
+    if (formWiki.value.Id == 0)
+      this.insertRecord(formWiki);       
+    else
+      this.updateRecord(formWiki); 
+  }
+
+  // insertRecord(formWiki:NgForm) {
+  //   this.spinner.show();
+  //   this.wyke = null;
+  //   this.service.postWyk(formWiki.value.
+  //     subscribe(() => {
+  //      // this.clearNewWyk();
+  //       this.toastr.success('Inligting bygevoeg', '');
+  //   //    this.refreshData();
+  //     }));
+  //   error => {
+  //     this.errors = error
+  //     alert(this.errors)
+  //   }
+  // }
+
+  insertRecord(formWiki:NgForm) {
+    console.log(formWiki.value);
+    this.service.postWiki(formWiki.value).subscribe(res =>  {
+      this.toastr.success('Wiki Added', ''); 
+      this.service.refreshWikiList();
+      this.updatelys();
+      this.resetForm();
+      this.spinner.hide(); 
+    });     
+  }
+
+  updateRecord(formWiki:NgForm) {    
+    this.service.putWiki(formWiki.value).subscribe(res =>  {
+      this.toastr.info('Wiki Updated', ''); 
+       this.service.refreshList(); 
+       this.updatelys();
+       this.resetForm();       
+       this.spinner.hide();
+    });    
+  }
+
+  updateLidmaat($event) { 
+    this.service.formData.AddressID = $event.addressId; 
+    this.service.putLidmaat(this.service.formData).subscribe(res =>  {
+      this.toastr.info('Lidmaat Inligting Verander', ''); 
+       this.service.refreshList(); 
+      // window.location.reload();
+      this.updatelys();
+      // this.service.getLidmate()
+      // .subscribe((lidmate:ILidmaat[]) => this.mense = lidmate); 
+    }); 
+  }
+
+  onSubmitx(formLid:NgForm) {
     this.spinner.show();   
     if (formLid.value.LidmaatId == null)
       this.insertRecord(formLid);       
@@ -83,7 +147,7 @@ export class LidmaatComponent implements OnInit {
       this.updateRecord(formLid); 
   }
 
-  insertRecord(formLid:NgForm) {
+  insertRecordx(formLid:NgForm) {
     formLid.controls['Gemeente'].setValue('Tauranga');
     // if (formLid.value.IsActive !== 'true') {
       formLid.controls['IsActive'].setValue('true');
@@ -107,7 +171,7 @@ export class LidmaatComponent implements OnInit {
     });     
   }
 
-  updateRecord(formLid:NgForm) {
+  updateRecordx(formLid:NgForm) {
      formLid.controls['Gemeente'].setValue('Tauranga');
     //  console.log(formLid.value.IsActive)
      if (formLid.value.IsActive !== true && formLid.value.IsActive !== "True") {
@@ -139,7 +203,7 @@ export class LidmaatComponent implements OnInit {
     });    
   }
 
-  updateLidmaat($event) { 
+  updateLidmaatx($event) { 
     this.service.formData.AddressID = $event.addressId; 
     this.service.putLidmaat(this.service.formData).subscribe(res =>  {
       this.toastr.info('Lidmaat Inligting Verander', ''); 

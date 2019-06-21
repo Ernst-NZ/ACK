@@ -3,7 +3,7 @@ import { Lidmaat, Address } from './lidmaat.model';
 import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { Observable } from 'rxjs/Observable';
 import { catchError } from 'rxjs/operators';
-import { ILidmaat, Group, Wyke } from '../../app/_shared/interfaces';
+import { ILidmaat, Group, Wyke, Wiki } from '../../app/_shared/interfaces';
 import { IAddress, IEmail } from '../../app/_shared/interfaces';
 import { Globals } from '../globals';
 
@@ -14,7 +14,9 @@ export class LidmaatService {
   formData: Lidmaat;
   formAdd: Address;
   formWyk: Wyke;
+  formWiki: Wiki;
   list: Lidmaat[];
+  wikiList: Wiki[];
   listAddress: Address[];
   readonly rootURL = this.globals.dataSource + "/api"
   constructor(private http: HttpClient, private globals: Globals) { }
@@ -140,4 +142,31 @@ export class LidmaatService {
       { headers: reqHeader });
   }
 
+
+  // Wiki
+  refreshWikiList() {
+    this.globals.lidmaatDetails = '';
+    this.http.get(this.rootURL + '/Wikis')
+      .toPromise().then(res => this.wikiList = res as Wiki[]);
+  }
+ 
+  postWiki(formWiki: Wiki) {
+    var reqHeader = new HttpHeaders({ 'No-Auth': 'True' })
+    console.log(formWiki);
+    return this.http.post(this.rootURL + '/Wikis',
+      formWiki, { headers: reqHeader });
+  }
+
+  putWiki(formWiki: Wiki) {
+    console.log(formWiki)
+    var reqHeader = new HttpHeaders({ 'No-Auth': 'True' })
+    return this.http.post(this.rootURL + '/Wikis/' + formWiki.Id,
+      formWiki, { headers: reqHeader });
+  }
+ 
+  deleteWiki(id: number) {
+    var reqHeader = new HttpHeaders({ 'No-Auth': 'True' })
+    return this.http.delete(this.rootURL + '/Wykes/' + id,
+      { headers: reqHeader });
+  }
 }

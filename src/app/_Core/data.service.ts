@@ -4,7 +4,7 @@ import { Observable } from 'rxjs/Observable';
 import { map, catchError } from 'rxjs/operators';
 import { Globals } from '../globals';
 
-import { ILidmaat, IAddress, IGroup, IWyke } from '../../app/_shared/interfaces';
+import { ILidmaat, IAddress, IGroup, IWyke, IWiki } from '../../app/_shared/interfaces';
 
 @Injectable()
 export class DataService {
@@ -158,6 +158,11 @@ export class DataService {
   }
   // ################################################
 
-
+  getWiki(): Observable<IWiki[]> {
+    return this.http.get<IWiki[]>(this.rootURL + '/Wikis')
+      .pipe(
+        catchError(this.handleError)
+      );
+  }
 
 }

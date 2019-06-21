@@ -2,38 +2,24 @@
   <!-- <h4 class="text-center">Lidmate</h4> -->
   <div class="row">
     <div class="col-md-5">
-      <app-lidmate-lys #lys [lidmate]="mense" [adresse]='huise' (goGetActive)="getActive()"></app-lidmate-lys>
+      <app-lidmate-lys #lys [lidmate]="mense" [wikiLys]="wikiLys" (goGetActive)="getActive()"></app-lidmate-lys>
     </div>
     <div class="col-md-7">
       <div class="row" style="flex-wrap: unset; margin-bottom: 0px;">         
         <div class="col-sm-8" style='margin-top: 0em; margin-left: 1em'>        
         <h5>{{ this.globals.lidmaatDetails }}</h5>        
       </div>
-      <div class="col-sm-4" style='margin-top: 0em;'>
-        <button type="button" class="btn btn-info btn-sm" (click)='skoonForm()' >
-          Skoon form</button>
-      </div>
+     
     </div> 
       <div class="container">
         <div class="row">
           <div class="col-sm-12">
             <div class="card grey lighten-2">
-              <div class="card-tabs">
-                <ul class="tabs-fixed-width tabs-transparent">
-                  <li class="tab">
-                    <button type="button" class="btn btn-info" (click)='persoonlik()' [hidden]="isVisible">Na
-                      Persoonlike Inligting</button>
-                  </li>
-                  <li class="right">
-                    <button type="button" class="btn btn-warning" (click)='adres()' [hidden]="!isVisible">Na Adres
-                      Inligting</button>
-                  </li>
-                </ul>
-              </div>
+              
               <div class="card-content white">
                 <div class="row">
                   <div [hidden]="!isVisible">
-                    <app-lidmaat #lidmaat (updateLys)="updateList()"></app-lidmaat>
+                    <app-lidmaat #lidmaat (updateLys)="updateList()" ></app-lidmaat>
                   </div>
                   <div [hidden]="isVisible">
                     <app-lid-address #address (updateAdres)="lidmaat.updateLidmaat($event)"></app-lid-address>

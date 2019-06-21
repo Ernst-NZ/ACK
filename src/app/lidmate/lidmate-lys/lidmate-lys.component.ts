@@ -1,5 +1,5 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-import { ILidmaat, IAddress, IWyke } from '../../_shared/interfaces'
+import { ILidmaat, IAddress, IWyke, IWiki } from '../../_shared/interfaces'
 import { LidmaatService } from '../../_shared/lidmaat.service';
 import { SorterService } from '../../_core/sorter.service';
 import { DataService } from '../../_core/data.service';
@@ -29,6 +29,11 @@ export class LidmateLysComponent implements OnInit {
         return this._lidmate;
     }
 
+    private _wikiLys: IWiki[] = [];
+    @Input() get wikiLys(): IWiki[] {
+        return this._wikiLys;
+    }
+
     private _addresse: IAddress[] = [];
     @Input() get adresse(): IAddress[] {
         return this._addresse;
@@ -46,6 +51,13 @@ export class LidmateLysComponent implements OnInit {
         }
     }
 
+    set wikiLys(value: IWiki[]) {
+        if (value) {
+            this.filteredWiki = this._wikiLys = value;
+            this.globals.isSyncing = false;
+        }
+    }
+
     set adresse(value: IAddress[]) {
         if (value) {
             this.filteredAddresse = this._addresse = value;
@@ -54,6 +66,7 @@ export class LidmateLysComponent implements OnInit {
 
     filteredLidmate: any[] = [];
     filteredAddresse: any[] = [];
+    filteredWiki: any[] = [];
     formData: ILidmaat;
     formAdd: IAddress;
     customersOrderTotal: number;
@@ -79,24 +92,16 @@ export class LidmateLysComponent implements OnInit {
 
     filter(data: string) {
         this.globals.myFilter = data;
-        if (data && this.wykeFilter) {
-            this.filteredLidmate = this.lidmate.filter((cust: ILidmaat) => {
-                return cust.WykID.toLowerCase().indexOf(data.toLowerCase()) > -1;
-            });
-        } else { 
-            if (data) {
-                this.filteredLidmate = this.lidmate.filter((cust: ILidmaat) => {
-                    return cust.FirstName.toLowerCase().indexOf(data.toLowerCase()) > -1 ||
-                        cust.LastName.toLowerCase().indexOf(data.toLowerCase()) > -1 ||
-                        cust.LastNotes.toLowerCase().indexOf(data.toLowerCase()) > -1 ||
-                        cust.WykID.toLowerCase().indexOf(data.toLowerCase()) > -1 ||
-                        cust.LidmaatId.toString().indexOf(data.toLowerCase()) > -1;
+       if (data) {
+                this.filteredWiki = this.wikiLys.filter((wiki: IWiki) => {
+                    return wiki.Subject.toLowerCase().indexOf(data.toLowerCase()) > -1 ||
+                        wiki.Description.toLowerCase().indexOf(data.toLowerCase()) > -1 ||
+                        wiki.Code.toLowerCase().indexOf(data.toLowerCase()) > -1;
                 });
             }
             else { 
-                this.filteredLidmate = this.lidmate;
-            }
-        }
+                this.filteredWiki = this.wikiLys;
+            }    
         this.calculateOrders();
     }
 
@@ -117,10 +122,14 @@ export class LidmateLysComponent implements OnInit {
 
     sort(prop: string) {
         // A sorter service will handle the sorting
-        this.sorterService.sort(this.filteredLidmate, prop);
+        this.sorterService.sort(this.filteredWiki, prop);
     }
 
-    populateForm(lid: ILidmaat) {
+    populateForm(wiki: IWiki) {
+        this.lidmaatService.formWiki = Object.assign({}, wiki);
+        this.globals.lidmaatDetails = wiki.Subject;
+    }
+    populateFormx(lid: ILidmaat) {
         console.log(this.wyke);
         var tempId = this.wyke.filter(function (wyk) {
             return wyk.WykId === Number(lid.WykID);

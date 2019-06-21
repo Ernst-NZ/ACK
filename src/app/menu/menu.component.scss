@@ -1,10 +1,10 @@
 /*Tabs*/
 html,
-body {
-  height: 100%;
-  background-color: black;
-
-}
+ body {
+   height: 100%;
+   background-color: black;
+   
+ }
 
 .content {
   position: relative;
@@ -13,7 +13,7 @@ body {
   overflow: hidden;
   font-size: 1em;
   text-shadow: none;
-  min-height: 10em;
+  min-height: 10em; 
   width: 100%;
 }
 
@@ -85,53 +85,32 @@ body {
   top: 20%;
 }
 
-/*end of tabs*/
-
-.topBanner {
+.beachBanner {
   background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
-    url("../../assets/cross-sunset.jpeg");
+    url("../../assets/Beach.jpg");
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
   position: relative;
+  height: 250px;
 }
 
-.gemeenteBanner {
+.aBanner {
   background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
-    url("../../assets/prayer-2544994_1920.jpg");
+    url("../../assets/IMG_0424.JPG");
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
   position: relative;
+  height: 250px;
 }
 
-.diensteBanner {
+.bBanner {
   background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
-    url("../../assets/cross-671379_1920.jpg");
+    url("../../assets/IMG_0434.JPG");
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
   position: relative;
+  height: 250px;
 }
-
-.bedienBanner {
-  background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
-    url("../../assets/tea-lights-2223898_1920.jpg");
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  position: relative;
-}
-
-
-.col1 {
-  padding-right: 0;
-}
-.colLast {
-  padding-left: 0;
-}
-.colMiddle {
-  padding-left: 0;
-  padding-right: 0;
-}
-

@@ -93,3 +93,19 @@ export class Wyke implements IWyke {
   WykId:Number
   Kerkraad:String
 }
+
+export class IWiki {
+  Id:Number
+  Subject:String
+  Description:String
+  Code: String
+  Category: String
+}
+
+export class Wiki implements IWiki {
+  Id:Number
+  Subject:String
+  Description:String
+  Code: String
+  Category: String
+}

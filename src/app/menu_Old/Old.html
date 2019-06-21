@@ -1,0 +1,143 @@
+<div class='col-12' style='margin-left: -20px;'>
+  <div style='width: 80%; margin: 0 auto' class='center heading'>
+    <div class='center'>
+      AFRIKAANSE CHRISTEN KERK TAURANGA
+    </div>
+  </div>
+</div>
+<div class="row" style='width: 99%; text-align: center; border: 3px solid whitesmoke'>
+<b>Die ACK Tauranga is 'n gemeente van die Afrikaanse Christen Kerk in New Zealand.<br>
+
+Die ACK van NZ is ’n onafhanklike denominasie wat in NZ ontstaan het weens ’n behoefte onder ’n groep Suid-Afrikaners aan ’n geestelike bediening in Afrikaans.</b>
+</div>
+
+<div class="row" style='width: 99%;'>
+  <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12" style="text-align: center; border: 3px solid whitesmoke">
+    <p><b>BIDDEND</b><br> – gereelde gesprek met God is prioriteit vir ons.</p>
+  </div>
+  <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12" style="text-align: center; border: 3px solid whitesmoke">
+    <p><b>AFHANKLIK</b><br> – van die almagtige God (Vader, Seun en Heilige Gees,) wat die totale skepping in sy hande onderhou.</p>
+  </div>
+  <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12" style="text-align: center; border: 3px solid whitesmoke">
+    <p><b>SAAM</b><br> – gedring deur Jesus se liefde gee ons om vir mekaar en vir die vreemedeling in ons midde wat by ons wil inskakel.</p>
+  </div>
+</div>
+<div class="row" style='width: 99%;'>
+  <div class="col-sm-6 col-xs-12" style="text-align: center; border: 3px solid whitesmoke">
+    <p><b>Eredienste</b><br>Elke Sondag aand<br>
+                            St Enoch's Kerk<br>
+                            134 Sixteenth Avenue<br>
+                            Tauranga</p>
+  </div>
+  <div class="col-sm-6 col-xs-12" style="text-align: center; border: 3px solid whitesmoke">
+    <p><br>Tyd: 6nm - Somer (Daylight Savings)<br>
+       Tyd: 5nm - Winter (Daylight Savings)</p>
+  </div>
+  </div>
+  
+
+  <div class='center' *ngIf="tema">
+    <span *ngIf="tema.length > 0" style="font-weight: bold; text-decoration: underline; font-size: 1.25em">
+      Tema vir Sondag: {{tema[0]['Date'] |
+      date:'dd MMM'}} </span>
+    <span *ngIf="tema.length > 0" style="font-weight: bold; font-size: 1.25em; padding-left: 15px;">
+      {{tema[0]['Name']}}</span>
+  </div>
+
+  <div class='center' *ngIf="skrif">
+    <span *ngIf="skrif.length > 0" style="font-weight: bold; text-decoration: underline; font-size: 1.25em">
+      Skriflesing vir Sondag:</span>
+    <span *ngIf="skrif.length > 0" style="font-weight: bold; font-size: 1.25em; padding-left: 15px;">
+      {{skrif[0]['Name']}}</span>
+  </div>
+<br>
+<div class="row" style='width: 99%;'>
+  <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12" style="text-align: center">
+    <div class="content" >
+      <a class="btn btn-warning" routerLink="/aboutus" style="padding-bottom: 20px; 
+                margin-bottom: 5px;">Ons Gemeente &raquo;</a>
+        <div>
+          <a class="btn btn-dark menuWidth" routerLink="/aboutus">Ons Storie...</a><br>
+          <a class="btn btn-dark menuWidth" routerLink="/inligting">Kerk Inligting</a><br>
+          <a class="btn btn-dark menuWidth" routerLink="/geloof">Ons glo in ...</a>
+        </div>
+      </div>
+  </div>
+
+  <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12" style="text-align: center">
+      <div class="content" >
+        <a class="btn btn-danger" routerLink="/eredienste" style="padding-bottom: 20px; 
+                  margin-bottom: 5px;">Eredienste &raquo;</a>
+          <div>
+            <a class="btn btn-dark menuWidth" routerLink="/eredienste">Eredienste</a><br>
+            <a [hidden]="!this.globals.adminUser" 
+               class="btn btn-danger menuWidth" routerLink="/dienslys">Diens Rooster<br>(Admin)</a><br>
+          </div>
+        </div>
+  </div>
+
+  <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12" style="text-align: center">
+      <div class="content" >
+        <a class="btn btn-warning" routerLink="/kerkraad" style="padding-bottom: 20px; 
+                  margin-bottom: 5px;">Bedieninge &raquo;</a>
+          <div>
+            <a class="btn btn-dark menuWidth" routerLink="/kerkraad">Bedieninge</a><br>
+          </div>
+      </div>
+  </div>    
+</div>
+
+<div class="row" style='width: 99%;'>
+
+    <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12" style="text-align: center">
+        <div class="content" >
+          <a class="btn btn-danger" href="https://google.com/maps/place/134 Sixteenth Avenue, Tauranga" 
+              style="padding-bottom: 20px; margin-bottom: 5px;">Waar is ons &raquo;</a>
+            <div>
+              <a class="btn btn-dark menuWidth" target="_Blank" 
+                 href="https://google.com/maps/place/134 Sixteenth Avenue, Tauranga">Waar is ons</a>
+            </div>
+          </div>
+      </div>
+
+      <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12" style="text-align: center">
+          <div class="content" >
+            <a class="btn btn-warning" routerLink="/kontakons" style="padding-bottom: 20px; 
+                      margin-bottom: 5px;">Kerk Navrae &raquo;</a>
+              <div>
+                <a class="btn btn-dark menuWidth" routerLink="/kontakons">Kontak Ons</a><br>
+                <a [hidden]="!this.globals.adminUser" class="btn btn-danger menuWidth" routerLink="/lidmate">Persoonlike<br>Besonderhede</a><br>
+                <a [hidden]="!this.globals.adminUser" class="btn btn-danger menuWidth" routerLink="/emails">Gemeente Email</a><br>
+                <a [hidden]="!this.globals.adminUser" class="btn btn-danger menuWidth" routerLink="/login">Nuwe Gebruiker</a>
+              </div>
+            </div>
+        </div>
+
+        <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12" style="text-align: center">
+            <div class="content" >
+              <a class="btn btn-danger"
+                target="_Blank" 
+                 href="https://www.facebook.com/Afrikaanse-Christen-Kerk-Tauranga-ACK-Tauranga-130715893700159/" 
+                 style="padding-bottom: 20px; 
+                        margin-bottom: 5px;">Facebook &raquo;</a>
+                <div>
+                  <a class="btn btn-dark menuWidth" 
+                  href="https://www.facebook.com/Afrikaanse-Christen-Kerk-Tauranga-ACK-Tauranga-130715893700159/">Facebook</a><br>
+                </div>
+              </div>
+          </div>
+        
+
+
+  <!-- <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12" style="text-align: center">
+  <a class="btn btn-warning" routerLink="/kontakons">Kontak Ons &raquo;</a>
+  <div class="content">
+      <div class="content-overlay"></div>
+      <img class="content-image" src="../../assets/contact5.jpg" style="width: 100%" />
+      <div class="content-details fadeIn-top">
+          <a class="btn btn-light menuWidth" routerLink="/kontakons">Kontak Ons</a><br>
+      </div>
+  </div>
+</div> -->
+
+</div>
