@@ -12,25 +12,29 @@
   </div>
   <div class="form-group">
     <label>Description</label>
-    <input name="Description" #Description="ngModel" [(ngModel)]="service.formWiki.Description" class="form-control" required>
+    <input name="Description" #Description="ngModel" [(ngModel)]="service.formWiki.Description" class="form-control"
+      required>
     <div class="validation-error" *ngIf="Description.invalid && Description.touched">Required Field.</div>
   </div>
 
   <div class="form-row">
-    <div class="form-group col-md-12" >
+    <div class="form-group col-md-12">
       <label>Code</label>
-      <textarea id="Code" rows="50" cols="50" name="Code" 
-                form="formWiki" name="Code" #Code="ngModel"
-                style="height: 15em; background-color: white; color:black;  font-family: Lato;"
+      <textarea id="Code" rows="50" cols="50" name="Code" form="formWiki" name="Code" #Code="ngModel"
+        style="height: 15em; background-color: white; color:black;  font-family: Lato;"
         [(ngModel)]="service.formWiki.Code" required>
         <div class="validation-error" *ngIf="Code.invalid && Code.touched">Required Field.</div>
                 Enter code here...</textarea>
-    </div>
+      <!-- <pre style="background-color: white;  font-family: Lato;">
+                  <code [innerHTML]="service.formWiki.Code"></code>
+                </pre> -->
+    </div>    
   </div>
 
-  <button type="submit" [disabled]="formWiki.invalid" class="btn btn-lg btn-block">SUBMIT</button> 
- 
-  <button class="btn btn-danger btn-block"  [disabled]="!service.formWiki.Id" (click)="deleteWiki(service.formWiki.Id)">Delete</button>
+  <button type="submit" [disabled]="formWiki.invalid" class="btn btn-lg btn-block">SUBMIT</button>
+
+  <button class="btn btn-danger btn-block" [disabled]="!service.formWiki.Id"
+    (click)="deleteWiki(service.formWiki.Id)">Delete</button>
 
 </form>
 <ngx-spinner bdOpacity=0.9 bdColor="" size="medium" color="#f30808" type="ball-running-dots" fullScreen="false">
