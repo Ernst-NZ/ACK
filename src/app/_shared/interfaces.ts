@@ -109,3 +109,39 @@ export class Wiki implements IWiki {
   Code: String
   Category: String
 }
+
+export class IPacking {
+  pakId:Number
+  holiday:String
+  description:String
+  notes: String
+  his: String
+  hers: String
+}
+
+export class Packing implements IPacking {
+  pakId:Number
+  holiday:String
+  description:String
+  notes: String
+  his: String
+  hers: String
+}
+
+export class IToDo {
+  toDoId:Number
+  holiday:String
+  dueDate:Date
+  action: String
+  notes: String
+  done: String
+}
+
+export class ToDo implements IToDo {
+  toDoId:Number
+  holiday:String
+  dueDate:Date
+  action: String
+  notes: String
+  done: String
+}

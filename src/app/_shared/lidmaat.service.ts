@@ -3,7 +3,7 @@ import { Lidmaat, Address } from './lidmaat.model';
 import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { Observable } from 'rxjs/Observable';
 import { catchError } from 'rxjs/operators';
-import { ILidmaat, Group, Wyke, Wiki } from '../../app/_shared/interfaces';
+import { ILidmaat, Group, Wyke, Wiki, Packing } from '../../app/_shared/interfaces';
 import { IAddress, IEmail } from '../../app/_shared/interfaces';
 import { Globals } from '../globals';
 
@@ -15,6 +15,7 @@ export class LidmaatService {
   formAdd: Address;
   formWyk: Wyke;
   formWiki: Wiki;
+  formPacking: Packing;
   list: Lidmaat[];
   wikiList: Wiki[];
   listAddress: Address[];
@@ -169,4 +170,26 @@ export class LidmaatService {
     return this.http.delete(this.rootURL + '/Wikis/' + id,
       { headers: reqHeader });
   }
+
+  // Apcking
+  postPacking(formPacking: Packing) {
+    var reqHeader = new HttpHeaders({ 'No-Auth': 'True' })
+    console.log(formPacking)
+    return this.http.post(this.rootURL + '/Packings',
+      formPacking, { headers: reqHeader });
+  }
+
+  putPacking(formPacking: Packing) {
+    console.log(formPacking)
+    var reqHeader = new HttpHeaders({ 'No-Auth': 'True' })
+    return this.http.post(this.rootURL + '/Packings/' + formPacking.pakId,
+      formPacking, { headers: reqHeader });
+  }
+ 
+  deletePacking(id: number) {
+    var reqHeader = new HttpHeaders({ 'No-Auth': 'True' })
+    return this.http.delete(this.rootURL + '/Packings/' + id,
+      { headers: reqHeader });
+  }
+
 }

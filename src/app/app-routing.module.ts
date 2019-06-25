@@ -26,6 +26,7 @@ import { KategeseComponent } from './kategese/kategese.component';
 import { DienslysComponent } from './dienslys/dienslys.component';
 import { EmailsComponent } from './emails/emails.component';
 import { WykeComponent } from './wyke/wyke.component';
+import { PackingComponent } from './packing/packing.component';
 
 const routes: Routes = [
   // {
@@ -36,9 +37,12 @@ const routes: Routes = [
   //   path: 'menu',
   //   component: MenuComponent
   // },
-  
+
   { path: 'menu', component: MenuComponent, canActivate: [AuthGuard] },
- 
+  {
+    path: 'packing', component: PackingComponent
+  },
+
   {
     path: 'dienslys',
     component: DienslysComponent
@@ -52,13 +56,13 @@ const routes: Routes = [
     component: KategeseComponent
   },
   {
-    path: 'lidmate', component: LidmateComponent, canActivate:[AuthGuard],
-    children: [{ path: '', component: LidmaatComponent, canActivate:[AuthGuard]}]
-  }, 
+    path: 'lidmate', component: LidmateComponent, canActivate: [AuthGuard],
+    children: [{ path: '', component: LidmaatComponent, canActivate: [AuthGuard] }]
+  },
   {
     path: 'signup', component: UserComponent,
     children: [{ path: '', component: SignUpComponent }]
-  },  
+  },
   {
     path: 'login', component: UserComponent,
     children: [{ path: '', component: SignInComponent }]
@@ -66,18 +70,18 @@ const routes: Routes = [
   {
     path: 'kontakons',
     component: KontakonsComponent
-  }, 
+  },
   {
     path: 'diens-rooster',
-    component: DiensRoosterComponent, canActivate:[AuthGuard]
+    component: DiensRoosterComponent, canActivate: [AuthGuard]
   },
   {
     path: 'persedit',
-    component: PerseditComponent, canActivate:[AuthGuard]
+    component: PerseditComponent, canActivate: [AuthGuard]
   },
   {
     path: 'emails',
-    component: EmailsComponent, canActivate:[AuthGuard]
+    component: EmailsComponent, canActivate: [AuthGuard]
   },
   {
     path: 'registrasie',
@@ -126,7 +130,7 @@ const routes: Routes = [
   {
     path: 'eredienste',
     component: ErediensteComponent
-  }, 
+  },
   // {
   //  path: 'menu',
   //  component: MenuComponent
@@ -139,7 +143,7 @@ const routes: Routes = [
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
-export class AppRoutingModule { 
-  
+export class AppRoutingModule {
+
 }
 

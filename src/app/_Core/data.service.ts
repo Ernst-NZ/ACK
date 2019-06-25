@@ -4,7 +4,7 @@ import { Observable } from 'rxjs/Observable';
 import { map, catchError } from 'rxjs/operators';
 import { Globals } from '../globals';
 
-import { ILidmaat, IAddress, IGroup, IWyke, IWiki } from '../../app/_shared/interfaces';
+import { ILidmaat, IAddress, IGroup, IWyke, IWiki, IPacking, IToDo } from '../../app/_shared/interfaces';
 
 @Injectable()
 export class DataService {
@@ -136,13 +136,6 @@ export class DataService {
       );
   }
 
-  getTest(): Observable<IWyke[]> {
-    return this.http.get<IWyke[]>(this.rootURL + '/Wykes/' + 1)
-      .pipe(
-        catchError(this.handleError)
-      );
-  }
-
   getWyke(): Observable<IWyke[]> {
     return this.http.get<IWyke[]>(this.rootURL + '/Wykes')
       .pipe(
@@ -160,6 +153,27 @@ export class DataService {
 
   getWiki(): Observable<IWiki[]> {
     return this.http.get<IWiki[]>(this.rootURL + '/Wikis')
+      .pipe(
+        catchError(this.handleError)
+      );
+  }
+
+  getPacking(): Observable<IPacking[]> {
+    return this.http.get<IPacking[]>(this.rootURL + '/Packings')
+      .pipe(
+        catchError(this.handleError)
+      );
+  }
+
+  getToDo(): Observable<IToDo[]> {
+    return this.http.get<IToDo[]>(this.rootURL + '/ToDoes')
+      .pipe(
+        catchError(this.handleError)
+      );
+  }
+
+  getPak(PakId: number): Observable<IPacking[]> {
+    return this.http.get<IPacking[]>(this.rootURL + '/packings/' + PakId)
       .pipe(
         catchError(this.handleError)
       );
