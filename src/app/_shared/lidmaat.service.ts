@@ -187,6 +187,7 @@ export class LidmaatService {
   }
  
   deletePacking(id: number) {
+    console.log(id);
     var reqHeader = new HttpHeaders({ 'No-Auth': 'True' })
     return this.http.delete(this.rootURL + '/Packings/' + id,
       { headers: reqHeader });

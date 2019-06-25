@@ -31,24 +31,21 @@ export class PackingComponent implements OnInit {
     }
   
     ngOnInit() {
-      this.spinner.show();
-      this.service.getWyke()
-        .subscribe((wyk: IWyke[]) => this.wyke = wyk);
+      this.spinner.show();     
         this.service.getPacking()
-        .subscribe((pak: IPacking[]) => this.packing = pak);
+        .subscribe((pak: IPacking[]) => this.packing = pak)
+        
     }
   
     ngAfterContentChecked() {
-      if (this.wyke) {
-        this.spinner.hide();
-      }
+     
       if (this.packing) {
         this.spinner.hide();
       }
     }
   
   //  ####  Packing  ####
-  getPack(PakId) {
+  getPak(PakId) {
     this.spinner.show();
     this.service.getPak(PakId).
       subscribe((pak: IPacking[]) => {

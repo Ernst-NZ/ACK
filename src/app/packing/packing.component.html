@@ -25,14 +25,11 @@
            padding-left: 5px; width: 4em" />
       </td>
       <td>
-        <input type="text" [(ngModel)]="newPak.His" class="form-control" style="background-color: white; height: 2.25em;
-          margin-bottom: 0px; color: black;  border-radius: 5px;
-           padding-left: 5px; width: 4em" />
-      </td>
+        <input class="form-check-input" type="checkbox" id="NewHis" name="NewHis" #NewHis="ngModel" [(ngModel)]="newPak.His">
+        <label class="form-check-label" for="NewHis"></label>
       <td>
-        <input type="text" [(ngModel)]="newPak.Hers" class="form-control" style="background-color: white; height: 2.25em;
-          margin-bottom: 0px; color: black;  border-radius: 5px;
-           padding-left: 5px; width: 4em" />
+        <input class="form-check-input" type="checkbox" id="NewHers" name="NewHers" #NewHers="ngModel" [(ngModel)]="newPak.Hers">
+        <label class="form-check-label" for="NewHers"></label>
       </td>
       <td>
         <button class="btn btn-success btn-sm" (click)="addPak()">Add</button>
@@ -61,22 +58,24 @@
         <span *ngIf="!pak.editing">{{ pak.Notes }}</span>
       </td>
       <td>
-        <input type="text" *ngIf="pak.editing && oldPak" [(ngModel)]="oldPak.His" class="form-control" style="background-color: white; height: 2.25em;
-              margin-bottom: 0px; color: black;  border-radius: 5px;
-               padding-left: 5px" />
+
+
+        <input class="form-check-input" *ngIf="pak.editing && oldPak" type="checkbox" id="His" name="His" #His="ngModel"
+          [(ngModel)]="oldPak.His">
+        <label class="form-check-label" for="His"></label>
         <span *ngIf="!pak.editing">{{ pak.His }}</span>
       </td>
       <td>
-        <input type="text" *ngIf="pak.editing && oldPak" [(ngModel)]="oldPak.Hers" class="form-control" style="background-color: white; height: 2.25em;
-                margin-bottom: 0px; color: black;  border-radius: 5px;
-                 padding-left: 5px" />
+        <input class="form-check-input" *ngIf="pak.editing && oldPak" type="checkbox" id="Hers" name="Hers"
+          #Hers="ngModel" [(ngModel)]="oldPak.Hers">
+        <label class="form-check-label" for="Hers"></label>
         <span *ngIf="!pak.editing">{{ pak.Hers }}</span>
       </td>
       <td>
         <button class="btn btn-success btn-sm" *ngIf="pak.editing"
           (click)="updatePak();wyk.editing=false">Update</button>
         <button class="btn btn-info btn-sm" *ngIf="!pak.editing"
-          (click)="pak.editing=true;getPak(Pak.PakId);">Edit</button>
+          (click)="pak.editing=true;getPak(pak.PakId);">Edit</button>
       </td>
       <td>
         <button class="btn btn-secondary btn-sm" *ngIf="pak.editing" (click)="pak.editing=false">Cancel</button>
