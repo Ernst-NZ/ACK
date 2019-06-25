@@ -165,7 +165,7 @@ export class DataService {
       );
   }
 
-  getToDo(): Observable<IToDo[]> {
+  getToDoes(): Observable<IToDo[]> {
     return this.http.get<IToDo[]>(this.rootURL + '/ToDoes')
       .pipe(
         catchError(this.handleError)
@@ -174,6 +174,13 @@ export class DataService {
 
   getPak(PakId: number): Observable<IPacking[]> {
     return this.http.get<IPacking[]>(this.rootURL + '/packings/' + PakId)
+      .pipe(
+        catchError(this.handleError)
+      );
+  }
+
+  getToDo(toDoId: number): Observable<IToDo[]> {
+    return this.http.get<IToDo[]>(this.rootURL + '/ToDoes/' + toDoId)
       .pipe(
         catchError(this.handleError)
       );

@@ -3,7 +3,7 @@ import { Lidmaat, Address } from './lidmaat.model';
 import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { Observable } from 'rxjs/Observable';
 import { catchError } from 'rxjs/operators';
-import { ILidmaat, Group, Wyke, Wiki, Packing } from '../../app/_shared/interfaces';
+import { ILidmaat, Group, Wyke, Wiki, Packing, ToDo } from '../../app/_shared/interfaces';
 import { IAddress, IEmail } from '../../app/_shared/interfaces';
 import { Globals } from '../globals';
 
@@ -189,6 +189,27 @@ export class LidmaatService {
   deletePacking(id: number) {
     var reqHeader = new HttpHeaders({ 'No-Auth': 'True' })
     return this.http.delete(this.rootURL + '/Packings/' + id,
+      { headers: reqHeader });
+  }
+
+  // ToDo
+  postToDo(formToDo: ToDo) {
+    var reqHeader = new HttpHeaders({ 'No-Auth': 'True' })
+    console.log(formToDo)
+    return this.http.post(this.rootURL + '/ToDoes',
+      formToDo, { headers: reqHeader });
+  }
+
+  putToDo(formToDo: ToDo) {
+    console.log(formToDo)
+    var reqHeader = new HttpHeaders({ 'No-Auth': 'True' })
+    return this.http.post(this.rootURL + '/ToDoes/' + formToDo.toDoId,
+      formToDo, { headers: reqHeader });
+  }
+ 
+  deleteToDo(id: number) {
+    var reqHeader = new HttpHeaders({ 'No-Auth': 'True' })
+    return this.http.delete(this.rootURL + '/ToDoes/' + id,
       { headers: reqHeader });
   }
 

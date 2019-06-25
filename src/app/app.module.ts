@@ -59,6 +59,7 @@ import { DienslysComponent } from './dienslys/dienslys.component';
 import { EmailsComponent } from './emails/emails.component';
 import { WykeComponent } from './wyke/wyke.component';
 import { PackingComponent } from './packing/packing.component';
+import { ToDoComponent } from './to-do/to-do.component';
 // import { LidmateComponent } from './lidmate/lidmate.component';
 // import { LidmateLysComponent } from './lidmate/lidmate-lys/lidmate-lys.component';
 // import { LidmaatComponent } from './lidmate/lidmaat/lidmaat.component';
@@ -93,6 +94,7 @@ import { PackingComponent } from './packing/packing.component';
     EmailsComponent,
     WykeComponent,
     PackingComponent,
+    ToDoComponent,
     // LidmateComponent,
   //   LidmaatComponent,
     // LidmateLysComponent

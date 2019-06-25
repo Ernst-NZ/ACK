@@ -1,0 +1,89 @@
+<table *ngIf="packing">
+  <tr>
+    <th (click)="sort('Holiday')">Holiday</th>
+    <th (click)="sort('Description')">Description</th>
+    <th (click)="sort('Notes')">Notes</th>
+    <th (click)="sort('His')">His</th>
+    <th (click)="sort('Hers')">Hers</th>
+    <th></th>
+    <th></th>
+  </tr>
+  <tr>
+    <td>
+      <input type="text" [(ngModel)]="newPak.Holiday" class="form-control" style="background-color: white; height: 2.25em;
+        margin-bottom: 0px; color: black;  border-radius: 5px;
+         padding-left: 5px; width: 4em" />
+    </td>
+    <td>
+      <input type="text" [(ngModel)]="newPak.Description" class="form-control" style="background-color: white; height: 2.25em;
+        margin-bottom: 0px; color: black;  border-radius: 5px;
+         padding-left: 5px; width: 4em" />
+    </td>
+    <td>
+      <input type="text" [(ngModel)]="newPak.Notes" class="form-control" style="background-color: white; height: 2.25em;
+        margin-bottom: 0px; color: black;  border-radius: 5px;
+         padding-left: 5px; width: 4em" />
+    </td>
+    <td>
+      <input type="text" [(ngModel)]="newPak.His" class="form-control" style="background-color: white; height: 2.25em;
+        margin-bottom: 0px; color: black;  border-radius: 5px;
+         padding-left: 5px; width: 4em" />
+    </td>
+    <td>
+      <input type="text" [(ngModel)]="newPak.Hers" class="form-control" style="background-color: white; height: 2.25em;
+        margin-bottom: 0px; color: black;  border-radius: 5px;
+         padding-left: 5px; width: 4em" />
+    </td>
+    <td>
+      <button class="btn btn-success btn-sm" (click)="addPak()">Add</button>
+    </td>
+    <td>
+      <button class="btn btn-secondary btn-sm" (click)="clearNewPak()">Cancel</button>
+    </td>
+  </tr>
+  <tr *ngFor="let pak of packing" [attr.data-id]="pak.PakId">
+    <td>
+      <input type="text" *ngIf="pak.editing && oldPak" [(ngModel)]="oldPak.Holiday" class="form-control" style="background-color: white; height: 2.25em;
+        margin-bottom: 0px; color: black;  border-radius: 5px;
+         padding-left: 5px" />
+      <span *ngIf="!pak.editing">{{ pak.Holiday }}</span>
+    </td>
+    <td>
+      <input type="text" *ngIf="pak.editing && oldPak" [(ngModel)]="oldPak.Description" class="form-control" style="background-color: white; height: 2.25em;
+        margin-bottom: 0px; color: black;  border-radius: 5px;
+         padding-left: 5px" />
+      <span *ngIf="!pak.editing">{{ pak.Description }}</span>
+    </td>
+    <td>
+      <input type="text" *ngIf="pak.editing && oldPak" [(ngModel)]="oldPak.Notes" class="form-control" style="background-color: white; height: 2.25em;
+          margin-bottom: 0px; color: black;  border-radius: 5px;
+           padding-left: 5px" />
+      <span *ngIf="!pak.editing">{{ pak.Notes }}</span>
+    </td>
+    <td>
+      <input type="text" *ngIf="pak.editing && oldPak" [(ngModel)]="oldPak.His" class="form-control" style="background-color: white; height: 2.25em;
+            margin-bottom: 0px; color: black;  border-radius: 5px;
+             padding-left: 5px" />
+      <span *ngIf="!pak.editing">{{ pak.His }}</span>
+    </td>
+    <td>
+      <input type="text" *ngIf="pak.editing && oldPak" [(ngModel)]="oldPak.Hers" class="form-control" style="background-color: white; height: 2.25em;
+              margin-bottom: 0px; color: black;  border-radius: 5px;
+               padding-left: 5px" />
+      <span *ngIf="!pak.editing">{{ pak.Hers }}</span>
+    </td>
+    <td>
+      <button class="btn btn-success btn-sm" *ngIf="pak.editing"
+        (click)="updatePak();wyk.editing=false">Update</button>
+      <button class="btn btn-info btn-sm" *ngIf="!pak.editing"
+        (click)="pak.editing=true;getPak(Pak.PakId);">Edit</button>
+    </td>
+    <td>
+      <button class="btn btn-secondary btn-sm" *ngIf="pak.editing" (click)="pak.editing=false">Cancel</button>
+      <button class="btn btn-danger btn-sm" *ngIf="!pak.editing" (click)="deletePak(pak.PakId)">Delete</button>
+    </td>
+  </tr>
+</table>
+<ngx-spinner bdOpacity=0.9 bdColor="" size="medium" color="#f30808" type="ball-running-dots" fullScreen="false">
+  <p style="color: white"> Loading... </p>
+</ngx-spinner>

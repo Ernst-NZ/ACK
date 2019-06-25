@@ -27,6 +27,7 @@ import { DienslysComponent } from './dienslys/dienslys.component';
 import { EmailsComponent } from './emails/emails.component';
 import { WykeComponent } from './wyke/wyke.component';
 import { PackingComponent } from './packing/packing.component';
+import { ToDoComponent } from './to-do/to-do.component';
 
 const routes: Routes = [
   // {
@@ -41,6 +42,9 @@ const routes: Routes = [
   { path: 'menu', component: MenuComponent, canActivate: [AuthGuard] },
   {
     path: 'packing', component: PackingComponent
+  },
+  {
+    path: 'todo', component: ToDoComponent
   },
 
   {
