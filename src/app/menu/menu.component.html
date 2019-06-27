@@ -29,7 +29,7 @@
 
   <!-- admin -->
   <br *ngIf="this.globals.adminUser">
-  <div *ngIf="this.globals.adminUser" class="center" style="background-color: black; padding: 15px;">
+  <div *ngIf="this.globals.adminUser" class="center" style="background-color:lightskyblue; padding: 15px; color: black">
 
     <h2><u>Kerk Admin</u></h2>
   </div>
@@ -38,46 +38,40 @@
     <div class="row">
       <!-- 1 -->
       <div class="col-md-4 col-sm-6">
-        <div style="text-align: center; color: white; background-color: black; opacity: 0.8;
-          margin: 5px; height: 100%; padding: 10px">
+        <div  class="menuBlocks">
           <a class="btn btn-warning btn-large"  style="width: 100%;" routerLink="/dienslys">Diens
             Rooster<br>(Admin)</a>
         </div>
       </div>
       <!-- 2 -->
       <div class="col-md-4 col-sm-6">
-        <div style="text-align: center; color: white; background-color: black; opacity: 0.8;
-          margin: 5px; height: 100%; padding: 10px;">
+        <div class="menuBlocks">
           <a class="btn btn-warning btn-large" style="width: 100%;" routerLink="/lidmate">Persoonlike<br>Besonderhede</a>
         </div>
       </div>
       <!-- 3 -->
       <div class="col-md-4 col-sm-6">
-        <div style="text-align: center; color: white; background-color: black; opacity: 0.8;
-          margin: 5px; height: 100%; padding: 10px;">
+        <div  class="menuBlocks">
           <a class="btn btn-warning btn-large"  style="width: 100%;" routerLink="/wyke">Wyk Indeling</a>
         </div>
       </div>
       <!-- 4 -->
       <div class="col-md-4 col-sm-6">
-        <div style="text-align: center; color: white; background-color: black; opacity: 0.8;
-      margin: 5px; height: 100%; padding: 10px">
+        <div class="menuBlocks">
           <a class="btn btn-warning btn-large"  style="width: 100%;" routerLink="/emails">Gemeente
             Email</a>
         </div>
       </div>
       <!-- 5 -->
       <div class="col-md-4 col-sm-6">
-        <div style="text-align: center; color: white; background-color: black; opacity: 0.8;
-          margin: 5px; height: 100%; padding: 10px">
+        <div  class="menuBlocks">
           <!-- <a class="btn btn-warning btn-large" routerLink="/emails">Gemeente
             Email</a> -->
         </div>
       </div>
       <!-- 6 -->
       <div class="col-md-4 col-sm-6">
-        <div style="text-align: center; color: white; background-color: black; opacity: 0.8;
-          margin: 5px; height: 100%; padding: 10px">
+        <div  class="menuBlocks">
           <a class="btn btn-warning btn-large" style="width: 100%;" routerLink="/login">Nuwe Gebruiker</a>
         </div>
       </div>
@@ -86,7 +80,7 @@
 
   <!-- gemeente -->
   <br>
-  <div class="center" style="background-color: black; padding: 15px;">
+  <div class="center" style="background-color: lightskyblue; color: black; padding: 15px;">
     <h2><u>Gemeente Inligting</u></h2>
   </div>
 
@@ -107,8 +101,7 @@
 
     <div class="row">
       <div class="col-md-4 col-sm-12">
-        <div style="text-align: center; color: white; background-color: black; opacity: 0.8;
-        margin: 5px; height: 100%; padding: 10px">
+        <div  class="menuBlocks">
           <a class="btn btn-warning" routerLink="/aboutus" style="padding-bottom: 20px; 
            margin-bottom: 5px;">Ons Storie &raquo;</a>
           <div class="left">
@@ -123,8 +116,7 @@
       </div>
 
       <div class="col-md-4 col-sm-12">
-        <div style="text-align: center; color: white; background-color: black; opacity: 0.8;
-        margin: 5px; height: 100%; padding: 10px;">
+        <div  class="menuBlocks">
           <a class="btn btn-warning" routerLink="//inligting" style="padding-bottom: 20px; 
            margin-bottom: 5px;">Kerk Inligting &raquo;</a>
           <div class='left'>
@@ -139,8 +131,7 @@
       </div>
 
       <div class="col-md-4 col-sm-12">
-        <div style="text-align: center; color: white; background-color: black; opacity: 0.8;
-        margin: 5px; height: 100%; padding: 10px">
+        <div  class="menuBlocks">
           <a class="btn btn-warning" routerLink="/geloof" style="padding-bottom: 20px; 
            margin-bottom: 5px;">Ons Glo in .. &raquo;</a>
           <div class="left">
@@ -161,7 +152,7 @@
   <br>
 
   <!-- eredienste -->
-  <div class="center" style="background-color: black; padding: 15px;">
+  <div class="center" style="background-color:lightskyblue; color: black; padding: 15px;">
     <h2><u>Eredienste</u></h2>
   </div>
   <div class="diensteBanner">
@@ -296,15 +287,14 @@
   <br>
 
   <!-- bedieninge -->
-  <div class="center" style="background-color: black; padding: 15px;">
+  <div class="center" style="background-color: lightskyblue; color: black; padding: 15px;">
     <h2><u>Bedieninge</u></h2>
   </div>
   <div class="bedienBanner">
 
     <div class="row">
       <div class="col-md-6 col-sm-12 col1">
-        <div style="text-align: left; color: white; background-color: black; opacity: 0.8;
-              margin: 5px; height: 100%">
+        <div  class="menuBlocks">
           <p class='heading center'>Kerkraad</p>
           <ol class="b" style="list-style-type:disc;">
             <li>Die Kerkraad funksioneer as die bestuur van die gemeente in samewerkimg met die leeraar</li>
@@ -316,8 +306,7 @@
       </div>
 
       <div class="col-md-6 col-sm-12 colLast">
-        <div style="text-align: left; color: white; background-color: black; opacity: 0.8;
-                margin: 5px; height: 100%;">
+        <div  class="menuBlocks">
           <p class='heading center'>Verwelkoming</p>
           <h4></h4>
           <ol class="b" style="list-style-type:disc;">
@@ -330,8 +319,7 @@
     </div>
     <div class="row">
       <div class="col-md-6 col-sm-12 col1">
-        <div style="text-align: left; color: white; background-color: black; opacity: 0.8;
-                margin: 5px; height: 100%">
+        <div  class="menuBlocks">
           <p class='heading center'>Jeug Bediening</p>
           <ol class="b" style="list-style-type:disc;">
             <li>Die bediening van kinders in die gemeente vind plaas volgens ouderdoms verdeling tydens die erediens
@@ -346,8 +334,7 @@
       </div>
 
       <div class="col-md-6 col-sm-12 colLast">
-        <div style="text-align: left; color: white; background-color: black; opacity: 0.8;
-                  margin: 5px; height: 100%;">
+        <div  class="menuBlocks">
           <p class='heading center'>Gasvryheid</p>
           <h4></h4>
           <ol class="b" style="list-style-type:disc;">
@@ -360,8 +347,7 @@
 
     <div class="row">
       <div class="col-md-3 col-sm-12 col1">
-        <div style="text-align: left; color: white; background-color: black; opacity: 0.8;
-        margin: 5px; height: 100%;">
+        <div  class="menuBlocks">
           <p class='heading center'>Kategese</p>
           <ol class="b" style="list-style-type:disc;">
             <li>Vir Jonger en Ouer volwassenes volgens behoefte</li>
@@ -370,8 +356,7 @@
       </div>
 
       <div class="col-md-3 col-sm-12" style="padding-right: 0px; padding-left: 0px;">
-        <div style="text-align: left; color: white; background-color: black; opacity: 0.8;
-        margin: 5px; height: 100%;">
+        <div  class="menuBlocks">
           <p class='heading center'>Uitreik</p>
           <ol class="b" style="list-style-type:disc;">
             <li>Gemeenskaps projekte en evangelisasie word verwelkom volgens die inisiatief van lidmate en die kerkraad
@@ -381,8 +366,7 @@
       </div>
 
       <div class="col-md-3 col-sm-12" style="padding-right: 0px; padding-left: 0px;">
-        <div style="text-align: left; color: white; background-color: black; opacity: 0.8;
-        margin: 5px; height: 100%;">
+        <div  class="menuBlocks">
           <p class='heading center'>Barmhartigheid</p>
           <ol class="b" style="list-style-type:disc;">
             <li>Ons neem graag kennis van individue of gesinne wat weens omstandighede spesiale behoeftes het</li>
@@ -390,8 +374,7 @@
         </div>
       </div>
       <div class="col-md-3 col-sm-12" style="padding-left: 0px;">
-        <div style="text-align: left; color: white; background-color: black; opacity: 0.8;
-        margin: 5px; height: 100%;">
+        <div  class="menuBlocks">
           <p class='heading center'>Besoeke</p>
           <ol class="b" style="list-style-type:disc;">
             <li>Ons neem graag kennis van mede Suid Afrikaners wat ondresteuning nodig het</li>
@@ -406,7 +389,7 @@
 
   <!-- kontak ons -->
   <br>
-  <div class="center" style="background-color: black; padding: 15px; border-bottom: solid 1px white">
+  <div class="center" style="background-color: lightskyblue; color: black; padding: 15px; border-bottom: solid 1px white">
     <h2><u>Kontak Ons</u></h2>
   </div>
   <div style='background-color: black'>
@@ -488,7 +471,7 @@
 
   <!-- Kaart -->
   <br>
-  <div class="center" style="background-color: black; padding: 15px;">
+  <div class="center" style="background-color: lightskyblue; color: black; padding: 15px;">
     <h2><u>Kerk Adres</u></h2>
   </div>
   <app-ligging></app-ligging>
