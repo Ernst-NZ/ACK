@@ -4,14 +4,25 @@ import { ToastrService } from 'ngx-toastr';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { UserService } from '../_shared/user.service';
 import { HttpClient } from '@angular/common/http'
+import { ToolbarService, LinkService, ImageService, HtmlEditorService, TableService } from '@syncfusion/ej2-angular-richtexteditor';
 
 
 @Component({
   selector: 'app-emails',
   templateUrl: './emails.component.html',
-  styleUrls: ['./emails.component.scss']
+  styleUrls: ['./emails.component.scss'],
+  providers: [ToolbarService, LinkService, ImageService, HtmlEditorService, TableService]
 })
 export class EmailsComponent implements OnInit {
+  public tools: object = {
+    items: [
+           'Bold', 'Italic', 'Underline', 'StrikeThrough', '|',
+           'FontName', 'FontSize', 'FontColor', 'BackgroundColor', '|',
+           'LowerCase', 'UpperCase', '|', 'Undo', 'Redo', '|',
+           'Formats', 'Alignments', '|', 'OrderedList', 'UnorderedList', '|',
+           'Indent', 'Outdent', '|', 'CreateLink','CreateTable',
+           'Image', '|', 'ClearFormat', 'Print', 'SourceCode', '|', 'FullScreen']
+   };
   composeEmail = {
     EmailType: 'navraag', EmailTo: 'ernst@hotmail.co.nz',
     EmailNaam: '', EmailFrom: '',

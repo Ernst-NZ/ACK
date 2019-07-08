@@ -8,18 +8,27 @@
         [(ngModel)]="composeEmail.Subject" class="form-control" required>
       <div class="validation-error" *ngIf="Subject.invalid && Subject.touched">Verpligte veld.</div>
     </div>
-   
+    <!-- <ejs-richtexteditor></ejs-richtexteditor>    -->
+    <!-- <ejs-richtexteditor #toolsRTE id='alltoolRTE' [toolbarSettings]='tools' ></ejs-richtexteditor> -->
+    
+    
     <form>        
        <div class="form-group"  style="width: 90%; padding-left: 1%">
         <label style='color: black'>Boodskap</label>
+        
         <div style="background-color: white;">
-          <app-ngx-editor 
+          <ejs-richtexteditor  name="Body" #Body="ngModel"
+          [(ngModel)]="composeEmail.Body"
+          [placeholder]="'Boodskap vir die gemeente...'" 
+          [spellcheck]="true"
+          height="350px" minHeight="50px"
+          [toolbarSettings]='tools'></ejs-richtexteditor>
+          <!-- <app-ngx-editor 
           name="Body" #Body="ngModel"
           [(ngModel)]="composeEmail.Body"
           [placeholder]="'Boodskap vir die gemeente...'" 
           [spellcheck]="true" 
-        
-          height="500px" minHeight="50px"></app-ngx-editor>
+          height="50px" minHeight="50px"></app-ngx-editor> -->
         </div>
         <div class="validation-error" *ngIf="Body.invalid && Body.touched">Verpligte veld.</div>
       </div>

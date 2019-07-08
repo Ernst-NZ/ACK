@@ -58,6 +58,7 @@ import { KategeseComponent } from './kategese/kategese.component';
 import { DienslysComponent } from './dienslys/dienslys.component';
 import { EmailsComponent } from './emails/emails.component';
 import { WykeComponent } from './wyke/wyke.component';
+import { RichTextEditorAllModule } from '@syncfusion/ej2-angular-richtexteditor';
 // import { LidmateComponent } from './lidmate/lidmate.component';
 // import { LidmateLysComponent } from './lidmate/lidmate-lys/lidmate-lys.component';
 // import { LidmaatComponent } from './lidmate/lidmaat/lidmaat.component';
@@ -131,7 +132,8 @@ import { WykeComponent } from './wyke/wyke.component';
     NgbModule,
     NgxSpinnerModule,
     NgxEditorModule,
-    AngularFontAwesomeModule    
+    AngularFontAwesomeModule,
+    RichTextEditorAllModule,    
   ],
   providers: [UserService, 
     AuthGuard,
