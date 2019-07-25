@@ -51,7 +51,7 @@
       <span style="font-size: 14px;" class="sideButton">{{ this.globals.userName }}</span>
       <button *ngIf="!(this.globals.userName)" mat-button class="sideButton" routerLink="/login">Login</button>
       <div class="sideButton">
-        <button *ngIf="this.globals.userName" mat-button class="sideButton" style="padding-right: 2px; left: 25px; margin-bottom: 5px" (click)="Logout()">Logout</button>
+        <button *ngIf="this.globals.userName" mat-button class="sideButton"  (click)="Logout()">Logout</button>
       </div>
     </mat-toolbar>
     <div class="container-fluid">
