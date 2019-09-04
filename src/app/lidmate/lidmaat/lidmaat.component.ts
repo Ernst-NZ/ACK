@@ -102,7 +102,7 @@ export class LidmaatComponent implements OnInit {
       this.toastr.success('Lidmaat Bygevoeg', ''); 
       this.service.refreshList();
       this.updatelys();
-      this.resetForm();
+//      this.resetForm();
       this.spinner.hide(); 
     });     
   }
@@ -122,19 +122,17 @@ export class LidmaatComponent implements OnInit {
        if (formLid.value.LastNotes == "") {
         formLid.controls['LastNotes'].setValue('');
        } 
-    console.log("Naam from form: " + formLid.value.WykID);
     var tempId = this.wyke.filter(function(wyk) {
       return wyk.Kerkraad === formLid.value.WykID;
   })[0];   
   formLid.controls['WykID'].setValue(tempId.WykId);
   formLid.value.WykID
-  console.log("ID to data: " && formLid.value.WykID);
    
     this.service.putLidmaat(formLid.value).subscribe(res =>  {
       this.toastr.info('Lidmaat Inligting Verander', ''); 
        this.service.refreshList(); 
        this.updatelys();
-       this.resetForm();       
+//       this.resetForm();       
        this.spinner.hide();
     });    
   }

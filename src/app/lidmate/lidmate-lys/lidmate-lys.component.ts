@@ -60,17 +60,32 @@ export class LidmateLysComponent implements OnInit {
     currencyCode: string = 'USD';
     wyke: Array<IWyke> = [];
     wykeFilter = false;
+    tempFilter = false;
 
     constructor(private dataService: DataService, private sorterService: SorterService, private lidmaatService: LidmaatService,
         public globals: Globals, private spinner: NgxSpinnerService) { }
 
     ngOnInit() {
         this.globals.filter = true;
+        this.tempFilter = false;
         this.dataService.getWyke()
             .subscribe((wyk: IWyke[]) => this.wyke = wyk);
     }
 
+
+ ngAfterContentChecked() {
+  //   this.tempFilter = false;
+  const data = this.globals.myFilter;
+     if (this.globals.myFilter && this.lidmate ) {
+         this.globals.myFilter = '';
+            this.filter(data);
+            this.tempFilter = true;
+        }         
+    
+  }
+
     calculateOrders() {
+         console.log(this.globals.myFilter, "Calculate");  
         this.customersOrderTotal = 0;
         this.filteredLidmate.forEach((cust: ILidmaat) => {
             // this.customersOrderTotal += cust.orderTotal;
@@ -102,7 +117,6 @@ export class LidmateLysComponent implements OnInit {
 
     filterAdres(data: string) {
         if (data === "0") {
-            console.log("Geen Adres")
             return null;
 
         } if (data) {
@@ -121,16 +135,13 @@ export class LidmateLysComponent implements OnInit {
     }
 
     populateForm(lid: ILidmaat) {
-        console.log(this.wyke);
+        console.log(lid);
         var tempId = this.wyke.filter(function (wyk) {
             return wyk.WykId === Number(lid.WykID);
         })[0];
-        console.log(lid.WykID)
-        console.log(tempId);
         lid.WykID = tempId.Kerkraad;
-        console.log(lid.WykID)
         this.lidmaatService.formData = Object.assign({}, lid);
-        this.globals.filter = false;
+      //  this.globals.filter = false;
         this.globals.lidmaatDetails = lid.FirstName + ' ' + lid.LastName;
         this.filter(lid.LidmaatId.toString());
         if (lid.AddressID) {

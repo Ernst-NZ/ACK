@@ -13,7 +13,7 @@ export class Globals {
   authenticate = false;
   adminUser = false;
   isSyncing = false;
-  myFilter: String;
+  myFilter: string;
   filter: boolean;
   activeOnly = 'True';
 }
