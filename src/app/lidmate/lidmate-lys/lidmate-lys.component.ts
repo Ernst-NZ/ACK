@@ -1,5 +1,5 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-import { ILidmaat, IAddress, IWyke } from '../../_shared/interfaces'
+import { ILidmaat, IAddress, IWyke } from '../../_shared/interfaces';
 import { LidmaatService } from '../../_shared/lidmaat.service';
 import { SorterService } from '../../_core/sorter.service';
 import { DataService } from '../../_core/data.service';
@@ -57,7 +57,7 @@ export class LidmateLysComponent implements OnInit {
     formData: ILidmaat;
     formAdd: IAddress;
     customersOrderTotal: number;
-    currencyCode: string = 'USD';
+    currencyCode = 'USD';
     wyke: Array<IWyke> = [];
     wykeFilter = false;
     tempFilter = false;
@@ -74,21 +74,14 @@ export class LidmateLysComponent implements OnInit {
 
 
  ngAfterContentChecked() {
-  //   this.tempFilter = false;
-  const data = this.globals.myFilter;
      if (this.globals.myFilter && this.lidmate ) {
-         this.globals.myFilter = '';
-            this.filter(data);
-            this.tempFilter = true;
-        }         
-    
+            this.filter(this.globals.myFilter);
+        }
   }
 
     calculateOrders() {
-         console.log(this.globals.myFilter, "Calculate");  
         this.customersOrderTotal = 0;
         this.filteredLidmate.forEach((cust: ILidmaat) => {
-            // this.customersOrderTotal += cust.orderTotal;
         });
     }
 
@@ -98,7 +91,7 @@ export class LidmateLysComponent implements OnInit {
             this.filteredLidmate = this.lidmate.filter((cust: ILidmaat) => {
                 return cust.WykID.toLowerCase().indexOf(data.toLowerCase()) > -1;
             });
-        } else { 
+        } else {
             if (data) {
                 this.filteredLidmate = this.lidmate.filter((cust: ILidmaat) => {
                     return cust.FirstName.toLowerCase().indexOf(data.toLowerCase()) > -1 ||
@@ -107,8 +100,7 @@ export class LidmateLysComponent implements OnInit {
                         // cust.WykID.toLowerCase().indexOf(data.toLowerCase()) > -1 ||
                         cust.LidmaatId.toString().indexOf(data.toLowerCase()) > -1;
                 });
-            }
-            else { 
+            } else {
                 this.filteredLidmate = this.lidmate;
             }
         }
@@ -116,7 +108,7 @@ export class LidmateLysComponent implements OnInit {
     }
 
     filterAdres(data: string) {
-        if (data === "0") {
+        if (data === '0') {
             return null;
 
         } if (data) {
@@ -135,46 +127,45 @@ export class LidmateLysComponent implements OnInit {
     }
 
     populateForm(lid: ILidmaat) {
-        console.log(lid);
-        var tempId = this.wyke.filter(function (wyk) {
+        const tempId = this.wyke.filter(function (wyk) {
             return wyk.WykId === Number(lid.WykID);
         })[0];
         lid.WykID = tempId.Kerkraad;
         this.lidmaatService.formData = Object.assign({}, lid);
       //  this.globals.filter = false;
         this.globals.lidmaatDetails = lid.FirstName + ' ' + lid.LastName;
-        this.filter(lid.LidmaatId.toString());
+     //   this.filter(lid.LidmaatId.toString());
         if (lid.AddressID) {
             this.filterAdres(lid.AddressID.toString());
-            this.populateAddressForm(this.filteredAddresse[0])
+            this.populateAddressForm(this.filteredAddresse[0]);
         } else {
             this.lidmaatService.formAdd = Object.assign({}, null);
-            this.globals.lidmaatDetails = this.globals.lidmaatDetails + ' - Geen Adres'
+            this.globals.lidmaatDetails = this.globals.lidmaatDetails + ' - Geen Adres';
         }
         this.globals.lidmaatId = lid.LidmaatId;
     }
 
     populateAddressForm(adres: IAddress) {
         this.lidmaatService.formAdd = Object.assign({}, adres);
-        this.globals.lidmaatDetails = this.globals.lidmaatDetails + ' - Adres: ' + adres.StreetNumber + ' ' + adres.StreetOne
+        this.globals.lidmaatDetails = this.globals.lidmaatDetails + ' - Adres: ' + adres.StreetNumber + ' ' + adres.StreetOne;
 
     }
 
     changeVisibility() {
         this.globals.filter = true;
-        this.filter("");
+        this.filter('');
     }
 
     getActive() {
-        if (this.globals.activeOnly === "Wyke") {
+        if (this.globals.activeOnly === 'Wyke') {
             this.wykeFilter = true;
-            this.globals.activeOnly = "True";
+            this.globals.activeOnly = 'True';
         } else {
             this.wykeFilter = false;
         }
         this.getactive();
         this.globals.filter = true;
-        this.filter("");
+        this.filter('');
     }
 
 }
