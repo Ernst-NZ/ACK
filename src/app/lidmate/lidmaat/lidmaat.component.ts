@@ -27,18 +27,10 @@ export interface Wyke {
 })
 export class LidmaatComponent implements OnInit {
   @Output() updateLys = new EventEmitter();
-  updatelys() {
-    this.updateLys.emit();
 
-    // @Output() updateLid = new EventEmitter();
-    // updateLid(){
-    //   this.updateLid.emit();
-
-
-  }
   mense: any;
   private dataService: DataService;
-  gender: Geslag[] = [ {value: 'Manlik', viewValue: 'Manlik'},  {value: 'Vroulik', viewValue: 'Vroulik'},
+  gender: Geslag[] =  [ {value: 'Manlik', viewValue: 'Manlik'},  {value: 'Vroulik', viewValue: 'Vroulik'},
   ];
   wyke: Array<IWyke> = [];
   constructor(public service: LidmaatService,
@@ -52,6 +44,11 @@ export class LidmaatComponent implements OnInit {
      this.resetForm();
      this.dataService.getWyke()
       .subscribe((wyk: IWyke[]) => this.wyke = wyk);
+  }
+
+  updatelys() {
+    this.updateLys.emit();
+
   }
 
     resetForm(formLid?: NgForm) {
@@ -68,11 +65,11 @@ export class LidmaatComponent implements OnInit {
        MobilePhone: '',
        Email: '',
        WeddingDate: null,
-       IsActive: 'true',
+       IsActive: true,
        AddressID: null,
        Gemeente: '',
-       PublicDates: '',
-       WykID: '',
+       PublicDates: true,
+       WykID: 0,
        LastNotes: ''
      };
    }
@@ -89,17 +86,16 @@ export class LidmaatComponent implements OnInit {
   insertRecord(formLid: NgForm) {
     formLid.controls['Gemeente'].setValue('Tauranga');
     // if (formLid.value.IsActive !== 'true') {
-      formLid.controls['IsActive'].setValue('true');
+      formLid.controls['IsActive'].setValue(true);
     //  }
-     if (formLid.value.PublicDates !== 'true') {
-      formLid.controls['PublicDates'].setValue('');
-     }
+    //  if (formLid.value.PublicDates !== 'true') {
+    //   formLid.controls['PublicDates'].setValue('');
+    //  }
      console.log('Naam from Form: ' && formLid.value.WykID);
      let tempId = this.wyke.filter(function(wyk) {
       return wyk.Kerkraad === formLid.value.WykID;
   })[0];
-     formLid.controls['WykID'].setValue(tempId.WykId);
-     formLid.value.WykID;
+     formLid.controls['WykID'].setValue(0);
      console.log('ID to data : ' && formLid.value.WykID);
     this.service.postLidmaat(formLid.value).subscribe(res =>  {
       this.toastr.success('Lidmaat Bygevoeg', '');
@@ -113,16 +109,16 @@ export class LidmaatComponent implements OnInit {
   updateRecord(formLid: NgForm) {
      formLid.controls['Gemeente'].setValue('Tauranga');
     //  console.log(formLid.value.IsActive)
-     if (formLid.value.IsActive !== true && formLid.value.IsActive !== 'True') {
-       formLid.controls['IsActive'].setValue('');
-      }
-      if (formLid.value.PublicDates !== 'True' && formLid.value.PublicDates !== true) {
-       formLid.controls['PublicDates'].setValue('');
-      }
-      if (formLid.value.WykID == '') {
-        formLid.controls['WykID'].setValue('0');
+    //  if (formLid.value.IsActive !== true && formLid.value.IsActive !== 'True') {
+    //    formLid.controls['IsActive'].setValue('');
+    //   }
+    //   if (formLid.value.PublicDates !== 'True' && formLid.value.PublicDates !== true) {
+    //    formLid.controls['PublicDates'].setValue('');
+    //   }
+      if (formLid.value.WykID === '') {
+        formLid.controls['WykID'].setValue(0);
        }
-       if (formLid.value.LastNotes == '') {
+       if (formLid.value.LastNotes === '') {
         formLid.controls['LastNotes'].setValue('');
        }
     let tempId = this.wyke.filter(function(wyk) {

@@ -4,8 +4,9 @@
 }
 .mainBackGround {
   background: -webkit-linear-gradient(270deg, rgba(5, 25, 43, 1) 10%, rgba(5, 25, 43, 1) 11%, rgba(11, 59, 104, 1) 80%, rgba(12, 60, 105, 1) 81%);
-  /* background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url("../../assets/cross-sunset.jpeg"); */
-  height: 100%;
+  /* background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url("../../assets/cross-sunset.jpeg");
+  height: 100%;  */
+  /* background-color: black; */
 
   /* Center and scale the image nicely */
   background-position: center;
@@ -13,8 +14,8 @@
   background-size: cover;
   color: whitesmoke;
   font-size: 1.25em;
-  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
-  background-color:whitesmoke;
+  /* text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black; */
+/* background-color:whitesmoke; */
 
 }
 
@@ -27,11 +28,11 @@
   display: none;
 }
 
-@media (min-width: 700px) {
+/* @media (min-width: 700px) {
   .sidenav {
     display: none;
   }
-}
+} */
 
 .sideButton {
   line-height: 1;
@@ -45,16 +46,16 @@
   padding: 5px;
 }
 
- #Name {
+#Name {
   color: white;
-  /* max-width: 10em; */
+  max-width: 10em;
+  left: 0;
+  position: absolute;
 }
-
 #hamburger {
   left: 0;
   position: absolute;
 }
-
 .sideMenu {
   line-height: 1;
   padding: auto;
@@ -63,7 +64,6 @@
 #cdk-overlay-0 > div {
   border-radius: 20px;
 }
-
 
 .sideMenu.button {
   background-color: maroon;
@@ -77,14 +77,15 @@
   left: -5px;
   color: white;
 }
- .spacer {
+.spacer {
   flex: 1 1 auto;
 }
 
 mat-toolbar {
   background-color: maroon;
+  text-align: -webkit-right;
+  /* position: fixed; */
 }
-
 
 mat-toolbar a {
   display: inline-block;
@@ -94,17 +95,17 @@ mat-toolbar a {
 }
 
 .content {
+  /* padding-left: 20px; */
   margin-top: 0;
   z-index: 1;
-}
+  /* background-color:whitesmoke; */
 
+}
 .mat-toolbar.mat-primary {
   background: maroon;
   color: #fff;
-  /* align-items: baseline; */
+  align-items: baseline;
 }
-
-
 .mat-drawer {
   background-color: rgba(0,0,0,0.12);
   color: #f8f9fa;

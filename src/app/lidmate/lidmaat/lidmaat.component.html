@@ -95,8 +95,8 @@
     <div class="form-group  col-md-6">
       <label>Gemeente Wyk</label><br>
       <select class="custom-select max_Width_80" name="WykID" #WykID="ngModel" [(ngModel)]="service.formData.WykID">
-        <option *ngFor="let wyk of wyke" [value]="wyk.Kerkraad" >{{ wyk.Kerkraad}}</option> 
-      </select>      
+        <option *ngFor="let wyk of wyke" [value]="wyk.WykId" >{{ wyk.Kerkraad}}</option>
+      </select>
     </div>
   </div>
 

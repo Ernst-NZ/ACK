@@ -15,5 +15,6 @@ export class Globals {
   isSyncing = false;
   myFilter: string;
   filter: boolean;
-  activeOnly = 'True';
+  activeOnly = true;
+  LysFilter = 'True';
 }

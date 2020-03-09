@@ -21,18 +21,17 @@ export class DataService {
   }
 
   getActive(active: string): Observable<ILidmaat[]> {
-    this.globals.lidmaatDetails = '';
-    return this.http.get<ILidmaat[]>(this.rootURL + '/Persoon')
+      return this.http.get<ILidmaat[]>(this.rootURL + '/Persoon')
       .pipe(
         map(lede => {
-          let custLede = lede.filter((lid: ILidmaat) => lid.IsActive === active);
+          let custLede = lede.filter((lid: ILidmaat) => String(lid.IsActive) === active);
           return custLede;
         }),
         catchError(this.handleError)
       );
-  }
+    }
 
-  getBirthday(active: string, fromMonth: number, fromDay: number, endDay: number): Observable<ILidmaat[]> {
+  getBirthday(fromMonth: number, fromDay: number, endDay: number): Observable<ILidmaat[]> {
     this.globals.lidmaatDetails = '';
     if (fromDay < endDay) {
       endDay = 0;
@@ -44,8 +43,8 @@ export class DataService {
       .pipe(
         map(lede => {
           let custLede = lede.filter((lid: ILidmaat) =>
-            lid.IsActive === 'True' &&
-            lid.PublicDates !== '' &&
+            lid.IsActive == true &&
+            lid.PublicDates &&
             new Date(lid.DOB).getMonth() === fromMonth &&
             new Date(lid.DOB).getDate() >= fromDay &&
             (new Date(lid.DOB).getDate() < fromDay + 7 ||  // DOB New Month
