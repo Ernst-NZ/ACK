@@ -1,40 +1,54 @@
-<div style='background-color: rgb(223, 217, 217); 
+<div style='background-color: rgb(223, 217, 217);
            border: solid 1px black; color: black; width: 95%; padding-left: 0.5%'>
     <h3>Stuur Epos aan Gemeente</h3>
     <div class="form-group" style="width: 80%; padding-left: 2%">
       <label style='color: black'>Onderwerp</label>
-      <input style='width:95%; border: solid 1px black; color: black; background-color: white;' 
+      <input style='width:95%; border: solid 1px black; color: black; background-color: white;'
       name="Subject" #Subject="ngModel"
         [(ngModel)]="composeEmail.Subject" class="form-control" required>
       <div class="validation-error" *ngIf="Subject.invalid && Subject.touched">Verpligte veld.</div>
     </div>
-    <!-- <ejs-richtexteditor></ejs-richtexteditor>    -->
-    <!-- <ejs-richtexteditor #toolsRTE id='alltoolRTE' [toolbarSettings]='tools' ></ejs-richtexteditor> -->
-    
-    
-    <form>        
-       <div class="form-group"  style="width: 90%; padding-left: 1%">
-        <label style='color: black'>Boodskap</label>
-        
-        <div style="background-color: white;">
-          <ejs-richtexteditor  name="Body" #Body="ngModel"
-          [(ngModel)]="composeEmail.Body"
-          [placeholder]="'Boodskap vir die gemeente...'" 
-          [spellcheck]="true"
-          height="350px" minHeight="50px"
-          [toolbarSettings]='tools'></ejs-richtexteditor>
-          <!-- <app-ngx-editor 
-          name="Body" #Body="ngModel"
-          [(ngModel)]="composeEmail.Body"
-          [placeholder]="'Boodskap vir die gemeente...'" 
-          [spellcheck]="true" 
-          height="50px" minHeight="50px"></app-ngx-editor> -->
+
+
+    <form>
+      <div class="row">
+        <div class="col-sm-12">
+          <div class="form-group"  style="width: 100%; padding-left: 1%">
+            <label style='color: black'>Boodskap</label>
+
+            <div style="background-color: white;">
+              <ejs-richtexteditor  name="Body" #Body="ngModel"
+              [(ngModel)]="composeEmail.Body"
+              [placeholder]="'Boodskap vir die gemeente...'"
+              [spellcheck]="true"
+              height="150px" minHeight="50px"
+              [toolbarSettings]='tools'></ejs-richtexteditor>
+            </div>
+            <div class="validation-error" *ngIf="Body.invalid && Body.touched">Verpligte veld.</div>
+          </div>
         </div>
-        <div class="validation-error" *ngIf="Body.invalid && Body.touched">Verpligte veld.</div>
+        <!-- <div class="form-group col-md-6">
+          <input class="form-check-input" type="checkbox" id="PublicDates" name="PublicDates" #PublicDates="ngModel"
+            [(ngModel)]="service.formData.PublicDates">
+          <label class="form-check-label" for="PublicDates">Verjaarsdag in Kerk
+          </label>
+        </div> -->
       </div>
+      <div class="row">
+        <div class="form-group col-md-6">
+          <input #myInput type="file" placeholder="File Name" name="filename" (change)="onSelectFile($event)">
+        </div>
+        <div class="form-group col-md-2">
+          <input class="form-check-input" type="checkbox" id="testMail" name="testMail" #testMail="ngModel"
+            [(ngModel)]="testEmail">
+          <label class="form-check-label" for="testMail">Stuur toets Email
+          </label>
+        </div>
+      </div>
+
       <a class="btn btn-primary" (click)="sendEmail()">Stuur E-pos</a>
-    </form>    
-  </div>  
+    </form>
+  </div>
 <ngx-spinner
 bdOpacity = 0.9
 bdColor = ""

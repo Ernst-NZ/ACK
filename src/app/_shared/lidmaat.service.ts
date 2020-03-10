@@ -114,7 +114,11 @@ export class LidmaatService {
     return this.http.post(this.rootURL + '/values/',
       formData
     );
+  }
 
+  sendEmailAttach(formData: {}) {
+    console.log('Email', formData);
+    return this.http.post(this.rootURL + '/Email/', formData);
   }
 
   // Wyke
@@ -133,7 +137,7 @@ export class LidmaatService {
       formWyke, { headers: reqHeader });
   }
 
- 
+
   deleteWyk(id: number) {
     var reqHeader = new HttpHeaders({ 'No-Auth': 'True' })
     return this.http.delete(this.rootURL + '/Wykes/' + id,
