@@ -39,6 +39,7 @@ export class LidmaatService {
 
   putLidmaat(formData: Lidmaat) {
     //    var reqHeader = new HttpHeaders( {'No-Auth':'True', 'Access-Control-Allow-Origin':'*'})
+    console.log('service before post');
     var reqHeader = new HttpHeaders({ 'No-Auth': 'True' })
     return this.http.post(this.rootURL + '/Persoon/' + formData.LidmaatId,
       formData, { headers: reqHeader });
